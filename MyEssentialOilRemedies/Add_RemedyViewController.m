@@ -22,7 +22,6 @@
     [self loadSettings];
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
-    [self loadData];
     
     if (currView == 0) {
         [self changeCurrentViewTo:1];
@@ -37,7 +36,6 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     [self loadSettings];
-    [self loadData];
 }
 #pragma mark Form Exits
 //Clean up when the form is leaving
@@ -50,20 +48,7 @@
     [self dismissViewControllerAnimated:YES completion:Nil];
     [super viewWillDisappear:animated];
 }
-#pragma marl Prepare for Segue
-//Prepping the next steps before performing the segue
-//THIS Might be able to get rid of.
-/*-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- if ([segue.identifier isEqualToString:@"segueAddOilsInRemedy"]) {
- 
- } else if ([segue.identifier isEqualToString:@"segueAddDescriptionInRemedy"]) {
- UINavigationController *navController = self.navigationController;
- [navController popViewControllerAnimated:NO];
- [navController popViewControllerAnimated:YES];
- }
- }
- */
+
 #pragma mark Add Oil Button
 //Action to take when the Add oil Button has been selected
 - (IBAction)btnAddOil:(id)sender {
@@ -76,15 +61,6 @@
     self.txtOilName.text=@"";
 }
 
-#pragma mark Load TextBoxes with Variables
-//loads the data as is it loaded for the first time, more like a reset
--(void) loadData
-{
-    self.RemedyName.text=self.myremedyName;
-    self.RemedyDescription.text=self.myremedyDescription;
-    self.txtUses.text=self.myUses;
-    
-}
 #pragma mark Load Settings
 //This will load the setting for the for as well as database and set the borders for the textboxes and text views.
 -(void) loadSettings
@@ -166,45 +142,12 @@
 //Use this to close out the view and go back to the Main view.
 -(void) ClearAndExit
 {
-    self.myremedyName=@"";
-    self.myremedyDescription=@"";
-    self.myUses=@"";
     [self.myOils removeAllObjects];
     //TODO: Evaluate This section to see if this is still nessary since it was switched to single view.
     LIST_OilRemediesViewController *destinationViewControllers = [self.storyboard instantiateViewControllerWithIdentifier:@"RemedyListController"];
     [self.navigationController pushViewController:destinationViewControllers animated:YES];
-    //TODO: Fix the new add form constrants, shit isn't appear where it should.
-    
 }
-/*
- #pragma mark Run To View via Push
- //This should have been phased out with ChangeCurrentViewTo
- -(void)runToView :(NSString *)controllerName
- {
- Add_RemedyViewController * destinationVewController = [self.storyboard instantiateViewControllerWithIdentifier:controllerName];
- NSString *myRN = self.RemedyName.text;
- NSString *myRD = self.RemedyDescription.text;
- NSString *myU = self.txtUses.text;
- 
- if (myRN == nil )
- {
- myRN = _myremedyName;
- }
- if (myRD == nil)
- {
- myRD = _myremedyDescription;
- }
- if (myU == nil)
- {
- myU = _myUses;
- }
- [destinationVewController setMyremedyName:myRN];
- [destinationVewController setMyremedyDescription:myRD];
- [destinationVewController setMyUses:myU];
- [destinationVewController setMyOils:self.myOils];
- [self.navigationController pushViewController:destinationVewController animated:YES];
- }
- */
+
 #pragma mark Save ToolBar Button
 //Action to take when the Save button on the tool bar has been sleected
 - (IBAction)tbSave:(id)sender {
@@ -214,34 +157,25 @@
     NSString *myRD = self.RemedyDescription.text;
     NSString *myU = self.txtUses.text;
     
-    if (myRN == nil )
-    {
-        myRN = _myremedyName;
-    }
-    if (myRD == nil)
-    {
-        myRD = _myremedyDescription;
-    }
-    if (myU == nil)
-    {
-        myU = _myUses;
+    if (![myRN isEqualToString:@""]) {
+        OilRemedies *objDB = [OilRemedies new];
+        RID = [objDB AddRemedyDetailsByName:myRN Description:myRD Uses:myU DatabasePath:dbPathString ERRORMESSAGE:&errorMsg];
+        [self addOilsToRemedy:RID];
+        [self ClearAndExit];
+    } else {
+        FormFunctions *myAlert = [FormFunctions new];
+        [myAlert sendMessage:@"Please put in a Problem description!" MyTitle:@"Add Error" ViewController:self];
     }
     
-    OilRemedies *objDB = [OilRemedies new];
-    RID = [objDB AddRemedyDetailsByName:myRN Description:myRD Uses:myU DatabasePath:dbPathString ERRORMESSAGE:&errorMsg];
-    [self addOilsToRemedy:RID];
-    [self ClearAndExit];
 }
 #pragma mark Oil Button Tool Bar Button
 //Action to take when the oil button on the tool bar has been selected
 - (IBAction)tbOils:(id)sender {
-    //[self runToView:@"AddRemedy_Oils_ViewController"];
     [self changeCurrentViewTo:2];
 }
 #pragma mark Description Button Tool Bar Button
 //Action to take when the description button on the tool bar has been selected
 - (IBAction)tbDescription:(id)sender {
-    //[self runToView:@"AddRemedy_Description_ViewController"];
     [self changeCurrentViewTo:1];
 }
 #pragma mark TableView EditRowAt Index

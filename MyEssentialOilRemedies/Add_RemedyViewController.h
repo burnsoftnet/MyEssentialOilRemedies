@@ -19,9 +19,7 @@
 //Class Properties
 @property (nonatomic, strong) NSString *oilName;
 @property (strong,nonatomic)NSMutableArray *myOils;
-@property (strong,nonatomic) NSString *myremedyName;
-@property (strong,nonatomic) NSString *myremedyDescription;
-@property (strong,nonatomic) NSString *myUses;
+
 
 //View Properties
 @property (weak, nonatomic) IBOutlet UIView *viewDescription;
