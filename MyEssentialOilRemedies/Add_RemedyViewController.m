@@ -143,9 +143,10 @@
 -(void) ClearAndExit
 {
     [self.myOils removeAllObjects];
-    //TODO: Evaluate This section to see if this is still nessary since it was switched to single view.
-    LIST_OilRemediesViewController *destinationViewControllers = [self.storyboard instantiateViewControllerWithIdentifier:@"RemedyListController"];
-    [self.navigationController pushViewController:destinationViewControllers animated:YES];
+
+    UINavigationController *navController = self.navigationController;
+    [navController popViewControllerAnimated:NO];
+    [navController popViewControllerAnimated:YES];
 }
 
 #pragma mark Save ToolBar Button
