@@ -12,6 +12,7 @@
 {
     NSString *dbPathString;
     sqlite3 *MYDB;
+    int currView;
 }
 #pragma mark On Form Load
 //When form first loads
@@ -22,6 +23,10 @@
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
     [self loadData];
+    
+    if (currView == 0) {
+        [self changeCurrentViewTo:1];
+    }
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapReceived:)];
     [tapGestureRecognizer setDelegate:self];
