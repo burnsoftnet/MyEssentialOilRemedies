@@ -1,0 +1,866 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A505B0361D09A76900800310 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0351D09A76900800310 /* main.m */; };
+		A505B0391D09A76900800310 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0381D09A76900800310 /* AppDelegate.m */; };
+		A505B0421D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */; };
+		A505B0441D09A76900800310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A505B0431D09A76900800310 /* Assets.xcassets */; };
+		A505B0471D09A76900800310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A505B0451D09A76900800310 /* LaunchScreen.storyboard */; };
+		A505B0521D09A76900800310 /* MyEssentialOilRemediesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0511D09A76900800310 /* MyEssentialOilRemediesTests.m */; };
+		A505B05D1D09A76900800310 /* MyEssentialOilRemediesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B05C1D09A76900800310 /* MyEssentialOilRemediesUITests.m */; };
+		A505B0781D09A7F700800310 /* OilRemedies.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0771D09A7F700800310 /* OilRemedies.m */; };
+		A505B07A1D09A82600800310 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A505B0791D09A82600800310 /* libsqlite3.0.tbd */; };
+		A505B07D1D09AB5E00800310 /* LIST_OilRemediesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B07C1D09AB5E00800310 /* LIST_OilRemediesViewController.m */; };
+		A505B0801D09DD9600800310 /* OilLists.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B07F1D09DD9600800310 /* OilLists.m */; };
+		A505B0831D09ED3F00800310 /* LIST_OilsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0821D09ED3F00800310 /* LIST_OilsTableViewController.m */; };
+		A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */; };
+		A50CF95B1D75C2E10037C7CD /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = A50CF95A1D75C2E10037C7CD /* gear.png */; };
+		A52043F11D86F995001AFD40 /* BurnSoftDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */; };
+		A52043F61D86F9DB001AFD40 /* BurnSoftGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */; };
+		A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */; };
+		A55062021DD0D865001CF00C /* VIEW_SingleRemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */; };
+		A57BF9DA1D6C96EC005D3113 /* FormFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A57BF9D91D6C96EC005D3113 /* FormFunctions.m */; };
+		A57CB7C41D805F7700380B23 /* MEO.db in Resources */ = {isa = PBXBuildFile; fileRef = A5C4C2231D7F44710073CB2A /* MEO.db */; };
+		A5841ECD1D8D9C9000DCDC98 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = A5841ECC1D8D9C9000DCDC98 /* search.png */; };
+		A5841ED21D8D9FDC00DCDC98 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5841ED11D8D9FDC00DCDC98 /* SearchViewController.m */; };
+		A594288F1E19B88100D059BE /* PopUpOilSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */; };
+		A59C1FB21D95949000A4E337 /* SearchDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C1FB11D95949000A4E337 /* SearchDatabase.m */; };
+		A5AA21A81D52377200B42F4A /* Add_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */; };
+		A5AA21AB1D52379300B42F4A /* VIEW_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AA1D52379300B42F4A /* VIEW_RemedyViewController.m */; };
+		A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */; };
+		A5B02CF11D8846A30004334B /* PopUpOilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B02CF01D8846A30004334B /* PopUpOilViewController.m */; };
+		A5BDC4241E1715E600A98652 /* DBUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BDC4231E1715E600A98652 /* DBUpgrade.m */; };
+		A5C26B551D37BDB000476766 /* iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C26B541D37BDB000476766 /* iphone.storyboard */; };
+		A5C41FE81D94271700973340 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C41FE71D94271700973340 /* SearchResultsViewController.m */; };
+		A5CED4E61D26932000090560 /* EDIT_OilDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */; };
+		A5D255891D8B167500977619 /* close-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D255881D8B167500977619 /* close-icon.png */; };
+		A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */; };
+		A5E15F3F1D1862D30047055D /* ADD_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3E1D1862D30047055D /* ADD_OilDetailsViewController.m */; };
+		A5E28E801D0B4FDD00052005 /* TBB_oils.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E7E1D0B4FDD00052005 /* TBB_oils.png */; };
+		A5E28E811D0B4FDD00052005 /* TBB_oils@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E7F1D0B4FDD00052005 /* TBB_oils@2x.png */; };
+		A5E28E841D0B500700052005 /* TBB_remedies.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E821D0B500700052005 /* TBB_remedies.png */; };
+		A5E28E851D0B500700052005 /* TBB_remedies@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E831D0B500700052005 /* TBB_remedies@2x.png */; };
+		A5E28E951D0B515300052005 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E861D0B515300052005 /* Icon-60.png */; };
+		A5E28E961D0B515300052005 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E871D0B515300052005 /* Icon-60@2x.png */; };
+		A5E28E971D0B515300052005 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E881D0B515300052005 /* Icon-60@3x.png */; };
+		A5E28E981D0B515300052005 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E891D0B515300052005 /* Icon-76.png */; };
+		A5E28E991D0B515300052005 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E8A1D0B515300052005 /* Icon-76@2x.png */; };
+		A5E28E9A1D0B515300052005 /* Icon-76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E8B1D0B515300052005 /* Icon-76@3x.png */; };
+		A5E28E9B1D0B515300052005 /* Icon-iPadPro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E8C1D0B515300052005 /* Icon-iPadPro@2x.png */; };
+		A5E28E9C1D0B515300052005 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E8D1D0B515300052005 /* Icon-Small.png */; };
+		A5E28E9D1D0B515300052005 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E8E1D0B515300052005 /* Icon-Small@2x.png */; };
+		A5E28E9E1D0B515300052005 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E8F1D0B515300052005 /* Icon-Small@3x.png */; };
+		A5E28E9F1D0B515300052005 /* Icon-Spotlight-40.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E901D0B515300052005 /* Icon-Spotlight-40.png */; };
+		A5E28EA01D0B515300052005 /* Icon-Spotlight-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E911D0B515300052005 /* Icon-Spotlight-40@2x.png */; };
+		A5E28EA11D0B515300052005 /* Icon-Spotlight-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E921D0B515300052005 /* Icon-Spotlight-40@3x.png */; };
+		A5E28EA21D0B515300052005 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E931D0B515300052005 /* iTunesArtwork */; };
+		A5E28EA31D0B515300052005 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E941D0B515300052005 /* iTunesArtwork@2x */; };
+		A5F605231D1C45CD0059BF27 /* MYSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F605221D1C45CD0059BF27 /* MYSettings.m */; };
+		A5F605261D1C65340059BF27 /* MainStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F605251D1C65340059BF27 /* MainStartViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A505B04E1D09A76900800310 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A505B0291D09A76900800310 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A505B0301D09A76900800310;
+			remoteInfo = MyEssentialOilRemedies;
+		};
+		A505B0591D09A76900800310 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A505B0291D09A76900800310 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A505B0301D09A76900800310;
+			remoteInfo = MyEssentialOilRemedies;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A505B0311D09A76900800310 /* My Essential Oil Remedies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Essential Oil Remedies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A505B0351D09A76900800310 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A505B0371D09A76900800310 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A505B0381D09A76900800310 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A505B0411D09A76900800310 /* MyEssentialOilRemedies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyEssentialOilRemedies.xcdatamodel; sourceTree = "<group>"; };
+		A505B0431D09A76900800310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A505B0461D09A76900800310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A505B0481D09A76900800310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A505B04D1D09A76900800310 /* MyEssentialOilRemediesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyEssentialOilRemediesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A505B0511D09A76900800310 /* MyEssentialOilRemediesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyEssentialOilRemediesTests.m; sourceTree = "<group>"; };
+		A505B0531D09A76900800310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A505B0581D09A76900800310 /* MyEssentialOilRemediesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyEssentialOilRemediesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A505B05C1D09A76900800310 /* MyEssentialOilRemediesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyEssentialOilRemediesUITests.m; sourceTree = "<group>"; };
+		A505B05E1D09A76900800310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A505B0761D09A7F700800310 /* OilRemedies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OilRemedies.h; sourceTree = "<group>"; };
+		A505B0771D09A7F700800310 /* OilRemedies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OilRemedies.m; sourceTree = "<group>"; };
+		A505B0791D09A82600800310 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		A505B07B1D09AB5E00800310 /* LIST_OilRemediesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIST_OilRemediesViewController.h; sourceTree = "<group>"; };
+		A505B07C1D09AB5E00800310 /* LIST_OilRemediesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIST_OilRemediesViewController.m; sourceTree = "<group>"; };
+		A505B07E1D09DD9600800310 /* OilLists.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OilLists.h; sourceTree = "<group>"; };
+		A505B07F1D09DD9600800310 /* OilLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OilLists.m; sourceTree = "<group>"; };
+		A505B0811D09ED3F00800310 /* LIST_OilsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIST_OilsTableViewController.h; sourceTree = "<group>"; };
+		A505B0821D09ED3F00800310 /* LIST_OilsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIST_OilsTableViewController.m; sourceTree = "<group>"; };
+		A50CF9571D75BB4A0037C7CD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		A50CF95A1D75C2E10037C7CD /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		A52043EF1D86F995001AFD40 /* BurnSoftDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftDatabase.h; sourceTree = "<group>"; };
+		A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftDatabase.m; sourceTree = "<group>"; };
+		A52043F21D86F9DB001AFD40 /* BurnSoftGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftGeneral.h; sourceTree = "<group>"; };
+		A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftGeneral.m; sourceTree = "<group>"; };
+		A52043F41D86F9DB001AFD40 /* BurnSoftMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftMath.h; sourceTree = "<group>"; };
+		A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftMath.m; sourceTree = "<group>"; };
+		A55062001DD0D865001CF00C /* VIEW_SingleRemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_SingleRemedyViewController.h; sourceTree = "<group>"; };
+		A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_SingleRemedyViewController.m; sourceTree = "<group>"; };
+		A57BF9D81D6C96EC005D3113 /* FormFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFunctions.h; sourceTree = "<group>"; };
+		A57BF9D91D6C96EC005D3113 /* FormFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFunctions.m; sourceTree = "<group>"; };
+		A5841ECC1D8D9C9000DCDC98 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		A5841ED01D8D9FDC00DCDC98 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		A5841ED11D8D9FDC00DCDC98 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		A594288D1E19B88100D059BE /* PopUpOilSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpOilSearchViewController.h; sourceTree = "<group>"; };
+		A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpOilSearchViewController.m; sourceTree = "<group>"; };
+		A59C1FB01D95949000A4E337 /* SearchDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDatabase.h; sourceTree = "<group>"; };
+		A59C1FB11D95949000A4E337 /* SearchDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDatabase.m; sourceTree = "<group>"; };
+		A5AA21A61D52377200B42F4A /* Add_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Add_RemedyViewController.h; sourceTree = "<group>"; };
+		A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Add_RemedyViewController.m; sourceTree = "<group>"; };
+		A5AA21A91D52379300B42F4A /* VIEW_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_RemedyViewController.h; sourceTree = "<group>"; };
+		A5AA21AA1D52379300B42F4A /* VIEW_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_RemedyViewController.m; sourceTree = "<group>"; };
+		A5AA21AC1D5237B800B42F4A /* EDIT_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDIT_RemedyViewController.h; sourceTree = "<group>"; };
+		A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDIT_RemedyViewController.m; sourceTree = "<group>"; };
+		A5B02CEF1D8846A30004334B /* PopUpOilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpOilViewController.h; sourceTree = "<group>"; };
+		A5B02CF01D8846A30004334B /* PopUpOilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpOilViewController.m; sourceTree = "<group>"; };
+		A5BDC4221E1715E600A98652 /* DBUpgrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUpgrade.h; sourceTree = "<group>"; };
+		A5BDC4231E1715E600A98652 /* DBUpgrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUpgrade.m; sourceTree = "<group>"; };
+		A5C26B541D37BDB000476766 /* iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iphone.storyboard; sourceTree = "<group>"; };
+		A5C41FE61D94271700973340 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
+		A5C41FE71D94271700973340 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
+		A5C4C2231D7F44710073CB2A /* MEO.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = MEO.db; sourceTree = "<group>"; };
+		A5CED4E41D26932000090560 /* EDIT_OilDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDIT_OilDetailViewController.h; sourceTree = "<group>"; };
+		A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDIT_OilDetailViewController.m; sourceTree = "<group>"; };
+		A5D255881D8B167500977619 /* close-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-icon.png"; sourceTree = "<group>"; };
+		A5E15F3A1D1862B40047055D /* VIEW_OilDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_OilDetailsViewController.h; sourceTree = "<group>"; };
+		A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_OilDetailsViewController.m; sourceTree = "<group>"; };
+		A5E15F3D1D1862D30047055D /* ADD_OilDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADD_OilDetailsViewController.h; sourceTree = "<group>"; };
+		A5E15F3E1D1862D30047055D /* ADD_OilDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADD_OilDetailsViewController.m; sourceTree = "<group>"; };
+		A5E28E7E1D0B4FDD00052005 /* TBB_oils.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TBB_oils.png; sourceTree = "<group>"; };
+		A5E28E7F1D0B4FDD00052005 /* TBB_oils@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TBB_oils@2x.png"; sourceTree = "<group>"; };
+		A5E28E821D0B500700052005 /* TBB_remedies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TBB_remedies.png; sourceTree = "<group>"; };
+		A5E28E831D0B500700052005 /* TBB_remedies@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TBB_remedies@2x.png"; sourceTree = "<group>"; };
+		A5E28E861D0B515300052005 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
+		A5E28E871D0B515300052005 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		A5E28E881D0B515300052005 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		A5E28E891D0B515300052005 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		A5E28E8A1D0B515300052005 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		A5E28E8B1D0B515300052005 /* Icon-76@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@3x.png"; sourceTree = "<group>"; };
+		A5E28E8C1D0B515300052005 /* Icon-iPadPro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-iPadPro@2x.png"; sourceTree = "<group>"; };
+		A5E28E8D1D0B515300052005 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		A5E28E8E1D0B515300052005 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		A5E28E8F1D0B515300052005 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
+		A5E28E901D0B515300052005 /* Icon-Spotlight-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40.png"; sourceTree = "<group>"; };
+		A5E28E911D0B515300052005 /* Icon-Spotlight-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40@2x.png"; sourceTree = "<group>"; };
+		A5E28E921D0B515300052005 /* Icon-Spotlight-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40@3x.png"; sourceTree = "<group>"; };
+		A5E28E931D0B515300052005 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		A5E28E941D0B515300052005 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		A5F605211D1C45CD0059BF27 /* MYSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSettings.h; sourceTree = "<group>"; };
+		A5F605221D1C45CD0059BF27 /* MYSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSettings.m; sourceTree = "<group>"; };
+		A5F605241D1C65340059BF27 /* MainStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStartViewController.h; sourceTree = "<group>"; };
+		A5F605251D1C65340059BF27 /* MainStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStartViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A505B02E1D09A76900800310 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A505B07A1D09A82600800310 /* libsqlite3.0.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A505B04A1D09A76900800310 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A505B0551D09A76900800310 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A505B0281D09A76900800310 = {
+			isa = PBXGroup;
+			children = (
+				A505B0331D09A76900800310 /* MyEssentialOilRemedies */,
+				A505B0501D09A76900800310 /* MyEssentialOilRemediesTests */,
+				A505B05B1D09A76900800310 /* MyEssentialOilRemediesUITests */,
+				A505B0321D09A76900800310 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A505B0321D09A76900800310 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A505B0311D09A76900800310 /* My Essential Oil Remedies.app */,
+				A505B04D1D09A76900800310 /* MyEssentialOilRemediesTests.xctest */,
+				A505B0581D09A76900800310 /* MyEssentialOilRemediesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A505B0331D09A76900800310 /* MyEssentialOilRemedies */ = {
+			isa = PBXGroup;
+			children = (
+				A5E28E7D1D0B4FCE00052005 /* images */,
+				A505B06B1D09A79500800310 /* Classes */,
+				A505B06A1D09A77900800310 /* Form Classes */,
+				A505B0371D09A76900800310 /* AppDelegate.h */,
+				A505B0381D09A76900800310 /* AppDelegate.m */,
+				A505B0431D09A76900800310 /* Assets.xcassets */,
+				A505B0451D09A76900800310 /* LaunchScreen.storyboard */,
+				A505B0481D09A76900800310 /* Info.plist */,
+				A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */,
+				A505B0341D09A76900800310 /* Supporting Files */,
+				A5C26B541D37BDB000476766 /* iphone.storyboard */,
+			);
+			path = MyEssentialOilRemedies;
+			sourceTree = "<group>";
+		};
+		A505B0341D09A76900800310 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A5C4C2231D7F44710073CB2A /* MEO.db */,
+				A505B0791D09A82600800310 /* libsqlite3.0.tbd */,
+				A505B06E1D09A7B400800310 /* include */,
+				A505B0351D09A76900800310 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A505B0501D09A76900800310 /* MyEssentialOilRemediesTests */ = {
+			isa = PBXGroup;
+			children = (
+				A505B0511D09A76900800310 /* MyEssentialOilRemediesTests.m */,
+				A505B0531D09A76900800310 /* Info.plist */,
+			);
+			path = MyEssentialOilRemediesTests;
+			sourceTree = "<group>";
+		};
+		A505B05B1D09A76900800310 /* MyEssentialOilRemediesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A505B05C1D09A76900800310 /* MyEssentialOilRemediesUITests.m */,
+				A505B05E1D09A76900800310 /* Info.plist */,
+			);
+			path = MyEssentialOilRemediesUITests;
+			sourceTree = "<group>";
+		};
+		A505B06A1D09A77900800310 /* Form Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A5841ECF1D8D9CB900DCDC98 /* Search */,
+				A5841ECE1D8D9CAA00DCDC98 /* Settings */,
+				A5F605281D1C6FAB0059BF27 /* Oils */,
+				A5F605271D1C6F930059BF27 /* OilRemedies */,
+				A5F605241D1C65340059BF27 /* MainStartViewController.h */,
+				A5F605251D1C65340059BF27 /* MainStartViewController.m */,
+			);
+			name = "Form Classes";
+			sourceTree = "<group>";
+		};
+		A505B06B1D09A79500800310 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A505B0761D09A7F700800310 /* OilRemedies.h */,
+				A505B0771D09A7F700800310 /* OilRemedies.m */,
+				A505B07E1D09DD9600800310 /* OilLists.h */,
+				A505B07F1D09DD9600800310 /* OilLists.m */,
+				A5F605211D1C45CD0059BF27 /* MYSettings.h */,
+				A5F605221D1C45CD0059BF27 /* MYSettings.m */,
+				A57BF9D81D6C96EC005D3113 /* FormFunctions.h */,
+				A57BF9D91D6C96EC005D3113 /* FormFunctions.m */,
+				A59C1FB01D95949000A4E337 /* SearchDatabase.h */,
+				A59C1FB11D95949000A4E337 /* SearchDatabase.m */,
+				A5BDC4221E1715E600A98652 /* DBUpgrade.h */,
+				A5BDC4231E1715E600A98652 /* DBUpgrade.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		A505B06E1D09A7B400800310 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A5CC047E1D79C36200CBD404 /* BurnSoftDatabase */,
+				A505B06F1D09A7B400800310 /* BurnSoftGeneral */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		A505B06F1D09A7B400800310 /* BurnSoftGeneral */ = {
+			isa = PBXGroup;
+			children = (
+				A52043F21D86F9DB001AFD40 /* BurnSoftGeneral.h */,
+				A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */,
+				A52043F41D86F9DB001AFD40 /* BurnSoftMath.h */,
+				A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */,
+			);
+			path = BurnSoftGeneral;
+			sourceTree = "<group>";
+		};
+		A5841ECE1D8D9CAA00DCDC98 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A50CF9571D75BB4A0037C7CD /* SettingsViewController.h */,
+				A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		A5841ECF1D8D9CB900DCDC98 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A55062001DD0D865001CF00C /* VIEW_SingleRemedyViewController.h */,
+				A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */,
+				A5841ED01D8D9FDC00DCDC98 /* SearchViewController.h */,
+				A5841ED11D8D9FDC00DCDC98 /* SearchViewController.m */,
+				A5C41FE61D94271700973340 /* SearchResultsViewController.h */,
+				A5C41FE71D94271700973340 /* SearchResultsViewController.m */,
+				A594288D1E19B88100D059BE /* PopUpOilSearchViewController.h */,
+				A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		A5CC047E1D79C36200CBD404 /* BurnSoftDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				A52043EF1D86F995001AFD40 /* BurnSoftDatabase.h */,
+				A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */,
+			);
+			path = BurnSoftDatabase;
+			sourceTree = "<group>";
+		};
+		A5E28E7D1D0B4FCE00052005 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				A5841ECC1D8D9C9000DCDC98 /* search.png */,
+				A5D255881D8B167500977619 /* close-icon.png */,
+				A50CF95A1D75C2E10037C7CD /* gear.png */,
+				A5E28E861D0B515300052005 /* Icon-60.png */,
+				A5E28E871D0B515300052005 /* Icon-60@2x.png */,
+				A5E28E881D0B515300052005 /* Icon-60@3x.png */,
+				A5E28E891D0B515300052005 /* Icon-76.png */,
+				A5E28E8A1D0B515300052005 /* Icon-76@2x.png */,
+				A5E28E8B1D0B515300052005 /* Icon-76@3x.png */,
+				A5E28E8C1D0B515300052005 /* Icon-iPadPro@2x.png */,
+				A5E28E8D1D0B515300052005 /* Icon-Small.png */,
+				A5E28E8E1D0B515300052005 /* Icon-Small@2x.png */,
+				A5E28E8F1D0B515300052005 /* Icon-Small@3x.png */,
+				A5E28E901D0B515300052005 /* Icon-Spotlight-40.png */,
+				A5E28E911D0B515300052005 /* Icon-Spotlight-40@2x.png */,
+				A5E28E921D0B515300052005 /* Icon-Spotlight-40@3x.png */,
+				A5E28E931D0B515300052005 /* iTunesArtwork */,
+				A5E28E941D0B515300052005 /* iTunesArtwork@2x */,
+				A5E28E821D0B500700052005 /* TBB_remedies.png */,
+				A5E28E831D0B500700052005 /* TBB_remedies@2x.png */,
+				A5E28E7E1D0B4FDD00052005 /* TBB_oils.png */,
+				A5E28E7F1D0B4FDD00052005 /* TBB_oils@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		A5F605271D1C6F930059BF27 /* OilRemedies */ = {
+			isa = PBXGroup;
+			children = (
+				A505B07C1D09AB5E00800310 /* LIST_OilRemediesViewController.m */,
+				A505B07B1D09AB5E00800310 /* LIST_OilRemediesViewController.h */,
+				A5AA21A61D52377200B42F4A /* Add_RemedyViewController.h */,
+				A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */,
+				A5AA21A91D52379300B42F4A /* VIEW_RemedyViewController.h */,
+				A5AA21AA1D52379300B42F4A /* VIEW_RemedyViewController.m */,
+				A5AA21AC1D5237B800B42F4A /* EDIT_RemedyViewController.h */,
+				A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */,
+				A5B02CEF1D8846A30004334B /* PopUpOilViewController.h */,
+				A5B02CF01D8846A30004334B /* PopUpOilViewController.m */,
+			);
+			name = OilRemedies;
+			sourceTree = "<group>";
+		};
+		A5F605281D1C6FAB0059BF27 /* Oils */ = {
+			isa = PBXGroup;
+			children = (
+				A5E15F3E1D1862D30047055D /* ADD_OilDetailsViewController.m */,
+				A5E15F3D1D1862D30047055D /* ADD_OilDetailsViewController.h */,
+				A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */,
+				A5E15F3A1D1862B40047055D /* VIEW_OilDetailsViewController.h */,
+				A505B0821D09ED3F00800310 /* LIST_OilsTableViewController.m */,
+				A505B0811D09ED3F00800310 /* LIST_OilsTableViewController.h */,
+				A5CED4E41D26932000090560 /* EDIT_OilDetailViewController.h */,
+				A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */,
+			);
+			name = Oils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A505B0301D09A76900800310 /* My Essential Oil Remedies */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A505B0611D09A76900800310 /* Build configuration list for PBXNativeTarget "My Essential Oil Remedies" */;
+			buildPhases = (
+				A505B02D1D09A76900800310 /* Sources */,
+				A505B02E1D09A76900800310 /* Frameworks */,
+				A505B02F1D09A76900800310 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "My Essential Oil Remedies";
+			productName = MyEssentialOilRemedies;
+			productReference = A505B0311D09A76900800310 /* My Essential Oil Remedies.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A505B04C1D09A76900800310 /* MyEssentialOilRemediesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A505B0641D09A76900800310 /* Build configuration list for PBXNativeTarget "MyEssentialOilRemediesTests" */;
+			buildPhases = (
+				A505B0491D09A76900800310 /* Sources */,
+				A505B04A1D09A76900800310 /* Frameworks */,
+				A505B04B1D09A76900800310 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A505B04F1D09A76900800310 /* PBXTargetDependency */,
+			);
+			name = MyEssentialOilRemediesTests;
+			productName = MyEssentialOilRemediesTests;
+			productReference = A505B04D1D09A76900800310 /* MyEssentialOilRemediesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A505B0571D09A76900800310 /* MyEssentialOilRemediesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A505B0671D09A76900800310 /* Build configuration list for PBXNativeTarget "MyEssentialOilRemediesUITests" */;
+			buildPhases = (
+				A505B0541D09A76900800310 /* Sources */,
+				A505B0551D09A76900800310 /* Frameworks */,
+				A505B0561D09A76900800310 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A505B05A1D09A76900800310 /* PBXTargetDependency */,
+			);
+			name = MyEssentialOilRemediesUITests;
+			productName = MyEssentialOilRemediesUITests;
+			productReference = A505B0581D09A76900800310 /* MyEssentialOilRemediesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A505B0291D09A76900800310 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = burnsoft;
+				TargetAttributes = {
+					A505B0301D09A76900800310 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = MF94VYSKL4;
+					};
+					A505B04C1D09A76900800310 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = A505B0301D09A76900800310;
+					};
+					A505B0571D09A76900800310 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = A505B0301D09A76900800310;
+					};
+				};
+			};
+			buildConfigurationList = A505B02C1D09A76900800310 /* Build configuration list for PBXProject "MyEssentialOilRemedies" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A505B0281D09A76900800310;
+			productRefGroup = A505B0321D09A76900800310 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A505B0301D09A76900800310 /* My Essential Oil Remedies */,
+				A505B04C1D09A76900800310 /* MyEssentialOilRemediesTests */,
+				A505B0571D09A76900800310 /* MyEssentialOilRemediesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A505B02F1D09A76900800310 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57CB7C41D805F7700380B23 /* MEO.db in Resources */,
+				A5E28E841D0B500700052005 /* TBB_remedies.png in Resources */,
+				A50CF95B1D75C2E10037C7CD /* gear.png in Resources */,
+				A5E28E851D0B500700052005 /* TBB_remedies@2x.png in Resources */,
+				A5C26B551D37BDB000476766 /* iphone.storyboard in Resources */,
+				A5E28EA01D0B515300052005 /* Icon-Spotlight-40@2x.png in Resources */,
+				A5E28E951D0B515300052005 /* Icon-60.png in Resources */,
+				A505B0471D09A76900800310 /* LaunchScreen.storyboard in Resources */,
+				A5E28E801D0B4FDD00052005 /* TBB_oils.png in Resources */,
+				A5E28E961D0B515300052005 /* Icon-60@2x.png in Resources */,
+				A5E28E981D0B515300052005 /* Icon-76.png in Resources */,
+				A5E28EA31D0B515300052005 /* iTunesArtwork@2x in Resources */,
+				A5E28E971D0B515300052005 /* Icon-60@3x.png in Resources */,
+				A5E28E9C1D0B515300052005 /* Icon-Small.png in Resources */,
+				A5D255891D8B167500977619 /* close-icon.png in Resources */,
+				A505B0441D09A76900800310 /* Assets.xcassets in Resources */,
+				A5E28E9F1D0B515300052005 /* Icon-Spotlight-40.png in Resources */,
+				A5E28EA11D0B515300052005 /* Icon-Spotlight-40@3x.png in Resources */,
+				A5E28E9E1D0B515300052005 /* Icon-Small@3x.png in Resources */,
+				A5E28E9A1D0B515300052005 /* Icon-76@3x.png in Resources */,
+				A5E28EA21D0B515300052005 /* iTunesArtwork in Resources */,
+				A5841ECD1D8D9C9000DCDC98 /* search.png in Resources */,
+				A5E28E9B1D0B515300052005 /* Icon-iPadPro@2x.png in Resources */,
+				A5E28E9D1D0B515300052005 /* Icon-Small@2x.png in Resources */,
+				A5E28E991D0B515300052005 /* Icon-76@2x.png in Resources */,
+				A5E28E811D0B4FDD00052005 /* TBB_oils@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A505B04B1D09A76900800310 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A505B0561D09A76900800310 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A505B02D1D09A76900800310 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A55062021DD0D865001CF00C /* VIEW_SingleRemedyViewController.m in Sources */,
+				A5CED4E61D26932000090560 /* EDIT_OilDetailViewController.m in Sources */,
+				A505B07D1D09AB5E00800310 /* LIST_OilRemediesViewController.m in Sources */,
+				A505B0781D09A7F700800310 /* OilRemedies.m in Sources */,
+				A5AA21AB1D52379300B42F4A /* VIEW_RemedyViewController.m in Sources */,
+				A57BF9DA1D6C96EC005D3113 /* FormFunctions.m in Sources */,
+				A5F605261D1C65340059BF27 /* MainStartViewController.m in Sources */,
+				A59C1FB21D95949000A4E337 /* SearchDatabase.m in Sources */,
+				A505B0801D09DD9600800310 /* OilLists.m in Sources */,
+				A52043F11D86F995001AFD40 /* BurnSoftDatabase.m in Sources */,
+				A5841ED21D8D9FDC00DCDC98 /* SearchViewController.m in Sources */,
+				A505B0391D09A76900800310 /* AppDelegate.m in Sources */,
+				A5F605231D1C45CD0059BF27 /* MYSettings.m in Sources */,
+				A5B02CF11D8846A30004334B /* PopUpOilViewController.m in Sources */,
+				A5BDC4241E1715E600A98652 /* DBUpgrade.m in Sources */,
+				A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */,
+				A505B0361D09A76900800310 /* main.m in Sources */,
+				A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */,
+				A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */,
+				A505B0421D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld in Sources */,
+				A5AA21A81D52377200B42F4A /* Add_RemedyViewController.m in Sources */,
+				A594288F1E19B88100D059BE /* PopUpOilSearchViewController.m in Sources */,
+				A52043F61D86F9DB001AFD40 /* BurnSoftGeneral.m in Sources */,
+				A5E15F3F1D1862D30047055D /* ADD_OilDetailsViewController.m in Sources */,
+				A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */,
+				A5C41FE81D94271700973340 /* SearchResultsViewController.m in Sources */,
+				A505B0831D09ED3F00800310 /* LIST_OilsTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A505B0491D09A76900800310 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A505B0521D09A76900800310 /* MyEssentialOilRemediesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A505B0541D09A76900800310 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A505B05D1D09A76900800310 /* MyEssentialOilRemediesUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A505B04F1D09A76900800310 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A505B0301D09A76900800310 /* My Essential Oil Remedies */;
+			targetProxy = A505B04E1D09A76900800310 /* PBXContainerItemProxy */;
+		};
+		A505B05A1D09A76900800310 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A505B0301D09A76900800310 /* My Essential Oil Remedies */;
+			targetProxy = A505B0591D09A76900800310 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A505B0451D09A76900800310 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A505B0461D09A76900800310 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A505B05F1D09A76900800310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A505B0601D09A76900800310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A505B0621D09A76900800310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = MyEssentialOilRemedies/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyEssentialOilRemedies",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemedies;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A505B0631D09A76900800310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = MyEssentialOilRemedies/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyEssentialOilRemedies",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemedies;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A505B0651D09A76900800310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyEssentialOilRemediesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyEssentialOilRemedies.app/MyEssentialOilRemedies";
+			};
+			name = Debug;
+		};
+		A505B0661D09A76900800310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyEssentialOilRemediesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyEssentialOilRemedies.app/MyEssentialOilRemedies";
+			};
+			name = Release;
+		};
+		A505B0681D09A76900800310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MyEssentialOilRemediesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyEssentialOilRemedies;
+			};
+			name = Debug;
+		};
+		A505B0691D09A76900800310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MyEssentialOilRemediesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyEssentialOilRemedies;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A505B02C1D09A76900800310 /* Build configuration list for PBXProject "MyEssentialOilRemedies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A505B05F1D09A76900800310 /* Debug */,
+				A505B0601D09A76900800310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A505B0611D09A76900800310 /* Build configuration list for PBXNativeTarget "My Essential Oil Remedies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A505B0621D09A76900800310 /* Debug */,
+				A505B0631D09A76900800310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A505B0641D09A76900800310 /* Build configuration list for PBXNativeTarget "MyEssentialOilRemediesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A505B0651D09A76900800310 /* Debug */,
+				A505B0661D09A76900800310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A505B0671D09A76900800310 /* Build configuration list for PBXNativeTarget "MyEssentialOilRemediesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A505B0681D09A76900800310 /* Debug */,
+				A505B0691D09A76900800310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A505B0411D09A76900800310 /* MyEssentialOilRemedies.xcdatamodel */,
+			);
+			currentVersion = A505B0411D09A76900800310 /* MyEssentialOilRemedies.xcdatamodel */;
+			path = MyEssentialOilRemedies.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A505B0291D09A76900800310 /* Project object */;
+}
