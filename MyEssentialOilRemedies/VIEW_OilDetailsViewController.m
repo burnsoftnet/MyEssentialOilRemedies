@@ -68,7 +68,7 @@
     [myFunctions setBorderLabel:self.lblSafetyNotes];
     [myFunctions setBorderLabel:self.lblBotanicalName];
     [myFunctions setBorderLabel:self.lblVendor];
-    [myFunctions setBorderLabel:self.lblWebsite];
+    [myFunctions setBordersTextView:self.txtWebsite];
     
 }
 #pragma mark Load Data
@@ -110,7 +110,7 @@
                 if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.lblVendor.text = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
                 }
                 iCol=12;
-                if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {self.lblWebsite.text = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {self.txtWebsite.text = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
                 }
             }
             sqlite3_close(MYDB);

@@ -27,7 +27,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *swInStock;
 @property (weak, nonatomic) IBOutlet UITextView *lblDescription;
 @property (weak, nonatomic) IBOutlet UILabel *lblVendor;
-@property (weak, nonatomic) IBOutlet UILabel *lblWebsite;
+@property (weak, nonatomic) IBOutlet UITextView *txtWebsite;
+
 
 
 
