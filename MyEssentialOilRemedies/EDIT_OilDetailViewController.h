@@ -26,6 +26,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtViscosity;
 @property (weak, nonatomic) IBOutlet UISwitch *swInStock;
 @property (weak, nonatomic) IBOutlet UITextView *txtDescription;
+@property (weak, nonatomic) IBOutlet UITextField *txtVendor;
+@property (weak, nonatomic) IBOutlet UITextField *txtWebsite;
+
+
 - (IBAction)btnUpdate:(id)sender;
 
 

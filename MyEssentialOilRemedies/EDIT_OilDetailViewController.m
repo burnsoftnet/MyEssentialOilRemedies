@@ -18,11 +18,10 @@
     NSString *dbPathString;
     sqlite3 *MYDB;
 }
-#pragma mark - Form Object Related Subs and Functions
-
+#pragma mark Load Controller
+//Sub to perform actions when the controller loads
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self loadSettings];
     [self loadData];
     
@@ -31,10 +30,10 @@
     [tapGestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:tapGestureRecognizer];
 }
-
+#pragma mark Make Keyboard Dissapear
+//When the view is selected, make the keyboard dissapear
 -(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
 {
-    //When the view is selected, make the keyboard dissapear
     [self.txtName resignFirstResponder];
     [self.txtCommonName resignFirstResponder];
     [self.txtDescription resignFirstResponder];
@@ -44,23 +43,28 @@
     [self.txtIngredients resignFirstResponder];
     [self.txtBotanicalName resignFirstResponder];
 }
-
+#pragma mark View did reappear
+//Sub when the form reloads
 - (void)viewDidAppear:(BOOL)animated
 {
     [self loadSettings];
     [self loadData];
 }
-
+#pragma mark Memroy Error
+//Sub when a memory error occurs
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
+#pragma mark Prepare For Segue
+//Action to take before segue occurs
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"EditOilDetails"]) {
         EDIT_OilDetailViewController *destViewController = (EDIT_OilDetailViewController *)segue.destinationViewController;
         destViewController.OID = self.OID;
     }
 }
+#pragma mark Update Button
+//Actions to take when the Update button is touched
 - (IBAction)btnUpdate:(id)sender {
     BurnSoftGeneral *myObjOF = [BurnSoftGeneral new];
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
@@ -77,6 +81,9 @@
     NSString *viscosity = [myObjOF FCString:self.txtViscosity.text];
     NSString *description = [myObjOF FCString:self.txtDescription.text];
     NSString *iStock = 0;
+    NSString *vendor = [myObjOF FCString:self.txtVendor.text];
+    NSString *website = [myObjOF FCString:self.txtWebsite.text];
+    
     if (self.swInStock.isOn){
         iStock = @"1";
     } else {
@@ -86,7 +93,7 @@
     
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]){
         if (!(self.OID==0)){
-            sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@' where OID=%@",description,BotName,Ingredients,safetyNotes,color,viscosity,commonName, self.OID];
+            sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@' where OID=%@",description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website, self.OID];
             
             if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]) {
                 UINavigationController *navController = self.navigationController;
@@ -101,7 +108,8 @@
     }
     
 }
-#pragma mark - General Sub and Functions
+#pragma mark Load Settings
+//Loads the Database Path and the borders to the textboxes
 -(void) loadSettings
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -116,8 +124,11 @@
     [myFunctions setBorderTextBox:self.txtColor];
     [myFunctions setBorderTextBox:self.txtViscosity];
     [myFunctions setBorderTextBox:self.txtBotanicalName];
-    
+    [myFunctions setBorderTextBox:self.txtVendor];
+    [myFunctions setBorderTextBox:self.txtWebsite];
 }
+#pragma mark Load Data
+//Load the Data from the database to populate the fields
 -(void) loadData
 {
     sqlite3_stmt *statement;
@@ -151,6 +162,12 @@
                 NSString *iStock = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
                 if ([iStock intValue] == 1) {
                     [self.swInStock setOn:YES];
+                }
+                iCol = 11;
+                if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.txtVendor.text = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
+                }
+                iCol = 12;
+                if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.txtWebsite.text = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
                 }
                 
             }
