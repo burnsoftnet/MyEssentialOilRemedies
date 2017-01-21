@@ -26,6 +26,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblViscosity;
 @property (weak, nonatomic) IBOutlet UISwitch *swInStock;
 @property (weak, nonatomic) IBOutlet UITextView *lblDescription;
+@property (weak, nonatomic) IBOutlet UILabel *lblVendor;
+@property (weak, nonatomic) IBOutlet UILabel *lblWebsite;
+
+
+
 - (IBAction)swUpdateStockStatus:(id)sender;
 - (IBAction)btnClose:(id)sender;
 

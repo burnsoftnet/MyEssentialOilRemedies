@@ -67,9 +67,12 @@
     [myFunctions setBorderLabel:self.lblIngredients];
     [myFunctions setBorderLabel:self.lblSafetyNotes];
     [myFunctions setBorderLabel:self.lblBotanicalName];
+    [myFunctions setBorderLabel:self.lblVendor];
+    [myFunctions setBorderLabel:self.lblWebsite];
     
 }
-
+#pragma mark Load Data
+//Connect to the database to load the fields with the data from the selected oil.
 - (void) loadData {
     sqlite3_stmt *statement;
     FormFunctions *objF = [FormFunctions new];
@@ -103,6 +106,12 @@
                 if ([iStock intValue] == 1) {
                     [self.swInStock setOn:YES];
                 }
+                iCol=11;
+                if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.lblVendor.text = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
+                }
+                iCol=12;
+                if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {self.lblWebsite.text = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
             }
             sqlite3_close(MYDB);
             sqlite3_finalize(statement);
@@ -116,8 +125,9 @@
         [objF sendMessage:msg MyTitle:@"OpenDB Error" ViewController:self];
     }
 }
+#pragma mark Update Stock Status
+//Allow the Use to updated if the oil is in stock or out of stock without having to go into editing.
 - (IBAction)swUpdateStockStatus:(id)sender {
-    //Allow the Use to updated if the oil is in stock or out of stock without having to go into editing.
     NSString *iStock = 0;
     NSString *errorMsg;
     if (self.swInStock.isOn){
@@ -128,7 +138,8 @@
     OilLists *objO = [OilLists new];
     [objO updateStockStatus:iStock OilID:self.OID DatabasePath:dbPathString ErrorMessage:&errorMsg];
 }
-
+#pragma mark Close Button
+//Actions to take when the close button is touched
 - (IBAction)btnClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
