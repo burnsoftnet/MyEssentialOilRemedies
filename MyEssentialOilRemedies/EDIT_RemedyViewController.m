@@ -259,6 +259,11 @@
         [myObj sendMessage:errorMsg MyTitle:@"Error Updating Remedy" ViewController:self];
     }
 }
+#pragma mark Close Button
+//action to take when the close button has been touched.
+- (IBAction)tbClose:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:Nil];
+}
 #pragma mark Table Edit Rows
 //function for table editing
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath

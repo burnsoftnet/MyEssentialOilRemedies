@@ -117,7 +117,7 @@
         destViewController.OID = SelectedCellID;
     } else if ([segue.identifier isEqualToString:@"segueViewRemedyFromSearch"]){
         VIEW_RemedyViewController *destViewController = (VIEW_RemedyViewController *)segue.destinationViewController;
-        destViewController.isFromSearch = YES;
+        //destViewController.isFromSearch = YES;
         destViewController.RID = SelectedCellID;
     }
 

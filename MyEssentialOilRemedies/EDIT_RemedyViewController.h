@@ -43,6 +43,7 @@
 - (IBAction)tbUses:(id)sender;
 - (IBAction)tbDescription:(id)sender;
 - (IBAction)tbUpdate:(id)sender;
+- (IBAction)tbClose:(id)sender;
 
 
 @end

@@ -314,6 +314,7 @@
                         <outlet property="myTableView" destination="J4Q-wv-2cK" id="t36-9Z-xvV"/>
                         <segue destination="PFe-pI-FH2" kind="show" identifier="segueNewRemedy" id="KLk-tf-LQa"/>
                         <segue destination="OiB-G1-D7m" kind="show" identifier="segueViewRemedy" id="tE5-8K-Pn9"/>
+                        <segue destination="mYW-fm-K7V" kind="show" identifier="segueEditRemedy" id="QYv-jo-sTt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VY8-3g-eRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1322,15 +1323,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6h6-Do-rKi">
-                                <frame key="frameInset" minY="-32" width="400" height="832"/>
+                                <frame key="frameInset" width="400" height="832"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwO-5p-hne">
-                                        <rect key="frame" x="0.0" y="76" width="400" height="801"/>
+                                        <rect key="frame" x="0.0" y="45" width="400" height="686"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AI5-3B-8X5">
-                                                <frame key="frameInset" minX="8" minY="24" width="357" height="569"/>
+                                                <frame key="frameInset" minX="8" minY="24" width="342" height="569"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1340,7 +1341,7 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zCj-0x-TkE">
-                                        <rect key="frame" x="0.0" y="76" width="400" height="800"/>
+                                        <rect key="frame" x="0.0" y="47" width="400" height="686"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oil Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMP-KX-QZZ">
@@ -1351,13 +1352,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K3U-MK-hGe">
-                                                <frame key="frameInset" minX="96" minY="21" width="271" height="30"/>
+                                                <frame key="frameInset" minX="96" minY="21" width="260" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UUJ-5t-u19">
-                                                <frame key="frameInset" minX="20" minY="117" width="347" height="564"/>
+                                                <frame key="frameInset" minX="20" minY="117" width="335" height="564"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </tableView>
@@ -1374,7 +1375,7 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRd-bo-ocH">
-                                        <rect key="frame" x="0.0" y="31" width="400" height="44"/>
+                                        <rect key="frame" x="0.0" y="2" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <items>
                                             <barButtonItem title="Description" id="aCM-Fh-hu3">
@@ -1401,11 +1402,18 @@
                                                     <action selector="tbUpdate:" destination="mYW-fm-K7V" id="FvN-h1-vfr"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem width="32.5" style="plain" systemItem="fixedSpace" id="seZ-rw-uKS"/>
+                                            <barButtonItem title="Close" id="jTl-PG-3s1">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="tbClose:" destination="mYW-fm-K7V" id="08d-dW-gTM"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </items>
                                         <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </toolbar>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oO8-oM-B2j">
-                                        <rect key="frame" x="0.0" y="76" width="400" height="800"/>
+                                        <rect key="frame" x="0.0" y="47" width="400" height="686"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Problem:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdE-cp-b3a">
@@ -1423,13 +1431,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="PQt-Zf-vKM">
-                                                <frame key="frameInset" minX="100" minY="25" width="281" height="30"/>
+                                                <frame key="frameInset" minX="100" minY="25" width="260" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-gb-3PF">
-                                                <frame key="frameInset" minX="20" minY="96" width="350" height="435"/>
+                                                <frame key="frameInset" minX="17" minY="96" width="338" height="435"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -1912,4 +1920,7 @@
         <image name="gear.png" width="30" height="30"/>
         <image name="search.png" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="QYv-jo-sTt"/>
+    </inferredMetricsTieBreakers>
 </document>
