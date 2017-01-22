@@ -14,46 +14,50 @@
     sqlite3 *MYDB;
     NSMutableArray *myOilCollection;
     NSString *SelectedCellID;
+    int currView;
 }
-#pragma mark Controller Sub and Functions
+#pragma mark On Form Load
+//When form first loads
 -(void) viewDidLoad
 {
     [super viewDidLoad];
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
     [self loadSettings];
-    [self clearFields];
     [self loadData];
-    [self loadForm];
-    if (!_isFromSearch){
-        self.tbClose.tintColor = [UIColor clearColor];
-        self.tbClose.enabled = NO;
-    } else {
-        self.topConstraint.constant = 20;
+    
+    if (currView == 0) {
+        [self changeCurrentViewTo:1];
     }
 }
+#pragma mark View Appears Again
+//when the view is reloaded
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self loadData];
 }
+
+#pragma mark Form Exits
+//Clean up when the form is leaving
 -(void) viewWillDisappear:(BOOL)animated {
     // When Back button is hit on the view it will take you back to view the remidy list.
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        LIST_OilRemediesViewController * destinationVewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RemedyListController"];
-        [self.navigationController pushViewController:destinationVewController animated:YES];
         [self dismissViewControllerAnimated:YES completion:Nil];
     }
     [super viewWillDisappear:animated];
 }
-#pragma mark
-#pragma mark General Sub and Functions
+
+#pragma mark Sub Reload Data
+//Reloads the Settings and Data
 -(void)reloadData
 {
     [self loadSettings];
     [self loadData];
-    [self loadForm];
 }
+
+#pragma mark Load Settings
+//This will load the setting for the for as well as database and set the borders for the textboxes and text views.
 -(void) loadSettings
 {
     BurnSoftDatabase *objDB = [BurnSoftDatabase new];
@@ -62,15 +66,11 @@
     FormFunctions *objf = [FormFunctions new];
     [objf setBorderLabel:self.lblProblem];
     [objf setBordersTextView:self.lblDescription];
-}
-
--(void) loadForm
-{
-    self.lblProblem.text=self.myremedyName;
-    self.lblDescription.text=self.myremedyDescription;
-    self.lblUses.text=self.myUses;
+    [objf setBordersTextView:self.lblUses];
     
 }
+#pragma mark Load Data
+//Loads the information from the Database based on the RID.
 -(void) loadData
 {
     sqlite3_stmt *statement;
@@ -83,22 +83,14 @@
         {
             while (sqlite3_step(statement)==SQLITE_ROW)
             {
-                if (_myremedyName == nil)
-                {
                     iCol = 1;
-                    if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {_myremedyName  = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement,iCol)];}
-                    
-                }
-                if (_myremedyDescription == nil)
-                {
+                    if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {self.lblProblem.text  = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement,iCol)];}
+                
                     iCol = 2;
-                    if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {_myremedyDescription = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement,iCol)];}
-                }
-                if (_myUses == nil)
-                {
+                    if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {self.lblDescription.text = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement,iCol)];}
+
                     iCol=3;
-                    if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {_myUses = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, iCol)];}
-                }
+                    if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.lblUses.text = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, iCol)];}
             }
             sqlite3_close(MYDB);
             sqlite3_finalize(statement);
@@ -113,93 +105,63 @@
     [[self myTableView] reloadData];
     
 }
-
--(void) clearFields
+#pragma mark Change Views
+//This will change the views when a button on the toolbar is touched
+// 1 is Description View is selected
+// 2 is Oils View was selcted
+// 3 is the Uses View was selected
+-(void)changeCurrentViewTo:(int) iValue
 {
-    self.lblProblem.text = @"";
-    self.lblDescription.text = @"";
-    self.lblUses.text=@"";
-}
--(void)runToView:(NSString *)controllerName
-{
-    VIEW_RemedyViewController * destinationViewController = [self.storyboard instantiateViewControllerWithIdentifier:controllerName];
-    NSString *myRN = self.lblProblem.text;
-    NSString *myRD = self.lblDescription.text;
-    NSString *myU = self.lblUses.text;
-    
-    if (myRN == nil )
-    {
-        myRN = _myremedyName;
-    }
-    if (myRD == nil )
-    {
-        myRD = _myremedyDescription;
-    }
-    if (myU == nil )
-    {
-        myU = _myUses;
-    }
-    [destinationViewController setMyremedyName:myRN];
-    [destinationViewController setMyremedyDescription:myRD];
-    [destinationViewController setMyUses:myU];
-    [destinationViewController setRID:self.RID];
-    [destinationViewController setIsFromSearch:self.isFromSearch];
-    
-    if (self.isFromSearch)
-    {
-        //[self dismissViewControllerAnimated:YES completion:^{
-        //    [presentViewController dismissViewControllerAnimated:YES competion:nil];
-        //}];
-        //VIEW_RemedyViewController *currentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RemedyDetailsViewControllerFromSearch"];
-        //[self presentViewController:destinationViewController animated:YES completion:nil];
-        //[self dismissViewControllerAnimated:YES completion:^{[self presentViewController:destinationViewController animated:YES completion:nil];}];
-        //[self presentViewController:destinationViewController animated:YES completion:^{[currentViewController dismissViewControllerAnimated:YES completion:nil];}];
-        
-        //[self dismissViewControllerAnimated:YES completion:nil];
-    } else {
-            
-        [self.navigationController pushViewController:destinationViewController animated:YES];
+    switch (iValue) {
+        case 1:
+            self.viewDescription.hidden = NO;
+            self.viewOils.hidden = YES;
+            self.viewUses.hidden = YES;
+            break;
+        case 2:
+            self.viewDescription.hidden = YES;
+            self.viewOils.hidden = NO;
+            self.viewUses.hidden = YES;
+            break;
+        case 3:
+            self.viewDescription.hidden = YES;
+            self.viewOils.hidden = YES;
+            self.viewUses.hidden = NO;
     }
 }
-#pragma mark
-#pragma mark Toolbar Functions
+#pragma mark Edit Button Tool Bar Button
+//Action to take when the Edit button on the tool bar has been selected
 - (IBAction)tbSave:(id)sender {
-    [self runToView:@"EditRemedy_Description_ViewController"];
+    VIEW_RemedyViewController * destinationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditRemedy_Description_ViewController"];
+    [destinationViewController setRID:self.RID];
+    [self.navigationController pushViewController:destinationViewController animated:YES];
 }
 
+#pragma mark Description Button Tool Bar Button
+//Action to take when the description button on the tool bar has been selected
 - (IBAction)tbDescription:(id)sender {
-    if (!_isFromSearch)
-    {
-        [self runToView:@"RemedyDetailsViewController"];
-    } else {
-        [self runToView:@"RemedyDetailsViewControllerFromSearch"];
-    }
+    [self changeCurrentViewTo:1];
 }
 
+#pragma mark Close Button Tool Bar Button
+//Action to take when the Close button on the tool bar as been selected.
 - (IBAction)tbClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
 
+#pragma mark Oil Button Tool Bar Button
+//Action to take when the oil button on the tool bar has been selected
 - (IBAction)tbOils:(id)sender {
-    if (!_isFromSearch)
-    {
-        [self runToView:@"View_RemedyOilsViewController"];
-    } else {
-        //[self runToView:@"View_RemedyOilsViewControllerFromSearch"];
-        [self performSegueWithIdentifier:@"segueSearchRemedyOils" sender:self];
-    }
+    //if (!_isFromSearch)
+    [self changeCurrentViewTo:2];
 }
 
+#pragma mark Tab Uses
+//Actions to take when the Tool Bar Uses button is clicked
 - (IBAction)tbUses:(id)sender {
-    if (!_isFromSearch)
-    {
-        [self runToView:@"View_RemedyUsesViewController"];
-    } else {
-        //[self runToView:@"View_RemedyUsesViewControllerFromSearch"];
-        [self performSegueWithIdentifier:@"segueSearchUses" sender:self];
-    }
+    [self changeCurrentViewTo:3];
 }
-#pragma mark
+
 #pragma mark View popup WIndow for details
 - (void)setPresentationStyleForSelfController:(UIViewController *)selfController presentingController:(UIViewController *)presentingController
 {
@@ -207,6 +169,8 @@
     presentingController.definesPresentationContext = YES;
     [presentingController setModalPresentationStyle:UIModalPresentationOverCurrentContext];
 }
+#pragma mark Prepare for Segue
+//Actions to take before switching to the next window
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"segueViewOilPopUp"]){
@@ -215,87 +179,39 @@
         [self setPresentationStyleForSelfController:self presentingController:popup];
     } else {
         VIEW_RemedyViewController *mydestinationViewController = segue.destinationViewController;
-        NSString *myRN = self.lblProblem.text;
-        NSString *myRD = self.lblDescription.text;
-        NSString *myU = self.lblUses.text;
-        
-        if (myRN == nil )
-        {
-            myRN = _myremedyName;
-        }
-        if (myRD == nil )
-        {
-            myRD = _myremedyDescription;
-        }
-        if (myU == nil )
-        {
-            myU = _myUses;
-        }
-        [mydestinationViewController setMyremedyName:myRN];
-        [mydestinationViewController setMyremedyDescription:myRD];
-        [mydestinationViewController setMyUses:myU];
         [mydestinationViewController setRID:self.RID];
-        
-        [mydestinationViewController setIsFromSearch:self.isFromSearch];
+
         if ([segue.identifier isEqualToString:@"segueSearchRemedyOils"]) {
             [self setPresentationStyleForSelfController:self presentingController:mydestinationViewController];
         } else if ([segue.identifier isEqualToString:@"segueSearchUses"]) {
             [self setPresentationStyleForSelfController:self presentingController:mydestinationViewController];
-        } //else {
-        //    NSLog(@"%@",segue.identifier);
-       // }
-
+        }
     }
-    /*VIEW_RemedyViewController *mydestinationViewController = segue.destinationViewController;
-    NSString *myRN = self.lblProblem.text;
-    NSString *myRD = self.lblDescription.text;
-    NSString *myU = self.lblUses.text;
-    
-    if (myRN == nil )
-    {
-        myRN = _myremedyName;
-    }
-    if (myRD == nil )
-    {
-        myRD = _myremedyDescription;
-    }
-    if (myU == nil )
-    {
-        myU = _myUses;
-    }
-    [mydestinationViewController setMyremedyName:myRN];
-    [mydestinationViewController setMyremedyDescription:myRD];
-    [mydestinationViewController setMyUses:myU];
-    [mydestinationViewController setRID:self.RID];
-    
-    [mydestinationViewController setIsFromSearch:self.isFromSearch];
-    if ([segue.identifier isEqualToString:@"segueViewOilPopUp"]){
-        PopUpOilViewController *popup = segue.destinationViewController;
-        popup.myOilName = SelectedCellID;
-        [self setPresentationStyleForSelfController:self presentingController:popup];
-    } else if ([segue.identifier isEqualToString:@"segueSearchRemedyOils"]) {
-        [self setPresentationStyleForSelfController:self presentingController:mydestinationViewController];
-    } else if ([segue.identifier isEqualToString:@"segueSearchUses"]) {
-        [self setPresentationStyleForSelfController:self presentingController:mydestinationViewController];
-    } else {
-        NSLog(@"%@",segue.identifier);
-    }
-     */
 }
-#pragma mark
-#pragma mark Table Functions
+
+#pragma mark Table Edit Rows
+//function for table editing
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
+
+#pragma mark Table Set Sections
+//set the sections in the table
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
+#pragma mark Table Set Number of Rows
+//set the number of rows int he table
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return  [myOilCollection count];
 }
+
+#pragma mark Table Row Selected
+//actions to take when a row has been selected.
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -305,6 +221,9 @@
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     [self performSegueWithIdentifier:@"segueViewOilPopUp" sender:self];
 }
+
+#pragma mark Table Set Cell Data
+//set the cell data by use of an array
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier=@"Cell";

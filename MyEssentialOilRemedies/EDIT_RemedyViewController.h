@@ -21,8 +21,11 @@
 @property (assign) BOOL isFromSearch;
 @property (strong, nonatomic) NSMutableArray *myOils;
 @property (strong,nonatomic) NSString *myremedyName;
-@property (strong,nonatomic) NSString *myremedyDescription;
-@property (strong,nonatomic) NSString *myUses;
+
+//Views
+@property (weak, nonatomic) IBOutlet UIView *viewDescription;
+@property (weak, nonatomic) IBOutlet UIView *viewOils;
+@property (weak, nonatomic) IBOutlet UIView *viewUses;
 
 //Form Fields
 @property (weak, nonatomic) IBOutlet UITextField *txtOilName;
@@ -31,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtRemedy;
 @property (weak, nonatomic) IBOutlet UITextView *txtDescription;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+
+//buttons
 - (IBAction)btnAddOil:(id)sender;
 
 //Tool Bar Buttons

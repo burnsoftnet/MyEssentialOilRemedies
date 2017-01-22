@@ -13,6 +13,7 @@
     NSString *dbPathString;
     sqlite3 *MYDB;
     NSString *SelectedCellID;
+    int currView;
 }
 #pragma mark Form Load
 //When the form is loading
@@ -20,15 +21,17 @@
 {
     [super viewDidLoad];
     [self loadSettings];
-    [self clearFields];
     [self loadData];
-    [self loadForm];
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapReceived:)];
     [tapGestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:tapGestureRecognizer];
+    
+    if (currView == 0) {
+        [self changeCurrentViewTo:1];
+    }
     
     if (_isFromSearch) {
         double MyConstant = 20;
@@ -101,21 +104,21 @@
         {
             while (sqlite3_step(statement) ==SQLITE_ROW)
             {
-                if (_myremedyName == nil)
-                {
+                //if (_myremedyName == nil)
+                //{
                     iCol = 1;
-                    if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {_myremedyName = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement,iCol)];}
-                }
-                if (_myremedyDescription == nil)
-                {
+                    if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {self.txtRemedy.text= [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement,iCol)];}
+                //}
+                //if (_myremedyDescription == nil)
+                //{
                     iCol=2;
-                    if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {_myremedyDescription = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, iCol)];}
-                }
-                if (_myUses == nil)
-                {
+                    if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.txtDescription.text = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, iCol)];}
+                //}
+                //if (_myUses == nil)
+                //{
                     iCol=3;
-                    if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {_myUses = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, iCol)];}
-                }
+                    if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.txtUses.text = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, iCol)];}
+                //}
             }
             sqlite3_close(MYDB);
             sqlite3_finalize(statement);
@@ -137,7 +140,6 @@
 {
     [self loadSettings];
     [self loadData];
-    [self loadForm];
 }
 #pragma mark Load Settings
 // Load the database path and make the borders around the textboxes and text views
@@ -152,49 +154,30 @@
     [objF setBorderTextBox:self.txtOilName];
     [objF setBordersTextView:self.txtDescription];
 }
-#pragma mark Load Form with Values
-//Loades the textboxes with the global vars data, used for when switching views and the data is passed among them
--(void) loadForm
+
+#pragma mark Change Views
+//This will change the views when a button on the toolbar is touched
+// 1 is Description View is selected
+// 2 is Oils View was selcted
+// 3 is the Uses View was selected
+-(void)changeCurrentViewTo:(int) iValue
 {
-    self.txtRemedy.text = self.myremedyName;
-    self.txtDescription.text = self.myremedyDescription;
-    self.txtUses.text = self.myUses;
-}
-#pragma mark Clear the Fields
-//Clear all the textboxes
--(void)clearFields
-{
-    self.txtRemedy.text = @"";
-    self.txtDescription.text=@"";
-    self.txtUses.text=@"";
-}
-#pragma mark Switch to Next view
-//swap out vars to set the next set of vars for the next view
--(void)runToView:(NSString *) controllerName
-{
-    EDIT_RemedyViewController * destinationViewController = [self.storyboard instantiateViewControllerWithIdentifier:controllerName];
-    NSString *myRN = self.txtRemedy.text;
-    NSString *myRD = self.txtDescription.text;
-    NSString *myU = self.txtUses.text;
-    
-    if (myRN ==nil )
-    {
-        myRN = _myremedyName;
+    switch (iValue) {
+        case 1:
+            self.viewDescription.hidden = NO;
+            self.viewOils.hidden = YES;
+            self.viewUses.hidden = YES;
+            break;
+        case 2:
+            self.viewDescription.hidden = YES;
+            self.viewOils.hidden = NO;
+            self.viewUses.hidden = YES;
+            break;
+        case 3:
+            self.viewDescription.hidden = YES;
+            self.viewOils.hidden = YES;
+            self.viewUses.hidden = NO;
     }
-    if (myRD == nil )
-    {
-        myRD = _myremedyDescription;
-    }
-    if (myU == nil)
-    {
-        myU = _myUses;
-    }
-    [destinationViewController setMyremedyName:myRN];
-    [destinationViewController setMyremedyDescription:myRD];
-    [destinationViewController setMyUses:myU];
-    [destinationViewController setRID:self.RID];
-    [destinationViewController setMyOils:self.myOils];
-    [self.navigationController pushViewController:destinationViewController animated:YES];
 }
 #pragma mark Oils Arral
 //swap the oils array for next view
@@ -225,31 +208,30 @@
 //Clear out the values and exit
 -(void) ClearAndExit
 {
-    self.myremedyName=@"";
-    self.myremedyDescription=@"";
-    self.myUses=@"";
     [self.myOils removeAllObjects];
-    LIST_OilRemediesViewController *destinationViewControllers = [self.storyboard instantiateViewControllerWithIdentifier:@"RemedyListController"];
-    [self.navigationController pushViewController:destinationViewControllers animated:YES];
+   
+    UINavigationController *navController = self.navigationController;
+    [navController popViewControllerAnimated:NO];
+    [navController popViewControllerAnimated:YES];
     
 }
 #pragma mark Uses ToolBar button
 //Button to switch to the uses view
 -(IBAction)tbUses:(id)sender
 {
-    [self runToView:@"EditRemedy_Uses_ViewController"];
+    [self changeCurrentViewTo:3];
 }
 #pragma mark Description ToolBar button
 //buttong to switch to the description view
 -(IBAction)tbDescription:(id)sender
 {
-    [self runToView:@"EditRemedy_Description_ViewController"];
+     [self changeCurrentViewTo:1];
 }
 #pragma mark Oils ToolBar button
 //buttong to switch to the oils view
 -(IBAction)tbOils:(id)sender
 {
-    [self runToView:@"EditRemedy_Oils_ViewController"];
+    [self changeCurrentViewTo:2];
 }
 #pragma mark Update Button
 //Start the update process
@@ -261,18 +243,6 @@
     NSString *myRD = self.txtDescription.text;
     NSString *myU = self.txtUses.text;
     
-    if (myRN == nil )
-    {
-        myRN = _myremedyName;
-    }
-    if (myRD == nil)
-    {
-        myRD = _myremedyDescription;
-    }
-    if (myU == nil)
-    {
-        myU = _myUses;
-    }
     
     OilRemedies *objDB = [OilRemedies new];
 

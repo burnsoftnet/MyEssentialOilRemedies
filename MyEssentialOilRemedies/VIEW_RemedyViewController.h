@@ -17,16 +17,24 @@
 @interface VIEW_RemedyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong,nonatomic) NSString *RID;
-@property (assign) BOOL isFromSearch;
+//@property (assign) BOOL isFromSearch;
 @property (strong,nonatomic)NSMutableArray *myOils;
-@property (strong,nonatomic) NSString *myremedyName;
-@property (strong,nonatomic) NSString *myremedyDescription;
-@property (strong,nonatomic) NSString *myUses;
+//possible delete
+//@property (strong,nonatomic) NSString *myremedyName;
+//@property (strong,nonatomic) NSString *myremedyDescription;
+//@property (strong,nonatomic) NSString *myUses;
+
+//Views
+@property (weak, nonatomic) IBOutlet UIView *viewDescription;
+@property (weak, nonatomic) IBOutlet UIView *viewOils;
+@property (weak, nonatomic) IBOutlet UIView *viewUses;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblProblem;
 @property (weak, nonatomic) IBOutlet UITextView *lblDescription;
 @property (weak, nonatomic) IBOutlet UITextView *lblUses;
+
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tbSave;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tbClose;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
