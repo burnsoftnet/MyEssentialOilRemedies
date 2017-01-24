@@ -13,17 +13,32 @@
     
 }
 
+#pragma mark Fluff Content String
+//This will Fluff/Prep the string for inserting value into a database
+//It will mostly take out things that can conflict, such as the single qoute
 -(NSString *) FCString: (NSString *) sValue {
     NSString *sAns = [NSString new];
     sAns = [sValue stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
     sAns = [sAns stringByReplacingOccurrencesOfString:@"`" withString:@"''"];
     return sAns;
 }
+
+#pragma mark Fluff Content String to Long
+//This will convert a string into a long value
 -(unsigned long) FCLong:(NSString *) sValue;{
     NSUInteger uAns = [sValue length];
     unsigned long iAns = uAns;
     return iAns;
 }
+
+#pragma mark Get Value from Long String
+//This will get the value that is store in a long string
+//Pass the string, the common seperater, and the ares it should be located at
+//EXAMPE:
+//sValue = @"brown,cow,how,two"
+//mySeperator = @","
+//myIndex = 2
+//Result = @"how"
 -(NSString *)getValueFromLongString:(NSString *)sValue :(NSString *)mySeparater :(NSInteger) myIndex
 {
     NSString *sAns = [NSString new];
@@ -31,12 +46,17 @@
     sAns = [myArray objectAtIndex:myIndex];
     return sAns;
 }
+
+#pragma mark Count Characters
+//This will return the number of characters in a string
 -(unsigned long) CountCharacters:(NSString *)sValue{
     NSUInteger uAns = [sValue length];
     unsigned long iAns = uAns;
     return iAns;
 }
 
+#pragma mark Is Numeric
+//This will return true if the value is a number, false if it isn't
 -(BOOL) isNumeric :(NSString *) sValue
 {
     static BOOL bAns = NO;
@@ -52,6 +72,9 @@
     }
     return bAns;
 }
+
+#pragma mark Format Date
+//Format date to mm/dd/yyyy
 -(NSString *)formatDate:(NSDate *)date
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -59,17 +82,5 @@
     [dateFormatter setDateFormat:@"MM'/'dd'/'yyyy"];
     NSString *formattedDate = [dateFormatter stringFromDate:date];
     return formattedDate;
-}
--(void) getPathDetails
-{
-    //More diagnostic then needed, mostly to find the path details of the app while in ios
-    //NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"MyGunCollection" ofType:@"bundle"]];
-    //NSLog(@"bundle: %@", bundle);
-    //NSString* test = [bundle pathForResource:@"mgc" ofType:@"db"];
-    //NSLog(@"sqlitedb: %@", test);
-    //NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:[bundle pathForResource:@"info" ofType:@"plist"]];
-    //NSLog(@"plist: %@", dict);
-    //NSString *mydefaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"mgc.db"];
-    //NSLog(@"mydefaultDBPath: %@", mydefaultDBPath);
 }
 @end

@@ -128,6 +128,7 @@
 - (void) addOilsToRemedy: (NSString *) RemedyID
 {
     OilRemedies *objDB = [OilRemedies new];
+    FormFunctions *objFF = [FormFunctions new];
     NSString *oilName = [NSString new];
     NSString *errorMsg;
     NSString *OID;
@@ -135,7 +136,10 @@
     {
         oilName = obj;
         OID = [objDB AddOilName:oilName DatabasePath:dbPathString ERRORMESSAGE:&errorMsg];
+        [objFF doBuggermeMessage:[NSString stringWithFormat:@"Add New OID=%@",OID] FromSubFunction:@"Add_RemedyViewController.addOilstoRemedy"];
+        
         [objDB addOilToremedyOilList:OID RID:RemedyID DatabasePath:dbPathString ERRORMESSAGE:&errorMsg];
+        [objFF doBuggermeMessage:errorMsg FromSubFunction:@"Add_RemedyViewController.addOilstoRemedy"];
     }
 }
 #pragma mark Clear and Exit
@@ -159,8 +163,9 @@
     NSString *myU = self.txtUses.text;
     
     if (![myRN isEqualToString:@""]) {
+        BurnSoftGeneral *myObj = [BurnSoftGeneral new];
         OilRemedies *objDB = [OilRemedies new];
-        RID = [objDB AddRemedyDetailsByName:myRN Description:myRD Uses:myU DatabasePath:dbPathString ERRORMESSAGE:&errorMsg];
+        RID = [objDB AddRemedyDetailsByName:[myObj FCString:myRN] Description:myRD Uses:myU DatabasePath:dbPathString ERRORMESSAGE:&errorMsg];
         [self addOilsToRemedy:RID];
         [self ClearAndExit];
     } else {

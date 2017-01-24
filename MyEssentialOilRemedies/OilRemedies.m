@@ -132,12 +132,13 @@
     BurnSoftDatabase *objDB = [BurnSoftDatabase new];
     BurnSoftGeneral *objG = [BurnSoftGeneral new];
 
-    if ([self oilNameExists:[objG FCString:myoilname] DatabasePath:dbPathString ERRORMESSAGE:errorMsg])
+    myoilname = [objG FCString:myoilname];
+    if ([self oilNameExists:myoilname DatabasePath:dbPathString ERRORMESSAGE:errorMsg])
     {
         sAns = [NSString stringWithFormat:@"%@",[objDB getLastOneEntryIDbyName:myoilname LookForColumnName:@"name" GetIDFomColumn:@"ID" InTable:@"eo_oil_list" DatabasePath:dbPathString MessageHandler:errorMsg]];
     } else
     {
-        statement =[NSString stringWithFormat:@"INSERT INTO eo_oil_list (name) VALUES ('%@')",[objG FCString:myoilname]];
+        statement =[NSString stringWithFormat:@"INSERT INTO eo_oil_list (name) VALUES ('%@')",myoilname];
         [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:errorMsg];
         sAns = [NSString stringWithFormat:@"%@",[objDB getLastOneEntryIDbyName:myoilname LookForColumnName:@"name" GetIDFomColumn:@"ID" InTable:@"eo_oil_list" DatabasePath:dbPathString MessageHandler:errorMsg]];
         statement = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description) VALUES(%@,'N/A')",[objG FCString:sAns]];

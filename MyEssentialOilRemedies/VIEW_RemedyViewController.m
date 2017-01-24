@@ -131,7 +131,7 @@
 }
 #pragma mark Edit Button Tool Bar Button
 //Action to take when the Edit button on the tool bar has been selected
-- (IBAction)tbSave:(id)sender {
+- (IBAction)tbEdit:(id)sender {
     VIEW_RemedyViewController * destinationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditRemedy_Description_ViewController"];
     [destinationViewController setRID:self.RID];
     [self.navigationController pushViewController:destinationViewController animated:YES];
@@ -146,7 +146,9 @@
 #pragma mark Close Button Tool Bar Button
 //Action to take when the Close button on the tool bar as been selected.
 - (IBAction)tbClose:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:Nil];
+    UINavigationController *navController = self.navigationController;
+    [navController popViewControllerAnimated:NO];
+    [navController popViewControllerAnimated:YES];
 }
 
 #pragma mark Oil Button Tool Bar Button
@@ -163,6 +165,7 @@
 }
 
 #pragma mark View popup WIndow for details
+//Prep Presentation Style for Oil Description View Popup
 - (void)setPresentationStyleForSelfController:(UIViewController *)selfController presentingController:(UIViewController *)presentingController
 {
     presentingController.providesPresentationContextTransitionStyle = YES;

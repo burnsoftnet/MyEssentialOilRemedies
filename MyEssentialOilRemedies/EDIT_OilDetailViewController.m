@@ -25,6 +25,7 @@
     [self loadSettings];
     [self loadData];
     
+    
     //Part of the dissmiss the keyboard functions
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapReceived:)];
     [tapGestureRecognizer setDelegate:self];

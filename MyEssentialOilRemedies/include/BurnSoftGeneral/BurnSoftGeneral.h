@@ -15,5 +15,4 @@
 -(unsigned long) CountCharacters:(NSString *) sValue;
 -(BOOL) isNumeric :(NSString *) sValue;
 -(NSString *)formatDate:(NSDate *)date;
--(void) getPathDetails;
 @end

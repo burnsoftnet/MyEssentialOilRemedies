@@ -36,7 +36,7 @@
     if (_isFromSearch) {
         double MyConstant = 20;
         if (self.topConstraint.constant == 0) {
-        self.topConstraint.constant = MyConstant;
+            self.topConstraint.constant = MyConstant;
         } else {
             double myNewValue = (self.topConstraint.constant + MyConstant);
             if (self.topConstraint.constant < 0) {
@@ -57,11 +57,20 @@
 //when the Add button is pressed
 -(IBAction)btnAddOil:(id)sender
 {
+    /* Old
     OilRemedies *MyCollection = [OilRemedies new];
     [MyCollection setName:_txtOilName.text];
     [self.myOils addObject:MyCollection];
     
     [self.myTableView reloadData];
+    self.txtOilName.text=@"";
+     */
+    NSString *newOil = self.txtOilName.text;
+    if (![newOil isEqualToString:@""])
+    {
+        [self.myOils addObject:self.txtOilName.text];
+        [self.myTableView reloadData];
+    }
     self.txtOilName.text=@"";
 }
 #pragma mark Did Recieve Memory Warning
@@ -72,15 +81,29 @@
 #pragma mark Form Exits
 //Clean up when the form is leaving
 -(void) viewWillDisappear:(BOOL)animated {
+    //KEEP THIS JUST IN CASE YOU NEED IT!!!!!
     // When Back button is hit on the view it will take you back to view the remidy list.
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        LIST_OilRemediesViewController * destinationVewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RemedyListController"];
-        [self.navigationController pushViewController:destinationVewController animated:YES];
-    }
+    //if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+    //    LIST_OilRemediesViewController * destinationVewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RemedyListController"];
+    //    [self.navigationController pushViewController:destinationVewController animated:YES];
+    //}
+    
+    UINavigationController *navController = self.navigationController;
+    [navController popViewControllerAnimated:NO];
+    [navController popViewControllerAnimated:YES];
+    
     [self dismissViewControllerAnimated:YES completion:Nil];
     [super viewWillDisappear:animated];
 }
 
+#pragma mark Clear and Exit
+//Clear out the values and exit
+-(void) ClearAndExit
+{
+    [self.myOils removeAllObjects];
+    
+    [self viewWillDisappear:NO];
+}
 #pragma mark Keyboard Disappear
 //Makes the Keyboard disappear when outside of the textbox is clicked
 -(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
@@ -204,17 +227,7 @@
         [objDB addOilToremedyOilList:OID RID:RemedyID DatabasePath:dbPathString ERRORMESSAGE:&errorMsg];
     }
 }
-#pragma mark Clear and Exit
-//Clear out the values and exit
--(void) ClearAndExit
-{
-    [self.myOils removeAllObjects];
-   
-    UINavigationController *navController = self.navigationController;
-    [navController popViewControllerAnimated:NO];
-    [navController popViewControllerAnimated:YES];
-    
-}
+
 #pragma mark Uses ToolBar button
 //Button to switch to the uses view
 -(IBAction)tbUses:(id)sender
@@ -262,7 +275,7 @@
 #pragma mark Close Button
 //action to take when the close button has been touched.
 - (IBAction)tbClose:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:Nil];
+    [self ClearAndExit];
 }
 #pragma mark Table Edit Rows
 //function for table editing

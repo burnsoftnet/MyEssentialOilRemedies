@@ -15,9 +15,11 @@
     NSMutableArray *oilCollection;
     sqlite3 *OilDB;
 }
+
+#pragma mark Get All Search Data
+//Public Function that will combine the searchAllOilsAllData and searchAllRemediesAllData Private function into one array.
 -(NSMutableArray *) getAllSearchData:(NSString *) dbPath ErrorMessage:(NSString *) errorMsg
 {
-    //Public Function that will combine the searchAllOilsAllData and searchAllRemediesAllData Private function into one array.
     NSMutableArray *myOilCollection;
     NSMutableArray *MyRemedyCollection;
     myOilCollection = [NSMutableArray new];
@@ -27,9 +29,11 @@
     MyRemedyCollection = [self searchAllRemediesAllData:dbPath ErrorMessage:&errorMsg];
     return [[myOilCollection arrayByAddingObjectsFromArray:MyRemedyCollection] mutableCopy];
 }
+
+#pragma mark Get All Search Data Simple
+//Public Function that will combine the searchAllOilsListSimple and the SearchAllRemediesSimple Private functions into one array.
 -(NSMutableArray *) getAllSearchDataSimple:(NSString *) dbPath ErrorMessage:(NSString *) errorMsg
 {
-    //Public Function that will combine the searchAllOilsListSimple and the SearchAllRemediesSimple Private functions into one array.
     NSMutableArray *myOilCollection;
     NSMutableArray *MyRemedyCollection;
     myOilCollection = [NSMutableArray new];
@@ -39,9 +43,11 @@
     MyRemedyCollection = [self searchAllRemediesSimple:dbPath ErrorMessage:&errorMsg];
     return [[myOilCollection arrayByAddingObjectsFromArray:MyRemedyCollection] mutableCopy];
 }
+
+#pragma mark Search All Oils Simple List
+//Private Function that will put all the Oils by Name in an Array
 -(NSMutableArray *) searchAllOilsListSimple :(NSString *) dbPath ErrorMessage: (NSString **) errorMsg;
 {
-    //Private Function that will put all the Oils by Name in an Array
     oilCollection = [NSMutableArray new];
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
@@ -61,9 +67,11 @@
     }
     return oilCollection;
 }
+
+#pragma mark Simple Search all Remedies
+//Private Function that will put all the Remedies by Name in an Array.
 -(NSMutableArray *) searchAllRemediesSimple :(NSString *)dbPathString ErrorMessage:(NSString **)errorMsg
 {
-    //Private Function that will put all the Remedies by Name in an Array.
     remedyCollection = [NSMutableArray new];
     sqlite3_stmt *statement;
     if ( sqlite3_open([dbPathString UTF8String],&OilDB) == SQLITE_OK) {
@@ -83,9 +91,11 @@
     }
     return  remedyCollection;
 }
+
+#pragma mark Search All Remedies All Data
+//Private Function that is mostly used to combine the results from the Remedies table.  Mostly used for search.
 -(NSMutableArray *) searchAllRemediesAllData : (NSString *)dbPathString ErrorMessage:(NSString **)errorMsg
 {
-    //Private Function that is mostly used to combine the results from the Remedies table.  Mostly used for search.
     remedyCollection = [NSMutableArray new];
     sqlite3_stmt *statement;
     if ( sqlite3_open([dbPathString UTF8String],&OilDB) == SQLITE_OK) {
@@ -110,9 +120,11 @@
     }
     return remedyCollection;
 }
+
+#pragma mark Search All Oils All Data
+//Private Function that is mostly used to combine the results from the Oils Table.  Mostly used for search.
 -(NSMutableArray *) searchAllOilsAllData : (NSString *) dbPathString ErrorMessage:(NSString **)errorMsg
 {
-    //Private Function that is mostly used to combine the results from the Oils Table.  Mostly used for search.
     oilCollection  = [NSMutableArray new];
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPathString UTF8String],&OilDB) ==SQLITE_OK) {
@@ -138,14 +150,15 @@
     }
     return  oilCollection;
 }
+#pragma mark Get Oil ID by Name
+/*
+ Public Function that will return the ID of the oil in the database if it is found in the database.
+ This is mostly used in the search function since the display is not based on Object ID but by name so
+ we need to figure out if it is an oil or a remedy since both the results are combined.
+ If 0 if returned then it is something that is not in the Oil Database by that name.
+ */
 -(NSInteger) isOilbyName:(NSString *) sValue databasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
-    /* 
-        Public Function that will return the ID of the oil in the database if it is found in the database.
-        This is mostly used in the search function since the display is not based on Object ID but by name so
-        we need to figure out if it is an oil or a remedy since both the results are combined.
-        If 0 if returned then it is something that is not in the Oil Database by that name.
-    */
     NSInteger iAns = 0;
     sqlite3_stmt *statement;
     if ( sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK)
@@ -166,14 +179,16 @@
     }
     return iAns;
 }
+
+#pragma mark Get Remedy ID by Name
+/*
+ Public Function that will return the ID of the Remedy in the database if it is found in the database.
+ This is mostly used in the search function since the display is not based on Object ID but by name so
+ we need to figure out if it is an oil or a remedy since both the results are combined.
+ If 0 is returned then it is something that is not in the Remedy Database by that name.
+ */
 -(NSInteger) isRemedybyName:(NSString *) sValue databasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
-    /*
-        Public Function that will return the ID of the Remedy in the database if it is found in the database.
-        This is mostly used in the search function since the display is not based on Object ID but by name so
-        we need to figure out if it is an oil or a remedy since both the results are combined.
-     If 0 is returned then it is something that is not in the Remedy Database by that name.
-     */
     NSInteger iAns = 0;
     sqlite3_stmt *statement;
     if ( sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK)

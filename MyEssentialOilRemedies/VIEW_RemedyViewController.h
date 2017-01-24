@@ -42,7 +42,7 @@
 
 - (IBAction)tbOils:(id)sender;
 - (IBAction)tbUses:(id)sender;
-- (IBAction)tbSave:(id)sender;
+- (IBAction)tbEdit:(id)sender;
 - (IBAction)tbDescription:(id)sender;
 - (IBAction)tbClose:(id)sender;
 

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-BOOL BUGGERME = NO;
+BOOL BUGGERME = YES;
 
 @interface AppDelegate ()
 
