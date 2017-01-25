@@ -482,6 +482,7 @@
 					};
 					A505B04C1D09A76900800310 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = MF94VYSKL4;
 						TestTargetID = A505B0301D09A76900800310;
 					};
 					A505B0571D09A76900800310 = {
@@ -766,6 +767,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = MF94VYSKL4;
 				INFOPLIST_FILE = MyEssentialOilRemediesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesTests;
@@ -778,6 +780,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = MF94VYSKL4;
 				INFOPLIST_FILE = MyEssentialOilRemediesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesTests;
