@@ -18,7 +18,8 @@
 @end
 
 @implementation LIST_OilRemediesViewController
-#pragma mark For/View Sub and Functions
+#pragma mark Controller Load
+//Actions to take when the Controller Loads
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupGlobalVars];
@@ -33,7 +34,13 @@
     //Set TableView to delete mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
 }
-
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self reloadCrap];
+}
+#pragma mark Did Recieve Memory Warning
+// Dispose of any resources that can be recreated.
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -67,6 +74,8 @@
     myOilCollection = [myObj getAllRemedies:dbPathString :&errorMsg];
     [myFunctions checkForError:errorMsg MyTitle:@"LoadData" ViewController:self];
     [[self myTableView] reloadData];
+    
+    [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[myOilCollection count]];
 }
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

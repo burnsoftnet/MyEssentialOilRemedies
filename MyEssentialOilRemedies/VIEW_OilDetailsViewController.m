@@ -25,6 +25,8 @@
 {
 
 }
+#pragma mark Controller Load
+//Actions to take when the Controller Loads
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSettings];
@@ -33,11 +35,14 @@
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editOils)];
     self.navigationItem.rightBarButtonItem = editButton;
 }
-
+#pragma mark Did Recieve Memory Warning
+// Dispose of any resources that can be recreated.
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark Edit Oils
+// Action to take when the Exit option is selected from the table.
 - (void) editOils {
     EDIT_OilDetailViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOils"];
     destViewController.OID = self.OID;
@@ -53,6 +58,8 @@
        destViewController.OID = self.OID;
     }
 }
+#pragma mark Load Settings
+// Load Database Path and set the borders for the labels and text view
 -(void) loadSettings
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];

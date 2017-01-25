@@ -74,7 +74,7 @@
     self.txtOilName.text=@"";
 }
 #pragma mark Did Recieve Memory Warning
-//when you are fucking with the memory
+// Dispose of any resources that can be recreated.
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

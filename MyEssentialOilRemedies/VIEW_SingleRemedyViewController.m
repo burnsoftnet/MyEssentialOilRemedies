@@ -142,18 +142,23 @@
 }
 
 #pragma mark Toolbar Save Button
+// Save information and Exit
+//Might not be in use.
 - (IBAction)tbSave:(id)sender {
     //[self runToView:@"EditRemedy_Description_ViewController"];
 }
 #pragma mark Toolbar Description Button
+// Switch to the Descriptions view
 - (IBAction)tbDescription:(id)sender {
     [self changeCurrentViewTo:1];
 }
 #pragma mark Toolbar Close Button
+// Close the entire view
 - (IBAction)tbClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
 #pragma mark Toolbar Oils Button
+// Switch to the Oils View
 - (IBAction)tbOils:(id)sender {
     [self changeCurrentViewTo:2];
 }
@@ -185,10 +190,12 @@
     currView = iValue;
 }
 #pragma mark Toolbar Uses Button
+// Switch to Use's View
 - (IBAction)tbUses:(id)sender {
     [self changeCurrentViewTo:3];
 }
 #pragma mark View popup WIndow for details
+// Setup to Presentation for the Pop View Controllers
 - (void)setPresentationStyleForSelfController:(UIViewController *)selfController presentingController:(UIViewController *)presentingController
 {
     presentingController.providesPresentationContextTransitionStyle = YES;
@@ -196,36 +203,43 @@
     [presentingController setModalPresentationStyle:UIModalPresentationOverCurrentContext];
 }
 #pragma mark Prepare for Segue
+//Actions to Take before moving to next controller
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //TODO: LINK The Ability to Edit Remedy from the Tab Button.
     if ([segue.identifier isEqualToString:@"segueViewOilPopUpSearch"]){
         PopUpOilSearchViewController *popup = segue.destinationViewController;
         popup.myOilName = SelectedCellID;
         [self setPresentationStyleForSelfController:self presentingController:popup];
     } else if ([segue.identifier isEqualToString:@"segueEditRemedyFromSearch"]){
-        //TODO: Edit Window Appears, but can't swtich to shit!!!
         EDIT_RemedyViewController *editMe = segue.destinationViewController;
         editMe.RID=self.RID;
         [self setPresentationStyleForSelfController:self presentingController:editMe];
     }
 }
-#pragma mark TableView Edit Rows
+
+#pragma mark Table Set Cell Data
+//set the cell data by use of an array
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
-#pragma mark TableView Number of Sections
+
+#pragma mark Table Set Sections
+//set the sections in the table
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
-#pragma mark TableView Number of Rows
+
+#pragma mark Table Set Number of Rows
+//set the number of rows int he table
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return  [myOilCollection count];
 }
-#pragma mark TableView Did Select Rows
+
+#pragma mark Table Row Selected
+//actions to take when a row has been selected.
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -235,7 +249,8 @@
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     [self performSegueWithIdentifier:@"segueViewOilPopUpSearch" sender:self];
 }
-#pragma mark TableView Load Cells
+#pragma mark Table Set Cell Data
+//set the cell data by use of an array
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier=@"Cell";

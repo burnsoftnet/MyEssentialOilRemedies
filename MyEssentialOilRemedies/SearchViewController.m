@@ -21,27 +21,32 @@
     NSString *dbPathString;
     NSString *SelectedCellID;
 }
-
+#pragma mark On Form Load
+//When form first loads
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //TODO: Finish figuring this out
     [self setupGlobalVars];
 
-    
     SearchResultsViewController *searchResults = (SearchResultsViewController *)self.controller.searchResultsController;
     [self addObserver:searchResults forKeyPath:@"results" options:NSKeyValueObservingOptionNew context:nil];
 }
 
+#pragma mark Did Recieve Memory Warning
+// Dispose of any resources that can be recreated.
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
+#pragma mark Global Variables
+// Setup the Global variables
 -(void)setupGlobalVars
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     dbPathString = [myObj getDatabasePath:@MYDBNAME];
 }
+
+#pragma mark My Combine Results Array
+// Define the main results array
 - (NSMutableArray *) myCombinedResults
 {
     //In the sample code, myCombinedResults replaced data
@@ -52,6 +57,8 @@
     }
     return _myCombinedResults;
 }
+#pragma mark Combine Results
+// Combine the arrays from both results from the oils and remedies
 -(NSMutableArray *) combineOilsandRemedies
 {
     SearchDatabase *myObj = [SearchDatabase new];
@@ -79,7 +86,7 @@
     {
         isRemedy = YES;
     }
-    //TODO: This section is broken when zipping to form
+
     if (isOil && !isRemedy)
     {
         //What was selected is an Oil and not a Remedy so Prep View Oil Sheet
@@ -105,6 +112,8 @@
         [myObjF sendMessage:myMsg MyTitle:myMsg ViewController:self];
     }
 }
+#pragma mark Table Row Selected
+//actions to take when a row has been selected.
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -112,7 +121,8 @@
     NSString *myName = cell.textLabel.text;
     [self findLocationofSelection:myName];
 }
-
+#pragma mark Controller
+// Define the controller for the search results
 - (UISearchController *)controller {
     
     if (!_controller) {
@@ -131,20 +141,27 @@
     }
     return _controller;
 }
-
+#pragma mark Table Edit Rows
+//function for table editing
 - (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
-
+#pragma mark Sections in Table View
+// define the number of sections in the table view
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+#pragma mark Table Set Sections
+//set the sections in the table
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.myCombinedResults.count;
 }
+
+#pragma mark Table Set Cell Data
+//set the cell data by use of an array
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
@@ -152,7 +169,8 @@
 
     return cell;
 }
-
+#pragma mark Update the Search Results
+//Update the search results table with the filtered results
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     
     // filter the search results
@@ -170,9 +188,9 @@
     
     //NSLog(@"Search Results are: %@", [self.results description]);
 }
-
+#pragma mark Search Button
+// Present the search controller when the button is clicked
 - (IBAction)btnSearch:(id)sender {
-    // present the search controller
     [self presentViewController:self.controller animated:YES completion:nil];
 }
 @end

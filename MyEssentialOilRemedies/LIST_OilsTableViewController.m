@@ -20,7 +20,8 @@
 @end
 
 @implementation LIST_OilsTableViewController
-#pragma mark Form Subs and Functions
+#pragma mark Controller Load
+//Actions to take when the Controller Loads
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupGlobalVars];
@@ -35,33 +36,39 @@
     //Set Tableview to Delete Mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
     
-
 }
-
+#pragma mark View will reappear
+//Sub when the form reloads
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reloadData];
 }
+#pragma mark View did reappear
+//Sub when the form reloads
 - (void) viewDidAppear:(BOOL)animated
 {
     
 }
+#pragma mark Did Recieve Memory Warning
+// Dispose of any resources that can be recreated.
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
+#pragma mark Refresh Table Data
+// when you swipe down on the table, it will reload the data
 - (IBAction)refresh:(UIRefreshControl *)sender {
     [self.myTableView reloadData];
         [self loadData];
     [sender endRefreshing];
 }
-#pragma mark
-#pragma mark Local Subs and Functions
+#pragma mark Reload Data
+//  Reload the data as is the for first appeared
 -(void) reloadData {
     [self setupGlobalVars];
     [self loadData];
 }
-
+#pragma mark Setup Global Variables
+// Setup the global variablies like the database path
 -(void) setupGlobalVars
 {
     BurnSoftDatabase *myPath = [BurnSoftDatabase new];
@@ -71,6 +78,9 @@
     [myFunctions doBuggermeMessage:dbPathString FromSubFunction:@"LIST_OilsTableViewController.setupGlobalVars.DatabasePath"];
     myOilCollection = [NSMutableArray new];
 }
+
+#pragma mark Load Data
+// Load the data from the database into the local array
 - (void) loadData
 {
     [myOilCollection removeAllObjects];
@@ -80,25 +90,31 @@
     myOilCollection = [myObj getAllOilsList:dbPathString :&errorMsg];
     [myFunctions checkForError:errorMsg MyTitle:@"LoadData:" ViewController:self];
     [[self myTableView] reloadData];
+    [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[myOilCollection count]];
     
 }
-#pragma mark
-#pragma mark - Table view data source
 
+#pragma mark Table set Edit Mode
+// Set if you can edit the table by swiping left to view options.
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
 
+#pragma mark Table Set Sections
+//set the sections in the table
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
+#pragma mark Table Set Number of Rows
+//set the number of rows int he table
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [myOilCollection count];
 }
-
+#pragma mark Table Set Cell Data
+//set the cell data by use of an array
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -119,7 +135,8 @@
     }
     return cell;
 }
-
+#pragma mark Table Row Selected
+//actions to take when a row has been selected.
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -127,7 +144,8 @@
     SelectedCellID = cellTag;
     [self performSegueWithIdentifier:@"OilSelected" sender:self];
 }
-
+#pragma mark Table Edit actions
+//actions to take when a row has been selected for editing.
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     FormFunctions *myFunctions = [FormFunctions new];
@@ -162,14 +180,17 @@
     deleteAction.backgroundColor = [UIColor redColor];
     return  @[deleteAction,editAction];
 }
-#pragma mark
-#pragma mark - Navigation
+
+#pragma mark Prepare for Segue
+//Actions to take before switching to the next window
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"OilSelected"]) {
         VIEW_OilDetailsViewController *destViewController = (VIEW_OilDetailsViewController *)segue.destinationViewController;
         destViewController.OID = SelectedCellID;
     }
 }
+#pragma mark Add More Oils
+// Sub to add more Oils.
 -(void) addMoreOils {
     [self performSegueWithIdentifier:@"NewOil" sender:self];
 }
