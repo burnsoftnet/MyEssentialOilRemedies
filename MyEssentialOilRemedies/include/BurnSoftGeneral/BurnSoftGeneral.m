@@ -20,6 +20,7 @@
     NSString *sAns = [NSString new];
     sAns = [sValue stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
     sAns = [sAns stringByReplacingOccurrencesOfString:@"`" withString:@"''"];
+    sAns = [sAns stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     return sAns;
 }
 

@@ -257,7 +257,7 @@
 -(NSNumber *) getLastOneEntryIDbyName :(NSString *) name LookForColumnName:(NSString *) searchcolumn GetIDFomColumn:(NSString *) getfromcolumn InTable:(NSString *) tablename DatabasePath:(NSString *) dbPath MessageHandler:(NSString **) msg
 {
     NSNumber *iAns = 0;
-    NSString *sql = [NSString stringWithFormat:@"SELECT %@ from %@ where lower(%@)='%@' limit 1",getfromcolumn,tablename,searchcolumn,[name lowercaseString]];
+    NSString *sql = [NSString stringWithFormat:@"SELECT %@ from %@ where lower(%@)='%@' order by %@ desc limit 1",getfromcolumn,tablename,searchcolumn,[name lowercaseString],getfromcolumn];
     
     if (sqlite3_open([dbPath UTF8String], &MYDB) == SQLITE_OK)
     {
