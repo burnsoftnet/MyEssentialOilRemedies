@@ -11,6 +11,7 @@
 @implementation OilLists
 {
     NSMutableArray *oilCollection;
+    NSMutableArray *remedyCollection;
     sqlite3 *OilDB;
 }
 #pragma mark Get List of Oils Only Name
@@ -41,6 +42,39 @@
         sqlite3_finalize(statement);
     }
     return oilCollection;
+}
+
+#pragma mark Get Remedies that Contain Oil
+//Gets the list of Remedies that have the oil listed in the Oils to remedy table, this does not include anything in the uses and description sections
+-(NSMutableArray *) getRemediesRelatedToOilID :(NSString *) oilID DatabasePath: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg
+{
+    remedyCollection = [NSMutableArray new];
+    sqlite3_stmt * statement;
+    if (sqlite3_open([dbPath UTF8String], &OilDB) == SQLITE_OK)
+    {
+        [remedyCollection removeAllObjects];
+        NSString *sql = [NSString stringWithFormat:@"select rid,remedy from view_oils_in_remedy where OID=%@ order by name COLLATE NOCASE ASC",oilID];
+        int ret = sqlite3_prepare_v2(OilDB,[sql UTF8String],-1, &statement, NULL);
+        if (ret == SQLITE_OK)
+        {
+            while (sqlite3_step(statement)==SQLITE_ROW)
+            {
+                NSString *rid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
+                NSString *name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
+                
+                OilLists * myCollection = [OilLists new];
+                [myCollection setRID:[rid intValue]];
+                [myCollection setRemedyName:name];
+                
+                [remedyCollection addObject:myCollection];
+            }
+            sqlite3_close(OilDB);
+        } else {
+            *errorMsg = [NSString stringWithFormat:@"Error occured while creating select statement for  getRemediesRelatedtoOilID . '%s'", sqlite3_errmsg(OilDB)];
+        }
+        sqlite3_finalize(statement);
+    }
+    return remedyCollection;
 }
 #pragma mark Get List of Oils
 //NOTE: This will Get the List of oils in the table and put them into an Array,

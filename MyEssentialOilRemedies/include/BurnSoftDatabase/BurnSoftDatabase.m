@@ -312,5 +312,31 @@
     
     return sAns;
 }
-
+-(BOOL) VersionExists:(NSString *) myCurrentVersion VersionTable:(NSString *) myTable DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
+{
+    BOOL bAns = NO;
+    NSString *sql = [NSString stringWithFormat:@"select * from %@ where version=%@",myTable,myCurrentVersion];
+    
+    if (sqlite3_open([dbPath UTF8String], &MYDB) == SQLITE_OK)
+    {
+        sqlite3_stmt *statement;
+        int ret = sqlite3_prepare_v2(MYDB, [sql UTF8String], -1, &statement, NULL);
+        if (ret == SQLITE_OK)
+        {
+            while (sqlite3_step(statement) ==SQLITE_ROW)
+            {
+                bAns = YES;
+            }
+            sqlite3_close(MYDB);
+            MYDB = nil;
+        } else {
+            *errorMsg = [NSString stringWithFormat:@"Error while executing statement! %s",sqlite3_errmsg(MYDB)];
+            sqlite3_close(MYDB);
+        }
+        sqlite3_finalize(statement);
+    }else {
+        *errorMsg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
+    }
+    return bAns;
+}
 @end

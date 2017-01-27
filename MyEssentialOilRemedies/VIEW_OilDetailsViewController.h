@@ -13,7 +13,7 @@
 #import "BurnSoftDatabase.h"
 #import <sqlite3.h>
 
-@interface VIEW_OilDetailsViewController : UIViewController
+@interface VIEW_OilDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSString *OID;
 
@@ -28,10 +28,14 @@
 @property (weak, nonatomic) IBOutlet UITextView *lblDescription;
 @property (weak, nonatomic) IBOutlet UILabel *lblVendor;
 @property (weak, nonatomic) IBOutlet UITextView *txtWebsite;
+@property (weak, nonatomic) IBOutlet UIView *viewContent;
+@property (weak, nonatomic) IBOutlet UIView *viewRelatedRemedies;
+@property (weak, nonatomic) IBOutlet UITableView *RelatedRemediesTable;
 
 
 
-
+- (IBAction)tbDescription:(id)sender;
+- (IBAction)tbRelatedRemedies:(id)sender;
 - (IBAction)swUpdateStockStatus:(id)sender;
 - (IBAction)btnClose:(id)sender;
 

@@ -27,6 +27,9 @@
         [myObjFF doBuggermeMessage:@"DEBUG: DBVersion is less than expected!!!" FromSubFunction:@"DBUpgrade"];
         if ([@MYDBVERSION doubleValue] == 1.1) {
             [self dbupgrade11];
+        } else if ([@MYDBVERSION doubleValue] == 1.2) {
+            [self dbupgrade11];
+            [self dbupgrade12];
         }
     } else {
         [myObjFF doBuggermeMessage:@"DEBUG: DBVersion is equal to or greater than expected." FromSubFunction:@"DBUpgrade"];
@@ -45,30 +48,87 @@
     NSString *sqlstmt = [NSString new];
     newDBVersion = 1.1;
     
-    msg = [NSString stringWithFormat:@"DEBUG: Start DBVersion Upgrade to version %.01f", newDBVersion];
-    [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+    if (![myObj VersionExists:[NSString stringWithFormat:@"%f",newDBVersion] VersionTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&msg])
+    {
+        // Send to NSLog if enabled, that the database upgrade is begining
+        msg = [NSString stringWithFormat:@"DEBUG: Start DBVersion Upgrade to version %.01f", newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+        
+        // Alter Table Add New Column "vendor"
+        sqlstmt=@"ALTER TABLE eo_oil_list_details ADD COLUMN vendor STRING(255);";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        // Alter Table Add New Column "vendor_site"
+        sqlstmt=@"ALTER TABLE eo_oil_list_details ADD COLUMN vendor_site TEXT;";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        // Drop View Before Create
+        sqlstmt=@"DROP VIEW view_eo_oil_list_all";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        // Create View
+        sqlstmt=@"CREATE VIEW view_eo_oil_list_all as SELECT ol.ID, ol.name, ol.INSTOCK, old.ID as DetailsID,old.description, old.BotanicalName,old.Ingredients, old.SafetyNotes, old.Color,old.Viscosity, old.CommonName, old.vendor, old.vendor_site from eo_oil_list ol inner join eo_oil_list_details old on old.OID=ol.ID";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        //Update Database to current Version
+        sqlstmt=[NSString stringWithFormat:@"INSERT INTO DB_Version (version) VALUES('%.01f')", newDBVersion];
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        // Send to NSLog if enabled that the database was upgraded
+        msg = [NSString stringWithFormat:@"DEBUG: End DBVersion Upgrade to version %.01f", newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+    } else {
+        msg = [NSString stringWithFormat:@"DEBUG: Database has already had %.01f patch applied!",newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+    }
     
-    sqlstmt=@"ALTER TABLE eo_oil_list_details ADD COLUMN vendor STRING(255);";
-    [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
-    [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
-    
-    sqlstmt=@"ALTER TABLE eo_oil_list_details ADD COLUMN vendor_site TEXT;";
-    [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
-    [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
-    
-    sqlstmt=@"DROP VIEW view_eo_oil_list_all";
-    [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
-    [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
-    
-    sqlstmt=@"CREATE VIEW view_eo_oil_list_all as SELECT ol.ID, ol.name, ol.INSTOCK, old.ID as DetailsID,old.description, old.BotanicalName,old.Ingredients, old.SafetyNotes, old.Color,old.Viscosity, old.CommonName, old.vendor, old.vendor_site from eo_oil_list ol inner join eo_oil_list_details old on old.OID=ol.ID";
-    [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
-    [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
-    
-    sqlstmt=[NSString stringWithFormat:@"INSERT INTO DB_Version (version) VALUES('%.01f')", newDBVersion];
-    [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
-    [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
-    msg = [NSString stringWithFormat:@"DEBUG: End DBVersion Upgrade to version %.01f", newDBVersion];
-    [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+}
+#pragma mark DB Upgrade Version 1.2
+//NOTE: Update Database to version x.x
+//USEDBY: checkDBVersionAgainstExpectedVersion
+-(void) dbupgrade12
+{
+    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+    FormFunctions *myObjFF = [FormFunctions new];
+    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    double newDBVersion = 0;
+    NSString *msg;
+    NSString *sqlstmt = [NSString new];
+    newDBVersion = 1.2;
+    if (![myObj VersionExists:[NSString stringWithFormat:@"%f",newDBVersion] VersionTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&msg])
+    {
+        // Send to NSLog if enabled, that the database upgrade is begining
+        msg = [NSString stringWithFormat:@"DEBUG: Start DBVersion Upgrade to version %.01f", newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+        
+        // Drop View Before Create
+        sqlstmt=@"DROP VIEW view_oils_in_remedy";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        // Create View
+        sqlstmt=@"CREATE VIEW view_oils_in_remedy as SELECT ro.RID,ol.name,ol.instock,ro.ID,ro.OID, rl.name as remedy from eo_remedy_oil_list ro inner join eo_oil_list ol on ol.id=ro.OID inner join eo_remedy_list rl on rl.id=ro.RID";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        //Update Database to current Version
+        sqlstmt=[NSString stringWithFormat:@"INSERT INTO DB_Version (version) VALUES('%.01f')", newDBVersion];
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        // Send to NSLog if enabled that the database was upgraded
+        msg = [NSString stringWithFormat:@"DEBUG: End DBVersion Upgrade to version %.01f", newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+    } else {
+        msg = [NSString stringWithFormat:@"DEBUG: Database has already had %.01f patch applied!",newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+    }
+
 }
 #pragma mark DB Upgrade Version x.x
 //NOTE: Update Database to version x.x
@@ -82,16 +142,22 @@
     NSString *msg;
     NSString *sqlstmt = [NSString new];
     newDBVersion = 0.0;
-    
-    msg = [NSString stringWithFormat:@"DEBUG: Start DBVersion Upgrade to version %.01f", newDBVersion];
-    [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
-    
-    sqlstmt=@"";
-    [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
-    [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
-    
-    msg = [NSString stringWithFormat:@"DEBUG: End DBVersion Upgrade to version %.01f", newDBVersion];
-    [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+    if (![myObj VersionExists:[NSString stringWithFormat:@"%f",newDBVersion] VersionTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&msg])
+    {
+        // Send to NSLog if enabled, that the database upgrade is begining
+        msg = [NSString stringWithFormat:@"DEBUG: Start DBVersion Upgrade to version %.01f", newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+        
+        sqlstmt=@"";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        // Send to NSLog if enabled that the database was upgraded
+        msg = [NSString stringWithFormat:@"DEBUG: End DBVersion Upgrade to version %.01f", newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+    } else {
+        msg = [NSString stringWithFormat:@"DEBUG: Database has already had %.01f patch applied!",newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+    }
 }
-
 @end

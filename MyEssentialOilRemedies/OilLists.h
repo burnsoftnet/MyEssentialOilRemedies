@@ -22,6 +22,8 @@
 @property (nonatomic,strong) NSString *Color;
 @property (nonatomic,strong) NSString *Viscosity;
 @property (nonatomic,strong) NSString *CommonName;
+@property (nonatomic,strong) NSString *RemedyName;
+@property (assign) int RID;
 
 -(NSMutableArray *) getOilNameOnly :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 -(NSMutableArray *) getAllOilsList :(NSString *) dbPath : (NSString **) errorMsg;
@@ -29,5 +31,6 @@
 -(NSMutableArray *) getOutOfStockOilsList :(NSString *) dbPath : (NSString **) errorMsg;
 -(void) deleteOil :(NSString * ) name :(NSString *) oid :(NSString *) dbPath :(NSString **) msg;
 -(void) updateStockStatus :(NSString *) newValue OilID:(NSString *) myOID DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
+-(NSMutableArray *) getRemediesRelatedToOilID :(NSString *) oilID DatabasePath: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 
 @end

@@ -19,8 +19,11 @@
 {
     NSString *dbPathString;
     sqlite3 *MYDB;
-
+    int currView;
+    NSMutableArray *myRelatedRemedies;
 }
+#pragma mark View Did Appear
+//When the view appears again
 - (void) viewDidAppear:(BOOL)animated
 {
 
@@ -31,10 +34,33 @@
     [super viewDidLoad];
     [self loadSettings];
     [self loadData];
+    [self LoadRelatedRemedies];
+    [[self RelatedRemediesTable]setDelegate:self];
+    [[self RelatedRemediesTable]setDataSource:self];
    
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editOils)];
     self.navigationItem.rightBarButtonItem = editButton;
     
+    if (currView == 0) {
+        [self changeCurrentViewTo:1];
+    }
+}
+#pragma mark Change Views
+//This will change the views when a button on the toolbar is touchec
+// 1 is Description view
+// 2 is Related Oils
+-(void)changeCurrentViewTo:(int) iValue
+{
+    switch (iValue) {
+        case 1:
+            self.viewContent.hidden = NO;
+            self.viewRelatedRemedies.hidden = YES;
+            break;
+        case 2:
+            self.viewContent.hidden = YES;
+            self.viewRelatedRemedies.hidden = NO;
+            break;
+    }
 }
 
 #pragma mark Did Recieve Memory Warning
@@ -80,6 +106,17 @@
     [myFunctions setBordersTextView:self.txtWebsite];
     
 }
+#pragma mark Load Related Remedies
+//  Load the related remedies in the table.
+-(void) LoadRelatedRemedies
+{
+    myRelatedRemedies = [NSMutableArray new];
+    OilLists *myObj = [OilLists new];
+    NSString *errMsg = [NSString new];
+    myRelatedRemedies = [myObj getRemediesRelatedToOilID:self.OID DatabasePath:dbPathString ErrorMessage:&errMsg];
+    
+}
+
 #pragma mark Load Data
 //Connect to the database to load the fields with the data from the selected oil.
 - (void) loadData {
@@ -134,6 +171,16 @@
         [objF sendMessage:msg MyTitle:@"OpenDB Error" ViewController:self];
     }
 }
+#pragma mark Tab Description
+// this will show the contentView when the description tab is touched
+- (IBAction)tbDescription:(id)sender {
+    [self changeCurrentViewTo:1];
+}
+#pragma mark Tab Related Remedies
+// this will show the Related Remedies when the Related Remedies tab is touched
+- (IBAction)tbRelatedRemedies:(id)sender {
+    [self changeCurrentViewTo:2];
+}
 #pragma mark Update Stock Status
 //Allow the Use to updated if the oil is in stock or out of stock without having to go into editing.
 - (IBAction)swUpdateStockStatus:(id)sender {
@@ -151,5 +198,40 @@
 //Actions to take when the close button is touched
 - (IBAction)btnClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
+}
+#pragma mark Can Edit Table Row
+// Set the ability to swipe left to edit or delete
+-(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    return NO;
+}
+#pragma mark Number of Sections in Row
+// Display the number of sections in the row
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+#pragma mark Table Number of Rows in Section
+//Count of all the rows
+-(NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [myRelatedRemedies count];
+}
+#pragma mark Populate Table
+// populate the table with data from the array
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+   // OilRemedies *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
+   // cell.textLabel.text = displayCollection.name;
+    //cell.tag = displayCollection.RID;
+    OilLists   *displayCollection = [myRelatedRemedies objectAtIndex:indexPath.row];
+    cell.textLabel.text = displayCollection.RemedyName;
+    cell.tag = displayCollection.RID;
+    return cell;
 }
 @end

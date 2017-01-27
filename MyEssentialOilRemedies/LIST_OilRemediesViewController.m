@@ -84,20 +84,26 @@
         destViewController.RID = SelectedCellID;
     }
 }
-#pragma mark Table Functions
+#pragma mark Can Edit Table Row
+// Set the ability to swipe left to edit or delete
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
-
+#pragma mark Number of Sections in Row
+// Display the number of sections in the row
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+#pragma mark Table Number of Rows in Section
+//Count of all the rows
 -(NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
 {
     return [myOilCollection count];
 }
+#pragma mark Populate Table
+// populate the table with data from the array
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
