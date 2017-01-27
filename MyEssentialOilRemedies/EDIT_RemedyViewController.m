@@ -45,6 +45,7 @@
             }
         }
     }
+    
 }
 #pragma mark View appears again
 //When the view appears again

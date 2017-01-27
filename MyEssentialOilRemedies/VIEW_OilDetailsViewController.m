@@ -34,7 +34,9 @@
    
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editOils)];
     self.navigationItem.rightBarButtonItem = editButton;
+    
 }
+
 #pragma mark Did Recieve Memory Warning
 // Dispose of any resources that can be recreated.
 - (void)didReceiveMemoryWarning {

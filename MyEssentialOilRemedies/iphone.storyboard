@@ -330,11 +330,11 @@
                         <viewControllerLayoutGuide type="bottom" id="xzB-3O-xYE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="d8a-t1-Jae">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1E-mu-1rK">
-                                <frame key="frameInset" minY="119" width="400" height="686"/>
+                                <frame key="frameInset" minY="119" width="400" height="1199"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rtd-rs-aRe">
@@ -348,7 +348,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYI-o5-Lxu">
-                                <frame key="frameInset" minY="119" width="400" height="686"/>
+                                <frame key="frameInset" minY="119" width="400" height="1199"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oil Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nn4-fY-4dj">
@@ -413,7 +413,7 @@
                                 <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kdK-gF-bqZ">
-                                <frame key="frameInset" minY="119" width="400" height="686"/>
+                                <frame key="frameInset" minY="119" width="400" height="1199"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Problem:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGm-gj-2G3">
@@ -450,7 +450,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="400" height="800"/>
+                    <size key="freeformSize" width="400" height="1200"/>
                     <connections>
                         <outlet property="RemedyDescription" destination="cMZ-ea-Bn1" id="6D8-cw-Y7l"/>
                         <outlet property="RemedyName" destination="Kfd-jy-FRU" id="t0T-mj-JYF"/>
@@ -464,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWI-NC-Upr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2106" y="855"/>
+            <point key="canvasLocation" x="2112" y="1034"/>
         </scene>
         <!--View Remedy Details-->
         <scene sceneID="9zl-Uy-Y68">
@@ -1320,140 +1320,256 @@
                         <viewControllerLayoutGuide type="bottom" id="3PA-5e-RF6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QAu-aQ-m5Y">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6h6-Do-rKi">
-                                <frame key="frameInset" width="400" height="832"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="6h6-Do-rKi">
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwO-5p-hne">
-                                        <rect key="frame" x="0.0" y="45" width="400" height="686"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zCj-0x-TkE">
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AI5-3B-8X5">
-                                                <frame key="frameInset" minX="8" minY="24" width="342" height="569"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zCj-0x-TkE">
-                                        <rect key="frame" x="0.0" y="47" width="400" height="686"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oil Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMP-KX-QZZ">
-                                                <frame key="frameInset" minX="8" minY="25" width="75" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="16F-pj-Jdi">
+                                                <items>
+                                                    <barButtonItem title="Description" id="f9L-4A-N2k">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbDescription:" destination="mYW-fm-K7V" id="18h-H9-rIf"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Oils" id="ltV-2J-Xbv">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbOils:" destination="mYW-fm-K7V" id="4DO-Yf-ESI"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Uses" id="G52-Qc-cPh">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbUses:" destination="mYW-fm-K7V" id="M7D-hL-q2Z"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Update" id="Stq-MT-3Bj">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbUpdate:" destination="mYW-fm-K7V" id="G1T-N8-asY"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem width="32.5" style="plain" systemItem="fixedSpace" id="Ler-FB-lIf"/>
+                                                    <barButtonItem title="Close" id="916-bt-mZz">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbClose:" destination="mYW-fm-K7V" id="xYW-CB-TbE"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                                <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </toolbar>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oil Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMP-KX-QZZ">
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="K3U-MK-hGe">
-                                                <frame key="frameInset" minX="96" minY="21" width="260" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="K3U-MK-hGe">
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UUJ-5t-u19">
-                                                <frame key="frameInset" minX="20" minY="119" width="333" height="486"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </tableView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKe-uC-fRg">
-                                                <frame key="frameInset" minX="143" minY="64" width="81" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKe-uC-fRg">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="81" id="F7e-gc-lVr"/>
+                                                </constraints>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
                                                 <state key="normal" title="Add"/>
                                                 <connections>
                                                     <action selector="btnAddOil:" destination="mYW-fm-K7V" eventType="touchUpInside" id="Nfi-b1-kIF"/>
                                                 </connections>
                                             </button>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UUJ-5t-u19">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="486" id="v9G-wg-cix"/>
+                                                </constraints>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="qMP-KX-QZZ" firstAttribute="centerY" secondItem="K3U-MK-hGe" secondAttribute="centerY" id="0Ic-Zj-VIi"/>
+                                            <constraint firstAttribute="trailing" secondItem="16F-pj-Jdi" secondAttribute="trailing" id="Cnc-Yx-aDH"/>
+                                            <constraint firstItem="mKe-uC-fRg" firstAttribute="top" secondItem="K3U-MK-hGe" secondAttribute="bottom" constant="14" id="ND2-DU-0Zu"/>
+                                            <constraint firstItem="UUJ-5t-u19" firstAttribute="leading" secondItem="zCj-0x-TkE" secondAttribute="leading" constant="20" id="OdS-vD-xpb"/>
+                                            <constraint firstItem="16F-pj-Jdi" firstAttribute="leading" secondItem="zCj-0x-TkE" secondAttribute="leading" id="PS8-gO-kD1"/>
+                                            <constraint firstItem="K3U-MK-hGe" firstAttribute="top" secondItem="16F-pj-Jdi" secondAttribute="bottom" constant="12" id="RrL-Pn-Mhb"/>
+                                            <constraint firstAttribute="trailing" secondItem="K3U-MK-hGe" secondAttribute="trailing" constant="47" id="SXo-ax-Lqq"/>
+                                            <constraint firstItem="mKe-uC-fRg" firstAttribute="leading" secondItem="zCj-0x-TkE" secondAttribute="leading" constant="143" id="Snf-Q8-4yj"/>
+                                            <constraint firstItem="UUJ-5t-u19" firstAttribute="top" secondItem="mKe-uC-fRg" secondAttribute="bottom" constant="27" id="aZX-gs-5SE"/>
+                                            <constraint firstItem="K3U-MK-hGe" firstAttribute="leading" secondItem="qMP-KX-QZZ" secondAttribute="trailing" constant="10" id="baK-zP-CO6"/>
+                                            <constraint firstItem="K3U-MK-hGe" firstAttribute="trailing" secondItem="UUJ-5t-u19" secondAttribute="trailing" id="czQ-ov-p1X"/>
+                                            <constraint firstItem="qMP-KX-QZZ" firstAttribute="leading" secondItem="zCj-0x-TkE" secondAttribute="leadingMargin" id="noo-he-zZT"/>
+                                            <constraint firstItem="16F-pj-Jdi" firstAttribute="top" secondItem="zCj-0x-TkE" secondAttribute="top" id="p3W-n0-epI"/>
+                                        </constraints>
                                     </view>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRd-bo-ocH">
-                                        <rect key="frame" x="0.0" y="2" width="400" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <items>
-                                            <barButtonItem title="Description" id="aCM-Fh-hu3">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="tbDescription:" destination="mYW-fm-K7V" id="9eF-2C-2Yq"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Oils" id="cqJ-cT-4X5">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="tbOils:" destination="mYW-fm-K7V" id="ZPC-6H-GgV"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Uses" id="JV7-Mo-vk8">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="tbUses:" destination="mYW-fm-K7V" id="CeR-df-Hft"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Update" id="Sx9-Lz-Oih">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="tbUpdate:" destination="mYW-fm-K7V" id="FvN-h1-vfr"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem width="32.5" style="plain" systemItem="fixedSpace" id="seZ-rw-uKS"/>
-                                            <barButtonItem title="Close" id="jTl-PG-3s1">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="tbClose:" destination="mYW-fm-K7V" id="08d-dW-gTM"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </items>
-                                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </toolbar>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oO8-oM-B2j">
-                                        <rect key="frame" x="0.0" y="47" width="400" height="686"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oO8-oM-B2j">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Problem:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdE-cp-b3a">
-                                                <frame key="frameInset" minX="23" minY="29" width="69" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Problem:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdE-cp-b3a">
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZS-Ab-RGD">
-                                                <frame key="frameInset" minX="20" minY="67" width="93" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZS-Ab-RGD">
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="PQt-Zf-vKM">
-                                                <frame key="frameInset" minX="100" minY="25" width="260" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="PQt-Zf-vKM">
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-gb-3PF">
-                                                <frame key="frameInset" minX="17" minY="96" width="338" height="435"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWd-l3-s89">
+                                                <items>
+                                                    <barButtonItem title="Description" id="Z6q-KB-39t">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbDescription:" destination="mYW-fm-K7V" id="pkH-Hm-6ka"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Oils" id="8zD-tz-Hca">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbOils:" destination="mYW-fm-K7V" id="OGz-DS-TRg"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Uses" id="Z5E-he-CSp">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbUses:" destination="mYW-fm-K7V" id="Byc-yd-HFN"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Update" id="WBB-uZ-mTu">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbUpdate:" destination="mYW-fm-K7V" id="plp-nV-yIZ"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem width="32.5" style="plain" systemItem="fixedSpace" id="ADB-Tk-aYK"/>
+                                                    <barButtonItem title="Close" id="IBf-N9-Utb">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbClose:" destination="mYW-fm-K7V" id="5vx-cr-uUw"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                                <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </toolbar>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-gb-3PF">
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="360" id="CfU-bU-WNx"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="PQt-Zf-vKM" firstAttribute="trailing" secondItem="Nnj-gb-3PF" secondAttribute="trailing" id="1JV-yf-9CX"/>
+                                            <constraint firstAttribute="trailing" secondItem="PQt-Zf-vKM" secondAttribute="trailing" constant="62" id="58i-Qh-dJc"/>
+                                            <constraint firstAttribute="trailing" secondItem="FWd-l3-s89" secondAttribute="trailing" id="6mo-fa-3M1"/>
+                                            <constraint firstItem="Nnj-gb-3PF" firstAttribute="top" secondItem="aZS-Ab-RGD" secondAttribute="bottom" constant="8" symbolic="YES" id="H0W-wg-fix"/>
+                                            <constraint firstAttribute="height" constant="1199" id="Lcf-7A-d8k"/>
+                                            <constraint firstItem="PQt-Zf-vKM" firstAttribute="leading" secondItem="IdE-cp-b3a" secondAttribute="trailing" constant="1" id="OWH-5A-Zha"/>
+                                            <constraint firstItem="aZS-Ab-RGD" firstAttribute="top" secondItem="PQt-Zf-vKM" secondAttribute="bottom" constant="12" id="VeN-kj-uAS"/>
+                                            <constraint firstItem="IdE-cp-b3a" firstAttribute="leading" secondItem="aZS-Ab-RGD" secondAttribute="leading" id="hZj-ux-zYd"/>
+                                            <constraint firstItem="IdE-cp-b3a" firstAttribute="centerY" secondItem="PQt-Zf-vKM" secondAttribute="centerY" id="kcE-cf-jit"/>
+                                            <constraint firstItem="IdE-cp-b3a" firstAttribute="leading" secondItem="oO8-oM-B2j" secondAttribute="leadingMargin" id="koY-KB-MFl"/>
+                                            <constraint firstItem="FWd-l3-s89" firstAttribute="leading" secondItem="oO8-oM-B2j" secondAttribute="leading" id="lSn-ey-nrB"/>
+                                            <constraint firstItem="FWd-l3-s89" firstAttribute="top" secondItem="oO8-oM-B2j" secondAttribute="top" id="pRf-oa-bJT"/>
+                                            <constraint firstItem="PQt-Zf-vKM" firstAttribute="top" secondItem="FWd-l3-s89" secondAttribute="bottom" constant="20" id="pSA-tR-LWL"/>
+                                            <constraint firstItem="aZS-Ab-RGD" firstAttribute="leading" secondItem="Nnj-gb-3PF" secondAttribute="leading" id="zXU-F3-diG"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jwO-5p-hne">
+                                        <subviews>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3s-DV-Crd">
+                                                <items>
+                                                    <barButtonItem title="Description" id="e9O-Yl-qo8">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbDescription:" destination="mYW-fm-K7V" id="doF-MD-bhp"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Oils" id="ZYh-Qp-ZA9">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbOils:" destination="mYW-fm-K7V" id="vVK-cD-pbn"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Uses" id="BTK-o8-cGz">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbUses:" destination="mYW-fm-K7V" id="uPd-wW-uvI"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Update" id="sFj-eg-TYL">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbUpdate:" destination="mYW-fm-K7V" id="0Od-2X-bHp"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem width="32.5" style="plain" systemItem="fixedSpace" id="7Br-TM-UX0"/>
+                                                    <barButtonItem title="Close" id="vmJ-z7-e6v">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbClose:" destination="mYW-fm-K7V" id="aZ7-L1-Ge6"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                                <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </toolbar>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AI5-3B-8X5">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="450" id="OpM-gw-Ezm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="AI5-3B-8X5" firstAttribute="top" secondItem="Z3s-DV-Crd" secondAttribute="bottom" constant="27" id="IDp-xZ-pxi"/>
+                                            <constraint firstAttribute="trailing" secondItem="AI5-3B-8X5" secondAttribute="trailing" constant="47" id="WeC-hi-0yb"/>
+                                            <constraint firstItem="Z3s-DV-Crd" firstAttribute="top" secondItem="jwO-5p-hne" secondAttribute="top" id="c9M-4J-hbp"/>
+                                            <constraint firstItem="AI5-3B-8X5" firstAttribute="leading" secondItem="jwO-5p-hne" secondAttribute="leading" constant="11" id="cC5-x2-b1X"/>
+                                            <constraint firstItem="Z3s-DV-Crd" firstAttribute="leading" secondItem="jwO-5p-hne" secondAttribute="leading" id="kQi-RH-Gx2"/>
+                                            <constraint firstAttribute="trailing" secondItem="Z3s-DV-Crd" secondAttribute="trailing" id="uJe-j0-zKn"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="zCj-0x-TkE" firstAttribute="leading" secondItem="jwO-5p-hne" secondAttribute="leading" id="3WI-LF-0at"/>
+                                    <constraint firstItem="jwO-5p-hne" firstAttribute="trailing" secondItem="zCj-0x-TkE" secondAttribute="trailing" id="4GV-cx-3kg"/>
+                                    <constraint firstAttribute="trailing" secondItem="jwO-5p-hne" secondAttribute="trailing" id="5Yh-VE-n8e"/>
+                                    <constraint firstItem="jwO-5p-hne" firstAttribute="centerX" secondItem="6h6-Do-rKi" secondAttribute="centerX" id="6zp-H9-GpI"/>
+                                    <constraint firstItem="oO8-oM-B2j" firstAttribute="top" secondItem="jwO-5p-hne" secondAttribute="top" id="CBb-ZO-KNV"/>
+                                    <constraint firstItem="oO8-oM-B2j" firstAttribute="bottom" secondItem="jwO-5p-hne" secondAttribute="bottom" id="FPL-Yc-BlW"/>
+                                    <constraint firstItem="oO8-oM-B2j" firstAttribute="leading" secondItem="jwO-5p-hne" secondAttribute="leading" id="Jhz-FO-90k"/>
+                                    <constraint firstItem="jwO-5p-hne" firstAttribute="top" secondItem="zCj-0x-TkE" secondAttribute="top" id="LCu-tL-afd"/>
+                                    <constraint firstAttribute="bottom" secondItem="jwO-5p-hne" secondAttribute="bottom" constant="-68" id="Lc3-7N-scQ"/>
+                                    <constraint firstItem="zCj-0x-TkE" firstAttribute="trailing" secondItem="oO8-oM-B2j" secondAttribute="trailing" id="TNk-aA-CRX"/>
+                                    <constraint firstItem="jwO-5p-hne" firstAttribute="top" secondItem="6h6-Do-rKi" secondAttribute="top" constant="5" id="jPc-YZ-Ubv"/>
+                                    <constraint firstItem="zCj-0x-TkE" firstAttribute="leading" secondItem="6h6-Do-rKi" secondAttribute="leading" id="sC0-yh-ZsH"/>
+                                    <constraint firstItem="zCj-0x-TkE" firstAttribute="bottom" secondItem="jwO-5p-hne" secondAttribute="bottom" id="yXx-9a-aeA"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6h6-Do-rKi" firstAttribute="top" secondItem="QAu-aQ-m5Y" secondAttribute="top" id="11p-2w-obg"/>
+                            <constraint firstAttribute="trailing" secondItem="6h6-Do-rKi" secondAttribute="trailing" id="GAH-e7-Ujl"/>
+                            <constraint firstItem="6h6-Do-rKi" firstAttribute="leading" secondItem="QAu-aQ-m5Y" secondAttribute="leading" id="QwS-cW-oz5"/>
+                            <constraint firstAttribute="bottom" secondItem="6h6-Do-rKi" secondAttribute="bottom" id="vvi-8l-H3U"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="400" height="800"/>
+                    <size key="freeformSize" width="400" height="1200"/>
                     <connections>
                         <outlet property="myTableView" destination="UUJ-5t-u19" id="eDp-a2-OtB"/>
                         <outlet property="txtDescription" destination="Nnj-gb-3PF" id="1Ke-xE-Tq9"/>
@@ -1467,7 +1583,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLu-Kd-aZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2912" y="855"/>
+            <point key="canvasLocation" x="2898" y="1034"/>
         </scene>
         <!--Search Nav-->
         <scene sceneID="xqo-zA-Zqg">
