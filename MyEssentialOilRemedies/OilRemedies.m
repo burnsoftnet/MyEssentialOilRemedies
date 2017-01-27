@@ -15,6 +15,29 @@
     NSMutableArray *EditOilsInRemedy;
     sqlite3 *OilDB;
 }
+#pragma mark Remedy Exists By Name
+// Look up the Remedy by name to see if it already exists in the database, if it doesn't return NO, else yes
+-(BOOL) RemedyExistsByName:(NSString *) oilname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
+{
+    BOOL bAns = NO;
+    
+    if (sqlite3_open([dbPath UTF8String], &OilDB) == SQLITE_OK)
+    {
+        NSString *sql = [NSString stringWithFormat:@"select * from eo_remedy_list where name='%@' COLLATE NOCASE",oilname];
+        sqlite3_stmt *statement;
+        int ret = sqlite3_prepare_v2(OilDB,[sql UTF8String],-1,&statement,NULL);
+        if (ret == SQLITE_OK) {
+            while (sqlite3_step(statement)==SQLITE_ROW) {
+                bAns = YES;
+            }
+            sqlite3_close(OilDB);
+        } else {
+            *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for RemedyExistsByName . '%s'", sqlite3_errmsg(OilDB)];
+        }
+        sqlite3_finalize(statement);
+    }
+    return  bAns;
+}
 #pragma mark Get all Oils for Remedy
 //NOTE: Array to get all the oils needed that have been tagged for a remedy based on the Remedy ID.
 //USEDFOR: View Remedies, Edit Remedies

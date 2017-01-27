@@ -24,6 +24,7 @@
 @property (nonatomic,strong) NSString *oilDeescription; //Oilk Description
 @property (nonatomic,strong) NSString *oilInStock;      //Do i Have this oil in Stock?
 
+-(BOOL) RemedyExistsByName:(NSString *) oilname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 -(NSMutableArray *) getAllOilfForremedyByRID:(NSString *) RID DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **)errorMsg;
 -(NSMutableArray *) getAllOilfForremedyByRIDNameOnly:(NSString *) RID DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **)errorMsg;
 //-(NSMutableArray *) getAllRemediesNameOnly:(NSString *)dbPathString :(NSString **)errorMsg;

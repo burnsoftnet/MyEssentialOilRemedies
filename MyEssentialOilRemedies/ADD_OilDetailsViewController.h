@@ -13,7 +13,7 @@
 #import "MySettings.h"
 #import "FormFunctions.h"
 
-@interface ADD_OilDetailsViewController : UIViewController <UIGestureRecognizerDelegate>
+@interface ADD_OilDetailsViewController : UIViewController <UIGestureRecognizerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txtName;
 @property (weak, nonatomic) IBOutlet UITextField *txtCommonName;
 @property (weak, nonatomic) IBOutlet UITextField *txtBotanicalName;

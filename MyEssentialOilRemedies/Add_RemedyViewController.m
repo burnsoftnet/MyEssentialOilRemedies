@@ -37,6 +37,22 @@
 {
     [self loadSettings];
 }
+#pragma mark Remedy Name Texbox Lost Focus
+// occurs after the usee finished editing the field and touches elsewhere on the form
+- (IBAction)RemedyNameLostFocus:(id)sender {
+    FormFunctions *myObj = [FormFunctions new];
+    OilRemedies *myOilRemedies = [OilRemedies new];
+    
+    NSString *errMsg = [NSString new];
+    NSString *myRemedyName = self.RemedyName.text;
+    
+    if ([myOilRemedies RemedyExistsByName:myRemedyName DatabasePath:dbPathString ErrorMessage:&errMsg])
+    {
+        [myObj sendMessage:[NSString stringWithFormat:@"An remedy already exists with the name %@",myRemedyName] MyTitle:@"Remedy Exists!" ViewController:self];
+    }
+
+}
+
 #pragma mark Form Exits
 //Clean up when the form is leaving
 -(void) viewWillDisappear:(BOOL)animated {

@@ -43,7 +43,29 @@
     }
     return oilCollection;
 }
+#pragma mark "Oil Exists By Name
+// Look up the oil by name to see if it already exists in the database, if it doesn't return NO, else yes
+-(BOOL) oilExistsByName:(NSString *) oilname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
+{
+    BOOL bAns = NO;
 
+    if (sqlite3_open([dbPath UTF8String], &OilDB) == SQLITE_OK)
+    {
+        NSString *sql = [NSString stringWithFormat:@"select * from eo_oil_list where name='%@' COLLATE NOCASE",oilname];
+        sqlite3_stmt *statement;
+        int ret = sqlite3_prepare_v2(OilDB,[sql UTF8String],-1,&statement,NULL);
+        if (ret == SQLITE_OK) {
+            while (sqlite3_step(statement)==SQLITE_ROW) {
+                bAns = YES;
+            }
+            sqlite3_close(OilDB);
+        } else {
+            *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for oilExistsByName . '%s'", sqlite3_errmsg(OilDB)];
+        }
+        sqlite3_finalize(statement);
+    }
+    return  bAns;
+}
 #pragma mark Get Remedies that Contain Oil
 //Gets the list of Remedies that have the oil listed in the Oils to remedy table, this does not include anything in the uses and description sections
 -(NSMutableArray *) getRemediesRelatedToOilID :(NSString *) oilID DatabasePath: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg

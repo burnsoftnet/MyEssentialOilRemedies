@@ -16,7 +16,7 @@
 @interface VIEW_OilDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSString *OID;
-
+@property (strong, nonatomic) NSString *RID;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @property (weak, nonatomic) IBOutlet UILabel *lblCommonName;
 @property (weak, nonatomic) IBOutlet UILabel *lblBotanicalName;

@@ -9,7 +9,7 @@
 
 #import "VIEW_OilDetailsViewController.h"
 #import "EDIT_OilDetailViewController.h"
-
+#import "VIEW_RemedyViewController.h"
 
 @interface VIEW_OilDetailsViewController ()
 
@@ -21,6 +21,7 @@
     sqlite3 *MYDB;
     int currView;
     NSMutableArray *myRelatedRemedies;
+    NSString *SelectedCellID;
 }
 #pragma mark View Did Appear
 //When the view appears again
@@ -84,6 +85,9 @@
     if ([segue.identifier isEqualToString:@"EditOilSegue"]) {
         EDIT_OilDetailViewController * destViewController = (EDIT_OilDetailViewController *)segue.destinationViewController;
        destViewController.OID = self.OID;
+    } else if ([segue.identifier isEqualToString:@"segueViewRemedyFromOils"]) {
+        VIEW_RemedyViewController * destViewController = (VIEW_RemedyViewController *)segue.destinationViewController;
+        destViewController.RID = SelectedCellID;
     }
 }
 #pragma mark Load Settings
@@ -233,5 +237,14 @@
     cell.textLabel.text = displayCollection.RemedyName;
     cell.tag = displayCollection.RID;
     return cell;
+}
+#pragma mark Table Row Selected
+//actions to take when a row has been selected.
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellTag = [NSString stringWithFormat:@"%ld",(long)cell.tag];
+    SelectedCellID = cellTag;
+    [self performSegueWithIdentifier:@"segueViewRemedyFromOils" sender:self];
 }
 @end

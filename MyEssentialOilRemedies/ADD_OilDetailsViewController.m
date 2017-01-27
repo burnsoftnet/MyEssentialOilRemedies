@@ -29,6 +29,22 @@
     [tapGestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:tapGestureRecognizer];
 }
+
+#pragma mark Oil Name Texbox Lost Focus
+// occurs after the usee finished editing the field and touches elsewhere on the form
+- (IBAction)OilNameEditingEnded:(id)sender {
+    FormFunctions *myObj = [FormFunctions new];
+    OilLists *myOilLists = [OilLists new];
+    
+    NSString *errMsg = [NSString new];
+    NSString *myOilName = self.txtName.text;
+    
+    if ([myOilLists oilExistsByName:myOilName DatabasePath:dbPathString ErrorMessage:&errMsg])
+    {
+        [myObj sendMessage:[NSString stringWithFormat:@"An oil already exists with the name %@",myOilName] MyTitle:@"Oil Exists!" ViewController:self];
+    }
+}
+
 #pragma mark Make Keyboard Dissapear
     //Dissmiss the keyboard when the view is selected
 -(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
