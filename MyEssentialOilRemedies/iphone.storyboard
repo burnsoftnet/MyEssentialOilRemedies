@@ -2256,8 +2256,8 @@
         <image name="search.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FVx-dx-Rr4"/>
         <segue reference="tZI-XI-ca5"/>
-        <segue reference="EWW-Fh-Ngj"/>
+        <segue reference="QYv-jo-sTt"/>
+        <segue reference="tE5-8K-Pn9"/>
     </inferredMetricsTieBreakers>
 </document>

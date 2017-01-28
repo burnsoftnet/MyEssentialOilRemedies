@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5033F251E3D3B3500D22B7D /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5033F241E3D3B3500D22B7D /* iPad.storyboard */; };
+		A5033F341E3D3DEF00D22B7D /* iPad_Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F261E3D3DEF00D22B7D /* iPad_Icon-72.png */; };
+		A5033F351E3D3DEF00D22B7D /* iPad_Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F271E3D3DEF00D22B7D /* iPad_Icon-72@2x.png */; };
+		A5033F361E3D3DEF00D22B7D /* iPad_Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F281E3D3DEF00D22B7D /* iPad_Icon-76.png */; };
+		A5033F371E3D3DEF00D22B7D /* iPad_Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F291E3D3DEF00D22B7D /* iPad_Icon-76@2x.png */; };
+		A5033F381E3D3DEF00D22B7D /* iPad_Icon-76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2A1E3D3DEF00D22B7D /* iPad_Icon-76@3x.png */; };
+		A5033F391E3D3DEF00D22B7D /* iPad_Icon-iPadPro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2B1E3D3DEF00D22B7D /* iPad_Icon-iPadPro@2x.png */; };
+		A5033F3A1E3D3DEF00D22B7D /* iPad_Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2C1E3D3DEF00D22B7D /* iPad_Icon-Small-50.png */; };
+		A5033F3B1E3D3DEF00D22B7D /* iPad_Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2D1E3D3DEF00D22B7D /* iPad_Icon-Small-50@2x.png */; };
+		A5033F3C1E3D3DEF00D22B7D /* iPad_Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2E1E3D3DEF00D22B7D /* iPad_Icon-Small.png */; };
+		A5033F3D1E3D3DEF00D22B7D /* iPad_Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2F1E3D3DEF00D22B7D /* iPad_Icon-Small@2x.png */; };
+		A5033F3E1E3D3DEF00D22B7D /* iPad_Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F301E3D3DEF00D22B7D /* iPad_Icon-Small@3x.png */; };
+		A5033F3F1E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F311E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40.png */; };
+		A5033F401E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F321E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@2x.png */; };
+		A5033F411E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F331E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png */; };
 		A505B0361D09A76900800310 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0351D09A76900800310 /* main.m */; };
 		A505B0391D09A76900800310 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0381D09A76900800310 /* AppDelegate.m */; };
 		A505B0421D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */; };
@@ -84,6 +99,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5033F241E3D3B3500D22B7D /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		A5033F261E3D3DEF00D22B7D /* iPad_Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-72.png"; sourceTree = "<group>"; };
+		A5033F271E3D3DEF00D22B7D /* iPad_Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-72@2x.png"; sourceTree = "<group>"; };
+		A5033F281E3D3DEF00D22B7D /* iPad_Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-76.png"; sourceTree = "<group>"; };
+		A5033F291E3D3DEF00D22B7D /* iPad_Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-76@2x.png"; sourceTree = "<group>"; };
+		A5033F2A1E3D3DEF00D22B7D /* iPad_Icon-76@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-76@3x.png"; sourceTree = "<group>"; };
+		A5033F2B1E3D3DEF00D22B7D /* iPad_Icon-iPadPro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-iPadPro@2x.png"; sourceTree = "<group>"; };
+		A5033F2C1E3D3DEF00D22B7D /* iPad_Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-Small-50.png"; sourceTree = "<group>"; };
+		A5033F2D1E3D3DEF00D22B7D /* iPad_Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		A5033F2E1E3D3DEF00D22B7D /* iPad_Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-Small.png"; sourceTree = "<group>"; };
+		A5033F2F1E3D3DEF00D22B7D /* iPad_Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-Small@2x.png"; sourceTree = "<group>"; };
+		A5033F301E3D3DEF00D22B7D /* iPad_Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-Small@3x.png"; sourceTree = "<group>"; };
+		A5033F311E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-Spotlight-40.png"; sourceTree = "<group>"; };
+		A5033F321E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-Spotlight-40@2x.png"; sourceTree = "<group>"; };
+		A5033F331E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-Spotlight-40@3x.png"; sourceTree = "<group>"; };
 		A505B0311D09A76900800310 /* My Essential Oil Remedies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Essential Oil Remedies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A505B0351D09A76900800310 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A505B0371D09A76900800310 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -238,6 +268,7 @@
 				A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */,
 				A505B0341D09A76900800310 /* Supporting Files */,
 				A5C26B541D37BDB000476766 /* iphone.storyboard */,
+				A5033F241E3D3B3500D22B7D /* iPad.storyboard */,
 			);
 			path = MyEssentialOilRemedies;
 			sourceTree = "<group>";
@@ -367,6 +398,20 @@
 		A5E28E7D1D0B4FCE00052005 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A5033F261E3D3DEF00D22B7D /* iPad_Icon-72.png */,
+				A5033F271E3D3DEF00D22B7D /* iPad_Icon-72@2x.png */,
+				A5033F281E3D3DEF00D22B7D /* iPad_Icon-76.png */,
+				A5033F291E3D3DEF00D22B7D /* iPad_Icon-76@2x.png */,
+				A5033F2A1E3D3DEF00D22B7D /* iPad_Icon-76@3x.png */,
+				A5033F2B1E3D3DEF00D22B7D /* iPad_Icon-iPadPro@2x.png */,
+				A5033F2C1E3D3DEF00D22B7D /* iPad_Icon-Small-50.png */,
+				A5033F2D1E3D3DEF00D22B7D /* iPad_Icon-Small-50@2x.png */,
+				A5033F2E1E3D3DEF00D22B7D /* iPad_Icon-Small.png */,
+				A5033F2F1E3D3DEF00D22B7D /* iPad_Icon-Small@2x.png */,
+				A5033F301E3D3DEF00D22B7D /* iPad_Icon-Small@3x.png */,
+				A5033F311E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40.png */,
+				A5033F321E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@2x.png */,
+				A5033F331E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png */,
 				A5841ECC1D8D9C9000DCDC98 /* search.png */,
 				A5D255881D8B167500977619 /* close-icon.png */,
 				A50CF95A1D75C2E10037C7CD /* gear.png */,
@@ -540,29 +585,44 @@
 			files = (
 				A57CB7C41D805F7700380B23 /* MEO.db in Resources */,
 				A5E28E841D0B500700052005 /* TBB_remedies.png in Resources */,
+				A5033F391E3D3DEF00D22B7D /* iPad_Icon-iPadPro@2x.png in Resources */,
 				A50CF95B1D75C2E10037C7CD /* gear.png in Resources */,
+				A5033F411E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png in Resources */,
+				A5033F3D1E3D3DEF00D22B7D /* iPad_Icon-Small@2x.png in Resources */,
 				A5E28E851D0B500700052005 /* TBB_remedies@2x.png in Resources */,
 				A5C26B551D37BDB000476766 /* iphone.storyboard in Resources */,
 				A5E28EA01D0B515300052005 /* Icon-Spotlight-40@2x.png in Resources */,
 				A5E28E951D0B515300052005 /* Icon-60.png in Resources */,
 				A505B0471D09A76900800310 /* LaunchScreen.storyboard in Resources */,
 				A5E28E801D0B4FDD00052005 /* TBB_oils.png in Resources */,
+				A5033F351E3D3DEF00D22B7D /* iPad_Icon-72@2x.png in Resources */,
 				A5E28E961D0B515300052005 /* Icon-60@2x.png in Resources */,
 				A5E28E981D0B515300052005 /* Icon-76.png in Resources */,
 				A5E28EA31D0B515300052005 /* iTunesArtwork@2x in Resources */,
 				A5E28E971D0B515300052005 /* Icon-60@3x.png in Resources */,
 				A5E28E9C1D0B515300052005 /* Icon-Small.png in Resources */,
+				A5033F3B1E3D3DEF00D22B7D /* iPad_Icon-Small-50@2x.png in Resources */,
 				A5D255891D8B167500977619 /* close-icon.png in Resources */,
+				A5033F3A1E3D3DEF00D22B7D /* iPad_Icon-Small-50.png in Resources */,
+				A5033F401E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@2x.png in Resources */,
+				A5033F341E3D3DEF00D22B7D /* iPad_Icon-72.png in Resources */,
+				A5033F3F1E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40.png in Resources */,
+				A5033F381E3D3DEF00D22B7D /* iPad_Icon-76@3x.png in Resources */,
 				A505B0441D09A76900800310 /* Assets.xcassets in Resources */,
 				A5E28E9F1D0B515300052005 /* Icon-Spotlight-40.png in Resources */,
 				A5E28EA11D0B515300052005 /* Icon-Spotlight-40@3x.png in Resources */,
 				A5E28E9E1D0B515300052005 /* Icon-Small@3x.png in Resources */,
+				A5033F251E3D3B3500D22B7D /* iPad.storyboard in Resources */,
 				A5E28E9A1D0B515300052005 /* Icon-76@3x.png in Resources */,
+				A5033F3E1E3D3DEF00D22B7D /* iPad_Icon-Small@3x.png in Resources */,
 				A5E28EA21D0B515300052005 /* iTunesArtwork in Resources */,
 				A5841ECD1D8D9C9000DCDC98 /* search.png in Resources */,
+				A5033F361E3D3DEF00D22B7D /* iPad_Icon-76.png in Resources */,
+				A5033F371E3D3DEF00D22B7D /* iPad_Icon-76@2x.png in Resources */,
 				A5E28E9B1D0B515300052005 /* Icon-iPadPro@2x.png in Resources */,
 				A5E28E9D1D0B515300052005 /* Icon-Small@2x.png in Resources */,
 				A5E28E991D0B515300052005 /* Icon-76@2x.png in Resources */,
+				A5033F3C1E3D3DEF00D22B7D /* iPad_Icon-Small.png in Resources */,
 				A5E28E811D0B4FDD00052005 /* TBB_oils@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -753,7 +813,7 @@
 		A505B0621D09A76900800310 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Universal;
 				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MyEssentialOilRemedies/Info.plist;
@@ -765,14 +825,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemedies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		A505B0631D09A76900800310 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Universal;
 				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -785,7 +845,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemedies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
