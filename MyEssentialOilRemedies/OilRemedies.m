@@ -15,6 +15,7 @@
     NSMutableArray *EditOilsInRemedy;
     sqlite3 *OilDB;
 }
+
 #pragma mark Remedy Exists By Name
 // Look up the Remedy by name to see if it already exists in the database, if it doesn't return NO, else yes
 -(BOOL) RemedyExistsByName:(NSString *) oilname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg

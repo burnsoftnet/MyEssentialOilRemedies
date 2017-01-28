@@ -22,6 +22,10 @@
     [myObj copyDbIfNeeded:@MYDBNAME MessageHandler:nil];
     DBUpgrade *myDB = [DBUpgrade new];
     [myDB checkDBVersionAgainstExpectedVersion];
+    //NSString *dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    //[[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:@"2"];
+    //[[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:@"3"];
+     // [[self navigationController] tabBar].badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[myOilCollection count]];
 }
 #pragma mark Did Recieve Memory Warning
 // Dispose of any resources that can be recreated.

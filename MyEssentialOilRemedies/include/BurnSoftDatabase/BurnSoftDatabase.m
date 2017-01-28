@@ -312,6 +312,9 @@
     
     return sAns;
 }
+#pragma mark Version Exists
+// This will check to see if a previouc version exists of the hotfix, if it exists it will skip updating the database.
+//USEDBY: DBUpgrade.m
 -(BOOL) VersionExists:(NSString *) myCurrentVersion VersionTable:(NSString *) myTable DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     BOOL bAns = NO;
@@ -338,5 +341,31 @@
         *errorMsg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
     }
     return bAns;
+}
+-(int) getTotalNumberofRowsInTable:(NSString *) myTable DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
+{
+    int iAns = 0;
+    NSString *sql = [NSString stringWithFormat:@"select count(*) as mytotal from %@", myTable];
+    if (sqlite3_open([dbPath UTF8String], &MYDB) == SQLITE_OK )
+    {
+        sqlite3_stmt *statement;
+        int ret = sqlite3_prepare_v2(MYDB, [sql UTF8String], -1, &statement, NULL);
+        if (ret == SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                iAns = sqlite3_column_int(statement, 0);
+            }
+            sqlite3_close(MYDB);
+            MYDB = nil;
+        } else {
+            *errorMsg = [NSString stringWithFormat:@"Error while executing statement! %s",sqlite3_errmsg(MYDB)];
+            sqlite3_close(MYDB);
+        }
+        sqlite3_finalize(statement);
+    } else {
+        *errorMsg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
+    }
+    return iAns;
 }
 @end

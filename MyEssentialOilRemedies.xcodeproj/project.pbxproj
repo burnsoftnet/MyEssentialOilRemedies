@@ -24,6 +24,7 @@
 		A52043F11D86F995001AFD40 /* BurnSoftDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */; };
 		A52043F61D86F9DB001AFD40 /* BurnSoftGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */; };
 		A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */; };
+		A5464FCC1E3CF73B006F9A59 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */; };
 		A55062021DD0D865001CF00C /* VIEW_SingleRemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */; };
 		A57BF9DA1D6C96EC005D3113 /* FormFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A57BF9D91D6C96EC005D3113 /* FormFunctions.m */; };
 		A57CB7C41D805F7700380B23 /* MEO.db in Resources */ = {isa = PBXBuildFile; fileRef = A5C4C2231D7F44710073CB2A /* MEO.db */; };
@@ -115,6 +116,7 @@
 		A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftGeneral.m; sourceTree = "<group>"; };
 		A52043F41D86F9DB001AFD40 /* BurnSoftMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftMath.h; sourceTree = "<group>"; };
 		A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftMath.m; sourceTree = "<group>"; };
+		A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A55062001DD0D865001CF00C /* VIEW_SingleRemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_SingleRemedyViewController.h; sourceTree = "<group>"; };
 		A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_SingleRemedyViewController.m; sourceTree = "<group>"; };
 		A57BF9D81D6C96EC005D3113 /* FormFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFunctions.h; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A505B07A1D09A82600800310 /* libsqlite3.0.tbd in Frameworks */,
+				A5464FCC1E3CF73B006F9A59 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +350,7 @@
 		A5C159521E3C153C00F9864B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -494,7 +498,7 @@
 								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -750,6 +754,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MyEssentialOilRemedies/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -768,6 +773,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = MyEssentialOilRemedies/Info.plist;

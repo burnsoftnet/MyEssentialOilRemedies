@@ -35,9 +35,10 @@
 - (IBAction)OilNameEditingEnded:(id)sender {
     FormFunctions *myObj = [FormFunctions new];
     OilLists *myOilLists = [OilLists new];
+    BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     
     NSString *errMsg = [NSString new];
-    NSString *myOilName = self.txtName.text;
+    NSString *myOilName = [myObjG FCString:self.txtName.text];
     
     if ([myOilLists oilExistsByName:myOilName DatabasePath:dbPathString ErrorMessage:&errMsg])
     {

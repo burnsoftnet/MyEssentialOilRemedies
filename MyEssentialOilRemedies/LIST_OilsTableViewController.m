@@ -84,6 +84,7 @@
 - (void) loadData
 {
     [myOilCollection removeAllObjects];
+    BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
     OilLists *myObj  = [OilLists new];
     FormFunctions *myFunctions = [FormFunctions new];
     NSString *errorMsg = [NSString new];
@@ -91,6 +92,7 @@
     [myFunctions checkForError:errorMsg MyTitle:@"LoadData:" ViewController:self];
     [[self myTableView] reloadData];
     [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[myOilCollection count]];
+    [[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d",[myObjDB getTotalNumberofRowsInTable:@"eo_remedy_list" DatabasePath:dbPathString ErrorMessage:nil]]];
     
 }
 

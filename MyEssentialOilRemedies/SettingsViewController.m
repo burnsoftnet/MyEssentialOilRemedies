@@ -142,5 +142,33 @@
     [self presentViewController:alert animated:YES completion:nil];
 
 }
+#pragma mark Backup Database for iTunes
+//This will make a copy of the database for iTunes to to retrived or in case you need to restore.
+//This will make a backup file meo_datetime.bak
+- (IBAction)btnBackUpDatabaseForiTunes:(id)sender
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    FormFunctions *myObjFF = [FormFunctions new];
+    
+    NSDateFormatter *dateFormatter=[NSDateFormatter new];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd_HH_mm_ss"];
+    
+    NSString *newDBName = [NSString new];
+    newDBName = [NSString stringWithFormat:@"meo_backup_%@.db",[dateFormatter stringFromDate:[NSDate date]]];
+    
+    NSError *error;
+    BOOL success;
+    NSString *msg;
+    
+    success = [fileManager copyItemAtPath:dbPathString toPath:newDBName error:&error];
+    if (!success)
+    {
+        msg = [NSString stringWithFormat:@"Error backuping database: %@",[error localizedDescription]];
+        [myObjFF sendMessage:msg MyTitle:@"Backup Error" ViewController:self];
+    } else {
+        msg = [NSString stringWithFormat:@"Backup Successful!"];
+        [myObjFF sendMessage:msg MyTitle:@"Success!" ViewController:self];
+    }
+}
 
 @end
