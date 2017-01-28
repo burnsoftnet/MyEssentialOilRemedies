@@ -82,9 +82,10 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"EditOilSegue"]) {
+    if ([segue.identifier isEqualToString:@"EditOilSegue"] || [segue.identifier isEqualToString:@"segueEditOilFromSearch"] ) {
         EDIT_OilDetailViewController * destViewController = (EDIT_OilDetailViewController *)segue.destinationViewController;
        destViewController.OID = self.OID;
+        destViewController.IsFromSearch = YES;
     } else if ([segue.identifier isEqualToString:@"segueViewRemedyFromOils"]) {
         VIEW_RemedyViewController * destViewController = (VIEW_RemedyViewController *)segue.destinationViewController;
         destViewController.RID = SelectedCellID;
@@ -198,10 +199,15 @@
     OilLists *objO = [OilLists new];
     [objO updateStockStatus:iStock OilID:self.OID DatabasePath:dbPathString ErrorMessage:&errorMsg];
 }
-#pragma mark Close Button
+#pragma mark Close Button from Search
 //Actions to take when the close button is touched
 - (IBAction)btnClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
+}
+#pragma mark Edit Button form Search
+//Actions to take when the edit button from search is touched
+- (IBAction)btnEdit:(id)sender {
+    [self performSegueWithIdentifier:@"segueEditOilFromSearch" sender:self];
 }
 #pragma mark Can Edit Table Row
 // Set the ability to swipe left to edit or delete

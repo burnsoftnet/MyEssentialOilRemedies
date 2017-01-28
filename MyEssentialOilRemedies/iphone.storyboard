@@ -599,9 +599,8 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vnf-tN-mXz">
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="425" id="bxG-TR-Hp0"/>
+                                                    <constraint firstAttribute="height" constant="432" id="bxG-TR-Hp0"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -821,10 +820,10 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="eh9-mG-bCG" kind="show" identifier="segueViewOilFromSearch" id="95I-SB-Pro"/>
                         <segue destination="LWC-eD-2yp" kind="popoverPresentation" identifier="segueViewRemedyFromSearch" popoverAnchorView="Nax-LM-UxF" id="dD2-6i-bND">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
+                        <segue destination="eh9-mG-bCG" kind="show" identifier="segueViewOilFromSearch" id="OGv-12-62f"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="026-sH-vfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1965,6 +1964,14 @@
                                                     <action selector="btnClose:" destination="eh9-mG-bCG" eventType="touchUpInside" id="nLZ-0p-dZG"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkO-WP-7bn">
+                                                <frame key="frameInset" minX="29" minY="6" width="30" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Edit"/>
+                                                <connections>
+                                                    <action selector="btnEdit:" destination="eh9-mG-bCG" eventType="touchUpInside" id="mvV-1t-CC3"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1974,7 +1981,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="vsW-2F-Vxh" secondAttribute="bottom" constant="-23" id="Gb2-il-zEw"/>
-                                    <constraint firstItem="vsW-2F-Vxh" firstAttribute="top" secondItem="6ww-0H-Eza" secondAttribute="top" constant="10" id="P9F-bj-hsj"/>
+                                    <constraint firstItem="vsW-2F-Vxh" firstAttribute="top" secondItem="6ww-0H-Eza" secondAttribute="top" constant="5" id="P9F-bj-hsj"/>
                                     <constraint firstItem="vsW-2F-Vxh" firstAttribute="centerX" secondItem="6ww-0H-Eza" secondAttribute="centerX" id="TsE-q4-c0w"/>
                                     <constraint firstItem="vsW-2F-Vxh" firstAttribute="leading" secondItem="6ww-0H-Eza" secondAttribute="leading" id="nQh-MD-V5Q"/>
                                     <constraint firstAttribute="trailing" secondItem="vsW-2F-Vxh" secondAttribute="trailing" id="uMg-Ve-iHR"/>
@@ -1989,6 +1996,7 @@
                             <constraint firstItem="6ww-0H-Eza" firstAttribute="top" secondItem="BSn-dU-3A4" secondAttribute="top" id="t4p-h0-mUY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="94m-2h-3vc"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="950"/>
                     <connections>
@@ -2001,11 +2009,12 @@
                         <outlet property="lblSafetyNotes" destination="97w-Fy-U3y" id="5DA-AC-zfu"/>
                         <outlet property="lblViscosity" destination="pOk-fj-OgK" id="Dkg-Bd-rJs"/>
                         <outlet property="swInStock" destination="jQf-ye-4uM" id="AHL-oH-mGx"/>
+                        <segue destination="L97-rL-3Wy" kind="show" identifier="segueEditOilFromSearch" id="tZI-XI-ca5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NdQ-NI-e8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="754" y="1763"/>
+            <point key="canvasLocation" x="714" y="1935"/>
         </scene>
         <!--View Remedies From Search-->
         <scene sceneID="YbN-bl-0xS">
@@ -2249,7 +2258,8 @@
         <image name="search.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QYv-jo-sTt"/>
+        <segue reference="FVx-dx-Rr4"/>
+        <segue reference="tZI-XI-ca5"/>
         <segue reference="EWW-Fh-Ngj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -97,9 +97,17 @@
             sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@' where OID=%@",description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website, self.OID];
             
             if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]) {
-                UINavigationController *navController = self.navigationController;
-                [navController popViewControllerAnimated:NO];
-                [navController popViewControllerAnimated:YES];
+                
+                if (!self.IsFromSearch)
+                {
+                    UINavigationController *navController = self.navigationController;
+                    [navController popViewControllerAnimated:NO];
+                    [navController popViewControllerAnimated:YES];
+                } else {
+                    [self dismissViewControllerAnimated:YES completion:Nil];
+                    [self dismissViewControllerAnimated:YES completion:Nil];
+                }
+                
             } else {
                 [myObjF checkForError:msg MyTitle:@"Updating Details" ViewController:self];
             }

@@ -31,6 +31,18 @@
     [self addObserver:searchResults forKeyPath:@"results" options:NSKeyValueObservingOptionNew context:nil];
 }
 
+#pragma mark View will reappear
+//Sub when the form reloads
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self reloadData];
+}
+#pragma mark Reload Data
+//  Reload the data as is the for first appeared
+-(void) reloadData {
+    [self setupGlobalVars];
+    //[self loadData];
+}
 #pragma mark Did Recieve Memory Warning
 // Dispose of any resources that can be recreated.
 - (void)didReceiveMemoryWarning {

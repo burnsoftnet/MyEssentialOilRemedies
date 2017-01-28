@@ -28,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *txtDescription;
 @property (weak, nonatomic) IBOutlet UITextField *txtVendor;
 @property (weak, nonatomic) IBOutlet UITextField *txtWebsite;
-
+@property (assign) BOOL IsFromSearch;
 
 - (IBAction)btnUpdate:(id)sender;
 

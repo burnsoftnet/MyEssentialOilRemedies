@@ -136,6 +136,7 @@
 		A5B02CF01D8846A30004334B /* PopUpOilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpOilViewController.m; sourceTree = "<group>"; };
 		A5BDC4221E1715E600A98652 /* DBUpgrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUpgrade.h; sourceTree = "<group>"; };
 		A5BDC4231E1715E600A98652 /* DBUpgrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUpgrade.m; sourceTree = "<group>"; };
+		A5C159511E3C13FC00F9864B /* My Essential Oil Remedies.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "My Essential Oil Remedies.entitlements"; sourceTree = "<group>"; };
 		A5C26B541D37BDB000476766 /* iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iphone.storyboard; sourceTree = "<group>"; };
 		A5C41FE61D94271700973340 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		A5C41FE71D94271700973340 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
@@ -201,10 +202,12 @@
 		A505B0281D09A76900800310 = {
 			isa = PBXGroup;
 			children = (
+				A5C159511E3C13FC00F9864B /* My Essential Oil Remedies.entitlements */,
 				A505B0331D09A76900800310 /* MyEssentialOilRemedies */,
 				A505B0501D09A76900800310 /* MyEssentialOilRemediesTests */,
 				A505B05B1D09A76900800310 /* MyEssentialOilRemediesUITests */,
 				A505B0321D09A76900800310 /* Products */,
+				A5C159521E3C153C00F9864B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -339,6 +342,13 @@
 				A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		A5C159521E3C153C00F9864B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A5CC047E1D79C36200CBD404 /* BurnSoftDatabase */ = {
@@ -479,6 +489,14 @@
 					A505B0301D09A76900800310 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = MF94VYSKL4;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					A505B04C1D09A76900800310 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -742,6 +760,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemedies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -760,6 +779,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemedies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

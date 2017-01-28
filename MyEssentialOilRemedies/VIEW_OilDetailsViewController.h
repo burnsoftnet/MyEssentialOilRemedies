@@ -38,5 +38,6 @@
 - (IBAction)tbRelatedRemedies:(id)sender;
 - (IBAction)swUpdateStockStatus:(id)sender;
 - (IBAction)btnClose:(id)sender;
+- (IBAction)btnEdit:(id)sender;
 
 @end
