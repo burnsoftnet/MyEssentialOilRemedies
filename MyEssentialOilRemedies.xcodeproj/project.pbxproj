@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A5033F251E3D3B3500D22B7D /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5033F241E3D3B3500D22B7D /* iPad.storyboard */; };
 		A5033F341E3D3DEF00D22B7D /* iPad_Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F261E3D3DEF00D22B7D /* iPad_Icon-72.png */; };
 		A5033F351E3D3DEF00D22B7D /* iPad_Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F271E3D3DEF00D22B7D /* iPad_Icon-72@2x.png */; };
 		A5033F361E3D3DEF00D22B7D /* iPad_Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F281E3D3DEF00D22B7D /* iPad_Icon-76.png */; };
@@ -41,6 +40,11 @@
 		A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */; };
 		A5464FCC1E3CF73B006F9A59 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */; };
 		A55062021DD0D865001CF00C /* VIEW_SingleRemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */; };
+		A5652D8D1E3E5F290029EB7A /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D881E3E5F290029EB7A /* Icon-57.png */; };
+		A5652D8E1E3E5F290029EB7A /* Icon-57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D891E3E5F290029EB7A /* Icon-57@2x.png */; };
+		A5652D8F1E3E5F290029EB7A /* Icon-notification-20.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */; };
+		A5652D901E3E5F290029EB7A /* Icon-notification-20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8B1E3E5F290029EB7A /* Icon-notification-20@2x.png */; };
+		A5652D911E3E5F290029EB7A /* Icon-notification-20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */; };
 		A57BF9DA1D6C96EC005D3113 /* FormFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A57BF9D91D6C96EC005D3113 /* FormFunctions.m */; };
 		A57CB7C41D805F7700380B23 /* MEO.db in Resources */ = {isa = PBXBuildFile; fileRef = A5C4C2231D7F44710073CB2A /* MEO.db */; };
 		A5841ECD1D8D9C9000DCDC98 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = A5841ECC1D8D9C9000DCDC98 /* search.png */; };
@@ -99,7 +103,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A5033F241E3D3B3500D22B7D /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		A5033F261E3D3DEF00D22B7D /* iPad_Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-72.png"; sourceTree = "<group>"; };
 		A5033F271E3D3DEF00D22B7D /* iPad_Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-72@2x.png"; sourceTree = "<group>"; };
 		A5033F281E3D3DEF00D22B7D /* iPad_Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-76.png"; sourceTree = "<group>"; };
@@ -149,6 +152,11 @@
 		A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A55062001DD0D865001CF00C /* VIEW_SingleRemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_SingleRemedyViewController.h; sourceTree = "<group>"; };
 		A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_SingleRemedyViewController.m; sourceTree = "<group>"; };
+		A5652D881E3E5F290029EB7A /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
+		A5652D891E3E5F290029EB7A /* Icon-57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57@2x.png"; sourceTree = "<group>"; };
+		A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20.png"; sourceTree = "<group>"; };
+		A5652D8B1E3E5F290029EB7A /* Icon-notification-20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20@2x.png"; sourceTree = "<group>"; };
+		A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20@3x.png"; sourceTree = "<group>"; };
 		A57BF9D81D6C96EC005D3113 /* FormFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFunctions.h; sourceTree = "<group>"; };
 		A57BF9D91D6C96EC005D3113 /* FormFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFunctions.m; sourceTree = "<group>"; };
 		A5841ECC1D8D9C9000DCDC98 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
@@ -268,7 +276,6 @@
 				A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */,
 				A505B0341D09A76900800310 /* Supporting Files */,
 				A5C26B541D37BDB000476766 /* iphone.storyboard */,
-				A5033F241E3D3B3500D22B7D /* iPad.storyboard */,
 			);
 			path = MyEssentialOilRemedies;
 			sourceTree = "<group>";
@@ -398,6 +405,11 @@
 		A5E28E7D1D0B4FCE00052005 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A5652D881E3E5F290029EB7A /* Icon-57.png */,
+				A5652D891E3E5F290029EB7A /* Icon-57@2x.png */,
+				A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */,
+				A5652D8B1E3E5F290029EB7A /* Icon-notification-20@2x.png */,
+				A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */,
 				A5033F261E3D3DEF00D22B7D /* iPad_Icon-72.png */,
 				A5033F271E3D3DEF00D22B7D /* iPad_Icon-72@2x.png */,
 				A5033F281E3D3DEF00D22B7D /* iPad_Icon-76.png */,
@@ -591,11 +603,15 @@
 				A5033F3D1E3D3DEF00D22B7D /* iPad_Icon-Small@2x.png in Resources */,
 				A5E28E851D0B500700052005 /* TBB_remedies@2x.png in Resources */,
 				A5C26B551D37BDB000476766 /* iphone.storyboard in Resources */,
+				A5652D901E3E5F290029EB7A /* Icon-notification-20@2x.png in Resources */,
+				A5652D911E3E5F290029EB7A /* Icon-notification-20@3x.png in Resources */,
+				A5652D8F1E3E5F290029EB7A /* Icon-notification-20.png in Resources */,
 				A5E28EA01D0B515300052005 /* Icon-Spotlight-40@2x.png in Resources */,
 				A5E28E951D0B515300052005 /* Icon-60.png in Resources */,
 				A505B0471D09A76900800310 /* LaunchScreen.storyboard in Resources */,
 				A5E28E801D0B4FDD00052005 /* TBB_oils.png in Resources */,
 				A5033F351E3D3DEF00D22B7D /* iPad_Icon-72@2x.png in Resources */,
+				A5652D8E1E3E5F290029EB7A /* Icon-57@2x.png in Resources */,
 				A5E28E961D0B515300052005 /* Icon-60@2x.png in Resources */,
 				A5E28E981D0B515300052005 /* Icon-76.png in Resources */,
 				A5E28EA31D0B515300052005 /* iTunesArtwork@2x in Resources */,
@@ -605,6 +621,7 @@
 				A5D255891D8B167500977619 /* close-icon.png in Resources */,
 				A5033F3A1E3D3DEF00D22B7D /* iPad_Icon-Small-50.png in Resources */,
 				A5033F401E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@2x.png in Resources */,
+				A5652D8D1E3E5F290029EB7A /* Icon-57.png in Resources */,
 				A5033F341E3D3DEF00D22B7D /* iPad_Icon-72.png in Resources */,
 				A5033F3F1E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40.png in Resources */,
 				A5033F381E3D3DEF00D22B7D /* iPad_Icon-76@3x.png in Resources */,
@@ -612,7 +629,6 @@
 				A5E28E9F1D0B515300052005 /* Icon-Spotlight-40.png in Resources */,
 				A5E28EA11D0B515300052005 /* Icon-Spotlight-40@3x.png in Resources */,
 				A5E28E9E1D0B515300052005 /* Icon-Small@3x.png in Resources */,
-				A5033F251E3D3B3500D22B7D /* iPad.storyboard in Resources */,
 				A5E28E9A1D0B515300052005 /* Icon-76@3x.png in Resources */,
 				A5033F3E1E3D3DEF00D22B7D /* iPad_Icon-Small@3x.png in Resources */,
 				A5E28EA21D0B515300052005 /* iTunesArtwork in Resources */,
