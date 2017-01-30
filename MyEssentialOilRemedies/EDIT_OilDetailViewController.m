@@ -30,6 +30,10 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapReceived:)];
     [tapGestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:tapGestureRecognizer];
+    
+    //Create an Add Button in Nav Bat
+    UIBarButtonItem *updateButton = [[UIBarButtonItem alloc]initWithTitle:@"Update" style:UIBarButtonItemStylePlain target:self action:@selector(updateOils)];
+    self.navigationItem.rightBarButtonItem = updateButton;
 }
 #pragma mark Make Keyboard Dissapear
 //When the view is selected, make the keyboard dissapear
@@ -64,9 +68,8 @@
         destViewController.OID = self.OID;
     }
 }
-#pragma mark Update Button
-//Actions to take when the Update button is touched
-- (IBAction)btnUpdate:(id)sender {
+-(void)updateOils
+{
     BurnSoftGeneral *myObjOF = [BurnSoftGeneral new];
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
     FormFunctions *myObjF = [FormFunctions new];
@@ -115,7 +118,12 @@
     } else {
         [myObjF checkForError:msg MyTitle:@"Updating Name" ViewController:self];
     }
-    
+
+}
+#pragma mark Update Button
+//Actions to take when the Update button is touched
+- (IBAction)btnUpdate:(id)sender {
+    [self updateOils];
 }
 #pragma mark Load Settings
 //Loads the Database Path and the borders to the textboxes

@@ -21,18 +21,35 @@
     [super viewDidLoad];
     [self LoadSettings];
     [self loadVersioning];
+    [self loadFileListings];
     
     //Read backup files
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
     
-    //File Dump method
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self reloadData];
+}
+-(void) reloadData
+{
+    [self LoadSettings];
+    [self loadVersioning];
+    [self loadFileListings];
+    [self.myTableView reloadData];
+}
+#pragma mark Load File Data
+//  Load the contents of the docs directory
+-(void) loadFileListings
+{
+    filePathsArray = [NSArray new];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
     filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.bak'"]];
 }
-
 #pragma mark Load Settings
 // Load the Database Path
 -(void) LoadSettings;
@@ -187,6 +204,7 @@
         [myObjFF sendMessage:msg MyTitle:@"Success!" ViewController:self];
     }
     //[self dismissViewControllerAnimated:YES completion:Nil];
+    [self reloadData];
 }
 -(BOOL)DeleteFileByName:(NSString *) sFile
 {
@@ -289,6 +307,7 @@
         } else {
             [myObjFF sendMessage:@"Unable to delete Main Database before copy" MyTitle:@"Restore Error" ViewController:self];
         }
+        [self reloadData];
     }];
     RestoreAction.backgroundColor = [UIColor blueColor];
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
@@ -299,6 +318,7 @@
         } else {
             [myObjFF sendMessage:[NSString stringWithFormat:@"Unable to delete backup file: %@!",cellTag] MyTitle:@"Backup Deleted Error" ViewController:self];
         }
+        [self reloadData];
     }];
     deleteAction.backgroundColor = [UIColor redColor];
     return  @[deleteAction,RestoreAction];
