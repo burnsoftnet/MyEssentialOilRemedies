@@ -6,6 +6,19 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>My Essential Oil Remedies</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array/>
+			<key>CFBundleTypeName</key>
+			<string>MEO Database</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>net.burnsoft.MyEssentialOilRemedies.db</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -38,6 +51,32 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTExportedTypeDeclarations</key>
+			<array>
+				<dict>
+					<key>UTTypeConformsTo</key>
+					<array>
+						<string></string>
+					</array>
+					<key>UTTypeIdentifier</key>
+					<string></string>
+					<key>UTTypeTagSpecification</key>
+					<dict/>
+				</dict>
+			</array>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.apple.package</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string></string>
+			<key>UTTypeIdentifier</key>
+			<string>net.burnsoft.MyEssentialOilRemedies.db</string>
+		</dict>
 	</array>
 </dict>
 </plist>

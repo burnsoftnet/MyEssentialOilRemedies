@@ -552,7 +552,7 @@
 						DevelopmentTeam = MF94VYSKL4;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.iCloud = {
 								enabled = 1;
