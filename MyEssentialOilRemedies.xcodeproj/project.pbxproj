@@ -45,6 +45,7 @@
 		A5652D8F1E3E5F290029EB7A /* Icon-notification-20.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */; };
 		A5652D901E3E5F290029EB7A /* Icon-notification-20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8B1E3E5F290029EB7A /* Icon-notification-20@2x.png */; };
 		A5652D911E3E5F290029EB7A /* Icon-notification-20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */; };
+		A567E9C01E3FBCE700C45DE8 /* CloudHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A567E9BF1E3FBCE600C45DE8 /* CloudHelper.m */; };
 		A57BF9DA1D6C96EC005D3113 /* FormFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A57BF9D91D6C96EC005D3113 /* FormFunctions.m */; };
 		A57CB7C41D805F7700380B23 /* MEO.db in Resources */ = {isa = PBXBuildFile; fileRef = A5C4C2231D7F44710073CB2A /* MEO.db */; };
 		A5841ECD1D8D9C9000DCDC98 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = A5841ECC1D8D9C9000DCDC98 /* search.png */; };
@@ -157,6 +158,8 @@
 		A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20.png"; sourceTree = "<group>"; };
 		A5652D8B1E3E5F290029EB7A /* Icon-notification-20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20@2x.png"; sourceTree = "<group>"; };
 		A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20@3x.png"; sourceTree = "<group>"; };
+		A567E9BE1E3FBCE600C45DE8 /* CloudHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudHelper.h; sourceTree = "<group>"; };
+		A567E9BF1E3FBCE600C45DE8 /* CloudHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudHelper.m; sourceTree = "<group>"; };
 		A57BF9D81D6C96EC005D3113 /* FormFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFunctions.h; sourceTree = "<group>"; };
 		A57BF9D91D6C96EC005D3113 /* FormFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFunctions.m; sourceTree = "<group>"; };
 		A5841ECC1D8D9C9000DCDC98 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
@@ -337,6 +340,8 @@
 				A59C1FB11D95949000A4E337 /* SearchDatabase.m */,
 				A5BDC4221E1715E600A98652 /* DBUpgrade.h */,
 				A5BDC4231E1715E600A98652 /* DBUpgrade.m */,
+				A567E9BE1E3FBCE600C45DE8 /* CloudHelper.h */,
+				A567E9BF1E3FBCE600C45DE8 /* CloudHelper.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -683,6 +688,7 @@
 				A505B0361D09A76900800310 /* main.m in Sources */,
 				A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */,
 				A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */,
+				A567E9C01E3FBCE700C45DE8 /* CloudHelper.m in Sources */,
 				A505B0421D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld in Sources */,
 				A5AA21A81D52377200B42F4A /* Add_RemedyViewController.m in Sources */,
 				A594288F1E19B88100D059BE /* PopUpOilSearchViewController.m in Sources */,

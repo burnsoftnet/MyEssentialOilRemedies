@@ -262,6 +262,7 @@
                                             <constraint firstItem="n4W-De-ZIW" firstAttribute="top" secondItem="2yN-xr-igx" secondAttribute="bottom" constant="15" id="CHm-Tp-YVl"/>
                                             <constraint firstItem="b4f-8t-zVM" firstAttribute="top" secondItem="Ot6-H2-QE3" secondAttribute="bottom" constant="7" id="CNF-z8-ZXu"/>
                                             <constraint firstItem="Gae-yw-Qwk" firstAttribute="top" secondItem="9bE-Oj-5vk" secondAttribute="top" constant="135" id="CNK-EG-dpt"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ot6-H2-QE3" secondAttribute="trailing" constant="20" id="Ddb-HV-SjB"/>
                                             <constraint firstItem="Gae-yw-Qwk" firstAttribute="top" secondItem="Zpj-kr-CVh" secondAttribute="bottom" constant="16" id="Dvr-hh-f9T"/>
                                             <constraint firstAttribute="bottom" secondItem="Hfd-Y8-uGP" secondAttribute="bottom" constant="289" id="Dyf-T3-bCf"/>
                                             <constraint firstItem="Ot6-H2-QE3" firstAttribute="trailing" secondItem="F8u-sy-8jp" secondAttribute="trailing" id="EPE-V5-KY3"/>
@@ -297,6 +298,7 @@
                                             <constraint firstItem="Ot6-H2-QE3" firstAttribute="trailing" secondItem="eXD-J5-95S" secondAttribute="trailing" id="bJM-da-DQs"/>
                                             <constraint firstItem="F8u-sy-8jp" firstAttribute="baseline" secondItem="03d-ox-9yh" secondAttribute="baseline" id="cWn-16-n5p"/>
                                             <constraint firstItem="F8u-sy-8jp" firstAttribute="trailing" secondItem="2yN-xr-igx" secondAttribute="trailing" id="cex-wo-DTG"/>
+                                            <constraint firstItem="Ot6-H2-QE3" firstAttribute="leading" secondItem="lOw-ia-gu8" secondAttribute="trailing" constant="80" id="dFD-fP-WXg"/>
                                             <constraint firstItem="Ot6-H2-QE3" firstAttribute="trailing" secondItem="n4W-De-ZIW" secondAttribute="trailing" id="dpg-8T-g3U"/>
                                             <constraint firstItem="Ot6-H2-QE3" firstAttribute="leading" secondItem="WC5-1H-qVh" secondAttribute="leading" id="eHW-X8-sdE"/>
                                             <constraint firstItem="nal-2R-pU7" firstAttribute="top" secondItem="lOw-ia-gu8" secondAttribute="bottom" constant="11" id="eSm-z7-eUK"/>
@@ -1084,6 +1086,14 @@
                                                     <segue destination="1uJ-FY-zor" kind="show" id="kI5-Ur-Tio"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awY-G7-76w">
+                                                <frame key="frameInset" minX="135" minY="372" width="117" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Backup to iCloud"/>
+                                                <connections>
+                                                    <action selector="btnBackuptoiCloud:" destination="VZV-bY-lJ7" eventType="touchUpInside" id="fqt-r8-6ck"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1125,6 +1135,14 @@
                                             <constraint firstItem="U70-ub-9MW" firstAttribute="baseline" secondItem="FA0-KK-9hV" secondAttribute="baseline" id="ybR-Br-FYO"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8e-Vb-u8O">
+                                        <rect key="frame" x="125" y="420" width="137" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Restore from iCloud"/>
+                                        <connections>
+                                            <action selector="btnRestoreFromiCloud:" destination="VZV-bY-lJ7" eventType="touchUpInside" id="HMn-LF-Srk"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="L9f-nE-Vie" secondAttribute="bottom" constant="5" id="Djb-9h-rvf"/>

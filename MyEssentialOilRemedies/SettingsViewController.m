@@ -14,6 +14,106 @@
     sqlite3 *OilDB;
     NSArray *filePathsArray;
 }
+
+-(NSString *)grabCloudPath {
+    NSString *container = [CloudHelper containerize:@"net.burnsoft.MyEssentialOilRemedies"];
+    NSURL *destinationURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier: container];;
+    NSString *pathToCloudFile = [[NSString stringWithFormat:@"%@",destinationURL] stringByAppendingPathComponent:@"Documents"];
+    NSString *sAns = [pathToCloudFile stringByReplacingOccurrencesOfString:@"file:" withString:@""];
+    sAns = [sAns stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+    return sAns;
+}
+
+-(void) backupDatabaseToiCloud
+{
+    NSString *cloudURL = [self grabCloudPath];
+    FormFunctions *myObjFF = [FormFunctions new];
+    NSError *error;
+    BOOL success;
+    NSString *msg;
+    NSString *newDBName = [NSString stringWithFormat:@"%@/%@",cloudURL,@MYDBNAME];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    //NSLog(@"%@",dbPathString);
+    //NSLog(@"%@",newDBName);
+    
+    //if ([self DeleteFileByPath:<#(NSString *)#>])
+    BOOL okToBackup = NO;
+    if ([fileManager fileExistsAtPath:newDBName]) {
+        if ([self DeleteFileByPath:newDBName])
+        {
+            okToBackup = YES;
+        } else {
+            okToBackup = NO;
+        }
+    }else {
+        okToBackup = YES;
+    }
+    if (okToBackup)
+    {
+        success = [fileManager copyItemAtPath:dbPathString toPath:newDBName error:&error];
+        if (!success)
+        {
+            msg = [NSString stringWithFormat:@"Error backuping database: %@",[error localizedDescription]];
+            [myObjFF sendMessage:msg MyTitle:@"Backup Error" ViewController:self];
+        } else {
+            msg = [NSString stringWithFormat:@"Backup Successful!"];
+            [myObjFF sendMessage:msg MyTitle:@"Success!" ViewController:self];
+        }
+    } else {
+        msg = [NSString stringWithFormat:@"Error backing up database: Unable to delete database."];
+        [myObjFF sendMessage:msg MyTitle:@"Backup Error" ViewController:self];
+    }
+    //NSLog(@"%@",msg);
+}
+-(void) restoreDatabaseFromiCloud
+{
+    NSString *cloudURL = [self grabCloudPath];
+    FormFunctions *myObjFF = [FormFunctions new];
+    NSError *error;
+    BOOL success;
+    NSString *msg;
+    NSString *newDBName = [NSString stringWithFormat:@"%@/%@",cloudURL,@MYDBNAME];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    //NSLog(@"%@",dbPathString);
+    //NSLog(@"%@",newDBName);
+    BOOL okToBackup = NO;
+    
+    if ([fileManager fileExistsAtPath:dbPathString]) {
+        if ([self DeleteFileByPath:dbPathString])
+        {
+            okToBackup = YES;
+        } else {
+            okToBackup = NO;
+        }
+    }else {
+            okToBackup = YES;
+        }
+    
+    if (okToBackup)
+    {
+        success = [fileManager copyItemAtPath:newDBName toPath:dbPathString error:&error];
+        if (!success)
+            {
+                msg = [NSString stringWithFormat:@"Error restoring database: %@",[error localizedDescription]];
+                [myObjFF sendMessage:msg MyTitle:@"Restore Error" ViewController:self];
+            } else {
+                msg = [NSString stringWithFormat:@"Restore Successful!"];
+                [myObjFF sendMessage:msg MyTitle:@"Success!" ViewController:self];
+            }
+    } else {
+        msg = [NSString stringWithFormat:@"Error restoring database: Unable to delete database."];
+        [myObjFF sendMessage:msg MyTitle:@"Restore Error" ViewController:self];
+    }
+
+}
+
+- (IBAction)btnBackuptoiCloud:(id)sender {
+    [self backupDatabaseToiCloud];
+}
+
+- (IBAction)btnRestoreFromiCloud:(id)sender {
+    [self restoreDatabaseFromiCloud];
+}
 #pragma mark On Form Load
 //When form first loads
 -(void)viewDidLoad
@@ -26,7 +126,6 @@
     //Read backup files
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
-    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -206,6 +305,23 @@
     //[self dismissViewControllerAnimated:YES completion:Nil];
     [self reloadData];
 }
+-(BOOL)DeleteFileByPath:(NSString *) sPath
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL success = NO;
+    NSError *error;
+    NSString *msg;
+    
+    success = [fileManager removeItemAtPath:sPath error:&error];
+    if (!success)
+    {
+        msg = [NSString stringWithFormat:@"Error deleting database: %@",[error localizedDescription]];
+    }else {
+        msg = [NSString stringWithFormat:@"Delete Successful!"];
+    }
+    return success;
+}
+
 -(BOOL)DeleteFileByName:(NSString *) sFile
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -218,7 +334,7 @@
     NSError *error;
     BOOL success;
     NSString *msg;
-    NSLog(@"%@",deleteFile);
+    //NSLog(@"%@",deleteFile);
     success = [fileManager removeItemAtPath:deleteFile error:&error];
     if (!success)
     {
