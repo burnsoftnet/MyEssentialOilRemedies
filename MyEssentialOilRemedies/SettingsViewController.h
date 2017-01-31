@@ -11,17 +11,20 @@
 #import "BurnSoftDatabase.h"
 #import "MySettings.h"
 #import "FormFunctions.h"
-#import "CloudHelper.h"
+#import "DatabaseManagement.h"
+//#import "CloudHelper.h"
 
-@interface SettingsViewController : UIViewController <UIAlertViewDelegate,UITableViewDataSource, UITableViewDelegate>
+@interface SettingsViewController : UIViewController <UIAlertViewDelegate>
 - (IBAction)btnClearOils:(id)sender;
 - (IBAction)btnClearRemedies:(id)sender;
 - (IBAction)btnRestoreFactory:(id)sender;
-- (IBAction)btnBackUpDatabaseForiTunes:(id)sender;
+
+//- (IBAction)btnBackUpDatabaseForiTunes:(id)sender;
+
 - (IBAction)btnBackuptoiCloud:(id)sender;
 - (IBAction)btnRestoreFromiCloud:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UITableView *myTableView;
+//@property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UILabel *lblAppVersion;
 @property (weak, nonatomic) IBOutlet UILabel *lblDBVersion;
 

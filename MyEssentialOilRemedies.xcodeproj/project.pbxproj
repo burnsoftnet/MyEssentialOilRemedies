@@ -33,6 +33,7 @@
 		A505B07D1D09AB5E00800310 /* LIST_OilRemediesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B07C1D09AB5E00800310 /* LIST_OilRemediesViewController.m */; };
 		A505B0801D09DD9600800310 /* OilLists.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B07F1D09DD9600800310 /* OilLists.m */; };
 		A505B0831D09ED3F00800310 /* LIST_OilsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0821D09ED3F00800310 /* LIST_OilsTableViewController.m */; };
+		A50AF6F91E401C2A00CC4754 /* DatabaseManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */; };
 		A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */; };
 		A50CF95B1D75C2E10037C7CD /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = A50CF95A1D75C2E10037C7CD /* gear.png */; };
 		A52043F11D86F995001AFD40 /* BurnSoftDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */; };
@@ -46,6 +47,7 @@
 		A5652D901E3E5F290029EB7A /* Icon-notification-20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8B1E3E5F290029EB7A /* Icon-notification-20@2x.png */; };
 		A5652D911E3E5F290029EB7A /* Icon-notification-20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */; };
 		A567E9C01E3FBCE700C45DE8 /* CloudHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A567E9BF1E3FBCE600C45DE8 /* CloudHelper.m */; };
+		A56D7F7E1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */; };
 		A57BF9DA1D6C96EC005D3113 /* FormFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A57BF9D91D6C96EC005D3113 /* FormFunctions.m */; };
 		A57CB7C41D805F7700380B23 /* MEO.db in Resources */ = {isa = PBXBuildFile; fileRef = A5C4C2231D7F44710073CB2A /* MEO.db */; };
 		A5841ECD1D8D9C9000DCDC98 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = A5841ECC1D8D9C9000DCDC98 /* search.png */; };
@@ -141,6 +143,8 @@
 		A505B07F1D09DD9600800310 /* OilLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OilLists.m; sourceTree = "<group>"; };
 		A505B0811D09ED3F00800310 /* LIST_OilsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIST_OilsTableViewController.h; sourceTree = "<group>"; };
 		A505B0821D09ED3F00800310 /* LIST_OilsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIST_OilsTableViewController.m; sourceTree = "<group>"; };
+		A50AF6F71E401C2A00CC4754 /* DatabaseManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManagement.h; sourceTree = "<group>"; };
+		A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManagement.m; sourceTree = "<group>"; };
 		A50CF9571D75BB4A0037C7CD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A50CF95A1D75C2E10037C7CD /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 		A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20@3x.png"; sourceTree = "<group>"; };
 		A567E9BE1E3FBCE600C45DE8 /* CloudHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudHelper.h; sourceTree = "<group>"; };
 		A567E9BF1E3FBCE600C45DE8 /* CloudHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudHelper.m; sourceTree = "<group>"; };
+		A56D7F7C1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsiTunesBackupRestoreViewController.h; sourceTree = "<group>"; };
+		A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsiTunesBackupRestoreViewController.m; sourceTree = "<group>"; };
 		A57BF9D81D6C96EC005D3113 /* FormFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFunctions.h; sourceTree = "<group>"; };
 		A57BF9D91D6C96EC005D3113 /* FormFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFunctions.m; sourceTree = "<group>"; };
 		A5841ECC1D8D9C9000DCDC98 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
@@ -342,6 +348,8 @@
 				A5BDC4231E1715E600A98652 /* DBUpgrade.m */,
 				A567E9BE1E3FBCE600C45DE8 /* CloudHelper.h */,
 				A567E9BF1E3FBCE600C45DE8 /* CloudHelper.m */,
+				A50AF6F71E401C2A00CC4754 /* DatabaseManagement.h */,
+				A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -371,6 +379,8 @@
 			children = (
 				A50CF9571D75BB4A0037C7CD /* SettingsViewController.h */,
 				A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */,
+				A56D7F7C1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.h */,
+				A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -671,6 +681,7 @@
 			files = (
 				A55062021DD0D865001CF00C /* VIEW_SingleRemedyViewController.m in Sources */,
 				A5CED4E61D26932000090560 /* EDIT_OilDetailViewController.m in Sources */,
+				A56D7F7E1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m in Sources */,
 				A505B07D1D09AB5E00800310 /* LIST_OilRemediesViewController.m in Sources */,
 				A505B0781D09A7F700800310 /* OilRemedies.m in Sources */,
 				A5AA21AB1D52379300B42F4A /* VIEW_RemedyViewController.m in Sources */,
@@ -686,6 +697,7 @@
 				A5BDC4241E1715E600A98652 /* DBUpgrade.m in Sources */,
 				A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */,
 				A505B0361D09A76900800310 /* main.m in Sources */,
+				A50AF6F91E401C2A00CC4754 /* DatabaseManagement.m in Sources */,
 				A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */,
 				A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */,
 				A567E9C01E3FBCE700C45DE8 /* CloudHelper.m in Sources */,

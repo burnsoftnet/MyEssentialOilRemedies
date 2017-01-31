@@ -572,7 +572,7 @@
          for (NSMetadataItem *item in query.results)
              [array addObject:[item valueForAttribute:NSMetadataItemFSNameKey]];
          [query enableUpdates];
-         
+         #pragma GCC diagnostic ignored "-Wundeclared-selector"
          if (delegate) SAFE_PERFORM_WITH_ARG(delegate, @selector(ubiquityDocumentsFolderContentsHaveChanged:), array);
      }];
     
@@ -586,7 +586,7 @@
          for (NSMetadataItem *item in query.results)
              [array addObject:[item valueForAttribute:NSMetadataItemFSNameKey]];
          [query enableUpdates];
-         
+         #pragma GCC diagnostic ignored "-Wundeclared-selector"
          if (delegate) SAFE_PERFORM_WITH_ARG(delegate, @selector(ubiquityDocumentsFolderContentsHaveChanged:), array);
      }];
     

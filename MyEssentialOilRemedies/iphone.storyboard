@@ -1172,10 +1172,10 @@
             </objects>
             <point key="canvasLocation" x="4665" y="-206"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settingsi Tunes Backup Restore View Controller-->
         <scene sceneID="1VD-0D-9FR">
             <objects>
-                <viewController storyboardIdentifier="settingsBackupToiTunes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1uJ-FY-zor" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsBackupToiTunes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1uJ-FY-zor" customClass="SettingsiTunesBackupRestoreViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jEn-P2-gk9"/>
                         <viewControllerLayoutGuide type="bottom" id="TZ8-iz-Rbf"/>
