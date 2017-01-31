@@ -89,7 +89,8 @@
     }
     [self reloadData];
 }
-
+#pragma mark Delete File by Name
+//  Delete the a file in the local documents for the app.
 -(BOOL)DeleteFileByName:(NSString *) sFile
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -111,6 +112,8 @@
     }
     return success;
 }
+#pragma mark Restore Database for iTunes by File Name
+//  Restore selected database and rename it to the main database name.
 -(void)RestoreDatabaseforiTunesbyFileName:(NSString *) sFile
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];

@@ -14,7 +14,8 @@
     sqlite3 *OilDB;
     NSArray *filePathsArray;
 }
-
+#pragma mark Backup to iCloud Button
+// Action to start the backup to iCloud Drive
 - (IBAction)btnBackuptoiCloud:(id)sender {
     DatabaseManagement *myObjDM = [DatabaseManagement new];
     FormFunctions *myObjFF = [FormFunctions new];
@@ -28,7 +29,8 @@
         [myObjFF sendMessage:msg MyTitle:@"ERROR!" ViewController:self];
     }
 }
-
+#pragma mark Restore from iCloud Button
+// Action to start the restore from iCloud Drive
 - (IBAction)btnRestoreFromiCloud:(id)sender {
     //[self restoreDatabaseFromiCloud];
     DatabaseManagement *myObjDM = [DatabaseManagement new];
@@ -51,11 +53,16 @@
     [self LoadSettings];
     [self loadVersioning];
 }
+#pragma mark Form Loads Again
+// When the view reloads itself
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self reloadData];
 }
+
+#pragma mark Reload Data
+// Reload the settings and information as if the form first load.
 -(void) reloadData
 {
     [self LoadSettings];
@@ -182,7 +189,8 @@
     [self presentViewController:alert animated:YES completion:nil];
 
 }
-
+#pragma mark Delete File by Name
+// Delete the file + path that you want to delete
 -(BOOL)DeleteFileByName:(NSString *) sFile
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -203,29 +211,5 @@
         msg = [NSString stringWithFormat:@"Delete Successful!"];
     }
     return success;
-}
--(void)RestoreDatabaseforiTunesbyFileName:(NSString *) sFile
-{
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    FormFunctions * myObjFF = [FormFunctions new];
-    
-    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docPath = [path objectAtIndex:0];
-    NSString *restoreFile = [docPath stringByAppendingString:[NSString stringWithFormat:@"/%@",sFile]];
-    
-    NSError *error;
-    BOOL success;
-    NSString *msg = [NSString new];
-    
-    success = [fileManager copyItemAtPath:restoreFile toPath:dbPathString error:&error];
-    if (!success)
-    {
-        msg = [NSString stringWithFormat:@"Error restoring database: %@",[error localizedDescription]];
-        [myObjFF sendMessage:msg MyTitle:@"Restore Error" ViewController:self];
-    }else {
-        msg = [NSString stringWithFormat:@"Restore Successful!"];
-        [myObjFF sendMessage:msg MyTitle:@"Success!" ViewController:self];
-    }
-    
 }
 @end
