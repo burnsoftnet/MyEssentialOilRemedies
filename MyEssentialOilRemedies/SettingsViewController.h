@@ -27,5 +27,7 @@
 //@property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UILabel *lblAppVersion;
 @property (weak, nonatomic) IBOutlet UILabel *lblDBVersion;
+@property (weak, nonatomic) IBOutlet UIButton *buttnBackuptoiCloud;
+@property (weak, nonatomic) IBOutlet UIButton *buttonRestoreFromiCloud;
 
 @end

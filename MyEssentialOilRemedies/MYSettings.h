@@ -10,7 +10,7 @@
 
 #define MYDBNAME "MEO.db"       //Database Name
 #define MYDBVERSION 1.2         //Expected Database Version for the current version of this app
-extern BOOL * const BUGGERME;   //Enable the Debug Functions for additional information during run time.
+extern BOOL * const BUGGERME;   //Enable the Debug Functions for additional information during runtime
 
 @interface MYSettings : NSObject
 

@@ -18,6 +18,26 @@
 				<string>net.burnsoft.MyEssentialOilRemedies.db</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array/>
+			<key>CFBundleTypeName</key>
+			<string>SQLite Database</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>net.burnsoft.MyEssentialOilRemedies.sqlite</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array/>
+			<key>CFBundleTypeName</key>
+			<string>Backup File</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>net.burnsoft.MyEssentialOilRemedies.bak</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
@@ -34,7 +54,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>44</string>
+	<string>45</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.lifestyle</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIFileSharingEnabled</key>
@@ -71,13 +93,23 @@
 				</dict>
 			</array>
 			<key>UTTypeConformsTo</key>
-			<array>
-				<string>com.apple.package</string>
-			</array>
+			<array/>
 			<key>UTTypeDescription</key>
-			<string></string>
+			<string>MEO Database</string>
 			<key>UTTypeIdentifier</key>
 			<string>net.burnsoft.MyEssentialOilRemedies.db</string>
+		</dict>
+		<dict>
+			<key>UTTypeDescription</key>
+			<string>Backup File</string>
+			<key>UTTypeIdentifier</key>
+			<string>net.burnsoft.MyEssentialOilRemedies.bak</string>
+		</dict>
+		<dict>
+			<key>UTTypeDescription</key>
+			<string>SQLite Database</string>
+			<key>UTTypeIdentifier</key>
+			<string>net.burnsoft.MyEssentialOilRemedies.sqlite</string>
 		</dict>
 	</array>
 </dict>
