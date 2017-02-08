@@ -41,7 +41,6 @@
 //  Reload the data as is the for first appeared
 -(void) reloadData {
     [self setupGlobalVars];
-    [self.myTableView reloadData];
     //[self loadData];
 }
 #pragma mark Did Recieve Memory Warning

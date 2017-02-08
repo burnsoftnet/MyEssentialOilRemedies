@@ -1086,7 +1086,7 @@
                                                     <segue destination="1uJ-FY-zor" kind="show" id="kI5-Ur-Tio"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awY-G7-76w">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awY-G7-76w">
                                                 <frame key="frameInset" minX="135" minY="372" width="117" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Backup to iCloud"/>
@@ -1135,7 +1135,7 @@
                                             <constraint firstItem="U70-ub-9MW" firstAttribute="baseline" secondItem="FA0-KK-9hV" secondAttribute="baseline" id="ybR-Br-FYO"/>
                                         </constraints>
                                     </view>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8e-Vb-u8O">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8e-Vb-u8O">
                                         <rect key="frame" x="125" y="420" width="137" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Restore from iCloud"/>
@@ -1164,8 +1164,6 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="gear.png" id="FpA-xF-MVG"/>
                     <navigationItem key="navigationItem" id="ceE-nf-3Nt"/>
                     <connections>
-                        <outlet property="buttnBackuptoiCloud" destination="awY-G7-76w" id="Hnf-1g-BNI"/>
-                        <outlet property="buttonRestoreFromiCloud" destination="r8e-Vb-u8O" id="jzP-gO-aHb"/>
                         <outlet property="lblAppVersion" destination="wuY-6m-duX" id="adD-DB-qEq"/>
                         <outlet property="lblDBVersion" destination="FA0-KK-9hV" id="XVj-Qm-mCx"/>
                     </connections>

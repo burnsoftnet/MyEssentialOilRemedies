@@ -75,7 +75,6 @@
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     dbPathString = [myObj getDatabasePath:@MYDBNAME];
-    
 }
 
 #pragma mark Load Version
