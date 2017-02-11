@@ -12,13 +12,14 @@
 
 -(BOOL) backupDatabaseToiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg
 {
+    NSString *newExt = @"zip";
     NSString *deleteError = [NSString new];
     NSString *copyError = [NSString new];
     BOOL bAns = NO;
     NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     NSString *cloudURL = [baseURL path];
-    NSString *newDBName = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:@"zip"]];
-    NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:@"zip"];
+    NSString *newDBName = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:newExt]];
+    NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
     
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     
@@ -111,13 +112,14 @@
 
 -(BOOL) restoreDatabaseFromiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg
 {
+    NSString *newExt = @"zip";
     NSString *deleteError = [NSString new];
     BOOL bAns = NO;
     NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     NSString *cloudURL = [baseURL path];
-    NSString *newDBName = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:@"zip"]];
+    NSString *newDBName = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:newExt]];
     NSString *copyError = [NSString new];
-    NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:@"zip"];
+    NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     
     if ([myObjG copyFileFrom:newDBName To:backupfile ErrorMessage:&deleteError]) {
