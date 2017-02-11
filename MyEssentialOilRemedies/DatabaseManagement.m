@@ -25,19 +25,36 @@
 {
     //BOOL TestWorked = [CloudHelper setUbiquitous:NO for:DBNAME forContainer:@"net.burnsoft.MyEssentialOilRemedies"];
     
-    //NSString *cloudURL = [self grabCloudPath];
-    NSError *error;
+    ///NSString *cloudURL = [self grabCloudPath];
+    //NSError *error;
     NSString *deleteError = [NSString new];
-    BOOL success;
+    NSString *copyError = [NSString new];
+    //BOOL success;
     BOOL bAns = NO;
     NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     //NSLog(@"%@",[baseURL path]);
     NSString *cloudURL = [baseURL path];
+    //baseURL = [baseURL URLByAppendingPathExtension:[NSString stringWithFormat:@"/%@",[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:@"zip"]]];
+    NSString *newDBName = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:@"zip"]];
+    //NSString *newDBName = [NSString stringWithFormat:@"%@/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:@"zip"]];
+    //NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:@"zip"];
     
-    NSString *newDBName = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,DBNAME];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-
     
+    //BOOL fakecopy = [fileManager copyItemAtPath:dbPathString toPath:backupfile error:&error];
+    BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
+    
+    if ([myObjG copyFileFrom:dbPathString To:backupfile ErrorMessage:&deleteError]) {
+        if (![myObjG copyFileFrom:backupfile To:newDBName ErrorMessage:&copyError]) {
+             *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
+        } else {
+            *msg = [NSString stringWithFormat:@"Backup Successful!"];
+            bAns = YES;
+        }
+    } else {
+        *msg = deleteError;
+    }
+    /*
     BOOL FileExistsiniCloud = [fileManager fileExistsAtPath:newDBName];
     BOOL FileExistsinLocal = [fileManager fileExistsAtPath:dbPathString];
     BOOL ICLOUDDELETESUCCESSFUL = NO;
@@ -54,7 +71,18 @@
     
     if (ICLOUDDELETESUCCESSFUL)
     {
-        success = [fileManager copyItemAtPath:dbPathString toPath:newDBName error:&error];
+        //New Section from http://stackoverflow.com/questions/13282729/move-copy-a-file-to-icloud
+        
+        NSURL *fromURL = [[NSURL alloc] initFileURLWithPath:backupfile];
+        NSURL *toURL = [[NSURL alloc] initFileURLWithPath:newDBName];
+        //toURL = [toURL URLByAppendingPathExtension:newDBName];
+        //NSURL *toURL = baseURL;
+        [[[NSFileManager alloc] init]setUbiquitous:NO itemAtURL:fromURL destinationURL:toURL error:&error];
+        NSLog(@"%@",[error localizedDescription]);
+        //End New Section
+        
+        success = [fileManager copyItemAtPath:backupfile toPath:newDBName error:&error];
+        //success = [fileManager copyItemAtPath:dbPathString toPath:newDBName error:&error];
         if (!success)
         {
             *msg = [NSString stringWithFormat:@"Error backuping database: %@",[error localizedDescription]];
@@ -67,23 +95,38 @@
             *msg = deleteError;
         }
     }
+     */
     return bAns;
 }
 
 -(BOOL) restoreDatabaseFromiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg
 {
-    //NSString *cloudURL = [self grabCloudPath];
-    NSError *error;
+    ///NSError *error;
     NSString *deleteError = [NSString new];
-    BOOL success;
+    ///BOOL success;
     BOOL bAns = NO;
     
     NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     //NSLog(@"%@",[baseURL path]);
     NSString *cloudURL = [baseURL path];
-
+    NSString *newDBName = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:@"zip"]];
+    //New Section
+    NSString *copyError = [NSString new];
+    NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:@"zip"];
+    BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     
-    NSString *newDBName = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,DBNAME];
+    if ([myObjG copyFileFrom:newDBName To:backupfile ErrorMessage:&deleteError]) {
+        if (![myObjG copyFileFrom:backupfile To:dbPathString ErrorMessage:&copyError]) {
+            *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
+        } else {
+            *msg = [NSString stringWithFormat:@"Backup Successful!"];
+            bAns = YES;
+        }
+    } else {
+        *msg = deleteError;
+    }
+
+    /*
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     
@@ -100,9 +143,17 @@
         ILOCALDELETESUCCESSFUL = NO;
         *msg = [NSString stringWithFormat:@"%@ File doesn't exist in local or iCloud!",DBNAME];
     }
-    
+
     if (ILOCALDELETESUCCESSFUL)
     {
+        //New Section from http://stackoverflow.com/questions/13282729/move-copy-a-file-to-icloud
+        
+        NSURL *fromURL = [[NSURL alloc] initWithString:newDBName];
+        NSURL *toURL = [[NSURL alloc] initWithString:dbPathString];
+        [[[NSFileManager alloc] init]setUbiquitous:NO itemAtURL:fromURL destinationURL:toURL error:&error];
+        
+        //End New Section
+        
         success = [fileManager copyItemAtPath:newDBName toPath:dbPathString error:&error];
         if (!success)
         {
@@ -116,6 +167,7 @@
             *msg = deleteError;
         }
     }
+     */
     return bAns;
 
 }

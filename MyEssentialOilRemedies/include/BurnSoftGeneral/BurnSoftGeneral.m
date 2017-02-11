@@ -84,4 +84,57 @@
     NSString *formattedDate = [dateFormatter stringFromDate:date];
     return formattedDate;
 }
+-(BOOL) copyFileFrom:(NSString *) sFrom To:(NSString *) sTo ErrorMessage:(NSString **) errorMessage
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *deleteError = [NSString new];
+    NSError *error;
+    BOOL bAns = NO;
+    BOOL FileExistsInTo = [fileManager fileExistsAtPath:sTo];
+    BOOL FileExistsInFrom = [fileManager fileExistsAtPath:sFrom];
+    BOOL FileClearedInDestination = NO;
+    
+    if (FileExistsInTo && FileExistsInFrom)
+    {
+        FileClearedInDestination = [self DeleteFileByPath:sTo ErrorMessage:&deleteError];
+    } else if (!FileExistsInFrom && FileExistsInTo) {
+        FileClearedInDestination = YES;
+    } else if (!FileExistsInFrom && !FileExistsInTo) {
+        FileClearedInDestination = NO;
+        *errorMessage = @"File doesn't exist in source or destination!";
+    }
+    
+    if (FileClearedInDestination)
+    {
+        if (![fileManager copyItemAtPath:sFrom toPath:sTo error:&error])
+        {
+            *errorMessage = [NSString stringWithFormat:@"Error copying file: %@",[error localizedDescription]];
+        } else {
+            *errorMessage = [NSString stringWithFormat:@"Backup Successful!"];
+            bAns = YES;
+        }
+    } else {
+        if ([*errorMessage isEqualToString:@""]) {
+            *errorMessage = deleteError;
+        }
+    }
+    
+    return bAns;
+}
+
+-(BOOL)DeleteFileByPath:(NSString *) sPath ErrorMessage:(NSString **) msg
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL success = NO;
+    NSError *error;
+    
+    success = [fileManager removeItemAtPath:sPath error:&error];
+    if (!success)
+    {
+        *msg = [NSString stringWithFormat:@"Error deleting database: %@",[error localizedDescription]];
+    }else {
+        *msg = [NSString stringWithFormat:@"Delete Successful!"];
+    }
+    return success;
+}
 @end

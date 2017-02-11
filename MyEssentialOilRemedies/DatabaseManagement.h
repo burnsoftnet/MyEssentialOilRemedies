@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "CloudHelper.h"
+#import "BurnSoftGeneral.h"
+
 @interface DatabaseManagement : NSObject
 
 
