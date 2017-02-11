@@ -115,7 +115,7 @@
         }
     } else {
         if ([*errorMessage isEqualToString:@""]) {
-            *errorMessage = deleteError;
+            *errorMessage = [NSString stringWithFormat:@"Delete Error: %@",deleteError];
         }
     }
     
