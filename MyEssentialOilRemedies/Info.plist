@@ -12,10 +12,10 @@
 			<key>CFBundleTypeIconFiles</key>
 			<array/>
 			<key>CFBundleTypeName</key>
-			<string>MEO Database</string>
+			<string>db</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>net.burnsoft.MyEssentialOilRemedies.db</string>
+				<string>com.sqlite.db</string>
 			</array>
 		</dict>
 	</array>
@@ -34,7 +34,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>48</string>
+	<string>49</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIFileSharingEnabled</key>
