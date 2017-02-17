@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "CloudHelper.h"
 #import "BurnSoftGeneral.h"
-#import <CoreData/CoreData.h>
 
 @interface DatabaseManagement : NSObject
 
