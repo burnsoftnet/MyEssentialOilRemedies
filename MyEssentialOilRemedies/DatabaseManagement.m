@@ -8,7 +8,24 @@
 
 #import "DatabaseManagement.h"
 
+@interface DatabaseManagement()
+
+@property (strong, readwrite) NSManagedObjectContext *managedObjectContext;
+@property (copy) InitCallbackBlock initCallback;
+
+@end
+
 @implementation DatabaseManagement
+
+- (id)initWithCallback:(InitCallbackBlock)callback;
+{
+    if (!(self = [super init])) return nil;
+    
+    [self setInitCallback:callback];
+    //[self initializeCoreData];
+    
+    return self;
+}
 /*
 + (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL  {
     if (&NSURLIsExcludedFromBackupKey == nil) { // iOS <= 5.0.1
@@ -47,7 +64,47 @@
         }
     }   
 }
-
+-(BOOL) backupDatabaseToiCloudByDBName_crap:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg
+{
+    //This is from the Existing Application secon from the book
+    bool bAns = NO;
+    
+    dispatch_queue_t queue;
+    queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
+        [options setValue:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
+        [options setValue:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSURL *docURL = nil;
+        docURL = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        NSURL *storeURL = nil;
+        NSError *error = nil;
+        NSPersistentStoreCoordinator * coordinator = nil;
+        coordinator = [[self managedObjectContext] persistentStoreCoordinator];
+        NSPersistentStore *store = nil;
+        
+        NSURL *cloudURL = [fileManager URLForUbiquityContainerIdentifier:nil];
+        
+        if (!cloudURL) {
+            storeURL = [docURL URLByAppendingPathComponent:@"MEO.db"];
+            store = [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
+            if (!store) {
+                *msg = [NSString stringWithFormat:@"Error adding persistent store to coordinator %@\n%@",[error localizedDescription],[error userInfo]];
+            }
+            //self initblock
+            if (![self initCallback]) return;
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self initCallback]();
+            });
+        }
+        });
+        return bAns;
+    }
+    //return bAns;
+//}
 -(BOOL) backupDatabaseToiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg
 {
     NSString *newExt = @"zip";
@@ -58,6 +115,10 @@
     NSString *cloudURL = [baseURL path];
     NSString *newDBName = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:newExt]];
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
+    //backupfile = [backupfile stringByReplacingOccurrencesOfString:@"/Documents/" withString:@"/Documents/"];
+    NSLog(@"%@",backupfile);
+    NSLog(@"%@",newDBName);
+    NSLog(@"%@",dbPathString);
     
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     
@@ -159,7 +220,9 @@
     NSString *copyError = [NSString new];
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
-    
+    NSLog(@"%@",newDBName);
+    NSLog(@"%@",backupfile);
+    NSLog(@"%@",dbPathString);
     if ([myObjG copyFileFrom:newDBName To:backupfile ErrorMessage:&deleteError]) {
         if (![myObjG copyFileFrom:backupfile To:dbPathString ErrorMessage:&copyError]) {
             *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];

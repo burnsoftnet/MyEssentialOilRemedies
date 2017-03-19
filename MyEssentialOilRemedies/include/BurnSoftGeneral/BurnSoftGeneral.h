@@ -17,5 +17,5 @@
 -(NSString *)formatDate:(NSDate *)date;
 -(BOOL) copyFileFrom:(NSString *) sFrom To:(NSString *) sTo ErrorMessage:(NSString **) errorMessage;
 -(BOOL)DeleteFileByPath:(NSString *) sPath ErrorMessage:(NSString **) msg;
-
+-(BOOL)createDirectoryIfNotExists:(NSString *) sPath ErrorMessage:(NSString **) errMsg;
 @end

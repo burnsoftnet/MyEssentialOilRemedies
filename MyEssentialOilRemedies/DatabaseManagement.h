@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "CloudHelper.h"
+#import <CoreData/CoreData.h>
 #import "BurnSoftGeneral.h"
 
-@interface DatabaseManagement : NSObject
+typedef void (^InitCallbackBlock)(void);
 
+@interface DatabaseManagement : NSObject
+@property (strong, readonly) NSManagedObjectContext *managedObjectContext;
+
+- (id)initWithCallback:(InitCallbackBlock)callback;
 
 -(BOOL) backupDatabaseToiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
 -(BOOL) restoreDatabaseFromiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;

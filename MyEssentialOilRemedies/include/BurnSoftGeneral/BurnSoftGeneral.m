@@ -97,7 +97,7 @@
     if (FileExistsInTo && FileExistsInFrom)
     {
         FileClearedInDestination = [self DeleteFileByPath:sTo ErrorMessage:&deleteError];
-    } else if (!FileExistsInFrom && FileExistsInTo) {
+    } else if (FileExistsInFrom && !FileExistsInTo) {
         FileClearedInDestination = YES;
     } else if (!FileExistsInFrom && !FileExistsInTo) {
         FileClearedInDestination = NO;
@@ -136,5 +136,22 @@
         *msg = [NSString stringWithFormat:@"Delete Successful!"];
     }
     return success;
+}
+-(BOOL)createDirectoryIfNotExists:(NSString *) sPath ErrorMessage:(NSString **) errMsg
+{
+    BOOL bAns = NO;
+    BOOL isDir;
+    NSError *error;
+    NSFileManager *fileManager= [NSFileManager defaultManager];
+    if(![fileManager fileExistsAtPath:sPath isDirectory:&isDir]) {
+        if(![fileManager createDirectoryAtPath:sPath withIntermediateDirectories:YES attributes:nil error:&error]) {
+            *errMsg = [NSString stringWithFormat:@"%@",[error localizedDescription]];
+        } else {
+            bAns = YES;
+        }
+    } else {
+        bAns = YES;
+    }
+    return bAns;
 }
 @end

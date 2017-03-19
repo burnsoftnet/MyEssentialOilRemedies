@@ -40,6 +40,7 @@
 		A52043F61D86F9DB001AFD40 /* BurnSoftGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */; };
 		A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */; };
 		A5464FCC1E3CF73B006F9A59 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */; };
+		A54B57951E665A3300EFF9BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54B57941E665A3300EFF9BA /* Foundation.framework */; };
 		A55062021DD0D865001CF00C /* VIEW_SingleRemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */; };
 		A5652D8D1E3E5F290029EB7A /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D881E3E5F290029EB7A /* Icon-57.png */; };
 		A5652D8E1E3E5F290029EB7A /* Icon-57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D891E3E5F290029EB7A /* Icon-57@2x.png */; };
@@ -155,6 +156,7 @@
 		A52043F41D86F9DB001AFD40 /* BurnSoftMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftMath.h; sourceTree = "<group>"; };
 		A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftMath.m; sourceTree = "<group>"; };
 		A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		A54B57941E665A3300EFF9BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A55062001DD0D865001CF00C /* VIEW_SingleRemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_SingleRemedyViewController.h; sourceTree = "<group>"; };
 		A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_SingleRemedyViewController.m; sourceTree = "<group>"; };
 		A5652D881E3E5F290029EB7A /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A54B57951E665A3300EFF9BA /* Foundation.framework in Frameworks */,
 				A505B07A1D09A82600800310 /* libsqlite3.0.tbd in Frameworks */,
 				A5464FCC1E3CF73B006F9A59 /* CloudKit.framework in Frameworks */,
 			);
@@ -403,6 +406,7 @@
 		A5C159521E3C153C00F9864B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A54B57941E665A3300EFF9BA /* Foundation.framework */,
 				A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */,
 			);
 			name = Frameworks;
