@@ -220,9 +220,9 @@
     NSString *copyError = [NSString new];
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
-    NSLog(@"%@",newDBName);
-    NSLog(@"%@",backupfile);
-    NSLog(@"%@",dbPathString);
+    //NSLog(@"%@",newDBName);
+    //NSLog(@"%@",backupfile);
+    //NSLog(@"%@",dbPathString);
     if ([myObjG copyFileFrom:newDBName To:backupfile ErrorMessage:&deleteError]) {
         if (![myObjG copyFileFrom:backupfile To:dbPathString ErrorMessage:&copyError]) {
             *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
