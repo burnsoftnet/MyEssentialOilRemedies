@@ -110,6 +110,7 @@
     NSString *newExt = @"zip";
     NSString *deleteError = [NSString new];
     NSString *copyError = [NSString new];
+    NSError *error = [NSError new];
     BOOL bAns = NO;
     NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     NSString *cloudURL = [baseURL path];
@@ -119,6 +120,8 @@
     NSLog(@"%@",backupfile);
     NSLog(@"%@",newDBName);
     NSLog(@"%@",dbPathString);
+    
+    [NSFileVersion removeOtherVersionsOfItemAtURL:[NSURL fileURLWithPath:newDBName] error:&error];
     
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     
@@ -220,9 +223,13 @@
     NSString *copyError = [NSString new];
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
-    //NSLog(@"%@",newDBName);
-    //NSLog(@"%@",backupfile);
+    NSLog(@"newDBName= %@",newDBName);
+    NSLog(@"version= %@",[NSFileVersion otherVersionsOfItemAtURL:[NSURL fileURLWithPath:newDBName]]);
+    NSLog(@"backupfile= %@",backupfile);
+    NSLog(@"%@",[NSFileVersion currentVersionOfItemAtURL:[NSURL fileURLWithPath:backupfile]]);
     //NSLog(@"%@",dbPathString);
+    //NSLog(@"%@",[NSFileVersion currentVersionOfItemAtURL:[NSURL fileURLWithPath:dbPathString]]);
+    
     if ([myObjG copyFileFrom:newDBName To:backupfile ErrorMessage:&deleteError]) {
         if (![myObjG copyFileFrom:backupfile To:dbPathString ErrorMessage:&copyError]) {
             *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
