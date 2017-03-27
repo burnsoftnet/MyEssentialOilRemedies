@@ -100,6 +100,8 @@
     } else if (FileExistsInFrom && !FileExistsInTo) {
         FileClearedInDestination = YES;
     } else if (!FileExistsInFrom && !FileExistsInTo) {
+        //In the restore database, this is coming up as file does not exist in either location, even if i see it.
+        
         FileClearedInDestination = NO;
         *errorMessage = @"File doesn't exist in source or destination!";
     }

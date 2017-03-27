@@ -107,12 +107,23 @@
     NSString *copyError = [NSString new];
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
+    /*
     NSLog(@"newDBName= %@",newDBName);
     NSLog(@"version= %@",[NSFileVersion otherVersionsOfItemAtURL:[NSURL fileURLWithPath:newDBName]]);
     NSLog(@"backupfile= %@",backupfile);
     NSLog(@"%@",[NSFileVersion currentVersionOfItemAtURL:[NSURL fileURLWithPath:backupfile]]);
-    //NSLog(@"%@",dbPathString);
+    */
+     //NSLog(@"%@",dbPathString);
     //NSLog(@"%@",[NSFileVersion currentVersionOfItemAtURL:[NSURL fileURLWithPath:dbPathString]]);
+    
+    NSURL *URLnewDBName = [NSURL fileURLWithPath:newDBName];
+    NSArray *conflictVersions = [NSFileVersion unresolvedConflictVersionsOfItemAtURL:URLnewDBName];
+    for (NSFileVersion *fileVersion in conflictVersions) {
+        fileVersion.resolved = YES;
+    }
+    NSError *error;
+    [NSFileVersion removeOtherVersionsOfItemAtURL:URLnewDBName error:&error];
+    
     [myObjG DeleteFileByPath:backupfile ErrorMessage:&deleteError];
     
     if ([myObjG copyFileFrom:newDBName To:backupfile ErrorMessage:&deleteError]) {
