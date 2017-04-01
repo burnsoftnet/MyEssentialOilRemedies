@@ -1087,13 +1087,37 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awY-G7-76w">
-                                                <frame key="frameInset" minX="135" minY="372" width="117" height="30"/>
+                                                <frame key="frameInset" minX="25" minY="373" width="117" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Backup to iCloud"/>
                                                 <connections>
                                                     <action selector="btnBackuptoiCloud:" destination="VZV-bY-lJ7" eventType="touchUpInside" id="fqt-r8-6ck"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8e-Vb-u8O">
+                                                <frame key="frameInset" minX="207" minY="375" width="137" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Restore from iCloud"/>
+                                                <connections>
+                                                    <action selector="btnRestoreFromiCloud:" destination="VZV-bY-lJ7" eventType="touchUpInside" id="HMn-LF-Srk"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Diu-SK-GzA">
+                                                <frame key="frameInset" minX="26" minY="414" width="332" height="205"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment>
+                                                        <string key="content">Tips:
+1.)  Wait a few minutes to restore after backup.  Only one backup will be kept.  If you want multiple backups use the iTunes backup.
+2.)  This only worked on devices on the same iCloud account.
+3.)  The iCloud Drive needs to be on in iCloud settings. </string>
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1135,14 +1159,6 @@
                                             <constraint firstItem="U70-ub-9MW" firstAttribute="baseline" secondItem="FA0-KK-9hV" secondAttribute="baseline" id="ybR-Br-FYO"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8e-Vb-u8O">
-                                        <rect key="frame" x="125" y="420" width="137" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Restore from iCloud"/>
-                                        <connections>
-                                            <action selector="btnRestoreFromiCloud:" destination="VZV-bY-lJ7" eventType="touchUpInside" id="HMn-LF-Srk"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="L9f-nE-Vie" secondAttribute="bottom" constant="5" id="Djb-9h-rvf"/>
@@ -1170,7 +1186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cH-kQ-V8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4665" y="-206"/>
+            <point key="canvasLocation" x="4664.8000000000002" y="-206.44677661169416"/>
         </scene>
         <!--Settingsi Tunes Backup Restore View Controller-->
         <scene sceneID="1VD-0D-9FR">

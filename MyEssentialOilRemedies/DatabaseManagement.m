@@ -25,51 +25,85 @@
     if (!(self = [super init])) return nil;
     
     [self setInitCallback:callback];
-    //[self initializeCoreData];
     
     return self;
 }
-//Might be able to delete
-+ (void)copyDatabaseIfNeeded:(NSString *) getDBPath DBName:(NSString *) databaseName
+
+-(void) removeConflictVersionsiniCloudbyURL:(NSURL *) urlNewDBName
 {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error = nil;
-    NSString *toPath = getDBPath;
-    BOOL success = [fileManager fileExistsAtPath:toPath];
+    NSError *error;
+    FormFunctions *myObjFF = [FormFunctions new];
     
-    if(!success) {
-        NSString *fromPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseName];
-        
-        NSURL *toURL = [NSURL fileURLWithPath:toPath];
-        NSURL *fromURL = [NSURL fileURLWithPath:fromPath];
-        success = [fileManager copyItemAtURL:fromURL toURL:toURL error:&error];
-        
-        if (success) {
-            //[self addSkipBackupAttributeToItemAtURL:toURL];
-        } else {
-            NSLog(@"Failed to create writable database file with message '%@'.", [error localizedDescription]);
-        }
-    }   
+   [self loadFileListings];
+    
+    if ([NSFileVersion removeOtherVersionsOfItemAtURL:urlNewDBName error:&error])
+    {
+        [myObjFF doBuggermeMessage:@"older versions were removed!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
+    } else {
+        [myObjFF doBuggermeMessage:@"Problems removing older versions!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
+        [myObjFF doBuggermeMessage:[NSString stringWithFormat:@"%@",[error localizedDescription]] FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
+    }
+    
+    
+    NSArray *conflictVersions = [NSFileVersion unresolvedConflictVersionsOfItemAtURL:urlNewDBName];
+    for (NSFileVersion *fileVersion in conflictVersions) {
+        fileVersion.resolved = YES;
+    }
+
 }
+
+-(void) loadFileListings
+{
+    FormFunctions *myObjFF = [FormFunctions new];
+    BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
+    NSArray *filePathsArray = [NSArray new];
+    NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+    NSString *documentsDirectory = [baseURL path];
+    documentsDirectory = [NSString stringWithFormat:@"%@/Documents",documentsDirectory];
+    NSString *deleteError = [NSString new];
+    NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
+    filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.zip'"]];
+    
+    for (NSString *fileName in filePathsArray)
+    {
+        [myObjFF doBuggermeMessage:[NSString stringWithFormat:@"%@",fileName] FromSubFunction:@"DatabaseManagement.loadFileListings"];
+        
+        if (![fileName isEqualToString:@"MEO.zip"]){
+            [myObjG DeleteFileByPath:[NSString stringWithFormat:@"%@/%@",documentsDirectory,fileName] ErrorMessage:&deleteError];
+        }
+    }
+}
+
+-(NSString *) getiCloudDatabaseBackupByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt
+{
+    NSString *sAns = [NSString new];
+    NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+    NSString *cloudURL = [baseURL path];
+    sAns = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:newExt]];
+    return sAns;
+}
+
+-(NSURL *) getiCloudDatabaseBackupURLByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt
+{
+    NSURL *uAns = [NSURL new];
+    uAns = [NSURL fileURLWithPath:[self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:newExt]];
+    return uAns;
+}
+
+
 
 -(BOOL) backupDatabaseToiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg
 {
     NSString *newExt = @"zip";
     NSString *deleteError = [NSString new];
     NSString *copyError = [NSString new];
-    //NSError *error = [NSError new];
     BOOL bAns = NO;
-    NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-    NSString *cloudURL = [baseURL path];
-    NSString *newDBName = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:newExt]];
+
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
+   
+    NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:newExt];
     
     NSURL *urlNewDBName = [NSURL fileURLWithPath:newDBName];
-    //NSURL *urlBackupFile = [NSURL fileURLWithPath:backupfile];
-    //NSURL *urldbPathString = [NSURL fileURLWithPath:dbPathString];
-    
-    NSError *error;
-    
     
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     
@@ -84,12 +118,7 @@
         *msg = deleteError;
     }
     
-    NSArray *conflictVersions = [NSFileVersion unresolvedConflictVersionsOfItemAtURL:urlNewDBName];
-    for (NSFileVersion *fileVersion in conflictVersions) {
-        fileVersion.resolved = YES;
-    }
-    
-    [NSFileVersion removeOtherVersionsOfItemAtURL:urlNewDBName error:&error];
+    [self removeConflictVersionsiniCloudbyURL:urlNewDBName];
     [myObjG DeleteFileByPath:backupfile ErrorMessage:&deleteError];
     
     return bAns;
@@ -101,28 +130,16 @@
     NSString *newExt = @"zip";
     NSString *deleteError = [NSString new];
     BOOL bAns = NO;
-    NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-    NSString *cloudURL = [baseURL path];
-    NSString *newDBName = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:newExt]];
+    
+    NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:newExt];
+    
     NSString *copyError = [NSString new];
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
-    /*
-    NSLog(@"newDBName= %@",newDBName);
-    NSLog(@"version= %@",[NSFileVersion otherVersionsOfItemAtURL:[NSURL fileURLWithPath:newDBName]]);
-    NSLog(@"backupfile= %@",backupfile);
-    NSLog(@"%@",[NSFileVersion currentVersionOfItemAtURL:[NSURL fileURLWithPath:backupfile]]);
-    */
-     //NSLog(@"%@",dbPathString);
-    //NSLog(@"%@",[NSFileVersion currentVersionOfItemAtURL:[NSURL fileURLWithPath:dbPathString]]);
     
     NSURL *URLnewDBName = [NSURL fileURLWithPath:newDBName];
-    NSArray *conflictVersions = [NSFileVersion unresolvedConflictVersionsOfItemAtURL:URLnewDBName];
-    for (NSFileVersion *fileVersion in conflictVersions) {
-        fileVersion.resolved = YES;
-    }
-    NSError *error;
-    [NSFileVersion removeOtherVersionsOfItemAtURL:URLnewDBName error:&error];
+
+    [self removeConflictVersionsiniCloudbyURL:URLnewDBName];
     
     [myObjG DeleteFileByPath:backupfile ErrorMessage:&deleteError];
     

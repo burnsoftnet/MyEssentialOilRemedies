@@ -205,3 +205,25 @@ bAns = YES;
 return bAns;
 }
 
+//Might be able to delete
++ (void)copyDatabaseIfNeeded:(NSString *) getDBPath DBName:(NSString *) databaseName
+{
+NSFileManager *fileManager = [NSFileManager defaultManager];
+NSError *error = nil;
+NSString *toPath = getDBPath;
+BOOL success = [fileManager fileExistsAtPath:toPath];
+
+if(!success) {
+NSString *fromPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseName];
+
+NSURL *toURL = [NSURL fileURLWithPath:toPath];
+NSURL *fromURL = [NSURL fileURLWithPath:fromPath];
+success = [fileManager copyItemAtURL:fromURL toURL:toURL error:&error];
+
+if (success) {
+//[self addSkipBackupAttributeToItemAtURL:toURL];
+} else {
+NSLog(@"Failed to create writable database file with message '%@'.", [error localizedDescription]);
+}
+}
+}

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "BurnSoftGeneral.h"
+#import "FormFunctions.h"
 
 typedef void (^InitCallbackBlock)(void);
 
@@ -19,4 +20,7 @@ typedef void (^InitCallbackBlock)(void);
 
 -(BOOL) backupDatabaseToiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
 -(BOOL) restoreDatabaseFromiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
+-(void) removeConflictVersionsiniCloudbyURL:(NSURL *) urlNewDBName;
+-(NSString *) getiCloudDatabaseBackupByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt;
+-(NSURL *) getiCloudDatabaseBackupURLByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt;
 @end
