@@ -847,11 +847,11 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eWU-6K-2qF" id="c3b-aJ-JkV">
-                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qZd-Wh-7lH">
-                                            <frame key="frameInset" minX="15" width="345" height="43.5"/>
+                                            <frame key="frameInset" minX="15" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -917,38 +917,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="370" height="521"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1c-sc-DBt">
-                                <frame key="frameInset" minY="20" width="370" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1c-sc-DBt">
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUO-V3-r5x">
-                                <frame key="frameInset" minX="322" minY="20" width="40" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUO-V3-r5x">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="3Kd-RQ-UPr"/>
+                                    <constraint firstAttribute="height" constant="25" id="Udw-XO-1ou"/>
+                                </constraints>
                                 <state key="normal" title="Close" image="close-icon.png"/>
                                 <connections>
                                     <action selector="btnClose:" destination="4Gr-L6-FjZ" eventType="touchUpInside" id="H93-yY-8jO"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9hC-Nx-il6">
-                                <frame key="frameInset" minX="8" minY="86" width="354" height="414"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9hC-Nx-il6">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFm-Q3-slo">
-                                <frame key="frameInset" minX="8" minY="65" width="93" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFm-Q3-slo">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AFm-Q3-slo" firstAttribute="top" secondItem="B1c-sc-DBt" secondAttribute="bottom" constant="8" id="1Hs-3d-OVk"/>
+                            <constraint firstAttribute="trailing" secondItem="B1c-sc-DBt" secondAttribute="trailing" id="48Z-mN-Nxc"/>
+                            <constraint firstItem="B1c-sc-DBt" firstAttribute="top" secondItem="xEH-JH-uqt" secondAttribute="bottom" constant="20" id="8Cu-H1-OYC"/>
+                            <constraint firstItem="B1c-sc-DBt" firstAttribute="leading" secondItem="JT5-Te-PAL" secondAttribute="leading" id="CcP-Fd-NIj"/>
+                            <constraint firstItem="9hC-Nx-il6" firstAttribute="top" secondItem="AFm-Q3-slo" secondAttribute="bottom" id="DzR-2Z-NQF"/>
+                            <constraint firstItem="idZ-n8-i2K" firstAttribute="top" secondItem="9hC-Nx-il6" secondAttribute="bottom" constant="21" id="Epw-tK-EGu"/>
+                            <constraint firstItem="AFm-Q3-slo" firstAttribute="leading" secondItem="JT5-Te-PAL" secondAttribute="leadingMargin" constant="-8" id="PUh-6P-Flz"/>
+                            <constraint firstItem="AFm-Q3-slo" firstAttribute="leading" secondItem="9hC-Nx-il6" secondAttribute="leading" id="YzJ-7a-5uj"/>
+                            <constraint firstItem="aUO-V3-r5x" firstAttribute="top" secondItem="B1c-sc-DBt" secondAttribute="top" id="Zby-9u-hKM"/>
+                            <constraint firstItem="9hC-Nx-il6" firstAttribute="trailing" secondItem="aUO-V3-r5x" secondAttribute="trailing" id="dxo-SW-nxR"/>
+                            <constraint firstItem="9hC-Nx-il6" firstAttribute="centerX" secondItem="B1c-sc-DBt" secondAttribute="centerX" id="lqJ-gM-xA8"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
