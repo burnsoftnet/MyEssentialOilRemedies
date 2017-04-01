@@ -155,4 +155,22 @@
     }
     return bAns;
 }
++(void) startiCloudSync
+{
+    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+    NSString *dbPathString = [NSString new];
+    
+    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    
+    //Remove any conflicting versions and maybe initialize icloud sync
+    DatabaseManagement *myObjDM = [DatabaseManagement new];
+    [myObjDM removeConflictVersionsiniCloudbyURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"]];
+    
+    NSFileManager *objFM = [NSFileManager new];
+    if ([objFM startDownloadingUbiquitousItemAtURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"] error:nil]) {
+        NSLog(@"sync started");
+    } else {
+        NSLog(@"sync Failed");
+    }
+}
 @end

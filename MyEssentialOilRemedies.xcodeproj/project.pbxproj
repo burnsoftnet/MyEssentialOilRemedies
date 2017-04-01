@@ -47,7 +47,6 @@
 		A5652D8F1E3E5F290029EB7A /* Icon-notification-20.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */; };
 		A5652D901E3E5F290029EB7A /* Icon-notification-20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8B1E3E5F290029EB7A /* Icon-notification-20@2x.png */; };
 		A5652D911E3E5F290029EB7A /* Icon-notification-20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */; };
-		A567E9C01E3FBCE700C45DE8 /* CloudHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A567E9BF1E3FBCE600C45DE8 /* CloudHelper.m */; };
 		A56D7F7E1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */; };
 		A57BF9DA1D6C96EC005D3113 /* FormFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A57BF9D91D6C96EC005D3113 /* FormFunctions.m */; };
 		A57CB7C41D805F7700380B23 /* MEO.db in Resources */ = {isa = PBXBuildFile; fileRef = A5C4C2231D7F44710073CB2A /* MEO.db */; };
@@ -55,8 +54,6 @@
 		A5841ED21D8D9FDC00DCDC98 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5841ED11D8D9FDC00DCDC98 /* SearchViewController.m */; };
 		A594288F1E19B88100D059BE /* PopUpOilSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */; };
 		A59C1FB21D95949000A4E337 /* SearchDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C1FB11D95949000A4E337 /* SearchDatabase.m */; };
-		A59F6C7D1E8039330079D80B /* PTKConflictEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A59F6C7C1E8039330079D80B /* PTKConflictEntry.m */; };
-		A59F6C811E805E950079D80B /* ToDelete in Resources */ = {isa = PBXBuildFile; fileRef = A59F6C801E805E950079D80B /* ToDelete */; };
 		A5AA21A81D52377200B42F4A /* Add_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */; };
 		A5AA21AB1D52379300B42F4A /* VIEW_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AA1D52379300B42F4A /* VIEW_RemedyViewController.m */; };
 		A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */; };
@@ -166,8 +163,6 @@
 		A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20.png"; sourceTree = "<group>"; };
 		A5652D8B1E3E5F290029EB7A /* Icon-notification-20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20@2x.png"; sourceTree = "<group>"; };
 		A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20@3x.png"; sourceTree = "<group>"; };
-		A567E9BE1E3FBCE600C45DE8 /* CloudHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudHelper.h; sourceTree = "<group>"; };
-		A567E9BF1E3FBCE600C45DE8 /* CloudHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudHelper.m; sourceTree = "<group>"; };
 		A56D7F7C1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsiTunesBackupRestoreViewController.h; sourceTree = "<group>"; };
 		A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsiTunesBackupRestoreViewController.m; sourceTree = "<group>"; };
 		A57BF9D81D6C96EC005D3113 /* FormFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFunctions.h; sourceTree = "<group>"; };
@@ -179,9 +174,6 @@
 		A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpOilSearchViewController.m; sourceTree = "<group>"; };
 		A59C1FB01D95949000A4E337 /* SearchDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDatabase.h; sourceTree = "<group>"; };
 		A59C1FB11D95949000A4E337 /* SearchDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDatabase.m; sourceTree = "<group>"; };
-		A59F6C7B1E8039330079D80B /* PTKConflictEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTKConflictEntry.h; sourceTree = "<group>"; };
-		A59F6C7C1E8039330079D80B /* PTKConflictEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTKConflictEntry.m; sourceTree = "<group>"; };
-		A59F6C801E805E950079D80B /* ToDelete */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDelete; sourceTree = "<group>"; };
 		A5AA21A61D52377200B42F4A /* Add_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Add_RemedyViewController.h; sourceTree = "<group>"; };
 		A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Add_RemedyViewController.m; sourceTree = "<group>"; };
 		A5AA21A91D52379300B42F4A /* VIEW_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_RemedyViewController.h; sourceTree = "<group>"; };
@@ -354,13 +346,8 @@
 				A59C1FB11D95949000A4E337 /* SearchDatabase.m */,
 				A5BDC4221E1715E600A98652 /* DBUpgrade.h */,
 				A5BDC4231E1715E600A98652 /* DBUpgrade.m */,
-				A567E9BE1E3FBCE600C45DE8 /* CloudHelper.h */,
-				A567E9BF1E3FBCE600C45DE8 /* CloudHelper.m */,
 				A50AF6F71E401C2A00CC4754 /* DatabaseManagement.h */,
 				A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */,
-				A59F6C7B1E8039330079D80B /* PTKConflictEntry.h */,
-				A59F6C7C1E8039330079D80B /* PTKConflictEntry.m */,
-				A59F6C801E805E950079D80B /* ToDelete */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -658,7 +645,6 @@
 				A5E28E9E1D0B515300052005 /* Icon-Small@3x.png in Resources */,
 				A5E28E9A1D0B515300052005 /* Icon-76@3x.png in Resources */,
 				A5033F3E1E3D3DEF00D22B7D /* iPad_Icon-Small@3x.png in Resources */,
-				A59F6C811E805E950079D80B /* ToDelete in Resources */,
 				A5E28EA21D0B515300052005 /* iTunesArtwork in Resources */,
 				A5841ECD1D8D9C9000DCDC98 /* search.png in Resources */,
 				A5033F361E3D3DEF00D22B7D /* iPad_Icon-76.png in Resources */,
@@ -711,10 +697,8 @@
 				A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */,
 				A505B0361D09A76900800310 /* main.m in Sources */,
 				A50AF6F91E401C2A00CC4754 /* DatabaseManagement.m in Sources */,
-				A59F6C7D1E8039330079D80B /* PTKConflictEntry.m in Sources */,
 				A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */,
 				A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */,
-				A567E9C01E3FBCE700C45DE8 /* CloudHelper.m in Sources */,
 				A505B0421D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld in Sources */,
 				A5AA21A81D52377200B42F4A /* Add_RemedyViewController.m in Sources */,
 				A594288F1E19B88100D059BE /* PopUpOilSearchViewController.m in Sources */,

@@ -28,11 +28,13 @@
     } else {
         [myObjFF sendMessage:msg MyTitle:@"ERROR!" ViewController:self];
     }
+    [DatabaseManagement startiCloudSync];
 }
 #pragma mark Restore from iCloud Button
 // Action to start the restore from iCloud Drive
 - (IBAction)btnRestoreFromiCloud:(id)sender {
     //[self restoreDatabaseFromiCloud];
+    [DatabaseManagement startiCloudSync];
     DatabaseManagement *myObjDM = [DatabaseManagement new];
     FormFunctions *myObjFF = [FormFunctions new];
     NSString *msg = [NSString new];
@@ -77,7 +79,7 @@
     dbPathString = [myObj getDatabasePath:@MYDBNAME];
     
     //Remove any conflicting versions and maybe initialize icloud sync
-    DatabaseManagement *myObjDM = [DatabaseManagement new];
+    /*DatabaseManagement *myObjDM = [DatabaseManagement new];
     [myObjDM removeConflictVersionsiniCloudbyURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"]];
     
     NSFileManager *objFM = [NSFileManager new];
@@ -85,7 +87,8 @@
         NSLog(@"sync started");
     } else {
         NSLog(@"sync Failed");
-    }
+    }*/
+    [DatabaseManagement startiCloudSync];
     
 }
 

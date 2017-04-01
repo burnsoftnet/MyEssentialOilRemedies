@@ -12,7 +12,6 @@
 #import "MySettings.h"
 #import "FormFunctions.h"
 #import "DatabaseManagement.h"
-//#import "CloudHelper.h"
 
 @interface SettingsViewController : UIViewController <UIAlertViewDelegate>
 - (IBAction)btnClearOils:(id)sender;

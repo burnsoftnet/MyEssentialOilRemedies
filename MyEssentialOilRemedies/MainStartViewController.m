@@ -22,6 +22,7 @@
     [myObj copyDbIfNeeded:@MYDBNAME MessageHandler:nil];
     DBUpgrade *myDB = [DBUpgrade new];
     [myDB checkDBVersionAgainstExpectedVersion];
+    [DatabaseManagement startiCloudSync];
     //NSString *dbPathString = [myObj getDatabasePath:@MYDBNAME];
     //[[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:@"2"];
     //[[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:@"3"];
