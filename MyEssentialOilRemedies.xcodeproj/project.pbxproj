@@ -39,6 +39,7 @@
 		A52043F11D86F995001AFD40 /* BurnSoftDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */; };
 		A52043F61D86F9DB001AFD40 /* BurnSoftGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */; };
 		A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */; };
+		A53A25861E946A35006C4B8F /* ActionClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A53A25851E946A35006C4B8F /* ActionClass.m */; };
 		A5464FCC1E3CF73B006F9A59 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */; };
 		A54B57951E665A3300EFF9BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54B57941E665A3300EFF9BA /* Foundation.framework */; };
 		A55062021DD0D865001CF00C /* VIEW_SingleRemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */; };
@@ -154,6 +155,8 @@
 		A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftGeneral.m; sourceTree = "<group>"; };
 		A52043F41D86F9DB001AFD40 /* BurnSoftMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftMath.h; sourceTree = "<group>"; };
 		A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftMath.m; sourceTree = "<group>"; };
+		A53A25841E946A35006C4B8F /* ActionClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionClass.h; sourceTree = "<group>"; };
+		A53A25851E946A35006C4B8F /* ActionClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionClass.m; sourceTree = "<group>"; };
 		A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A54B57941E665A3300EFF9BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A55062001DD0D865001CF00C /* VIEW_SingleRemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_SingleRemedyViewController.h; sourceTree = "<group>"; };
@@ -348,6 +351,8 @@
 				A5BDC4231E1715E600A98652 /* DBUpgrade.m */,
 				A50AF6F71E401C2A00CC4754 /* DatabaseManagement.h */,
 				A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */,
+				A53A25841E946A35006C4B8F /* ActionClass.h */,
+				A53A25851E946A35006C4B8F /* ActionClass.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -696,6 +701,7 @@
 				A5BDC4241E1715E600A98652 /* DBUpgrade.m in Sources */,
 				A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */,
 				A505B0361D09A76900800310 /* main.m in Sources */,
+				A53A25861E946A35006C4B8F /* ActionClass.m in Sources */,
 				A50AF6F91E401C2A00CC4754 /* DatabaseManagement.m in Sources */,
 				A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */,
 				A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */,

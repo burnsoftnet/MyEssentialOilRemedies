@@ -671,14 +671,13 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1C-bd-4Jz">
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" pagingEnabled="YES" indicatorStyle="black" delaysContentTouches="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnf-tN-mXz">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" pagingEnabled="YES" indicatorStyle="black" delaysContentTouches="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnf-tN-mXz">
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="440" id="bxG-TR-Hp0"/>
                                                 </constraints>
-                                                <attributedString key="attributedText"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1288,13 +1287,13 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oi-jN-SZd" userLabel="ContentView">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ5-hA-1ey">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xBU-JW-pxu">
                                                 <frame key="frameInset" minX="22" minY="195" width="349" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQC-7f-jEU">
                                                 <frame key="frameInset" minX="20" minY="62" width="66" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1534,7 +1533,7 @@
                         <outlet property="lblColor" destination="Pc6-sH-bC8" id="gt9-uS-21v"/>
                         <outlet property="lblCommonName" destination="mTu-bs-IHb" id="rfm-m6-s1T"/>
                         <outlet property="lblDescription" destination="gZJ-Nm-Uq9" id="nBd-Tu-9ma"/>
-                        <outlet property="lblIngredients" destination="cQ5-hA-1ey" id="i1O-Mu-jCb"/>
+                        <outlet property="lblIngredients" destination="xBU-JW-pxu" id="FN2-9D-Tvz"/>
                         <outlet property="lblName" destination="uUf-m6-SeD" id="fLq-ar-fsf"/>
                         <outlet property="lblSafetyNotes" destination="0JS-DO-P6j" id="YQA-QX-rEg"/>
                         <outlet property="lblVendor" destination="OGT-Is-85M" id="SXy-PE-LuT"/>
@@ -2499,7 +2498,7 @@
         <image name="search.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tE5-8K-Pn9"/>
+        <segue reference="EWW-Fh-Ngj"/>
         <segue reference="tZI-XI-ca5"/>
         <segue reference="FVx-dx-Rr4"/>
     </inferredMetricsTieBreakers>

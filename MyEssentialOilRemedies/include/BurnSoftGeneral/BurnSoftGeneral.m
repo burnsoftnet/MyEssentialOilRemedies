@@ -156,4 +156,14 @@
     }
     return bAns;
 }
++(NSString *) convertBOOLtoString:(BOOL) bValue
+{
+    NSString *sAns = [NSString new];
+    if (bValue) {
+        sAns = @"Yes";
+    } else {
+        sAns = @"No";
+    }
+    return sAns;
+}
 @end

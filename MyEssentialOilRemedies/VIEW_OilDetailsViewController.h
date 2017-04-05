@@ -11,16 +11,18 @@
 #import "MySettings.h"
 #import "FormFunctions.h"
 #import "BurnSoftDatabase.h"
+#import "ActionClass.h"
 #import <sqlite3.h>
 
-@interface VIEW_OilDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface VIEW_OilDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate>
 
 @property (strong, nonatomic) NSString *OID;
 @property (strong, nonatomic) NSString *RID;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @property (weak, nonatomic) IBOutlet UILabel *lblCommonName;
 @property (weak, nonatomic) IBOutlet UILabel *lblBotanicalName;
-@property (weak, nonatomic) IBOutlet UILabel *lblIngredients;
+//@property (weak, nonatomic) IBOutlet UILabel *lblIngredients;
+@property (weak, nonatomic) IBOutlet UITextView *lblIngredients;
 @property (weak, nonatomic) IBOutlet UILabel *lblSafetyNotes;
 @property (weak, nonatomic) IBOutlet UILabel *lblColor;
 @property (weak, nonatomic) IBOutlet UILabel *lblViscosity;

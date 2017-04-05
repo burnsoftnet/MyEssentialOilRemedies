@@ -40,12 +40,50 @@
     [[self RelatedRemediesTable]setDataSource:self];
    
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editOils)];
-    self.navigationItem.rightBarButtonItem = editButton;
+    //self.navigationItem.rightBarButtonItem = editButton;
+    
+    
+    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(startAction)];
+    
+    NSArray *NavArray = [[NSArray alloc] initWithObjects:actionButton,editButton,nil];
+    self.navigationItem.rightBarButtonItems = NavArray;
+    
+    //UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    //[self presentViewController:controller animated:YES completion:nil];
+    
     
     if (currView == 0) {
         [self changeCurrentViewTo:1];
     }
 }
+
+-(void) startAction
+{
+    NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text];
+    [ActionClass sendToActionSheetViewController:self FileToSend:outPutFile];
+    /*
+    NSString *actionFile = @"ActionFile.txt";
+    NSURL *url = [NSURL URLWithString:actionFile];
+    NSArray *objectsToShare = @[url];
+    
+    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    
+    // Exclude all activities except AirDrop.
+    //UIActivityTypeMessage, UIActivityTypeMail,
+    //UIActivityTypePrint,
+    NSArray *excludedActivities = @[UIActivityTypePostToTwitter, UIActivityTypePostToFacebook,
+                                    UIActivityTypePostToWeibo,
+                                    UIActivityTypeCopyToPasteboard,
+                                    UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll,
+                                    UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr,
+                                    UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
+    controller.excludedActivityTypes = excludedActivities;
+
+    // Present the controller
+    [self presentViewController:controller animated:YES completion:nil];
+    */
+}
+
 #pragma mark Change Views
 //This will change the views when a button on the toolbar is touchec
 // 1 is Description view
@@ -104,7 +142,8 @@
     [myFunctions setBorderLabel:self.lblViscosity];
     [myFunctions setBorderLabel:self.lblCommonName];
     [myFunctions setBordersTextView:self.lblDescription];
-    [myFunctions setBorderLabel:self.lblIngredients];
+    //[myFunctions setBorderLabel:self.lblIngredients];
+    [myFunctions setBordersTextView:self.lblIngredients];
     [myFunctions setBorderLabel:self.lblSafetyNotes];
     [myFunctions setBorderLabel:self.lblBotanicalName];
     [myFunctions setBorderLabel:self.lblVendor];
