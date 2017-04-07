@@ -13,6 +13,7 @@
 #import "BurnSoftGeneral.h"
 
 @interface ActionClass : UIViewController <UIActionSheetDelegate>
-+(void) sendToActionSheetViewController:(UIViewController *) MyViewController FileToSend:(NSString *) actionFile;
-+(NSString *) writeOilDetailsToFileToSendByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description;
++(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects;
++(NSString *) OilDetailsToStringByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description;
++(NSString *) writeOilDetailsToFileToSendByName:(NSString *) sOutPut;
 @end
