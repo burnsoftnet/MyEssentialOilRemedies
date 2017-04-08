@@ -12,33 +12,18 @@
 {
     sqlite3 *OilDB;
 }
-// Exclude all activities except AirDrop.
-//UIActivityTypeMessage, UIActivityTypeMail,
-//UIActivityTypePrint,
-/*
- Currently it supports these UIActivityTypes:
- 
- UIActivityTypePostToFacebook
- UIActivityTypePostToTwitter
- UIActivityTypePostToWeibo
- UIActivityTypeMessage
- UIActivityTypeMail
- UIActivityTypePrint
- UIActivityTypeCopyToPasteboard
- UIActivityTypeAssignToContact
- UIActivityTypeSaveToCameraRoll
- UIActivityTypeAddToReadingList
- UIActivityTypePostToFlickr
- UIActivityTypePostToVimeo
- UIActivityTypePostToTencentWeibo
- UIActivityTypeAirDrop
- */
+//View http://nshipster.com/uiactivityviewcontroller/ for details about activites
 
-+(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects
++(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects eMailSubject:(NSString *) emailSubject
 {
+    
     UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:ActionObjects applicationActivities:nil];
-    [controller setValue:@"Your email Subject" forKey:@"subject"];
+    [controller setValue:emailSubject forKey:@"subject"];
+    
   
+   /*
+    //Current excludeList caused nothing to show in the actionsheet
+    
     NSArray *excludedActivities = @[UIActivityTypePostToTwitter, UIActivityTypePostToFacebook,
                                     UIActivityTypePostToWeibo,
                                     UIActivityTypeCopyToPasteboard,
@@ -46,17 +31,23 @@
                                     UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr,
                                     UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
     controller.excludedActivityTypes = excludedActivities;
-    
+    */
     
     //. On iPad, you must present the view controller in a popover. On iPhone and iPod touch, you must present it modally.
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         //iPhone, present activity view controller as is.
-        [MyViewController presentViewController:controller animated:YES completion:nil];
+        [MyViewController presentViewController:controller animated:YES completion:^{}];
     }
     else
     {
         //iPad, present the view controller inside a popover.
+        MyViewController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionRight;
+        MyViewController.popoverPresentationController.sourceView = MyViewController.view;
+
+        //TODO  Attempting to get this actionsheet to work on an iPad
+        [MyViewController presentViewController:controller animated:YES completion:^{}];
+        
      //   if (![self.activityPopover isPopoverVisible]) {
      //       self.activityPopover = [[UIPopoverController alloc] initWithContentViewController:activityViewController];
      //       [self.activityPopover presentPopoverFromBarButtonItem:self.shareItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
@@ -67,7 +58,6 @@
             //[MyViewController.activityPopover dismissPopoverAnimated:YES];
      //   }
     }
-
   
 }
 +(NSString *) appendToOuput:(NSString *) sOutput forField:(NSString *) fieldName Value:(NSString *) value

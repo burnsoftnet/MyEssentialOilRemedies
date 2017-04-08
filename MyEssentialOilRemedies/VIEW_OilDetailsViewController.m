@@ -62,30 +62,9 @@
     NSString *rawText = [ActionClass OilDetailsToStringByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text];
 
     NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:rawText];
-    NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText];
-    
-    [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects];
-    /*
-    NSString *actionFile = @"ActionFile.txt";
-    NSURL *url = [NSURL URLWithString:actionFile];
-    NSArray *objectsToShare = @[url];
-    
-    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
-    
-    // Exclude all activities except AirDrop.
-    //UIActivityTypeMessage, UIActivityTypeMail,
-    //UIActivityTypePrint,
-    NSArray *excludedActivities = @[UIActivityTypePostToTwitter, UIActivityTypePostToFacebook,
-                                    UIActivityTypePostToWeibo,
-                                    UIActivityTypeCopyToPasteboard,
-                                    UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll,
-                                    UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr,
-                                    UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
-    controller.excludedActivityTypes = excludedActivities;
-
-    // Present the controller
-    [self presentViewController:controller animated:YES completion:nil];
-    */
+    //NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText,UIActivityTypeMessage,@"This is a oil",@"http://www.burnsoft.net",UIActivityTypeAirDrop,UIActivityTypePrint,UIActivityTypeMail];
+    NSArray *ActionObjects = @[outPutFile];
+    [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Details for: %@",self.lblName.text]];
 }
 
 #pragma mark Change Views
