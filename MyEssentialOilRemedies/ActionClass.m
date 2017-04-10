@@ -47,6 +47,11 @@
 
         //TODO  Attempting to get this actionsheet to work on an iPad
         [MyViewController presentViewController:controller animated:YES completion:^{}];
+        UIPopoverPresentationController *popController = [controller popoverPresentationController];
+        popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+        //popController.barButtonItem = self.leftButton;
+        //popController.delegate = self;
+        controller.popoverPresentationController.sourceView = MyViewController.view;
         
      //   if (![self.activityPopover isPopoverVisible]) {
      //       self.activityPopover = [[UIPopoverController alloc] initWithContentViewController:activityViewController];

@@ -45,7 +45,15 @@
     
     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(startAction)];
     
-    NSArray *NavArray = [[NSArray alloc] initWithObjects:actionButton,editButton,nil];
+    NSArray *NavArray = [NSArray new];
+    
+     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        //NSArray *NavArray = [[NSArray alloc] initWithObjects:actionButton,editButton,nil];
+         NavArray = [[NSArray alloc] initWithObjects:actionButton,editButton, nil];
+     } else {
+        // NavArray = [[NSArray alloc] initWithObjects:editButton, nil];
+         NavArray = [[NSArray alloc] initWithObjects:actionButton,editButton, nil];
+     }
     self.navigationItem.rightBarButtonItems = NavArray;
     
     //UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
@@ -64,7 +72,25 @@
     NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:rawText];
     //NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText,UIActivityTypeMessage,@"This is a oil",@"http://www.burnsoft.net",UIActivityTypeAirDrop,UIActivityTypePrint,UIActivityTypeMail];
     NSArray *ActionObjects = @[outPutFile];
-    [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Details for: %@",self.lblName.text]];
+     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+         [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Details for: %@",self.lblName.text]];
+     } else {
+         UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:ActionObjects applicationActivities:nil];
+         [controller setValue:self.lblName.text forKey:@"subject"];
+         
+         self.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionRight;
+         self.popoverPresentationController.sourceView = self.view;
+         
+         //TODO  Attempting to get this actionsheet to work on an iPad
+         [self presentViewController:controller animated:YES completion:^{}];
+         UIPopoverPresentationController *popController = [controller popoverPresentationController];
+         popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+         //popController.barButtonItem = self.leftButton;
+         //popController.delegate = self;
+         controller.popoverPresentationController.sourceView = self.view;
+
+         
+     }
 }
 
 #pragma mark Change Views
