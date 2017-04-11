@@ -35,6 +35,8 @@
         [self changeCurrentViewTo:1];
     }
 }
+#pragma mark Start Action Sheet
+//start the action sheet process and gather the data to send to the ActionClass
 -(void) startAction
 {
     int a;
@@ -50,7 +52,7 @@
 
     NSString *rawText = [ActionClass RemedyDetailsToStringByName:self.lblProblem.text Description:self.lblDescription.text OilsArray:oilList HowToUse:self.lblUses.text];
     //NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:rawText];
-    NSLog(@"%@",rawText);
+    //NSLog(@"%@",rawText);
     NSArray *ActionObjects = @[rawText];
     
     [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Remedy for: %@",self.lblProblem.text]];

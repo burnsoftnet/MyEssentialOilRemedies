@@ -55,7 +55,7 @@
     if (![errorMsg  isEqual: @""])
     {
         [self doBuggermeMessage:errorMsg FromSubFunction:[NSString stringWithFormat:@"CheckForError.%@",errTitle]];
-        //NSLog(@"%@",errorMsg);
+
         NSString *mytitle = [NSString stringWithFormat:@"%@ Error",errTitle];
         [self sendMessage:errorMsg MyTitle:mytitle ViewController:MyViewController];
         

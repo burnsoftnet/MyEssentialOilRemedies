@@ -18,13 +18,6 @@
 @interface VIEW_RemedyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong,nonatomic) NSString *RID;
-//@property (assign) BOOL isFromSearch;
-//@property (strong,nonatomic) NSString *oilsForAction;
-//@property (strong,nonatomic)NSMutableArray *myOils;
-//possible delete
-//@property (strong,nonatomic) NSString *myremedyName;
-//@property (strong,nonatomic) NSString *myremedyDescription;
-//@property (strong,nonatomic) NSString *myUses;
 
 //Views
 @property (weak, nonatomic) IBOutlet UIView *viewDescription;

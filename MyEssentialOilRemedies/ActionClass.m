@@ -24,7 +24,7 @@
  UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
  controller.excludedActivityTypes = excludedActivities;
  */
-
+#pragma mark Create an Action Sheet for iPhone and iPad to send data to another device
 +(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects eMailSubject:(NSString *) emailSubject
 {
     
@@ -50,18 +50,25 @@
     }
   
 }
+
+#pragma mark Append to the Output of an Existing String
 +(NSString *) appendToOuput:(NSString *) sOutput forField:(NSString *) fieldName Value:(NSString *) value
 {
     return [sOutput stringByAppendingString:[NSString stringWithFormat:@"%@: %@\n",fieldName, value]];
 }
+
+#pragma mark Write the oil Details to a file
 +(NSString *) writeOilDetailsToFileToSendByName:(NSString *) sOutPut
 {
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [path objectAtIndex:0];
-    NSString *sAns = [docPath stringByAppendingPathComponent:@"OilDetails.txt"];
+    NSString *sAns = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
     [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
     return sAns;
 }
+
+#pragma mark Format Oil Details to one String
+// Appened all the Oil Detail Fields to one formated string for output to send via Airdrop, message, email, notes, etc.
 +(NSString *) OilDetailsToStringByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
 {
     
@@ -81,6 +88,8 @@
     return sOutput;
 }
 
+#pragma mark Format Remedy Details to one String
+//  Append all the Remedy Details fields to one format string for output to send via Airdrop, message, noets etc.
 +(NSString *) RemedyDetailsToStringByName:(NSString *) remedyName Description:(NSString *) description OilsArray:(NSString *) oilsArray HowToUse:(NSString *) howTouse
 {
     NSString *sOutPut = [NSString new];

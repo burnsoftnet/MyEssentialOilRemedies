@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @property (weak, nonatomic) IBOutlet UILabel *lblCommonName;
 @property (weak, nonatomic) IBOutlet UILabel *lblBotanicalName;
-//@property (weak, nonatomic) IBOutlet UILabel *lblIngredients;
+
 @property (weak, nonatomic) IBOutlet UITextView *lblIngredients;
 @property (weak, nonatomic) IBOutlet UILabel *lblSafetyNotes;
 @property (weak, nonatomic) IBOutlet UILabel *lblColor;

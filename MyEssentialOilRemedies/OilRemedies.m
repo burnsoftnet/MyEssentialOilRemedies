@@ -72,7 +72,6 @@
 //USEDFOR: View Edit Remedies
 -(NSMutableArray *) getAllOilfForremedyByRIDNameOnly:(NSString *) RID DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **)errorMsg
 {
-    //oilRemedyCollection = [NSMutableArray new];
     EditOilsInRemedy = [NSMutableArray new];
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPathString UTF8String], &OilDB) == SQLITE_OK){
@@ -83,9 +82,6 @@
             {
                 NSString *name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
                 
-                //OilRemedies *myCollection = [OilRemedies new];
-                //[myCollection setName:name];
-                //[oilRemedyCollection addObject:myCollection];
                 [EditOilsInRemedy addObject:name];
                 
             }
