@@ -16,6 +16,7 @@
     NSString *dbPathString;
     NSMutableArray *myOilCollection;
     NSString *SelectedCellID;
+    int inStockCount;
 }
 @end
 
@@ -23,6 +24,7 @@
 #pragma mark Controller Load
 //Actions to take when the Controller Loads
 - (void)viewDidLoad {
+    inStockCount = 0;
     [super viewDidLoad];
     [self setupGlobalVars];
     [[self myTableView]setDelegate:self];
@@ -91,7 +93,8 @@
     myOilCollection = [myObj getAllOilsList:dbPathString :&errorMsg];
     [myFunctions checkForError:errorMsg MyTitle:@"LoadData:" ViewController:self];
     [[self myTableView] reloadData];
-    [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[myOilCollection count]];
+    inStockCount = [myObj getInStockCountByDatabase:dbPathString ErrorMessage:&errorMsg];
+    [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%i/%lu",inStockCount,(unsigned long)[myOilCollection count]];
     [[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d",[myObjDB getTotalNumberofRowsInTable:@"eo_remedy_list" DatabasePath:dbPathString ErrorMessage:nil]]];
     
 }

@@ -13,6 +13,7 @@
 #import "FormFunctions.h"
 #import "VIEW_RemedyViewController.h"
 #import "EDIT_RemedyViewController.h"
+#import "OilLists.h"
 
 @interface LIST_OilRemediesViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;

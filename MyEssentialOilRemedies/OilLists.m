@@ -177,6 +177,31 @@
     }
     return oilCollection;
 }
+
+-(int) getInStockCountByDatabase :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
+{
+    int iAns = 0;
+    sqlite3_stmt *statement;
+    if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
+        NSString *querySQL = [NSString stringWithFormat:@"select count(*) from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
+        int ret = sqlite3_prepare_v2(OilDB,[querySQL UTF8String],-1,&statement,NULL);
+        if (ret == SQLITE_OK) {
+            while (sqlite3_step(statement)==SQLITE_ROW) {
+                iAns = [[[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,0)] intValue];
+            }
+            sqlite3_close(OilDB);
+        } else {
+            *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for getOutOfStockOilsList. '%s'", sqlite3_errmsg(OilDB)];
+        }
+
+    }
+    return iAns;
+}
++(int) listInStock:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
+{
+    OilLists *myobj = [OilLists new];
+    return [myobj getInStockCountByDatabase:dbPath ErrorMessage:errorMsg];
+}
 #pragma mark Get Only Out-Of-Stock Oils
 //NOTE:  This will only return the oils that are out of stock
 //USEDBY:
