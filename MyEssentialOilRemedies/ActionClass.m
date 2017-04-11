@@ -13,25 +13,23 @@
     sqlite3 *OilDB;
 }
 //View http://nshipster.com/uiactivityviewcontroller/ for details about activites
+/*
+ //Current excludeList caused nothing to show in the actionsheet
+ 
+ NSArray *excludedActivities = @[UIActivityTypePostToTwitter, UIActivityTypePostToFacebook,
+ UIActivityTypePostToWeibo,
+ UIActivityTypeCopyToPasteboard,
+ UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll,
+ UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr,
+ UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
+ controller.excludedActivityTypes = excludedActivities;
+ */
 
 +(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects eMailSubject:(NSString *) emailSubject
 {
     
     UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:ActionObjects applicationActivities:nil];
     [controller setValue:emailSubject forKey:@"subject"];
-    
-  
-   /*
-    //Current excludeList caused nothing to show in the actionsheet
-    
-    NSArray *excludedActivities = @[UIActivityTypePostToTwitter, UIActivityTypePostToFacebook,
-                                    UIActivityTypePostToWeibo,
-                                    UIActivityTypeCopyToPasteboard,
-                                    UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll,
-                                    UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr,
-                                    UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
-    controller.excludedActivityTypes = excludedActivities;
-    */
     
     //. On iPad, you must present the view controller in a popover. On iPhone and iPod touch, you must present it modally.
     
@@ -45,23 +43,10 @@
         MyViewController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionRight;
         MyViewController.popoverPresentationController.sourceView = MyViewController.view;
 
-        //TODO  Attempting to get this actionsheet to work on an iPad
         [MyViewController presentViewController:controller animated:YES completion:^{}];
         UIPopoverPresentationController *popController = [controller popoverPresentationController];
         popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
-        //popController.barButtonItem = self.leftButton;
-        //popController.delegate = self;
         controller.popoverPresentationController.sourceView = MyViewController.view;
-        
-     //   if (![self.activityPopover isPopoverVisible]) {
-     //       self.activityPopover = [[UIPopoverController alloc] initWithContentViewController:activityViewController];
-     //       [self.activityPopover presentPopoverFromBarButtonItem:self.shareItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-     //   }
-     //   else
-     //   {
-            //Dismiss if the button is tapped while popover is visible.
-            //[MyViewController.activityPopover dismissPopoverAnimated:YES];
-     //   }
     }
   
 }
@@ -94,5 +79,20 @@
     sOutput = [self appendToOuput:sOutput forField:@"Description" Value:description];
     
     return sOutput;
+}
+
++(NSString *) RemedyDetailsToStringByName:(NSString *) remedyName Description:(NSString *) description OilsArray:(NSString *) oilsArray HowToUse:(NSString *) howTouse
+{
+    NSString *sOutPut = [NSString new];
+    
+    sOutPut = [NSString stringWithFormat:@"Remedy Name: %@\n", remedyName];
+    sOutPut = [self appendToOuput:sOutPut forField:@"Description" Value:description];
+    sOutPut = [self appendToOuput:sOutPut forField:@"\nOils" Value:@"\n"];
+
+    sOutPut = [sOutPut stringByAppendingString:oilsArray];
+    
+    sOutPut = [self appendToOuput:sOutPut forField:@"\n\nHow To Use" Value:howTouse];
+
+    return sOutPut;
 }
 @end

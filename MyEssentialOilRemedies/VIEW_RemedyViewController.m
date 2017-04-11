@@ -26,10 +26,37 @@
     [self loadSettings];
     [self loadData];
     
+    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(startAction)];
+    NSArray *NavArray = [NSArray new];
+    NavArray = [[NSArray alloc] initWithObjects:actionButton, nil];
+    self.navigationItem.rightBarButtonItems = NavArray;
+    
     if (currView == 0) {
         [self changeCurrentViewTo:1];
     }
 }
+-(void) startAction
+{
+    int a;
+    NSString *value = [NSString new];
+    NSString *oilList = [NSString new];
+    oilList = @"\n";
+    
+    for (a=0;a<[myOilCollection count];a++)
+    {
+        value = [NSString stringWithFormat:@"%@\n",[[myOilCollection objectAtIndex:a] name]];
+        oilList = [oilList stringByAppendingString:value];
+    }
+
+    NSString *rawText = [ActionClass RemedyDetailsToStringByName:self.lblProblem.text Description:self.lblDescription.text OilsArray:oilList HowToUse:self.lblUses.text];
+    //NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:rawText];
+    NSLog(@"%@",rawText);
+    NSArray *ActionObjects = @[rawText];
+    
+    [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Remedy for: %@",self.lblProblem.text]];
+}
+
+
 #pragma mark View Appears Again
 //when the view is reloaded
 -(void) viewWillAppear:(BOOL)animated
@@ -73,6 +100,7 @@
 //Loads the information from the Database based on the RID.
 -(void) loadData
 {
+    //self.oilsForAction = @"\n";
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPathString UTF8String],&MYDB) == SQLITE_OK)
     {
@@ -237,6 +265,9 @@
     OilRemedies *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
     NSString *instock = displayCollection.oilInStock;
     cell.textLabel.text = displayCollection.name;
+    
+    //[_oilsForAction stringByAppendingString:[NSString stringWithFormat:@"%@\n",displayCollection.name]];
+    
     if ([instock intValue] == 1)
     {
         cell.contentView.backgroundColor = [UIColor greenColor];

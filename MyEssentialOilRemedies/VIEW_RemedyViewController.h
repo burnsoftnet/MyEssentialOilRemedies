@@ -13,12 +13,14 @@
 #import "FormFunctions.h"
 #import "PopUpOilViewController.h"
 #import "LIST_OilRemediesViewController.h"
+#import "ActionClass.h"
 
 @interface VIEW_RemedyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong,nonatomic) NSString *RID;
 //@property (assign) BOOL isFromSearch;
-@property (strong,nonatomic)NSMutableArray *myOils;
+//@property (strong,nonatomic) NSString *oilsForAction;
+//@property (strong,nonatomic)NSMutableArray *myOils;
 //possible delete
 //@property (strong,nonatomic) NSString *myremedyName;
 //@property (strong,nonatomic) NSString *myremedyDescription;
