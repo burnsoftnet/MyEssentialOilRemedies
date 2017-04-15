@@ -99,6 +99,7 @@
     
 }
 
+
 #pragma mark Table set Edit Mode
 // Set if you can edit the table by swiping left to view options.
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath

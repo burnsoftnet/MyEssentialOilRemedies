@@ -83,5 +83,17 @@
         NSLog(@"%@ - %@",fromlocation,msg);
     }
 }
+
+#pragma mark NSLog Debug Message
+//NOTE: Mostly used for runtime debugging by sending message of information back to the output window.
+//      Only when the Global Var BUGGERME is true will it write out message
+//USEBD: GENERAL
++(void)doBuggermeMessage :(NSString *) msg FromSubFunction:(NSString *) fromlocation
+{
+    if (BUGGERME) {
+        NSLog(@"%@ - %@",fromlocation,msg);
+    }
+
+}
 #pragma mark
 @end

@@ -17,13 +17,9 @@
 - (IBAction)btnClearOils:(id)sender;
 - (IBAction)btnClearRemedies:(id)sender;
 - (IBAction)btnRestoreFactory:(id)sender;
-
-//- (IBAction)btnBackUpDatabaseForiTunes:(id)sender;
-
 - (IBAction)btnBackuptoiCloud:(id)sender;
 - (IBAction)btnRestoreFromiCloud:(id)sender;
 
-//@property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UILabel *lblAppVersion;
 @property (weak, nonatomic) IBOutlet UILabel *lblDBVersion;
 

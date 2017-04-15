@@ -71,8 +71,8 @@
     NSString *docPath = [path objectAtIndex:0];
     newDBName = [docPath stringByAppendingPathComponent:newDBName];
     
-    NSLog(@"%@",dbPathString);
-    NSLog(@"%@",newDBName);
+    [myObjFF doBuggermeMessage:[NSString stringWithFormat:@"DatabasePath: %@",dbPathString] FromSubFunction:@"SettingsiTunesBackupRestoreViewController.btnBackUpDatabaseForiTunes"];
+    [myObjFF doBuggermeMessage:[NSString stringWithFormat:@"New Database Name: %@",newDBName] FromSubFunction:@"SettingsiTunesBackupRestoreViewController.btnBackUpDatabaseForiTunes"];
     
     NSError *error;
     BOOL success;
@@ -183,7 +183,6 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellTag = [NSString stringWithFormat:@"%@",cell.textLabel.text];
     FormFunctions * myObjFF = [FormFunctions new];
-    //NSString *errorMsg = [NSString new];
     
     UITableViewRowAction *RestoreAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Restore" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         if ([self DeleteFileByName:@MYDBNAME])
@@ -208,6 +207,4 @@
     deleteAction.backgroundColor = [UIColor redColor];
     return  @[deleteAction,RestoreAction];
 }
-
-
 @end

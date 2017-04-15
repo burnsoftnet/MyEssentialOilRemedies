@@ -67,6 +67,7 @@
     return sAns;
 }
 
+//MIGHT NOT BE NEEDED
 #pragma mark Format Oil Details to one String
 // Appened all the Oil Detail Fields to one formated string for output to send via Airdrop, message, email, notes, etc.
 +(NSString *) OilDetailsToStringByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
@@ -87,6 +88,26 @@
     
     return sOutput;
 }
+
+//MIGHT NOT BE NEEDED
+#pragma mark Format Oil Details to one String for Insert
+// Appened all the Oil Detail Fields to one formated string for output to send via Airdrop, message, email, notes, etc.
++(NSString *) OilDetailsToStringForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
+{
+    
+    NSString *sOutput = [NSString new];
+    NSString *sqlOilName = [NSString stringWithFormat:@"INSERT INTO eo_oil_list (name,instock) VALUES ('%@',0)",OilName];
+    NSString *OID = [NSString new];
+    NSString *sqlOilDescription = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@')", OID,description,botName,ingredients,safetyNotes,color,viscosity,commonName,vendor,website];
+    
+    sOutput = [NSString stringWithFormat:@"%@\n",OilName];
+    sOutput = [sOutput stringByAppendingString:sqlOilName];
+    sOutput =[sOutput stringByAppendingString:sqlOilDescription];
+    
+    
+    return sOutput;
+}
+
 
 #pragma mark Format Remedy Details to one String
 //  Append all the Remedy Details fields to one format string for output to send via Airdrop, message, noets etc.

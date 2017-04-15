@@ -56,8 +56,6 @@
 -(void) startAction
 {
     NSString *rawText = [ActionClass OilDetailsToStringByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text];
-
-    //NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:rawText];
     
     NSArray *ActionObjects = @[rawText];
 
@@ -122,7 +120,6 @@
     [myFunctions setBorderLabel:self.lblViscosity];
     [myFunctions setBorderLabel:self.lblCommonName];
     [myFunctions setBordersTextView:self.lblDescription];
-    //[myFunctions setBorderLabel:self.lblIngredients];
     [myFunctions setBordersTextView:self.lblIngredients];
     [myFunctions setBorderLabel:self.lblSafetyNotes];
     [myFunctions setBorderLabel:self.lblBotanicalName];
@@ -138,7 +135,6 @@
     OilLists *myObj = [OilLists new];
     NSString *errMsg = [NSString new];
     myRelatedRemedies = [myObj getRemediesRelatedToOilID:self.OID DatabasePath:dbPathString ErrorMessage:&errMsg];
-    
 }
 
 #pragma mark Load Data
@@ -255,9 +251,6 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-   // OilRemedies *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
-   // cell.textLabel.text = displayCollection.name;
-    //cell.tag = displayCollection.RID;
     OilLists   *displayCollection = [myRelatedRemedies objectAtIndex:indexPath.row];
     cell.textLabel.text = displayCollection.RemedyName;
     cell.tag = displayCollection.RID;

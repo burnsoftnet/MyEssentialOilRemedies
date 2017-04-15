@@ -17,10 +17,6 @@
 
 @interface LIST_OilRemediesViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
-
-//Views
-
-
 //Actions
 - (IBAction)refresh:(UIRefreshControl *)sender;
 @end

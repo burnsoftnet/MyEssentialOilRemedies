@@ -54,11 +54,6 @@
 // occurs after the usee finished editing the field and touches elsewhere on the form
 - (IBAction)OilNameEditingEnded:(id)sender {
     FormFunctions *myObj = [FormFunctions new];
-    //OilLists *myOilLists = [OilLists new];
-    //BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
-    
-    //NSString *errMsg = [NSString new];
-    //NSString *myOilName = [myObjG FCString:self.txtName.text];
     
     if ([self oilExistsByName:self.txtName.text])
     {

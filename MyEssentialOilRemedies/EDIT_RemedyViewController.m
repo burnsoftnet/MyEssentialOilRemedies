@@ -58,14 +58,6 @@
 //when the Add button is pressed
 -(IBAction)btnAddOil:(id)sender
 {
-    /* Old
-    OilRemedies *MyCollection = [OilRemedies new];
-    [MyCollection setName:_txtOilName.text];
-    [self.myOils addObject:MyCollection];
-    
-    [self.myTableView reloadData];
-    self.txtOilName.text=@"";
-     */
     NSString *newOil = self.txtOilName.text;
     if (![newOil isEqualToString:@""])
     {
@@ -128,21 +120,14 @@
         {
             while (sqlite3_step(statement) ==SQLITE_ROW)
             {
-                //if (_myremedyName == nil)
-                //{
-                    iCol = 1;
-                    if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {self.txtRemedy.text= [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement,iCol)];}
-                //}
-                //if (_myremedyDescription == nil)
-                //{
-                    iCol=2;
-                    if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.txtDescription.text = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, iCol)];}
-                //}
-                //if (_myUses == nil)
-                //{
-                    iCol=3;
-                    if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.txtUses.text = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, iCol)];}
-                //}
+                iCol = 1;
+                if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {self.txtRemedy.text= [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement,iCol)];}
+
+                iCol=2;
+                if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.txtDescription.text = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, iCol)];}
+
+                iCol=3;
+                if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.txtUses.text = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, iCol)];}
             }
             sqlite3_close(MYDB);
             sqlite3_finalize(statement);

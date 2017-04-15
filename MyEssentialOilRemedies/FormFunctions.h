@@ -16,4 +16,5 @@
 -(void)checkForError :(NSString *) errorMsg MyTitle:(NSString *) errTitle ViewController:(UIViewController *) MyViewController;
 -(void)checkForErrorLogOnly :(NSString *) errorMsg MyTitle:(NSString *) errTitle;
 -(void)doBuggermeMessage :(NSString *) msg FromSubFunction:(NSString *) fromlocation;
++(void)doBuggermeMessage :(NSString *) msg FromSubFunction:(NSString *) fromlocation;
 @end

@@ -33,12 +33,10 @@
 #pragma mark Restore from iCloud Button
 // Action to start the restore from iCloud Drive
 - (IBAction)btnRestoreFromiCloud:(id)sender {
-    //[self restoreDatabaseFromiCloud];
     [DatabaseManagement startiCloudSync];
     DatabaseManagement *myObjDM = [DatabaseManagement new];
     FormFunctions *myObjFF = [FormFunctions new];
     NSString *msg = [NSString new];
-    //@"meo.bak"
     BOOL success =[myObjDM restoreDatabaseFromiCloudByDBName:@MYDBNAME LocalDatabasePath:dbPathString ErrorMessage:&msg];
     if (success){
         msg = [NSString stringWithFormat:@"Databae Restore was successful!"];
@@ -77,19 +75,7 @@
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     dbPathString = [myObj getDatabasePath:@MYDBNAME];
-    
-    //Remove any conflicting versions and maybe initialize icloud sync
-    /*DatabaseManagement *myObjDM = [DatabaseManagement new];
-    [myObjDM removeConflictVersionsiniCloudbyURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"]];
-    
-    NSFileManager *objFM = [NSFileManager new];
-    if ([objFM startDownloadingUbiquitousItemAtURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"] error:nil]) {
-        NSLog(@"sync started");
-    } else {
-        NSLog(@"sync Failed");
-    }*/
     [DatabaseManagement startiCloudSync];
-    
 }
 
 #pragma mark Load Version
@@ -164,8 +150,6 @@
     NSString *myTitle = @"Restore Factory Database";
     
     [objDB restoreFactoryDB:@MYDBNAME MessageHandler:&errorMsg];
-    
-    
     [objF sendMessage:myTitle MyTitle:@"DB Restored to Factory." ViewController:self];
 }
 #pragma mark Clear Oils Button
@@ -178,7 +162,6 @@
     [alert addAction:defaultNO];
     
     [self presentViewController:alert animated:YES completion:nil];
-    
 }
 #pragma mark Clear Remedies Button
 // Button action to confirm and clear the Remedies table
@@ -190,7 +173,6 @@
     [alert addAction:defaultNO];
     
     [self presentViewController:alert animated:YES completion:nil];
-    
 }
 #pragma mark Restore Factory Button
 // Button action to confirm and replace the database in the docs with the one in the apps directory
@@ -202,7 +184,6 @@
     [alert addAction:defaultNO];
     
     [self presentViewController:alert animated:YES completion:nil];
-
 }
 #pragma mark Delete File by Name
 // Delete the file + path that you want to delete
