@@ -19,4 +19,7 @@
 -(BOOL)DeleteFileByPath:(NSString *) sPath ErrorMessage:(NSString **) msg;
 -(BOOL)createDirectoryIfNotExists:(NSString *) sPath ErrorMessage:(NSString **) errMsg;
 +(NSString *) convertBOOLtoString:(BOOL) bValue;
+#pragma mark Get File Exteension From File Path
+// Get the extension of the file from the full path
++(NSString *) getFileExtensionbyPath:(NSString *) filePath;
 @end

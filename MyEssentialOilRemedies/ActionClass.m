@@ -96,14 +96,14 @@
 {
     
     NSString *sOutput = [NSString new];
+    NSString *sqlCheckOil = [NSString stringWithFormat:@"select id from eo_oil_list where name='%@'",OilName];
     NSString *sqlOilName = [NSString stringWithFormat:@"INSERT INTO eo_oil_list (name,instock) VALUES ('%@',0)",OilName];
     NSString *OID = [NSString new];
     NSString *sqlOilDescription = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@')", OID,description,botName,ingredients,safetyNotes,color,viscosity,commonName,vendor,website];
     
-    sOutput = [NSString stringWithFormat:@"%@\n",OilName];
-    sOutput = [sOutput stringByAppendingString:sqlOilName];
-    sOutput =[sOutput stringByAppendingString:sqlOilDescription];
-    
+    sOutput = [NSString stringWithFormat:@"%@\n",sqlCheckOil];
+    sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"%@\n",sqlOilName]];
+    sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"%@\n",sqlOilDescription]];
     
     return sOutput;
 }
@@ -124,5 +124,40 @@
     sOutPut = [self appendToOuput:sOutPut forField:@"\n\nHow To Use" Value:howTouse];
 
     return sOutPut;
+}
+#pragma mark
+//
++(void) OpenFileFromAirDropbyPath:(NSString *) filePath
+{
+    
+    NSString *fileType = [BurnSoftGeneral getFileExtensionbyPath:filePath];
+    NSString *fileContents = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
+    int lineNumber = 0;
+    NSString *OID = [NSString new];
+    NSString *sqlOilDetails = [NSString new];
+    if ([fileType isEqualToString:@"meo"])
+    {
+        for (NSString *line in [fileContents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]]) {
+            lineNumber++;
+            if (lineNumber == 1) {
+                NSLog(@"Check to see if oil exists, if already exists then get the Oil ID");
+            } else if (lineNumber == 2) {
+                if ([OID isEqualToString:@""]) {
+                    NSLog(@"The Oil Doesn't exist insert the oil and get the ID");
+                }
+            } else if (lineNumber >=3) {
+                NSLog(@"Collect Final Insert data to be inserted at the end");
+                if ([sqlOilDetails isEqualToString:@""]){
+                    sqlOilDetails = line;
+                } else {
+                    sqlOilDetails = [sqlOilDetails stringByAppendingString:line];
+                }
+            }
+            //NSLog(@"%@",line);
+        }
+         NSLog(@"%@",sqlOilDetails);
+    } else if ([fileType isEqualToString:@"meor"]) {
+        
+    }
 }
 @end

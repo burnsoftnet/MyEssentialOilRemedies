@@ -94,7 +94,13 @@
     [myFunctions checkForError:errorMsg MyTitle:@"LoadData:" ViewController:self];
     [[self myTableView] reloadData];
     inStockCount = [myObj getInStockCountByDatabase:dbPathString ErrorMessage:&errorMsg];
-    [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%i/%lu",inStockCount,(unsigned long)[myOilCollection count]];
+    
+    if (inStockCount == 0) {
+        [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[myOilCollection count]];
+    } else {
+        [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%i/%lu",inStockCount,(unsigned long)[myOilCollection count]];
+    }
+    
     [[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d",[myObjDB getTotalNumberofRowsInTable:@"eo_remedy_list" DatabasePath:dbPathString ErrorMessage:nil]]];
     
 }

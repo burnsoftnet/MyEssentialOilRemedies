@@ -10,12 +10,38 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
-			<array/>
+			<array>
+				<string>Icon-Small</string>
+			</array>
 			<key>CFBundleTypeName</key>
 			<string>MEO Database</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>net.burnsoft.MyEssentialOilRemedies.db</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>Icon-Small</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>MEO Oil Data Transfer</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>net.burnsoft.MyEssentialOilRemedies.meo</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>Icon-Small</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>MEO Remedy Data Transfer</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>net.burnsoft.MyEssentialOilRemedies.meor</string>
 			</array>
 		</dict>
 	</array>
@@ -34,7 +60,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>64</string>
+	<string>66</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -59,6 +85,23 @@
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>net.burnsoft.MyEssentialOilRemedies.meor</string>
+			<key>UTTypeDescription</key>
+			<string>My Essential Oils and Remedies Document</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<string>meor</string>
+				<key>public.mime-type</key>
+				<string>application/MyEssentialOilRemedies</string>
+			</dict>
+		</dict>
+		<dict>
 			<key>UTExportedTypeDeclarations</key>
 			<array>
 				<dict>
@@ -82,12 +125,12 @@
 			<string>net.burnsoft.MyEssentialOilRemedies.db</string>
 		</dict>
 		<dict>
-			<key>UTTypeDescription</key>
-			<string>My Essential Oils and Remedies Document</string>
 			<key>UTTypeConformsTo</key>
 			<array>
 				<string>public.data</string>
 			</array>
+			<key>UTTypeDescription</key>
+			<string>My Essential Oils and Remedies Document</string>
 			<key>UTTypeIdentifier</key>
 			<string>net.burnsoft.MyEssentialOilRemedies.meo</string>
 			<key>UTTypeTagSpecification</key>
