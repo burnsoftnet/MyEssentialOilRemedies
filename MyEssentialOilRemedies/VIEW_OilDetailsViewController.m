@@ -23,6 +23,9 @@
     NSMutableArray *myRelatedRemedies;
     NSString *SelectedCellID;
 }
+
+
+
 #pragma mark View Did Appear
 //When the view appears again
 - (void) viewDidAppear:(BOOL)animated
@@ -56,9 +59,9 @@
 -(void) startAction
 {
     NSString *rawText = [ActionClass OilDetailsToStringByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text];
-    NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:[ActionClass OilDetailsToStringForInsertByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text]];
+    NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:[XMLClass OilDetailsToXMLForInsertByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text]];
     
-    [ActionClass OpenFileFromAirDropbyPath:outPutFile];
+    [XMLClass OpenFileFromAirDropbyPath:outPutFile];
     
     NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText];
 

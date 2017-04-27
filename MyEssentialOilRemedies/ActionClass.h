@@ -12,7 +12,8 @@
 #import "BurnSoftDatabase.h"
 #import "BurnSoftGeneral.h"
 
-@interface ActionClass : UIViewController <UIActionSheetDelegate>
+@interface ActionClass : UIViewController <UIActionSheetDelegate,NSXMLParserDelegate>
+
 
 #pragma mark Create an Action Sheet for iPhone and iPad to send data to another device
 +(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects eMailSubject:(NSString *) emailSubject;
@@ -32,4 +33,5 @@
 #pragma mark
 //
 +(void) OpenFileFromAirDropbyPath:(NSString *) filePath;
++(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description;
 @end

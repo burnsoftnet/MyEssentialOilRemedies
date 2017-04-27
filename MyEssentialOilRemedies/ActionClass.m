@@ -12,6 +12,7 @@
 {
     sqlite3 *OilDB;
 }
+
 //View http://nshipster.com/uiactivityviewcontroller/ for details about activites
 /*
  //Current excludeList caused nothing to show in the actionsheet
@@ -108,7 +109,18 @@
     return sOutput;
 }
 
-
++(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
+{
+    NSString *sOutput = [NSString new];
+    sOutput = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    sOutput = [sOutput stringByAppendingString:@"<!DOCTYPE addresses SYSTEM \"oils.dtd\">\n"];
+    sOutput = [sOutput stringByAppendingString:@"<oils>\n"];
+    sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <Name>%@</Name>\n",OilName]];
+    sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <commonName>%@</commonName>\n",commonName]];
+    sOutput = [sOutput stringByAppendingString:@"</oils>\n"];
+    return sOutput;
+    
+}
 #pragma mark Format Remedy Details to one String
 //  Append all the Remedy Details fields to one format string for output to send via Airdrop, message, noets etc.
 +(NSString *) RemedyDetailsToStringByName:(NSString *) remedyName Description:(NSString *) description OilsArray:(NSString *) oilsArray HowToUse:(NSString *) howTouse
@@ -125,22 +137,26 @@
 
     return sOutPut;
 }
-#pragma mark
-//
+
 +(void) OpenFileFromAirDropbyPath:(NSString *) filePath
 {
     
     NSString *fileType = [BurnSoftGeneral getFileExtensionbyPath:filePath];
     NSString *fileContents = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
     int lineNumber = 0;
-    NSString *OID = [NSString new];
-    NSString *sqlOilDetails = [NSString new];
+
     if ([fileType isEqualToString:@"meo"])
     {
+        NSString *OID = [NSString new];
+        NSString *sqlOilDetails = [NSString new];
+        //BOOL oilExist = NO;
+        
         for (NSString *line in [fileContents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]]) {
+            
             lineNumber++;
             if (lineNumber == 1) {
                 NSLog(@"Check to see if oil exists, if already exists then get the Oil ID");
+                
             } else if (lineNumber == 2) {
                 if ([OID isEqualToString:@""]) {
                     NSLog(@"The Oil Doesn't exist insert the oil and get the ID");
@@ -153,7 +169,8 @@
                     sqlOilDetails = [sqlOilDetails stringByAppendingString:line];
                 }
             }
-            //NSLog(@"%@",line);
+            
+            NSLog(@"%@",line);
         }
          NSLog(@"%@",sqlOilDetails);
     } else if ([fileType isEqualToString:@"meor"]) {
