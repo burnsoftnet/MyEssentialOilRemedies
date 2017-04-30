@@ -37,16 +37,27 @@
 +(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
 {
     NSString *sOutput = [NSString new];
+    BOOL doNewLine = YES;
     sOutput = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-    sOutput = [sOutput stringByAppendingString:@"<!DOCTYPE addresses SYSTEM \"oils.dtd\">\n"];
+    //sOutput = [sOutput stringByAppendingString:@"<!DOCTYPE addresses SYSTEM \"oils.dtd\">\n"];
     sOutput = [sOutput stringByAppendingString:@"<oils>\n"];
-    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"Name" WithValue:OilName UseNewLine:YES]];
-    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"commonName" WithValue:commonName UseNewLine:YES]];
-    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"BotanicalName" WithValue:botName UseNewLine:YES]];
-    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"ingredients" WithValue:ingredients UseNewLine:YES]];
-    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"safetyNotes" WithValue:safetyNotes UseNewLine:YES]];
+    //sOutput = [sOutput stringByAppendingString:@"<Details>\n"];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"Name" WithValue:OilName UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"commonName" WithValue:commonName UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"BotanicalName" WithValue:botName UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"ingredients" WithValue:ingredients UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"safetyNotes" WithValue:safetyNotes UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"color" WithValue:color UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"viscosity" WithValue:viscosity UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"instock" WithValue:instock UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"vendor" WithValue:vendor UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"website" WithValue:website UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"description" WithValue:description UseNewLine:doNewLine]];
+    
+    //sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"" WithValue: UseNewLine:doNewLine]];
     //sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <Name>%@</Name>\n",OilName]];
     //sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <commonName>%@</commonName>\n",commonName]];
+    //sOutput = [sOutput stringByAppendingString:@"</Details>\n"];
     sOutput = [sOutput stringByAppendingString:@"</oils>\n"];
     return sOutput;
     
@@ -57,13 +68,17 @@
     //NSData *xmlDATA = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:filePath]];
     //NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithData:xmlDATA];
     
-    NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:filePath]];
+    Parser *parser = [[Parser alloc] init];
     
-    XMLClass *parser = [[XMLClass alloc] initXMLParser];
+     /*  Before the Use of the Parser.h class
+    NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:filePath]];
+    */
+    //XMLClass *parser = [[XMLClass alloc] initXMLParser];
     //NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:filePath]];
+    
+    /*  Before the Use of the Parser.h class
     [xmlparser setDelegate:XMLClass.self];
     [xmlparser setDelegate:parser];
-    //[xmlparser parse];
     BOOL success = [xmlparser parse];
     
     if (success) {
@@ -73,6 +88,7 @@
     } else {
         NSLog(@"Error parsing document!");
     }
+     */
 }
 
 

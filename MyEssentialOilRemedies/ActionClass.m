@@ -89,7 +89,7 @@
     
     return sOutput;
 }
-
+//END MIGHT NOT BE NEEDED
 //MIGHT NOT BE NEEDED
 #pragma mark Format Oil Details to one String for Insert
 // Appened all the Oil Detail Fields to one formated string for output to send via Airdrop, message, email, notes, etc.
@@ -108,12 +108,14 @@
     
     return sOutput;
 }
+//END MIGHT NOT BE NEEDED
 
+//MIGHT GO TO XML FORMAT CLASS
 +(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
 {
     NSString *sOutput = [NSString new];
     sOutput = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-    sOutput = [sOutput stringByAppendingString:@"<!DOCTYPE addresses SYSTEM \"oils.dtd\">\n"];
+    //sOutput = [sOutput stringByAppendingString:@"<!DOCTYPE addresses SYSTEM \"oils.dtd\">\n"];
     sOutput = [sOutput stringByAppendingString:@"<oils>\n"];
     sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <Name>%@</Name>\n",OilName]];
     sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <commonName>%@</commonName>\n",commonName]];
@@ -121,6 +123,7 @@
     return sOutput;
     
 }
+
 #pragma mark Format Remedy Details to one String
 //  Append all the Remedy Details fields to one format string for output to send via Airdrop, message, noets etc.
 +(NSString *) RemedyDetailsToStringByName:(NSString *) remedyName Description:(NSString *) description OilsArray:(NSString *) oilsArray HowToUse:(NSString *) howTouse
@@ -138,6 +141,8 @@
     return sOutPut;
 }
 
+// MIGHT NOT BE NEEDED
+//This was for the flat insert method but might not work with the XML style
 +(void) OpenFileFromAirDropbyPath:(NSString *) filePath
 {
     
@@ -177,4 +182,6 @@
         
     }
 }
+//END MIGHT NOT BE NEEDED
+
 @end

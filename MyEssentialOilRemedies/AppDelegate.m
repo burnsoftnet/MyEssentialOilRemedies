@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Parser.h"
 
 BOOL BUGGERME = NO;
 
@@ -19,6 +20,8 @@ BOOL BUGGERME = NO;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //Parser *parser = [[Parser alloc] init];
+    
     return YES;
 }
 

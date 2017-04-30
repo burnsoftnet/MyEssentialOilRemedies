@@ -41,6 +41,7 @@
 		A52043F61D86F9DB001AFD40 /* BurnSoftGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */; };
 		A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */; };
 		A53A25861E946A35006C4B8F /* ActionClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A53A25851E946A35006C4B8F /* ActionClass.m */; };
+		A542B39C1EB40E9100CDA83F /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = A542B39B1EB40E9100CDA83F /* Parser.m */; };
 		A5464FCC1E3CF73B006F9A59 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */; };
 		A54B57951E665A3300EFF9BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54B57941E665A3300EFF9BA /* Foundation.framework */; };
 		A55062021DD0D865001CF00C /* VIEW_SingleRemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */; };
@@ -160,6 +161,8 @@
 		A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftMath.m; sourceTree = "<group>"; };
 		A53A25841E946A35006C4B8F /* ActionClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionClass.h; sourceTree = "<group>"; };
 		A53A25851E946A35006C4B8F /* ActionClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionClass.m; sourceTree = "<group>"; };
+		A542B39A1EB40E9100CDA83F /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		A542B39B1EB40E9100CDA83F /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
 		A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A54B57941E665A3300EFF9BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A55062001DD0D865001CF00C /* VIEW_SingleRemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_SingleRemedyViewController.h; sourceTree = "<group>"; };
@@ -358,6 +361,8 @@
 				A53A25851E946A35006C4B8F /* ActionClass.m */,
 				A515F5751EA6ACD900231936 /* XMLClass.h */,
 				A515F5761EA6ACD900231936 /* XMLClass.m */,
+				A542B39A1EB40E9100CDA83F /* Parser.h */,
+				A542B39B1EB40E9100CDA83F /* Parser.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -704,6 +709,7 @@
 				A5F605231D1C45CD0059BF27 /* MYSettings.m in Sources */,
 				A5B02CF11D8846A30004334B /* PopUpOilViewController.m in Sources */,
 				A515F5771EA6ACD900231936 /* XMLClass.m in Sources */,
+				A542B39C1EB40E9100CDA83F /* Parser.m in Sources */,
 				A5BDC4241E1715E600A98652 /* DBUpgrade.m in Sources */,
 				A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */,
 				A505B0361D09A76900800310 /* main.m in Sources */,

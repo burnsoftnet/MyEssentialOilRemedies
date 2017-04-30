@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Parser.h"
 
 @interface XMLClass : NSObject <NSXMLParserDelegate>
 @property (nonatomic,strong) NSMutableArray *marrXMLData;
