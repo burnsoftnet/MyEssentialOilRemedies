@@ -59,10 +59,18 @@
 -(void) startAction
 {
     NSString *rawText = [ActionClass OilDetailsToStringByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text];
-    NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:[XMLClass OilDetailsToXMLForInsertByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text]];
+    NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:[Parser OilDetailsToXMLForInsertByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text]];
     
     //[XMLClass OpenFileFromAirDropbyPath:outPutFile];
-    [XMLClass OpenFileFromAirDropbyPath:dbPathString];
+    //[XMLClass OpenFileFromAirDropbyPath:dbPathString];
+    // AIR DOP TESTING!!
+    
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [path objectAtIndex:0];
+    NSString *sAns = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
+    [AirDropHandler OpenFilebyPath:sAns ViewController:self];
+    
+    //END AIR DROP TESTING
     NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText];
     
     [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Details for: %@",self.lblName.text]];

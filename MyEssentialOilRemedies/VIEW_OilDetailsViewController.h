@@ -13,7 +13,10 @@
 #import "BurnSoftDatabase.h"
 #import "ActionClass.h"
 #import <sqlite3.h>
-#import "XMLClass.h"
+//#import "XMLClass.h"
+#import "Parser.h"
+#import "AirDropHandler.h"
+
 
 @interface VIEW_OilDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate>
 

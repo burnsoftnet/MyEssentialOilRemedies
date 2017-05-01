@@ -36,7 +36,6 @@
 		A50AF6F91E401C2A00CC4754 /* DatabaseManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */; };
 		A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */; };
 		A50CF95B1D75C2E10037C7CD /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = A50CF95A1D75C2E10037C7CD /* gear.png */; };
-		A515F5771EA6ACD900231936 /* XMLClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A515F5761EA6ACD900231936 /* XMLClass.m */; };
 		A52043F11D86F995001AFD40 /* BurnSoftDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */; };
 		A52043F61D86F9DB001AFD40 /* BurnSoftGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */; };
 		A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */; };
@@ -51,6 +50,7 @@
 		A5652D901E3E5F290029EB7A /* Icon-notification-20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8B1E3E5F290029EB7A /* Icon-notification-20@2x.png */; };
 		A5652D911E3E5F290029EB7A /* Icon-notification-20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */; };
 		A56D7F7E1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */; };
+		A573E1431EB7712000C11C71 /* AirDropHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A573E1421EB7712000C11C71 /* AirDropHandler.m */; };
 		A57BF9DA1D6C96EC005D3113 /* FormFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A57BF9D91D6C96EC005D3113 /* FormFunctions.m */; };
 		A57CB7C41D805F7700380B23 /* MEO.db in Resources */ = {isa = PBXBuildFile; fileRef = A5C4C2231D7F44710073CB2A /* MEO.db */; };
 		A5841ECD1D8D9C9000DCDC98 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = A5841ECC1D8D9C9000DCDC98 /* search.png */; };
@@ -151,8 +151,6 @@
 		A50CF9571D75BB4A0037C7CD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A50CF95A1D75C2E10037C7CD /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
-		A515F5751EA6ACD900231936 /* XMLClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLClass.h; sourceTree = "<group>"; };
-		A515F5761EA6ACD900231936 /* XMLClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLClass.m; sourceTree = "<group>"; };
 		A52043EF1D86F995001AFD40 /* BurnSoftDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftDatabase.h; sourceTree = "<group>"; };
 		A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftDatabase.m; sourceTree = "<group>"; };
 		A52043F21D86F9DB001AFD40 /* BurnSoftGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftGeneral.h; sourceTree = "<group>"; };
@@ -174,6 +172,8 @@
 		A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20@3x.png"; sourceTree = "<group>"; };
 		A56D7F7C1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsiTunesBackupRestoreViewController.h; sourceTree = "<group>"; };
 		A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsiTunesBackupRestoreViewController.m; sourceTree = "<group>"; };
+		A573E1411EB7712000C11C71 /* AirDropHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirDropHandler.h; sourceTree = "<group>"; };
+		A573E1421EB7712000C11C71 /* AirDropHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirDropHandler.m; sourceTree = "<group>"; };
 		A57BF9D81D6C96EC005D3113 /* FormFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFunctions.h; sourceTree = "<group>"; };
 		A57BF9D91D6C96EC005D3113 /* FormFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFunctions.m; sourceTree = "<group>"; };
 		A5841ECC1D8D9C9000DCDC98 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
@@ -359,10 +359,10 @@
 				A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */,
 				A53A25841E946A35006C4B8F /* ActionClass.h */,
 				A53A25851E946A35006C4B8F /* ActionClass.m */,
-				A515F5751EA6ACD900231936 /* XMLClass.h */,
-				A515F5761EA6ACD900231936 /* XMLClass.m */,
 				A542B39A1EB40E9100CDA83F /* Parser.h */,
 				A542B39B1EB40E9100CDA83F /* Parser.m */,
+				A573E1411EB7712000C11C71 /* AirDropHandler.h */,
+				A573E1421EB7712000C11C71 /* AirDropHandler.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -708,12 +708,12 @@
 				A505B0391D09A76900800310 /* AppDelegate.m in Sources */,
 				A5F605231D1C45CD0059BF27 /* MYSettings.m in Sources */,
 				A5B02CF11D8846A30004334B /* PopUpOilViewController.m in Sources */,
-				A515F5771EA6ACD900231936 /* XMLClass.m in Sources */,
 				A542B39C1EB40E9100CDA83F /* Parser.m in Sources */,
 				A5BDC4241E1715E600A98652 /* DBUpgrade.m in Sources */,
 				A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */,
 				A505B0361D09A76900800310 /* main.m in Sources */,
 				A53A25861E946A35006C4B8F /* ActionClass.m in Sources */,
+				A573E1431EB7712000C11C71 /* AirDropHandler.m in Sources */,
 				A50AF6F91E401C2A00CC4754 /* DatabaseManagement.m in Sources */,
 				A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */,
 				A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */,

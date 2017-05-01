@@ -113,6 +113,7 @@
 //END MIGHT NOT BE NEEDED
 
 //MIGHT GO TO XML FORMAT CLASS
+/*  MOVED TO Parser.m
 +(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
 {
     NSString *sOutput = [NSString new];
@@ -125,7 +126,7 @@
     return sOutput;
     
 }
-
+*/
 #pragma mark Format Remedy Details to one String
 //  Append all the Remedy Details fields to one format string for output to send via Airdrop, message, noets etc.
 +(NSString *) RemedyDetailsToStringByName:(NSString *) remedyName Description:(NSString *) description OilsArray:(NSString *) oilsArray HowToUse:(NSString *) howTouse
