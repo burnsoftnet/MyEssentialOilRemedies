@@ -66,6 +66,8 @@
     }
     return  bAns;
 }
+
+
 #pragma mark Get Remedies that Contain Oil
 //Gets the list of Remedies that have the oil listed in the Oils to remedy table, this does not include anything in the uses and description sections
 -(NSMutableArray *) getRemediesRelatedToOilID :(NSString *) oilID DatabasePath: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg

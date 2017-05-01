@@ -68,7 +68,14 @@
     //NSData *xmlDATA = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:filePath]];
     //NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithData:xmlDATA];
     
-    Parser *parser = [[Parser alloc] init];
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [path objectAtIndex:0];
+    NSString *sAns = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
+    
+    //Parser *parser = [[Parser alloc] init];
+    Parser *parser = [[Parser alloc] initWithDatabasePath:filePath AirDopPath:sAns];
+    
+    NSLog(@"NEW SHIT %@",parser.OilName);
     
      /*  Before the Use of the Parser.h class
     NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:filePath]];

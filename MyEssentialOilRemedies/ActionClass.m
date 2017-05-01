@@ -68,9 +68,9 @@
     return sAns;
 }
 
-//MIGHT NOT BE NEEDED
 #pragma mark Format Oil Details to one String
 // Appened all the Oil Detail Fields to one formated string for output to send via Airdrop, message, email, notes, etc.
+// Used for rawText Details from View Oils Class
 +(NSString *) OilDetailsToStringByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
 {
     
@@ -89,10 +89,11 @@
     
     return sOutput;
 }
-//END MIGHT NOT BE NEEDED
+
 //MIGHT NOT BE NEEDED
 #pragma mark Format Oil Details to one String for Insert
 // Appened all the Oil Detail Fields to one formated string for output to send via Airdrop, message, email, notes, etc.
+/*
 +(NSString *) OilDetailsToStringForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
 {
     
@@ -108,6 +109,7 @@
     
     return sOutput;
 }
+ */
 //END MIGHT NOT BE NEEDED
 
 //MIGHT GO TO XML FORMAT CLASS
@@ -143,6 +145,7 @@
 
 // MIGHT NOT BE NEEDED
 //This was for the flat insert method but might not work with the XML style
+/*
 +(void) OpenFileFromAirDropbyPath:(NSString *) filePath
 {
     
@@ -154,7 +157,7 @@
     {
         NSString *OID = [NSString new];
         NSString *sqlOilDetails = [NSString new];
-        //BOOL oilExist = NO;
+
         
         for (NSString *line in [fileContents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]]) {
             
@@ -182,6 +185,7 @@
         
     }
 }
+ */
 //END MIGHT NOT BE NEEDED
 
 @end
