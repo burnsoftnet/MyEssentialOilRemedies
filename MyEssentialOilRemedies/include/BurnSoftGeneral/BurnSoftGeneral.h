@@ -22,4 +22,8 @@
 #pragma mark Get File Exteension From File Path
 // Get the extension of the file from the full path
 +(NSString *) getFileExtensionbyPath:(NSString *) filePath;
+
++(void) clearDocumentInBox;
+
++(BOOL) newFilesfoundProcessing;
 @end

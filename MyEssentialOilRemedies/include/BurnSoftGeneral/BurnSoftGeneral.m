@@ -175,4 +175,37 @@
     NSString *fileExtension = [pathArray lastObject];
     return fileExtension;
 }
+
++(void) clearDocumentInBox
+{
+    BurnSoftGeneral *myObj = [BurnSoftGeneral new];
+    NSString *msg =@"";
+    NSString *deleteFile=@"";
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    documentsDirectory = [documentsDirectory stringByAppendingString:@"/Inbox/"];
+    
+    NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
+
+    for (int x = 0; x < [dirFiles count]; x++) {
+        NSLog(@"%@",dirFiles[x]);
+        deleteFile = [documentsDirectory stringByAppendingString:[NSString stringWithFormat:@"%@",dirFiles[x]]];
+        [myObj DeleteFileByPath:deleteFile ErrorMessage:&msg];
+    }
+}
+
++(BOOL) newFilesfoundProcessing
+{
+    BOOL bAns = NO;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    documentsDirectory = [documentsDirectory stringByAppendingString:@"/Inbox/"];
+    
+    NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
+    if([dirFiles count] > 0 ) {
+        bAns = YES;
+    }
+    return bAns;
+}
 @end

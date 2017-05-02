@@ -18,5 +18,5 @@
 
 #pragma mark Open File By Path
 +(void) OpenFilebyPath:(NSString *) filePath ViewController:(UIViewController *) viewController;
-
++(void) processInBoxFilesFromViewController:(UIViewController *) viewController;
 @end

@@ -75,18 +75,21 @@
                                             if (!(MYOID==0)){
                                                 if ([OilLists insertOilDetailsByOID:MYOID Description:parser.Oil_description BotanicalName:parser.Oil_BotanicalName Ingredients:parser.Oil_Ingredients SafetyNotes:parser.Oil_SafetyNotes Color:parser.Oil_Color Viscosity:parser.Oil_Viscosity CommonName:parser.Oil_CommonName Vendor:parser.Oil_vendor WebSite:parser.Oil_website DatabasePath:dbpath ErrorMessage:nil]) {
                                                     [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil details was completed.",parser.Oil_Name] MyTitle:@"Import Complete" ViewController:viewController];
+                                                    
                                                 } else {
                                                     [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil was had an error on details insert.",parser.Oil_Name] MyTitle:@"Import Error!" ViewController:viewController];
                                                 }
                                             } else {
                                                 [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil had an error getting existing Oil ID .",parser.Oil_Name] MyTitle:@"Import Error!" ViewController:viewController];
                                             }
+                                            [BurnSoftGeneral clearDocumentInBox];
                                         }];
             UIAlertAction* noButton = [UIAlertAction
                                        actionWithTitle:@"No"
                                        style:UIAlertActionStyleDefault
                                        handler:^(UIAlertAction * action)
                                        {
+                                            [BurnSoftGeneral clearDocumentInBox];
                                            [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil was aborted.",parser.Oil_Name] MyTitle:@"Import Aborted!" ViewController:viewController];
                                        }];
             
@@ -116,12 +119,14 @@
                                             } else {
                                                 [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil had an error getting existing Oil ID .",parser.Oil_Name] MyTitle:@"Import Error!" ViewController:viewController];
                                             }
+                                             [BurnSoftGeneral clearDocumentInBox];
                                         }];
             UIAlertAction* noButton = [UIAlertAction
                                        actionWithTitle:@"No"
                                        style:UIAlertActionStyleDefault
                                        handler:^(UIAlertAction * action)
                                        {
+                                            [BurnSoftGeneral clearDocumentInBox];
                                            [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil was aborted.",parser.Oil_Name] MyTitle:@"Import Aborted!" ViewController:viewController];
                                        }];
             
@@ -135,6 +140,25 @@
     }
 }
 
++(void) processInBoxFilesFromViewController:(UIViewController *) viewController
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    documentsDirectory = [documentsDirectory stringByAppendingString:@"/Inbox/"];
+
+    NSString *oilDropFile = [documentsDirectory stringByAppendingString:@"OilDetails.meo"];
+    NSString *remedyDropFile = [documentsDirectory stringByAppendingString:@"RemedyDetails.meor"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if ([fileManager fileExistsAtPath:oilDropFile]){
+        [self OpenFilebyPath:oilDropFile ViewController:viewController];
+    }
+    
+    if ([fileManager fileExistsAtPath:remedyDropFile]) {
+        [self OpenFilebyPath:remedyDropFile ViewController:viewController];
+    }
+}
 
 
 @end
