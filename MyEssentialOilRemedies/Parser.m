@@ -167,5 +167,21 @@
     
 }
 
+#pragma mark Format Data from Remedies to XML
++(NSString *) RemedyDetailsToXMLforInsertByName:(NSString *) remedyName Description:(NSString *) description HowToUse:(NSString *) uses Oils:(NSArray *) oils
+{
+    NSString *sOutput = [NSString new];
+    BOOL doNewLine = NO;
+    sOutput = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    sOutput = [sOutput stringByAppendingString:@"<remedy>\n"];
+    
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"RemedyName" WithValue:remedyName UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"description" WithValue:description UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"uses" WithValue:uses UseNewLine:doNewLine]];
+    
+    
+    sOutput = [sOutput stringByAppendingString:@"</remedy>\n"];
+    return sOutput;
+}
 
 @end

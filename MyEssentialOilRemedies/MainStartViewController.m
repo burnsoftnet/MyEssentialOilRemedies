@@ -25,9 +25,9 @@
     [DatabaseManagement startiCloudSync];
     
     //[BurnSoftGeneral clearDocumentInBox];
-    if ([BurnSoftGeneral newFilesfoundProcessing]){
-        [AirDropHandler processInBoxFilesFromViewController:self];
-    }
+    //if ([BurnSoftGeneral newFilesfoundProcessing]){
+    //    [AirDropHandler processInBoxFilesFromViewController:self];
+    //}
 }
 #pragma mark Did Recieve Memory Warning
 // Dispose of any resources that can be recreated.

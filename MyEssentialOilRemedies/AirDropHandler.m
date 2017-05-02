@@ -158,6 +158,8 @@
     if ([fileManager fileExistsAtPath:remedyDropFile]) {
         [self OpenFilebyPath:remedyDropFile ViewController:viewController];
     }
+    
+    //[BurnSoftGeneral clearDocumentInBox];
 }
 
 

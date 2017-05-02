@@ -11,6 +11,7 @@
 #import "VIEW_OilDetailsViewController.h"
 #import "MySettings.h"
 #import "FormFunctions.h"
+#import "AirDropHandler.h"
 
 @interface LIST_OilsTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 - (IBAction)refresh:(UIRefreshControl *)sender;

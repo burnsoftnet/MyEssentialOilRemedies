@@ -38,6 +38,10 @@
     //Set Tableview to Delete Mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
     
+    if ([BurnSoftGeneral newFilesfoundProcessing]){
+        [AirDropHandler processInBoxFilesFromViewController:self];
+    }
+    
 }
 #pragma mark View will reappear
 //Sub when the form reloads
