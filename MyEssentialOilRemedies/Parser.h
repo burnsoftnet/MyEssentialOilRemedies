@@ -18,6 +18,9 @@
 
 @property (strong, nonatomic) NSString *databasePath;
 @property (strong, nonatomic) NSString *appPath;
+@property (assign) BOOL isOIL;
+@property (assign) BOOL isREMEDY;
+
 @property (strong, nonatomic) NSString *Oil_Name;
 @property (nonatomic,strong) NSString *Oil_InStock;
 @property (nonatomic,strong) NSString *Oil_description;
@@ -44,9 +47,6 @@
 #pragma mark Parser Found Characters
 //Append to string when a value was found
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string;
-
-#pragma mark Initizlie With Database Path and Location of XMLFile
--initWithDatabasePath:(NSString *) dbPath AirDopPath:(NSString *) docPath;
 
 #pragma mark Initizlies with XML File
 -initWithXMLFile:(NSString *) docPath;

@@ -9,12 +9,7 @@
 #import "Parser.h"
 
 @implementation Parser
-{
-    BOOL isOil;
-    BOOL isRemedy;
-    NSString *sqlColumns;
-    NSString *sqlValues;
-}
+
 -init {
     if(self == [super init]) {
         
@@ -34,16 +29,6 @@
     return self;
 }
 
-#pragma mark Initizlie With Database Path and Location of XMLFile
--initWithDatabasePath:(NSString *) dbPath AirDopPath:(NSString *) docPath
-{
-    self.databasePath = dbPath;
-    NSURL *dataFile = [NSURL fileURLWithPath:docPath];
-    parser = [[NSXMLParser alloc] initWithContentsOfURL:dataFile];
-    [parser setDelegate:self];
-    [parser parse];
-    return  self;
-}
 #pragma mark Initizlies with XML File
 -initWithXMLFile:(NSString *) docPath
 {
@@ -64,12 +49,12 @@
     element = [NSMutableString string];
     
     if ([elementName isEqualToString:@"oils"]) {
-        isOil = YES;
-        isRemedy = NO;
+        _isOIL = YES;
+        _isREMEDY = NO;
         self.dataType = @"oil";
     } else if([elementName isEqualToString:@"remedy"]){
-        isRemedy = YES;
-        isOil = NO;
+       _isREMEDY  = YES;
+        _isOIL = NO;
         self.dataType = @"oil";
     }
 }
@@ -81,7 +66,7 @@
     //Currently processing information and will need to use this information to make the insert details
      //TODO: Get rid of log or put in debug mode
     NSLog(@"Found an element named: %@ with a value of: %@", elementName, element);
-    if (isOil) {
+    if ( _isOIL) {
         [self setOilSQLDetailsbyColumn:elementName MyValue:element];
     }
 }
@@ -144,6 +129,7 @@
     //
     //}
 }
+
 #pragma mark Return XML Type Single Element
 +(NSString *) returnXMLTypeBySingleElement:(NSString *) element WithValue:(NSString *) value UseNewLine:(BOOL) newline
 {
@@ -160,7 +146,7 @@
 +(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
 {
     NSString *sOutput = [NSString new];
-    BOOL doNewLine = YES;
+    BOOL doNewLine = NO;
     sOutput = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
     sOutput = [sOutput stringByAppendingString:@"<oils>\n"];
     

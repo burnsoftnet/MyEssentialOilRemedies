@@ -29,6 +29,24 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
-
+-(void)handleOpenURL:(NSURL *)url {
+    //[self.navigationController popToRootViewControllerAnimated:YES];
+    //ScaryBugDoc *newDoc = [[[ScaryBugDoc alloc] init] autorelease];
+    //if ([newDoc importFromURL:url]) {
+    //    [self addNewDoc:newDoc];
+    //}
+    FormFunctions *myObj = [FormFunctions new];
+    NSString *myPath = [NSString stringWithFormat:@"%@",url];
+    [myObj sendMessage:[NSString stringWithFormat:@"got file %@",myPath] MyTitle:@"Got File" ViewController:self];
+    
+    // AIR DOP TESTING!!
+    
+    //NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //NSString *docPath = [path objectAtIndex:0];
+    //NSString *sAns = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
+    
+    //[AirDropHandler OpenFilebyPath:myPath ViewController:self];
+    
+    //END AIR DROP TESTING
+}
 @end

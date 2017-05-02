@@ -60,7 +60,8 @@
         [myObj sendMessage:[NSString stringWithFormat:@"An oil already exists with the name %@",self.txtName.text] MyTitle:@"Oil Exists!" ViewController:self];
     }
 }
-
+#pragma mark Clear Values
+//Clear all the details from the Form
 -(void)clearValues
 {
     self.txtName.text=@"";
@@ -74,8 +75,9 @@
     self.txtVedor.text=@"";
     self.txtWebsite.text=@"";
 }
+
 #pragma mark Make Keyboard Dissapear
-    //Dissmiss the keyboard when the view is selected
+//Dissmiss the keyboard when the view is selected
 -(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
 {
     [self.txtName resignFirstResponder];
@@ -89,11 +91,13 @@
     [self.txtVedor resignFirstResponder];
     [self.txtWebsite resignFirstResponder];
 }
+
 #pragma mark Memroy Error
 //events to take when a memory error occurs
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 #pragma mark LoadSettings
 //Set the Database Path and Textbox borders
 - (void)loadSettings
@@ -112,6 +116,7 @@
     [myFunctions setBorderTextBox:self.txtVedor];
     [myFunctions setBorderTextBox:self.txtWebsite];
 }
+
 - (void) addMoreOils
 {
     BurnSoftGeneral *myObjOF = [BurnSoftGeneral new];

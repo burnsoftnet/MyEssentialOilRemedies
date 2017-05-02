@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "BurnSoftDatabase.h"
+#import "BurnSoftGeneral.h"
 
 @interface OilLists : NSObject
 @property (assign) int OID;
@@ -35,4 +36,14 @@
 -(BOOL) oilExistsByName:(NSString *) oilname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 -(int) getInStockCountByDatabase :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 +(int) listInStock:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
+#pragma mark Get Oil ID by Name
+//Get the Oil ID by name, if it will check to see if it exists, if not, it will attempt to insert it and return the ID of that name.
++(NSNumber *) getOilIDByName:(NSString *) name InStock:(int) iStock DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
+#pragma mark Insert Oil Details
+//Insert the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
++(BOOL) insertOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
+#pragma mark Update Oil Details
+//Update the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
++(BOOL) updateOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
+
 @end

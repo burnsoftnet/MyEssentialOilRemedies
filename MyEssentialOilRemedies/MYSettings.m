@@ -7,6 +7,7 @@
 //
 
 #import "MYSettings.h"
+//static BOOL BUGGERME = NO;
 
 @implementation MYSettings
 

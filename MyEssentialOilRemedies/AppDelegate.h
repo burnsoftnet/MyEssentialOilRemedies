@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "MainStartViewController.h"
 
-extern BOOL BUGGERME;
+//extern BOOL *const BUGGERME;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

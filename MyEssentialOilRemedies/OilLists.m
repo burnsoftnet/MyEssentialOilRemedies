@@ -265,4 +265,69 @@
     NSString *sql = [NSString stringWithFormat:@"update eo_oil_list set INSTOCK=%@ where ID=%@",newValue,myOID];
     [objDB runQuery:sql DatabasePath:dbPath MessageHandler:errorMsg];
 }
+
+#pragma mark Get Oil ID by Name
+//Get the Oil ID by name, if it will check to see if it exists, if not, it will attempt to insert it and return the ID of that name.
++(NSNumber *) getOilIDByName:(NSString *) name InStock:(int) iStock DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
+{
+    BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
+    BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
+    OilLists *myOils = [OilLists new];
+    
+    NSString *errMsg = @"";
+    NSNumber *nAns = 0;
+    
+    if (![myOils oilExistsByName:[myObjG FCString:name] DatabasePath:dbPathString ErrorMessage:&errMsg])
+    {
+        NSString *sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list (name,instock) VALUES ('%@',%i)",name,iStock];
+        if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&errMsg])
+        {
+            nAns = [myObjDB getLastOneEntryIDbyName:name LookForColumnName:@"name" GetIDFomColumn:@"ID" InTable:@"eo_oil_list" DatabasePath:dbPathString MessageHandler:&errMsg];
+        } else {
+            *msg = errMsg;
+        }
+    } else {
+        nAns = [myObjDB getLastOneEntryIDbyName:name LookForColumnName:@"name" GetIDFomColumn:@"ID" InTable:@"eo_oil_list" DatabasePath:dbPathString MessageHandler:&errMsg];
+    }
+    return  nAns;
+}
+
+#pragma mark Insert Oil Details
+//Insert the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
++(BOOL) insertOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
+{
+    BOOL bAns = NO;
+    NSString *errMsg = @"";
+    BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
+    BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
+    
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@')", MYOID,[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website]];
+    if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&errMsg]) {
+        bAns = YES;
+    } else {
+        bAns = NO;
+        *msg = errMsg;
+    }
+    return bAns;
+}
+
+#pragma mark Update Oil Details
+//Update the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
++(BOOL) updateOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
+{
+    BOOL bAns = NO;
+    NSString *errMsg = @"";
+    BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
+    BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
+    
+    NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@' where OID=%@",[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website], MYOID];
+    
+    if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&errMsg]) {
+        bAns = YES;
+    } else {
+        bAns = NO;
+        *msg = errMsg;
+    }
+    return bAns;
+}
 @end

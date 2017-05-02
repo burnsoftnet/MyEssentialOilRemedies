@@ -7,9 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "Parser.h"
 
-BOOL BUGGERME = NO;
+//static BOOL BUGGERME = NO;
 
 @interface AppDelegate ()
 
@@ -21,8 +20,18 @@ BOOL BUGGERME = NO;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //Parser *parser = [[Parser alloc] init];
-    
     return YES;
+}
+
+
+-(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
+    MainStartViewController *rootController = [MainStartViewController new];
+    if (url != nil && [url isFileURL]) {
+        [rootController handleOpenURL:url];
+    }
+    return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

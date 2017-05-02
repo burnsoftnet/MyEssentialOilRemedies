@@ -11,7 +11,9 @@
 #import "BurnSoftDatabase.h"
 #import "DBUpgrade.h"
 #import "DatabaseManagement.h"
+#import "AirDropHandler.h"
+#import "FormFunctions.h"
 
 @interface MainStartViewController : UITabBarController
-
+-(void)handleOpenURL:(NSURL *)url;
 @end
