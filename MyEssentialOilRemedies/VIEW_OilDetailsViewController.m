@@ -64,12 +64,12 @@
     //[XMLClass OpenFileFromAirDropbyPath:outPutFile];
     //[XMLClass OpenFileFromAirDropbyPath:dbPathString];
     // AIR DOP TESTING!!
-    
+   /*
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [path objectAtIndex:0];
     NSString *sAns = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
     [AirDropHandler OpenFilebyPath:sAns ViewController:self];
-    
+    */
     //END AIR DROP TESTING
     NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText];
     
