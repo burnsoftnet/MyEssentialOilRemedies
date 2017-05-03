@@ -24,6 +24,18 @@
     return sAns;
 }
 
+#pragma mark Fluff Content String for XML
+//This will Fluff/Prep the string for inserting value into a database and XML File
+//It will mostly take out things that can conflict, such as the single qoute
++(NSString *) FCStringXML: (NSString *) sValue {
+    NSString *sAns = [NSString new];
+    sAns = [sValue stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+    sAns = [sAns stringByReplacingOccurrencesOfString:@"`" withString:@"''"];
+    sAns = [sAns stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    sAns = [sAns stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    return sAns;
+}
+
 #pragma mark Fluff Content String to Long
 //This will convert a string into a long value
 -(unsigned long) FCLong:(NSString *) sValue;{

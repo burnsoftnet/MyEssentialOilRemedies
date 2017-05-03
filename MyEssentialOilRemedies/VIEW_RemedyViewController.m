@@ -57,7 +57,7 @@
 
     NSString *rawText = [ActionClass RemedyDetailsToStringByName:self.lblProblem.text Description:self.lblDescription.text OilsArray:oilList HowToUse:self.lblUses.text];
     //TODO OUTPUT TO XML TO SAVE TO FILE!
-    NSString *XMLText = [Parser RemedyDetailsToXMLforInsertByName:self.lblProblem.text Description:self.lblDescription.text HowToUse:self.lblUses.text Oils:myOils];
+    NSString *XMLText = [BurnSoftGeneral FCStringXML:[Parser RemedyDetailsToXMLforInsertByName:self.lblProblem.text Description:self.lblDescription.text HowToUse:self.lblUses.text Oils:myOils]];
     
     NSString *outPutFile = [ActionClass writeRemedyDetailsToFileToSendByName:XMLText];
     

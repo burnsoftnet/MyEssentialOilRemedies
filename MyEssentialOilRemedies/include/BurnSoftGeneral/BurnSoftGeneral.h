@@ -10,6 +10,7 @@
 
 @interface BurnSoftGeneral : NSObject
 -(NSString *) FCString:(NSString *) sValue;
++(NSString *) FCStringXML: (NSString *) sValue;
 -(unsigned long) FCLong:(NSString *) sValue;
 -(NSString *)getValueFromLongString:(NSString *)sValue :(NSString *)mySeparater :(NSInteger) myIndex;
 -(unsigned long) CountCharacters:(NSString *) sValue;
