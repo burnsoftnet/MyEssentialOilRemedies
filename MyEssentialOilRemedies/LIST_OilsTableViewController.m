@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     inStockCount = 0;
     [super viewDidLoad];
+    if ([BurnSoftGeneral newFilesfoundProcessing]){
+        [AirDropHandler processInBoxFilesFromViewController:self];
+    }
     [self setupGlobalVars];
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
@@ -38,15 +41,14 @@
     //Set Tableview to Delete Mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
     
-    if ([BurnSoftGeneral newFilesfoundProcessing]){
-        [AirDropHandler processInBoxFilesFromViewController:self];
-    }
-    
 }
 #pragma mark View will reappear
 //Sub when the form reloads
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    if ([BurnSoftGeneral newFilesfoundProcessing]){
+        [AirDropHandler processInBoxFilesFromViewController:self];
+    }
     [self reloadData];
 }
 #pragma mark View did reappear
