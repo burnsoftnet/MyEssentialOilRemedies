@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "MainStartViewController.h"
+#import "LIST_OilsTableViewController.h"
 
 //extern BOOL *const BUGGERME;
 
