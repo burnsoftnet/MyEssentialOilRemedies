@@ -13,14 +13,16 @@
 {
     NSXMLParser *parser;
     NSMutableString *element;
-    NSString *sqlResults;
+    //NSString *sqlResults;
 }
 
 @property (strong, nonatomic) NSString *databasePath;
 @property (strong, nonatomic) NSString *appPath;
 @property (assign) BOOL isOIL;
 @property (assign) BOOL isREMEDY;
+@property (strong, nonatomic) NSString *dataType;
 
+//Oil Global Varabiles
 @property (strong, nonatomic) NSString *Oil_Name;
 @property (nonatomic,strong) NSString *Oil_InStock;
 @property (nonatomic,strong) NSString *Oil_description;
@@ -33,8 +35,12 @@
 @property (nonatomic,strong) NSString *Oil_vendor;
 @property (nonatomic,strong) NSString *Oil_website;
 
-@property (strong, nonatomic) NSString *RemedyName;
-@property (strong, nonatomic) NSString *dataType;
+//Remedy Global Varables
+@property (strong, nonatomic) NSString *Remedy_Name;
+@property (strong, nonatomic) NSString *Remedy_Description;
+@property (strong, nonatomic) NSString *Remedy_Uses;
+@property (strong, nonatomic) NSMutableArray *Remedy_Oils;
+
 
 #pragma mark Paser Did Start
 //Get the Elemenents from the XML Data source
@@ -51,10 +57,10 @@
 #pragma mark Initizlies with XML File
 -initWithXMLFile:(NSString *) docPath;
 
-//#pragma mark Return XML Type Single Element
-//+(NSString *) returnXMLTypeBySingleElement:(NSString *) element;
-
 #pragma mark Format Data for Oils to XML
 +(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description;
+
+#pragma mark Format Data from Remedies to XML
++(NSString *) RemedyDetailsToXMLforInsertByName:(NSString *) remedyName Description:(NSString *) description HowToUse:(NSString *) uses Oils:(NSArray *) oils;
 
 @end

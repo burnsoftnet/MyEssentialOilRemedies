@@ -23,7 +23,7 @@
     return YES;
 }
 
-
+//TODO: MIGHT BE ABLE TO DELETE
 -(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     
     MainStartViewController *rootController = [MainStartViewController new];

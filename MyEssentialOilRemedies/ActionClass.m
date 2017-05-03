@@ -53,18 +53,34 @@
 }
 
 #pragma mark Append to the Output of an Existing String
+//A quick and easy way to format the output information, also if it needs to be changed then a majority
+//of the change just needs to be in this section.
 +(NSString *) appendToOuput:(NSString *) sOutput forField:(NSString *) fieldName Value:(NSString *) value
 {
     return [sOutput stringByAppendingString:[NSString stringWithFormat:@"%@: %@\n",fieldName, value]];
 }
 
 #pragma mark Write the oil Details to a file
+//Write the XML contents from sOutput to File
 +(NSString *) writeOilDetailsToFileToSendByName:(NSString *) sOutPut
 {
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [path objectAtIndex:0];
     NSString *sAns = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
     [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    return sAns;
+}
+
+#pragma mark Write the oil Details to a file
+//Write the XML contents from sOutput to File
++(NSString *) writeRemedyDetailsToFileToSendByName:(NSString *) sOutPut
+{
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [path objectAtIndex:0];
+    NSString *sAns = [docPath stringByAppendingPathComponent:@"RemedyDetails.meor"];
+    
+    [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    
     return sAns;
 }
 
@@ -90,43 +106,6 @@
     return sOutput;
 }
 
-//MIGHT NOT BE NEEDED
-#pragma mark Format Oil Details to one String for Insert
-// Appened all the Oil Detail Fields to one formated string for output to send via Airdrop, message, email, notes, etc.
-/*
-+(NSString *) OilDetailsToStringForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
-{
-    
-    NSString *sOutput = [NSString new];
-    NSString *sqlCheckOil = [NSString stringWithFormat:@"select id from eo_oil_list where name='%@'",OilName];
-    NSString *sqlOilName = [NSString stringWithFormat:@"INSERT INTO eo_oil_list (name,instock) VALUES ('%@',0)",OilName];
-    NSString *OID = [NSString new];
-    NSString *sqlOilDescription = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@')", OID,description,botName,ingredients,safetyNotes,color,viscosity,commonName,vendor,website];
-    
-    sOutput = [NSString stringWithFormat:@"%@\n",sqlCheckOil];
-    sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"%@\n",sqlOilName]];
-    sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"%@\n",sqlOilDescription]];
-    
-    return sOutput;
-}
- */
-//END MIGHT NOT BE NEEDED
-
-//MIGHT GO TO XML FORMAT CLASS
-/*  MOVED TO Parser.m
-+(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
-{
-    NSString *sOutput = [NSString new];
-    sOutput = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-    //sOutput = [sOutput stringByAppendingString:@"<!DOCTYPE addresses SYSTEM \"oils.dtd\">\n"];
-    sOutput = [sOutput stringByAppendingString:@"<oils>\n"];
-    sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <Name>%@</Name>\n",OilName]];
-    sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <commonName>%@</commonName>\n",commonName]];
-    sOutput = [sOutput stringByAppendingString:@"</oils>\n"];
-    return sOutput;
-    
-}
-*/
 #pragma mark Format Remedy Details to one String
 //  Append all the Remedy Details fields to one format string for output to send via Airdrop, message, noets etc.
 +(NSString *) RemedyDetailsToStringByName:(NSString *) remedyName Description:(NSString *) description OilsArray:(NSString *) oilsArray HowToUse:(NSString *) howTouse
@@ -144,6 +123,43 @@
     return sOutPut;
 }
 
+//MIGHT NOT BE NEEDED
+#pragma mark Format Oil Details to one String for Insert
+// Appened all the Oil Detail Fields to one formated string for output to send via Airdrop, message, email, notes, etc.
+/*
+ +(NSString *) OilDetailsToStringForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
+ {
+ 
+ NSString *sOutput = [NSString new];
+ NSString *sqlCheckOil = [NSString stringWithFormat:@"select id from eo_oil_list where name='%@'",OilName];
+ NSString *sqlOilName = [NSString stringWithFormat:@"INSERT INTO eo_oil_list (name,instock) VALUES ('%@',0)",OilName];
+ NSString *OID = [NSString new];
+ NSString *sqlOilDescription = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@')", OID,description,botName,ingredients,safetyNotes,color,viscosity,commonName,vendor,website];
+ 
+ sOutput = [NSString stringWithFormat:@"%@\n",sqlCheckOil];
+ sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"%@\n",sqlOilName]];
+ sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"%@\n",sqlOilDescription]];
+ 
+ return sOutput;
+ }
+ */
+//END MIGHT NOT BE NEEDED
+
+//MIGHT GO TO XML FORMAT CLASS
+/*  MOVED TO Parser.m
+ +(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
+ {
+ NSString *sOutput = [NSString new];
+ sOutput = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+ //sOutput = [sOutput stringByAppendingString:@"<!DOCTYPE addresses SYSTEM \"oils.dtd\">\n"];
+ sOutput = [sOutput stringByAppendingString:@"<oils>\n"];
+ sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <Name>%@</Name>\n",OilName]];
+ sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <commonName>%@</commonName>\n",commonName]];
+ sOutput = [sOutput stringByAppendingString:@"</oils>\n"];
+ return sOutput;
+ 
+ }
+ */
 // MIGHT NOT BE NEEDED
 //This was for the flat insert method but might not work with the XML style
 /*

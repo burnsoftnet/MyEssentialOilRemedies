@@ -24,6 +24,7 @@
     [myDB checkDBVersionAgainstExpectedVersion];
     [DatabaseManagement startiCloudSync];
     
+    //TODO: MIGHT BE ABLE TO DELETE
     //[BurnSoftGeneral clearDocumentInBox];
     //if ([BurnSoftGeneral newFilesfoundProcessing]){
     //    [AirDropHandler processInBoxFilesFromViewController:self];
@@ -34,6 +35,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+//TODO: MIGHT BE ABLE TO DELETE
 -(void)handleOpenURL:(NSURL *)url {
     //[self.navigationController popToRootViewControllerAnimated:YES];
     //ScaryBugDoc *newDoc = [[[ScaryBugDoc alloc] init] autorelease];

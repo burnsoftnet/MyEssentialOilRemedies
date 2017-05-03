@@ -9,19 +9,19 @@
 #import "Parser.h"
 
 @implementation Parser
-
--init {
+#pragma mark Initizlie Oils with XML File
+//intialize the Oils with a pre set File and Path
+//Mostly used for testing, but you can also set the Directory/InBox to the path to use for production
+-initOils {
     if(self == [super init]) {
-        
-        //This Path is great for testing, but when you send it via airdrop, it will put in the the Docuents Directory/InBox
         
         NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *docPath = [path objectAtIndex:0];
-        NSString *sAns = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
+        NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
+        //NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"/InBox/OilDetails.meo"];
         
-        sqlResults = @"";
-        NSURL *dataFile = [NSURL fileURLWithPath:sAns];
-        //parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"OilDetails" ofType: @"oil"]]];
+        //sqlResults = @"";
+        NSURL *dataFile = [NSURL fileURLWithPath:fullDocPath];
         parser = [[NSXMLParser alloc] initWithContentsOfURL:dataFile];
         [parser setDelegate:self];
         [parser parse];
@@ -29,11 +29,34 @@
     return self;
 }
 
+#pragma mark Initizlie Remedy with XML File
+//intialize the Remedy with a pre set File and Path
+//Mostly used for testing, but you can also set the Directory/InBox to the path to use for production
+-initRemedy {
+    if(self == [super init]) {
+        
+        NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *docPath = [path objectAtIndex:0];
+        NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"RemedyDetails.meor"];
+        //NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"/InBox/RemedyDetails.meor"];
+        
+        //sqlResults = @"";
+        NSURL *dataFile = [NSURL fileURLWithPath:fullDocPath];
+        parser = [[NSXMLParser alloc] initWithContentsOfURL:dataFile];
+        [parser setDelegate:self];
+        [parser parse];
+    }
+    return self;
+}
+
+
 #pragma mark Initizlies with XML File
+//Pass the Path of the file to process to intialize the class
 -initWithXMLFile:(NSString *) docPath
 {
     NSURL *dataFile = [NSURL fileURLWithPath:docPath];
     parser = [[NSXMLParser alloc] initWithContentsOfURL:dataFile];
+    _Remedy_Oils = [NSMutableArray new];
     [parser setDelegate:self];
     [parser parse];
     return  self;
@@ -55,7 +78,7 @@
     } else if([elementName isEqualToString:@"remedy"]){
        _isREMEDY  = YES;
         _isOIL = NO;
-        self.dataType = @"oil";
+        self.dataType = @"remedy";
     }
 }
 
@@ -68,6 +91,10 @@
     NSLog(@"Found an element named: %@ with a value of: %@", elementName, element);
     if ( _isOIL) {
         [self setOilSQLDetailsbyColumn:elementName MyValue:element];
+    }
+    
+    if (_isREMEDY) {
+        [self setRemedySQLDetailsByColumn:elementName MyValue:element];
     }
 }
 
@@ -85,10 +112,33 @@
     }
 }
 
+#pragma mark Set the Class Varable related to Remedies
+//Set the Class Global Variables to the values that is in the XML dataset to be used outside of this class
+//This is a Private Sub
+-(void) setRemedySQLDetailsByColumn:(NSString *) colName MyValue:(NSString *) myValue
+{
+    if([colName isEqualToString:@"RemedyName"]){
+        _Remedy_Name = myValue;
+    }
+    
+    if([colName isEqualToString:@"description"]){
+        _Remedy_Description = myValue;
+    }
+    
+    if([colName isEqualToString:@"uses"]){
+        _Remedy_Uses = myValue;
+    }
+    
+    if([colName isEqualToString:@"OilName"]){
+        [_Remedy_Oils addObject:myValue];
+    }
+}
+
+#pragma mark Set the Class Varable related to oils
+//Set the Class Global Variables to the values that is in the XML dataset to be used outside of this class
+//This is a Private Sub
 -(void) setOilSQLDetailsbyColumn:(NSString *) colName MyValue:(NSString *) myValue
 {
-    //YOU ARE GOING TO HAVE TO Pass everythin Back through strings, since you need to alert if the oil already exists or not.
-
     
     if ([colName isEqualToString:@"Name"]) {
         _Oil_Name = myValue;
@@ -131,6 +181,8 @@
 }
 
 #pragma mark Return XML Type Single Element
+//A simple Private class to help format the XML Elements as needed for XML Files.
+//You are able to pass the ablity to create a new line for the format or not by setting the newline variable
 +(NSString *) returnXMLTypeBySingleElement:(NSString *) element WithValue:(NSString *) value UseNewLine:(BOOL) newline
 {
     NSString *sAns = [ NSString new];
@@ -143,6 +195,7 @@
 }
 
 #pragma mark Format Data for Oils to XML
+//Format the values passed to this function to be put into XML Format for Oils
 +(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
 {
     NSString *sOutput = [NSString new];
@@ -168,6 +221,7 @@
 }
 
 #pragma mark Format Data from Remedies to XML
+//Format the values passed to this function to be put into XML Format for Remedies
 +(NSString *) RemedyDetailsToXMLforInsertByName:(NSString *) remedyName Description:(NSString *) description HowToUse:(NSString *) uses Oils:(NSArray *) oils
 {
     NSString *sOutput = [NSString new];
@@ -179,6 +233,11 @@
     sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"description" WithValue:description UseNewLine:doNewLine]];
     sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"uses" WithValue:uses UseNewLine:doNewLine]];
     
+    sOutput = [sOutput stringByAppendingString:@"<oils>\n"];
+    for (int x = 0; x < [oils count]; x++) {
+        sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"OilName" WithValue:oils[x] UseNewLine:doNewLine]];
+    }
+    sOutput = [sOutput stringByAppendingString:@"</oils>\n"];
     
     sOutput = [sOutput stringByAppendingString:@"</remedy>\n"];
     return sOutput;

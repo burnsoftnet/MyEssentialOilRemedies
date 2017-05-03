@@ -14,6 +14,8 @@
 #import "PopUpOilViewController.h"
 #import "LIST_OilRemediesViewController.h"
 #import "ActionClass.h"
+#import "Parser.h"
+#import "AirDropHandler.h"
 
 @interface VIEW_RemedyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

@@ -43,17 +43,36 @@
     NSString *value = [NSString new];
     NSString *oilList = [NSString new];
     oilList = @"\n";
+    NSMutableArray *myOils = [NSMutableArray new];
     
     for (a=0;a<[myOilCollection count];a++)
     {
         value = [NSString stringWithFormat:@"%@\n",[[myOilCollection objectAtIndex:a] name]];
         oilList = [oilList stringByAppendingString:value];
+        //Save the oil to an Array to be passed to the XML Function
+        [myOils addObject:[[myOilCollection objectAtIndex:a] name]];
     }
 
     NSString *rawText = [ActionClass RemedyDetailsToStringByName:self.lblProblem.text Description:self.lblDescription.text OilsArray:oilList HowToUse:self.lblUses.text];
+    //TODO OUTPUT TO XML TO SAVE TO FILE!
+    NSString *XMLText = [Parser RemedyDetailsToXMLforInsertByName:self.lblProblem.text Description:self.lblDescription.text HowToUse:self.lblUses.text Oils:myOils];
+    
+    NSString *outPutFile = [ActionClass writeRemedyDetailsToFileToSendByName:XMLText];
+    
+    // AIR DOP TESTING!!
+    //Parser *parse = [[Parser alloc] initWithXMLFile:<#(NSString *)#>]
+    
+     //NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+     //NSString *docPath = [path objectAtIndex:0];
+     //NSString *XMLdocPath = [docPath stringByAppendingPathComponent:@"RemedyDetails.meor"];
+    
+    [AirDropHandler OpenFilebyPath:outPutFile ViewController:self];
+    
+    //END AIR DROP TESTING
+    
     //NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:rawText];
     //NSLog(@"%@",rawText);
-    NSArray *ActionObjects = @[rawText];
+    NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText];
     
     [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Remedy for: %@",self.lblProblem.text]];
 }
