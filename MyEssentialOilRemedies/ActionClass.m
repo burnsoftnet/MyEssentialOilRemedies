@@ -13,18 +13,6 @@
     sqlite3 *OilDB;
 }
 
-//View http://nshipster.com/uiactivityviewcontroller/ for details about activites
-/*
- //Current excludeList caused nothing to show in the actionsheet
- 
- NSArray *excludedActivities = @[UIActivityTypePostToTwitter, UIActivityTypePostToFacebook,
- UIActivityTypePostToWeibo,
- UIActivityTypeCopyToPasteboard,
- UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll,
- UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr,
- UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
- controller.excludedActivityTypes = excludedActivities;
- */
 #pragma mark Create an Action Sheet for iPhone and iPad to send data to another device
 +(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects eMailSubject:(NSString *) emailSubject
 {
@@ -122,87 +110,5 @@
 
     return sOutPut;
 }
-
-//MIGHT NOT BE NEEDED
-#pragma mark Format Oil Details to one String for Insert
-// Appened all the Oil Detail Fields to one formated string for output to send via Airdrop, message, email, notes, etc.
-/*
- +(NSString *) OilDetailsToStringForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
- {
- 
- NSString *sOutput = [NSString new];
- NSString *sqlCheckOil = [NSString stringWithFormat:@"select id from eo_oil_list where name='%@'",OilName];
- NSString *sqlOilName = [NSString stringWithFormat:@"INSERT INTO eo_oil_list (name,instock) VALUES ('%@',0)",OilName];
- NSString *OID = [NSString new];
- NSString *sqlOilDescription = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@')", OID,description,botName,ingredients,safetyNotes,color,viscosity,commonName,vendor,website];
- 
- sOutput = [NSString stringWithFormat:@"%@\n",sqlCheckOil];
- sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"%@\n",sqlOilName]];
- sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"%@\n",sqlOilDescription]];
- 
- return sOutput;
- }
- */
-//END MIGHT NOT BE NEEDED
-
-//MIGHT GO TO XML FORMAT CLASS
-/*  MOVED TO Parser.m
- +(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
- {
- NSString *sOutput = [NSString new];
- sOutput = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
- //sOutput = [sOutput stringByAppendingString:@"<!DOCTYPE addresses SYSTEM \"oils.dtd\">\n"];
- sOutput = [sOutput stringByAppendingString:@"<oils>\n"];
- sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <Name>%@</Name>\n",OilName]];
- sOutput = [sOutput stringByAppendingString:[NSString stringWithFormat:@"    <commonName>%@</commonName>\n",commonName]];
- sOutput = [sOutput stringByAppendingString:@"</oils>\n"];
- return sOutput;
- 
- }
- */
-// MIGHT NOT BE NEEDED
-//This was for the flat insert method but might not work with the XML style
-/*
-+(void) OpenFileFromAirDropbyPath:(NSString *) filePath
-{
-    
-    NSString *fileType = [BurnSoftGeneral getFileExtensionbyPath:filePath];
-    NSString *fileContents = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
-    int lineNumber = 0;
-
-    if ([fileType isEqualToString:@"meo"])
-    {
-        NSString *OID = [NSString new];
-        NSString *sqlOilDetails = [NSString new];
-
-        
-        for (NSString *line in [fileContents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]]) {
-            
-            lineNumber++;
-            if (lineNumber == 1) {
-                NSLog(@"Check to see if oil exists, if already exists then get the Oil ID");
-                
-            } else if (lineNumber == 2) {
-                if ([OID isEqualToString:@""]) {
-                    NSLog(@"The Oil Doesn't exist insert the oil and get the ID");
-                }
-            } else if (lineNumber >=3) {
-                NSLog(@"Collect Final Insert data to be inserted at the end");
-                if ([sqlOilDetails isEqualToString:@""]){
-                    sqlOilDetails = line;
-                } else {
-                    sqlOilDetails = [sqlOilDetails stringByAppendingString:line];
-                }
-            }
-            
-            NSLog(@"%@",line);
-        }
-         NSLog(@"%@",sqlOilDetails);
-    } else if ([fileType isEqualToString:@"meor"]) {
-        
-    }
-}
- */
-//END MIGHT NOT BE NEEDED
 
 @end

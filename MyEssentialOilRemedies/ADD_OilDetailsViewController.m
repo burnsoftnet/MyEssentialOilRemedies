@@ -18,6 +18,7 @@
 {
     NSString *dbPathString;
 }
+
 #pragma mark Controller Load
 //Actions to take when the Controller Loads
 - (void)viewDidLoad {
@@ -60,6 +61,7 @@
         [myObj sendMessage:[NSString stringWithFormat:@"An oil already exists with the name %@",self.txtName.text] MyTitle:@"Oil Exists!" ViewController:self];
     }
 }
+
 #pragma mark Clear Values
 //Clear all the details from the Form
 -(void)clearValues
@@ -117,6 +119,8 @@
     [myFunctions setBorderTextBox:self.txtWebsite];
 }
 
+#pragma mark Add Oil
+//This is mostly used by the btnAdd Button to add the details from the form to the database.  This is a Private Sub.
 - (void) addMoreOils
 {
     BurnSoftGeneral *myObjOF = [BurnSoftGeneral new];
@@ -192,6 +196,7 @@
     }
 
 }
+
 #pragma mark Add Oil Button
 //Perform actions to save database to database
 - (IBAction)btnAdd:(id)sender {

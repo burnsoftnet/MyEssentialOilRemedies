@@ -20,6 +20,7 @@
     NSString *SelectedCellID;
     int currView;
 }
+
 #pragma mark On Form Load
 //When form first loads
 -(void) viewDidLoad
@@ -42,6 +43,7 @@
         [self changeCurrentViewTo:1];
     }
 }
+
 #pragma mark View appears again
 //When the view appears again
 -(void) viewWillAppear:(BOOL)animated
@@ -49,6 +51,7 @@
     [super viewWillAppear:animated];
     [self loadData];
 }
+
 #pragma mark Form Exits
 //Clean up when the form is leaving
 -(void) viewWillDisappear:(BOOL)animated {
@@ -60,6 +63,7 @@
     }
     [super viewWillDisappear:animated];
 }
+
 #pragma mark Reload Data
 //Reloads the data as if it loaded for the first time, mor like a reset
 -(void)reloadData
@@ -68,6 +72,7 @@
     [self loadData];
     [self loadForm];
 }
+
 #pragma mark Load Settings
 //load the database path and set borders
 -(void) loadSettings
@@ -79,6 +84,7 @@
     [objf setBorderLabel:self.lblProblem];
     [objf setBordersTextView:self.lblDescription];
 }
+
 #pragma mark  Load Textboxes with Vars
 //Loads the text boxes in the form with the varables that were set in loaddata
 -(void) loadForm
@@ -88,6 +94,7 @@
     self.lblUses.text=self.myUses;
     
 }
+
 #pragma mark Load Data To Variables
 //Loads the data from the database based on the RID/RemedyID
 -(void) loadData
@@ -132,6 +139,7 @@
     [[self myTableView] reloadData];
     
 }
+
 #pragma mark Clear All Fields
 //Clears the textboxes
 -(void) clearFields
@@ -147,21 +155,25 @@
 - (IBAction)tbSave:(id)sender {
     //[self runToView:@"EditRemedy_Description_ViewController"];
 }
+
 #pragma mark Toolbar Description Button
 // Switch to the Descriptions view
 - (IBAction)tbDescription:(id)sender {
     [self changeCurrentViewTo:1];
 }
+
 #pragma mark Toolbar Close Button
 // Close the entire view
 - (IBAction)tbClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
+
 #pragma mark Toolbar Oils Button
 // Switch to the Oils View
 - (IBAction)tbOils:(id)sender {
     [self changeCurrentViewTo:2];
 }
+
 #pragma mark Chage Views 
 //This will changethe views when a button on the toolbar is touched
 -(void)changeCurrentViewTo :(int) iValue
@@ -189,11 +201,13 @@
     }
     currView = iValue;
 }
+
 #pragma mark Toolbar Uses Button
 // Switch to Use's View
 - (IBAction)tbUses:(id)sender {
     [self changeCurrentViewTo:3];
 }
+
 #pragma mark View popup WIndow for details
 // Setup to Presentation for the Pop View Controllers
 - (void)setPresentationStyleForSelfController:(UIViewController *)selfController presentingController:(UIViewController *)presentingController
@@ -202,6 +216,7 @@
     presentingController.definesPresentationContext = YES;
     [presentingController setModalPresentationStyle:UIModalPresentationOverCurrentContext];
 }
+
 #pragma mark Prepare for Segue
 //Actions to Take before moving to next controller
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

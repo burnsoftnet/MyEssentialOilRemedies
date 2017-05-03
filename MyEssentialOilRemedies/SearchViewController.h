@@ -21,15 +21,10 @@
 #import "VIEW_OilDetailsViewController.h"
 
 @interface SearchViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
-//<UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UISearchBar *mySearchBar;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 
-/*
-@property (nonatomic,strong) NSString *SearchName;
-@property (nonatomic,strong) NSString *SearchType;
-@property (assign) int SearchID;
-*/
 - (IBAction)btnSearch:(id)sender;
 
 @end

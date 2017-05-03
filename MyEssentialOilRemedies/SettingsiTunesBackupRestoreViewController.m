@@ -18,6 +18,7 @@
     sqlite3 *OilDB;
     NSArray *filePathsArray;
 }
+
 #pragma mark On Form Load
 //When form first loads
 - (void)viewDidLoad {
@@ -36,6 +37,7 @@
     [self loadFileListings];
     [self.myTableView reloadData];
 }
+
 #pragma mark Load File Data
 //  Load the contents of the docs directory
 -(void) loadFileListings
@@ -46,6 +48,7 @@
     NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
     filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.bak'"]];
 }
+
 #pragma mark Load Settings
 // Load the Database Path
 -(void) LoadSettings;
@@ -89,6 +92,7 @@
     }
     [self reloadData];
 }
+
 #pragma mark Delete File by Name
 //  Delete the a file in the local documents for the app.
 -(BOOL)DeleteFileByName:(NSString *) sFile
@@ -112,6 +116,7 @@
     }
     return success;
 }
+
 #pragma mark Restore Database for iTunes by File Name
 //  Restore selected database and rename it to the main database name.
 -(void)RestoreDatabaseforiTunesbyFileName:(NSString *) sFile
@@ -138,24 +143,28 @@
     }
     
 }
+
 #pragma mark Can Edit Table Row
 // Set the ability to swipe left to edit or delete
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
+
 #pragma mark Number of Sections in Row
 // Display the number of sections in the row
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 #pragma mark Table Number of Rows in Section
 //Count of all the rows
 -(NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
 {
     return [filePathsArray count];
 }
+
 #pragma mark Populate Table
 // populate the table with data from the array
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
@@ -168,6 +177,7 @@
     cell.textLabel.text = [filePathsArray objectAtIndex:indexPath.row];
     return cell;
 }
+
 #pragma mark Table Row Selected
 //actions to take when a row has been selected.
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
@@ -176,6 +186,7 @@
     //NSString *cellTag = [NSString stringWithFormat:@"%@",cell.textLabel.text];
     //NSLog(@"%@",cellTag);
 }
+
 #pragma mark Table Edit actions
 //actions to take when a row has been selected for editing.
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath

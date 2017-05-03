@@ -43,5 +43,7 @@
 - (IBAction)tbDescription:(id)sender;
 - (IBAction)tbClose:(id)sender;
 
+#pragma mark View popup WIndow for details
+//Prep Presentation Style for Oil Description View Popup
 - (void)setPresentationStyleForSelfController:(UIViewController *)selfController presentingController:(UIViewController *)presentingController;
 @end

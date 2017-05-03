@@ -14,13 +14,14 @@
     sqlite3 *OilDB;
     NSArray *filePathsArray;
 }
+
 #pragma mark Backup to iCloud Button
 // Action to start the backup to iCloud Drive
 - (IBAction)btnBackuptoiCloud:(id)sender {
     DatabaseManagement *myObjDM = [DatabaseManagement new];
     FormFunctions *myObjFF = [FormFunctions new];
     NSString *msg = [NSString new];
-    //@"meo.bak"
+
     BOOL success = [myObjDM backupDatabaseToiCloudByDBName:@MYDBNAME LocalDatabasePath:dbPathString ErrorMessage:&msg];
     if (success){
         msg = [NSString stringWithFormat:@"Databae Backup was successful!"];
@@ -30,6 +31,7 @@
     }
     [DatabaseManagement startiCloudSync];
 }
+
 #pragma mark Restore from iCloud Button
 // Action to start the restore from iCloud Drive
 - (IBAction)btnRestoreFromiCloud:(id)sender {
@@ -45,6 +47,7 @@
         [myObjFF sendMessage:msg MyTitle:@"ERROR!" ViewController:self];
     }
 }
+
 #pragma mark On Form Load
 //When form first loads
 -(void)viewDidLoad
@@ -53,6 +56,7 @@
     [self LoadSettings];
     [self loadVersioning];
 }
+
 #pragma mark Form Loads Again
 // When the view reloads itself
 -(void)viewWillAppear:(BOOL)animated
@@ -152,6 +156,7 @@
     [objDB restoreFactoryDB:@MYDBNAME MessageHandler:&errorMsg];
     [objF sendMessage:myTitle MyTitle:@"DB Restored to Factory." ViewController:self];
 }
+
 #pragma mark Clear Oils Button
 // Button action to confirm and clear the Oils Table
 - (IBAction)btnClearOils:(id)sender {
@@ -163,6 +168,7 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 #pragma mark Clear Remedies Button
 // Button action to confirm and clear the Remedies table
 - (IBAction)btnClearRemedies:(id)sender {
@@ -174,6 +180,7 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 #pragma mark Restore Factory Button
 // Button action to confirm and replace the database in the docs with the one in the apps directory
 - (IBAction)btnRestoreFactory:(id)sender {
@@ -185,6 +192,7 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 #pragma mark Delete File by Name
 // Delete the file + path that you want to delete
 -(BOOL)DeleteFileByName:(NSString *) sFile

@@ -180,6 +180,9 @@
     return oilCollection;
 }
 
+#pragma mark Get InStock Count from Database
+//Function that will return all the oils marked as instock form the datbase
+//USEDBY: listInStock
 -(int) getInStockCountByDatabase :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 {
     int iAns = 0;
@@ -199,11 +202,14 @@
     }
     return iAns;
 }
+#pragma mark List In Stock
+//method version of the get instockcountbydatabase
 +(int) listInStock:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     OilLists *myobj = [OilLists new];
     return [myobj getInStockCountByDatabase:dbPath ErrorMessage:errorMsg];
 }
+
 #pragma mark Get Only Out-Of-Stock Oils
 //NOTE:  This will only return the oils that are out of stock
 //USEDBY:

@@ -18,10 +18,12 @@
 @end
 
 @implementation LIST_OilRemediesViewController
+
 #pragma mark Controller Load
 //Actions to take when the Controller Loads
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self checkInBox];
     [self setupGlobalVars];
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
@@ -34,37 +36,55 @@
     //Set TableView to delete mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
 }
+
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self checkInBox];
     [self reloadCrap];
 }
+
 #pragma mark Did Recieve Memory Warning
 // Dispose of any resources that can be recreated.
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 - (void) addRemedy {
     [self performSegueWithIdentifier:@"segueNewRemedy" sender:self];
 }
+
 - (IBAction)refresh:(UIRefreshControl *)sender 
 {
     [self.myTableView reloadData];
+    [self checkInBox];
     [self LoadTableData];
     [sender endRefreshing];
 }
+
 #pragma mark General Sub and Functions
 -(void) reloadCrap
 {
     [self setupGlobalVars];
     [self LoadTableData];
 }
+
+#pragma mark Check InBox
+//Check for files to process from the inbox
+-(void) checkInBox
+{
+    if ([BurnSoftGeneral newFilesfoundProcessing]){
+        [AirDropHandler processInBoxFilesFromViewController:self];
+    }
+}
+
 -(void)setupGlobalVars
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     dbPathString = [myObj getDatabasePath:@MYDBNAME];
     myOilCollection = [NSMutableArray new];
 }
+
 -(void)LoadTableData
 {
     [myOilCollection removeAllObjects];

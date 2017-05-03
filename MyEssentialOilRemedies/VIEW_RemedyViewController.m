@@ -16,6 +16,7 @@
     NSString *SelectedCellID;
     int currView;
 }
+
 #pragma mark On Form Load
 //When form first loads
 -(void) viewDidLoad
@@ -35,6 +36,7 @@
         [self changeCurrentViewTo:1];
     }
 }
+
 #pragma mark Start Action Sheet
 //start the action sheet process and gather the data to send to the ActionClass
 -(void) startAction
@@ -64,14 +66,11 @@
     //[AirDropHandler OpenFilebyPath:outPutFile ViewController:self];
     
     // END AIR DOP TESTING!!
-    
-    //NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:rawText];
-    //NSLog(@"%@",rawText);
+
     NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText];
     
     [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Remedy for: %@",self.lblProblem.text]];
 }
-
 
 #pragma mark View Appears Again
 //when the view is reloaded
@@ -112,11 +111,11 @@
     [objf setBordersTextView:self.lblUses];
     
 }
+
 #pragma mark Load Data
 //Loads the information from the Database based on the RID.
 -(void) loadData
 {
-    //self.oilsForAction = @"\n";
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPathString UTF8String],&MYDB) == SQLITE_OK)
     {
@@ -149,6 +148,7 @@
     [[self myTableView] reloadData];
     
 }
+
 #pragma mark Change Views
 //This will change the views when a button on the toolbar is touched
 // 1 is Description View is selected
@@ -173,6 +173,7 @@
             self.viewUses.hidden = NO;
     }
 }
+
 #pragma mark Edit Button Tool Bar Button
 //Action to take when the Edit button on the tool bar has been selected
 - (IBAction)tbEdit:(id)sender {
@@ -198,7 +199,6 @@
 #pragma mark Oil Button Tool Bar Button
 //Action to take when the oil button on the tool bar has been selected
 - (IBAction)tbOils:(id)sender {
-    //if (!_isFromSearch)
     [self changeCurrentViewTo:2];
 }
 
@@ -216,6 +216,7 @@
     presentingController.definesPresentationContext = YES;
     [presentingController setModalPresentationStyle:UIModalPresentationOverCurrentContext];
 }
+
 #pragma mark Prepare for Segue
 //Actions to take before switching to the next window
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

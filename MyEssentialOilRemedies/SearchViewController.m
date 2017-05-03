@@ -21,6 +21,7 @@
     NSString *dbPathString;
     NSString *SelectedCellID;
 }
+
 #pragma mark On Form Load
 //When form first loads
 - (void)viewDidLoad {
@@ -37,12 +38,14 @@
     [super viewWillAppear:animated];
     [self reloadData];
 }
+
 #pragma mark Reload Data
 //  Reload the data as is the for first appeared
 -(void) reloadData {
     [self setupGlobalVars];
     //[self loadData];
 }
+
 #pragma mark Did Recieve Memory Warning
 // Dispose of any resources that can be recreated.
 - (void)didReceiveMemoryWarning {
@@ -69,6 +72,7 @@
     }
     return _myCombinedResults;
 }
+
 #pragma mark Combine Results
 // Combine the arrays from both results from the oils and remedies
 -(NSMutableArray *) combineOilsandRemedies
@@ -124,6 +128,7 @@
         [myObjF sendMessage:myMsg MyTitle:myMsg ViewController:self];
     }
 }
+
 #pragma mark Table Row Selected
 //actions to take when a row has been selected.
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -133,6 +138,7 @@
     NSString *myName = cell.textLabel.text;
     [self findLocationofSelection:myName];
 }
+
 #pragma mark Controller
 // Define the controller for the search results
 - (UISearchController *)controller {
@@ -153,18 +159,21 @@
     }
     return _controller;
 }
+
 #pragma mark Table Edit Rows
 //function for table editing
 - (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
+
 #pragma mark Sections in Table View
 // define the number of sections in the table view
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 #pragma mark Table Set Sections
 //set the sections in the table
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -181,6 +190,7 @@
 
     return cell;
 }
+
 #pragma mark Update the Search Results
 //Update the search results table with the filtered results
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
@@ -195,11 +205,9 @@
     NSString *lookFor = self.controller.searchBar.text;
     //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self contains[c] %@",lookFor];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self contains [cd] %@",lookFor];
-    //NSArray *data =[NSArray arrayWithArray:_myCombinedResults];
     self.results = [_myCombinedResults filteredArrayUsingPredicate:predicate];
-    
-    //NSLog(@"Search Results are: %@", [self.results description]);
 }
+
 #pragma mark Search Button
 // Present the search controller when the button is clicked
 - (IBAction)btnSearch:(id)sender {

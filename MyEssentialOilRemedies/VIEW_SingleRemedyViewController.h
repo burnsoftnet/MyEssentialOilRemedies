@@ -42,6 +42,8 @@
 - (IBAction)tbDescription:(id)sender;
 - (IBAction)tbClose:(id)sender;
 
+#pragma mark View popup WIndow for details
+// Setup to Presentation for the Pop View Controllers
 - (void)setPresentationStyleForSelfController:(UIViewController *)selfController presentingController:(UIViewController *)presentingController;
 
 @end

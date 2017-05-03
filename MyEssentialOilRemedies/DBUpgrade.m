@@ -36,7 +36,7 @@
     }
 }
 #pragma mark DB Upgrade Version 1.1
-//NOTE: Update Database to version 1.1
+//NOTE: PRIVATE - Update Database to version 1.1
 //USEDBY: checkDBVersionAgainstExpectedVersion
 -(void) dbupgrade11
 {
@@ -89,7 +89,7 @@
     
 }
 #pragma mark DB Upgrade Version 1.2
-//NOTE: Update Database to version x.x
+//NOTE: PRIVATE Update Database to version x.x
 //USEDBY: checkDBVersionAgainstExpectedVersion
 -(void) dbupgrade12
 {
@@ -131,7 +131,7 @@
 
 }
 #pragma mark DB Upgrade Version x.x
-//NOTE: Update Database to version x.x
+//NOTE: PRIVATE - Update Database to version x.x
 //USEDBY: checkDBVersionAgainstExpectedVersion
 -(void) dbupgradexx
 {

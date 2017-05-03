@@ -53,6 +53,7 @@
     if ([BurnSoftGeneral newFilesfoundProcessing]){
         LIST_OilsTableViewController *oilController = [LIST_OilsTableViewController new];
         [AirDropHandler processInBoxFilesFromViewController:oilController];
+        
     }
 }
 

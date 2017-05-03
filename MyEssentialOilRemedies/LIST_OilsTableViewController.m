@@ -21,14 +21,13 @@
 @end
 
 @implementation LIST_OilsTableViewController
+
 #pragma mark Controller Load
 //Actions to take when the Controller Loads
 - (void)viewDidLoad {
     inStockCount = 0;
     [super viewDidLoad];
-    if ([BurnSoftGeneral newFilesfoundProcessing]){
-        [AirDropHandler processInBoxFilesFromViewController:self];
-    }
+    [self checkInBox];
     [self setupGlobalVars];
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
@@ -42,26 +41,28 @@
     self.tableView.allowsSelectionDuringEditing = NO;
     
 }
+
 #pragma mark View will reappear
 //Sub when the form reloads
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if ([BurnSoftGeneral newFilesfoundProcessing]){
-        [AirDropHandler processInBoxFilesFromViewController:self];
-    }
+    [self checkInBox];
     [self reloadData];
 }
+
 #pragma mark View did reappear
 //Sub when the form reloads
 - (void) viewDidAppear:(BOOL)animated
 {
-    
+     [self checkInBox];
 }
+
 #pragma mark Did Recieve Memory Warning
 // Dispose of any resources that can be recreated.
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 #pragma mark Refresh Table Data
 // when you swipe down on the table, it will reload the data
 - (IBAction)refresh:(UIRefreshControl *)sender {
@@ -69,12 +70,23 @@
         [self loadData];
     [sender endRefreshing];
 }
+
 #pragma mark Reload Data
 //  Reload the data as is the for first appeared
 -(void) reloadData {
     [self setupGlobalVars];
     [self loadData];
 }
+
+#pragma mark Check InBox
+//Check for files to process from the inbox
+-(void) checkInBox
+{
+    if ([BurnSoftGeneral newFilesfoundProcessing]){
+        [AirDropHandler processInBoxFilesFromViewController:self];
+    }
+}
+
 #pragma mark Setup Global Variables
 // Setup the global variablies like the database path
 -(void) setupGlobalVars
@@ -131,6 +143,7 @@
 {
     return [myOilCollection count];
 }
+
 #pragma mark Table Set Cell Data
 //set the cell data by use of an array
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -153,6 +166,7 @@
     }
     return cell;
 }
+
 #pragma mark Table Row Selected
 //actions to take when a row has been selected.
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
@@ -162,6 +176,7 @@
     SelectedCellID = cellTag;
     [self performSegueWithIdentifier:@"OilSelected" sender:self];
 }
+
 #pragma mark Table Edit actions
 //actions to take when a row has been selected for editing.
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath

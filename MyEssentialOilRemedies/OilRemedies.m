@@ -143,7 +143,7 @@
 #pragma mark See if Oil Exists
 //NOTE: This will check to see if the oil exists, if it exists then it will return true
 //USEDFOR:  Add New Remedy, or Edit Remedy
-//USEDBY: AddOilName
+//USEDBY: AddOilName, PRIVATE
 -(BOOL) oilNameExists:(NSString *) lookforoilname DatabasePath:(NSString *)dbPathString ERRORMESSAGE:(NSString **)errorMsg
 {
     BOOL bAns;
@@ -262,7 +262,6 @@
 // Sub to add the oils in the table to the database
 -(void) addOilsToRemedyByRemedyID:(NSString *) RID OilsArray:(NSArray *) oilList DatabasePath:(NSString *) dbpath ErrorMessage:(NSString **) ErrMsg
 {
-    //BOOL bAns = NO;
     NSString *oilName = [NSString new];
     NSString *errorMsg;
     NSString *OID;
@@ -274,8 +273,6 @@
         
         OID = [self AddOilName:oilName DatabasePath:dbpath ERRORMESSAGE:&errorMsg];
         [self addOilToremedyOilList:OID RID:RID DatabasePath:dbpath ERRORMESSAGE:&errorMsg];
-        //sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"OilName" WithValue:oils[x] UseNewLine:doNewLine]];
     }
-    //return bAns;
 }
 @end

@@ -32,6 +32,7 @@
 {
 
 }
+
 #pragma mark Controller Load
 //Actions to take when the Controller Loads
 - (void)viewDidLoad {
@@ -61,15 +62,8 @@
     NSString *rawText = [ActionClass OilDetailsToStringByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text];
     NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:[Parser OilDetailsToXMLForInsertByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text]];
     
-    //[XMLClass OpenFileFromAirDropbyPath:outPutFile];
-    //[XMLClass OpenFileFromAirDropbyPath:dbPathString];
     // AIR DOP TESTING!!
-   /*
-    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docPath = [path objectAtIndex:0];
-    NSString *sAns = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
-    [AirDropHandler OpenFilebyPath:sAns ViewController:self];
-    */
+    //[AirDropHandler OpenFilebyPath:outPutFile ViewController:self];
     //END AIR DROP TESTING
     NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText];
     
@@ -100,6 +94,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 #pragma mark Edit Oils
 // Action to take when the Exit option is selected from the table.
 - (void) editOils {
@@ -109,7 +104,6 @@
 }
 
 #pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"EditOilSegue"] || [segue.identifier isEqualToString:@"segueEditOilFromSearch"] ) {
@@ -121,6 +115,7 @@
         destViewController.RID = SelectedCellID;
     }
 }
+
 #pragma mark Load Settings
 // Load Database Path and set the borders for the labels and text view
 -(void) loadSettings
@@ -141,6 +136,7 @@
     [myFunctions setBordersTextView:self.txtWebsite];
     
 }
+
 #pragma mark Load Related Remedies
 //  Load the related remedies in the table.
 -(void) LoadRelatedRemedies
@@ -205,16 +201,19 @@
         [objF sendMessage:msg MyTitle:@"OpenDB Error" ViewController:self];
     }
 }
+
 #pragma mark Tab Description
 // this will show the contentView when the description tab is touched
 - (IBAction)tbDescription:(id)sender {
     [self changeCurrentViewTo:1];
 }
+
 #pragma mark Tab Related Remedies
 // this will show the Related Remedies when the Related Remedies tab is touched
 - (IBAction)tbRelatedRemedies:(id)sender {
     [self changeCurrentViewTo:2];
 }
+
 #pragma mark Update Stock Status
 //Allow the Use to updated if the oil is in stock or out of stock without having to go into editing.
 - (IBAction)swUpdateStockStatus:(id)sender {
@@ -228,34 +227,40 @@
     OilLists *objO = [OilLists new];
     [objO updateStockStatus:iStock OilID:self.OID DatabasePath:dbPathString ErrorMessage:&errorMsg];
 }
+
 #pragma mark Close Button from Search
 //Actions to take when the close button is touched
 - (IBAction)btnClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
+
 #pragma mark Edit Button form Search
 //Actions to take when the edit button from search is touched
 - (IBAction)btnEdit:(id)sender {
     [self performSegueWithIdentifier:@"segueEditOilFromSearch" sender:self];
 }
+
 #pragma mark Can Edit Table Row
 // Set the ability to swipe left to edit or delete
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return NO;
 }
+
 #pragma mark Number of Sections in Row
 // Display the number of sections in the row
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 #pragma mark Table Number of Rows in Section
 //Count of all the rows
 -(NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
 {
     return [myRelatedRemedies count];
 }
+
 #pragma mark Populate Table
 // populate the table with data from the array
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
@@ -270,6 +275,7 @@
     cell.tag = displayCollection.RID;
     return cell;
 }
+
 #pragma mark Table Row Selected
 //actions to take when a row has been selected.
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath

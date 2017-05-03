@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtVedor;
 @property (weak, nonatomic) IBOutlet UITextField *txtWebsite;
 
+#pragma mark Add Oil Button
+//Perform actions to save database to database
 - (IBAction)btnAdd:(id)sender;
 
 @end

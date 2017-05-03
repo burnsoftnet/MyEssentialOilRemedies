@@ -19,12 +19,14 @@
     NSString *dbPathString;
     NSString *SelectedCellID;
 }
+
 #pragma mark On Form Load
 //When form first loads
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSettings];
 }
+
 #pragma mark Did Recieve Memory Warning
 //when you are fucking with the memory
 - (void)didReceiveMemoryWarning {
@@ -135,7 +137,6 @@
         destViewController.OID = SelectedCellID;
     } else if ([segue.identifier isEqualToString:@"segueViewRemedyFromSearch"]){
         VIEW_RemedyViewController *destViewController = (VIEW_RemedyViewController *)segue.destinationViewController;
-        //destViewController.isFromSearch = YES;
         destViewController.RID = SelectedCellID;
     }
 

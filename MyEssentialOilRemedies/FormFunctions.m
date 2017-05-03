@@ -18,6 +18,7 @@
     [[myObj layer] setBorderWidth:2.3];
     [[myObj layer] setCornerRadius:2];
 }
+
 #pragma mark Textbox Layout
 //NOTE: Creates a border around a regular text box
 //USEBD: GENERAL
@@ -27,6 +28,7 @@
     [[myObj layer] setBorderWidth:2.3];
     [[myObj layer] setCornerRadius:2];
 }
+
 #pragma mark Label Borders
 //NOTE: Creates a border around the label
 //USEBD: GENERAL
@@ -36,6 +38,7 @@
     [[myObj layer] setBorderWidth:2.3];
     [[myObj layer] setCornerRadius:2];
 }
+
 #pragma mark Common Alert/Message Handling
 //NOTE: Send a Message box from the View controller that you are currently on. It's easier then copying this function all over the place
 //USEBD: GENERAL
@@ -47,6 +50,7 @@
     [alert addAction:defaultAction];
     [MyViewController presentViewController:alert animated:YES completion:nil];
 }
+
 #pragma mark Check For Error in Message via MessageBog
 //NOTE: This will check the message to see if something is in it, if not it will not alert via MessageBox
 //USEBD: GENERAL
@@ -61,6 +65,7 @@
         
     }
 }
+
 #pragma mark Check for Error in Message via NSLOG
 //NOTE: his will check the message to see if something is in it, if not it will not alert via NSLog
 //USEBD: GENERAL
@@ -73,6 +78,7 @@
     }
 
 }
+
 #pragma mark NSLog Debug Message
 //NOTE: Mostly used for runtime debugging by sending message of information back to the output window.
 //      Only when the Global Var BUGGERME is true will it write out message

@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "OilLists.h"
+#import "FormFunctions.h"
 
 @interface Parser : NSObject <NSXMLParserDelegate>
 {
     NSXMLParser *parser;
     NSMutableString *element;
-    //NSString *sqlResults;
 }
 
 @property (strong, nonatomic) NSString *databasePath;

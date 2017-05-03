@@ -18,6 +18,7 @@
     NSString *dbPathString;
     sqlite3 *MYDB;
 }
+
 #pragma mark Load Controller
 //Sub to perform actions when the controller loads
 - (void)viewDidLoad {
@@ -35,6 +36,7 @@
     UIBarButtonItem *updateButton = [[UIBarButtonItem alloc]initWithTitle:@"Update" style:UIBarButtonItemStylePlain target:self action:@selector(updateOils)];
     self.navigationItem.rightBarButtonItem = updateButton;
 }
+
 #pragma mark Make Keyboard Dissapear
 //When the view is selected, make the keyboard dissapear
 -(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
@@ -48,6 +50,7 @@
     [self.txtIngredients resignFirstResponder];
     [self.txtBotanicalName resignFirstResponder];
 }
+
 #pragma mark View did reappear
 //Sub when the form reloads
 - (void)viewDidAppear:(BOOL)animated
@@ -55,11 +58,13 @@
     [self loadSettings];
     [self loadData];
 }
+
 #pragma mark Memroy Error
 //Sub when a memory error occurs
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 #pragma mark Prepare For Segue
 //Action to take before segue occurs
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -68,6 +73,9 @@
         destViewController.OID = self.OID;
     }
 }
+
+#pragma mark Update Oils
+//Private Sub used byt the btnUpdate button to update the details from the form to the update the details in the database.
 -(void)updateOils
 {
     BurnSoftGeneral *myObjOF = [BurnSoftGeneral new];
@@ -120,11 +128,13 @@
     }
 
 }
+
 #pragma mark Update Button
 //Actions to take when the Update button is touched
 - (IBAction)btnUpdate:(id)sender {
     [self updateOils];
 }
+
 #pragma mark Load Settings
 //Loads the Database Path and the borders to the textboxes
 -(void) loadSettings
@@ -144,6 +154,7 @@
     [myFunctions setBorderTextBox:self.txtVendor];
     [myFunctions setBorderTextBox:self.txtWebsite];
 }
+
 #pragma mark Load Data
 //Load the Data from the database to populate the fields
 -(void) loadData

@@ -20,7 +20,6 @@
         NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
         //NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"/InBox/OilDetails.meo"];
         
-        //sqlResults = @"";
         NSURL *dataFile = [NSURL fileURLWithPath:fullDocPath];
         parser = [[NSXMLParser alloc] initWithContentsOfURL:dataFile];
         [parser setDelegate:self];
@@ -40,7 +39,6 @@
         NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"RemedyDetails.meor"];
         //NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"/InBox/RemedyDetails.meor"];
         
-        //sqlResults = @"";
         NSURL *dataFile = [NSURL fileURLWithPath:fullDocPath];
         parser = [[NSXMLParser alloc] initWithContentsOfURL:dataFile];
         [parser setDelegate:self];
@@ -66,8 +64,8 @@
 //Get the Elemenents from the XML Data source
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict;
 {
-    //TODO: Get rid of log or put in debug mode
-    NSLog(@"Started Element %@", elementName);
+    //NSLog(@"Started Element %@", elementName);
+    [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"Started Element %@", elementName] FromSubFunction:@"Parser.didStartElement"];
     
     element = [NSMutableString string];
     
@@ -87,8 +85,11 @@
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
     //Currently processing information and will need to use this information to make the insert details
-     //TODO: Get rid of log or put in debug mode
-    NSLog(@"Found an element named: %@ with a value of: %@", elementName, element);
+    
+    //NSLog(@"Found an element named: %@ with a value of: %@", elementName, element);
+    
+    [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"Found an element named: %@ with a value of: %@", elementName, element] FromSubFunction:@"Parser.didEndElement"];
+    
     if ( _isOIL) {
         [self setOilSQLDetailsbyColumn:elementName MyValue:element];
     }

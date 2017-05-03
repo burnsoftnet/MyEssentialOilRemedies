@@ -26,19 +26,14 @@
 {
     Parser *parser = [[Parser alloc] initWithXMLFile:filePath];
     
-    //FormFunctions *myFunctions = [FormFunctions new];
     AirDropHandler *myAir = [AirDropHandler new];
     FormFunctions *myobjF = [FormFunctions new];
     
     NSString *dbpath = [myAir setDataBasePath];
     
-    //NSLog(@"NEW SHIT %@",parser.Remedy_Name);
-    //NSLog(@"NEW DESCRIPTION %@",parser.Remedy_Description);
-    
     NSString *AlertAction_Title = @"";
     NSString *AlertAction_Message = @"";
     
-    //NSString *msg = @"";
     if (parser.isOIL)
     {
         OilLists *myOils = [OilLists new];
@@ -97,87 +92,6 @@
         [alert addAction:noButton];
         
         [viewController presentViewController:alert animated:YES completion:nil];
-        
-        /*
-        
-        if (OilExists){
-            //[myFunctions sendMessage:[NSString stringWithFormat:@"Oil %@ already exists!",parser.Oil_Name] MyTitle:@"Oil Exists" ViewController:viewController];
-            //NSLog(@"Oil Exists!");
-            UIAlertController * alert=[UIAlertController
-                                       alertControllerWithTitle:@"Add New Oil?" message:[NSString stringWithFormat:@"Do you wish to add %@ to your oil collection?",parser.Oil_Name] preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* yesButton = [UIAlertAction
-                                        actionWithTitle:@"Yes"
-                                        style:UIAlertActionStyleDefault
-                                        handler:^(UIAlertAction * action)
-                                        {
-                                            NSNumber *MYOID = [OilLists getOilIDByName:parser.Oil_Name InStock:0 DatabasePath:dbpath ErrorMessage:nil];
-                                            //NSLog(@"you pressed Yes, please button %@",MYOID);
-                                            if (!(MYOID==0)){
-                                                if ([OilLists insertOilDetailsByOID:MYOID Description:parser.Oil_description BotanicalName:parser.Oil_BotanicalName Ingredients:parser.Oil_Ingredients SafetyNotes:parser.Oil_SafetyNotes Color:parser.Oil_Color Viscosity:parser.Oil_Viscosity CommonName:parser.Oil_CommonName Vendor:parser.Oil_vendor WebSite:parser.Oil_website DatabasePath:dbpath ErrorMessage:nil]) {
-                                                    [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil details was completed.",parser.Oil_Name] MyTitle:@"Import Complete" ViewController:viewController];
-                                                    
-                                                } else {
-                                                    [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil was had an error on details insert.",parser.Oil_Name] MyTitle:@"Import Error!" ViewController:viewController];
-                                                }
-                                            } else {
-                                                [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil had an error getting existing Oil ID .",parser.Oil_Name] MyTitle:@"Import Error!" ViewController:viewController];
-                                            }
-                                            [BurnSoftGeneral clearDocumentInBox];
-                                        }];
-            UIAlertAction* noButton = [UIAlertAction
-                                       actionWithTitle:@"No"
-                                       style:UIAlertActionStyleDefault
-                                       handler:^(UIAlertAction * action)
-                                       {
-                                            [BurnSoftGeneral clearDocumentInBox];
-                                           [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil was aborted.",parser.Oil_Name] MyTitle:@"Import Aborted!" ViewController:viewController];
-                                       }];
-            
-            [alert addAction:yesButton];
-            [alert addAction:noButton];
-            
-            [viewController presentViewController:alert animated:YES completion:nil];
-            
-        } else {
-            NSLog(@"Oil Does not Exist!");
-            UIAlertController * alert=[UIAlertController
-                                       alertControllerWithTitle:@"Oil Exists" message:[NSString stringWithFormat:@"%@ already exists!  Do you wish to replace the details you have with this one?",parser.Oil_Name] preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* yesButton = [UIAlertAction
-                                        actionWithTitle:@"Yes"
-                                        style:UIAlertActionStyleDefault
-                                        handler:^(UIAlertAction * action)
-                                        {
-                                            NSNumber *MYOID = [OilLists getOilIDByName:parser.Oil_Name InStock:0 DatabasePath:dbpath ErrorMessage:nil];
-                                            //NSLog(@"you pressed Yes, please button %@",MYOID);
-                                            if (!(MYOID==0)){
-                                                if ([OilLists updateOilDetailsByOID:MYOID Description:parser.Oil_description BotanicalName:parser.Oil_BotanicalName Ingredients:parser.Oil_Ingredients SafetyNotes:parser.Oil_SafetyNotes Color:parser.Oil_Color Viscosity:parser.Oil_Viscosity CommonName:parser.Oil_CommonName Vendor:parser.Oil_vendor WebSite:parser.Oil_website DatabasePath:dbpath ErrorMessage:nil]) {
-                                                    [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil details was updated.",parser.Oil_Name] MyTitle:@"Import Updated!" ViewController:viewController];
-                                                } else {
-                                                    [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil was had an error on update.",parser.Oil_Name] MyTitle:@"Import Error!" ViewController:viewController];
-                                                }
-                                            } else {
-                                                [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil had an error getting existing Oil ID .",parser.Oil_Name] MyTitle:@"Import Error!" ViewController:viewController];
-                                            }
-                                             [BurnSoftGeneral clearDocumentInBox];
-                                        }];
-            UIAlertAction* noButton = [UIAlertAction
-                                       actionWithTitle:@"No"
-                                       style:UIAlertActionStyleDefault
-                                       handler:^(UIAlertAction * action)
-                                       {
-                                            [BurnSoftGeneral clearDocumentInBox];
-                                           [myobjF sendMessage:[NSString stringWithFormat:@"Import of %@ oil was aborted.",parser.Oil_Name] MyTitle:@"Import Aborted!" ViewController:viewController];
-                                       }];
-            
-            [alert addAction:yesButton];
-            [alert addAction:noButton];
-            
-            [viewController presentViewController:alert animated:YES completion:nil];
-
-        }
-         */
     }
     
     if (parser.isREMEDY) {
@@ -200,7 +114,6 @@
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action)
                                     {
-                                        //BOOL INSERT_ACION_OK = NO;
                                         OilRemedies *myObjOR = [OilRemedies new];
                                         
                                         if (REMEDY_EXISTS) {
@@ -255,7 +168,6 @@
         [self OpenFilebyPath:remedyDropFile ViewController:viewController];
     }
     
-    //[BurnSoftGeneral clearDocumentInBox];
 }
 
 
