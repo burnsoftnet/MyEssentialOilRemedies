@@ -39,6 +39,19 @@
     }
     return  bAns;
 }
+
+#pragma mark Get Remedy ID By Name
+// Look up the Remedy by name to get the ID in the database, if it doesn't return 0, else ID
++(NSNumber *) getRemedyIDByName:(NSString *) Remedyname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString *_Nullable*) errorMsg
+{
+    NSNumber *nAns = 0;
+    BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
+    NSString *errMsg = @"";
+    nAns = [myObjDB getLastOneEntryIDbyName:Remedyname LookForColumnName:@"name" GetIDFomColumn:@"ID" InTable:@"eo_remedy_list" DatabasePath:dbPath MessageHandler:&errMsg];
+    
+    return nAns;
+}
+
 #pragma mark Get all Oils for Remedy
 //NOTE: Array to get all the oils needed that have been tagged for a remedy based on the Remedy ID.
 //USEDFOR: View Remedies, Edit Remedies
@@ -243,5 +256,26 @@
     }
     
     return bAns;
+}
+
+#pragma mark Add Oils to Remedy
+// Sub to add the oils in the table to the database
+-(void) addOilsToRemedyByRemedyID:(NSString *) RID OilsArray:(NSArray *) oilList DatabasePath:(NSString *) dbpath ErrorMessage:(NSString **) ErrMsg
+{
+    //BOOL bAns = NO;
+    NSString *oilName = [NSString new];
+    NSString *errorMsg;
+    NSString *OID;
+    BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
+    
+    for (int x = 0; x < [oilList count]; x++) {
+        oilName = [myObjG FCString:oilList[x]];
+        oilName = [oilName stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+        
+        OID = [self AddOilName:oilName DatabasePath:dbpath ERRORMESSAGE:&errorMsg];
+        [self addOilToremedyOilList:OID RID:RID DatabasePath:dbpath ERRORMESSAGE:&errorMsg];
+        //sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"OilName" WithValue:oils[x] UseNewLine:doNewLine]];
+    }
+    //return bAns;
 }
 @end

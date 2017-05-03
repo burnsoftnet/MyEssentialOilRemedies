@@ -60,15 +60,9 @@
     NSString *outPutFile = [ActionClass writeRemedyDetailsToFileToSendByName:XMLText];
     
     // AIR DOP TESTING!!
-    //Parser *parse = [[Parser alloc] initWithXMLFile:<#(NSString *)#>]
     
-     //NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-     //NSString *docPath = [path objectAtIndex:0];
-     //NSString *XMLdocPath = [docPath stringByAppendingPathComponent:@"RemedyDetails.meor"];
+    //[AirDropHandler OpenFilebyPath:outPutFile ViewController:self];
     
-    [AirDropHandler OpenFilebyPath:outPutFile ViewController:self];
-    
-    //END AIR DROP TESTING
     
     //NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:rawText];
     //NSLog(@"%@",rawText);

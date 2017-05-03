@@ -47,7 +47,7 @@
         
         if (OilExists) {
             AlertAction_Title=@"Oil Exists!";
-            AlertAction_Message= [NSString stringWithFormat:@"%@ already exists!  Do you wish to replace the details you have with this one?",parser.Oil_Name];
+            AlertAction_Message= [NSString stringWithFormat:@"%@ already exists!  Do you wish to replace theRemedy you have with this one?",parser.Oil_Name];
         } else {
             AlertAction_Title=@"Add New Oil?";
             AlertAction_Message= [NSString stringWithFormat:@"Do you wish to add %@ to your oil collection?",parser.Oil_Name];
@@ -200,8 +200,22 @@
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action)
                                     {
-                                        BOOL INSERT_ACION_OK = NO;
-                                        //Start doing shit for remedy
+                                        //BOOL INSERT_ACION_OK = NO;
+                                        OilRemedies *myObjOR = [OilRemedies new];
+                                        
+                                        if (REMEDY_EXISTS) {
+                                            NSNumber *MYRID = [OilRemedies getRemedyIDByName:parser.Remedy_Name DatabasePath:dbpath ErrorMessage:nil];
+                                            NSLog(@"Remedy Exists with ID %@",MYRID);
+                                            [myObjOR deleteRemedyByID:[MYRID stringValue] DatabasePath:dbpath MessageHandler:nil];
+                                        }
+                                        
+                                        BurnSoftGeneral *myObj = [BurnSoftGeneral new];
+                                        NSString *RID;
+                                        NSString *errorMsg;
+                                        
+                                        RID = [myObjOR AddRemedyDetailsByName:[myObj FCString:parser.Remedy_Name] Description:[myObj FCString:parser.Remedy_Description] Uses:[myObj FCString:parser.Remedy_Uses] DatabasePath:dbpath ERRORMESSAGE:&errorMsg];
+                                        //Add Oils to this remedy
+                                        [myObjOR addOilsToRemedyByRemedyID:RID OilsArray:parser.Remedy_Oils DatabasePath:dbpath ErrorMessage:&errorMsg];
                                         [BurnSoftGeneral clearDocumentInBox];
                                     }];
         UIAlertAction* noButton = [UIAlertAction

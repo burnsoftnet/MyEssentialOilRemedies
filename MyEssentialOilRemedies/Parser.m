@@ -233,11 +233,11 @@
     sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"description" WithValue:description UseNewLine:doNewLine]];
     sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"uses" WithValue:uses UseNewLine:doNewLine]];
     
-    sOutput = [sOutput stringByAppendingString:@"<oils>\n"];
+    sOutput = [sOutput stringByAppendingString:@"<oilList>\n"];
     for (int x = 0; x < [oils count]; x++) {
         sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"OilName" WithValue:oils[x] UseNewLine:doNewLine]];
     }
-    sOutput = [sOutput stringByAppendingString:@"</oils>\n"];
+    sOutput = [sOutput stringByAppendingString:@"</oilList>\n"];
     
     sOutput = [sOutput stringByAppendingString:@"</remedy>\n"];
     return sOutput;

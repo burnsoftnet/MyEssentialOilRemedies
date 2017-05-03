@@ -193,7 +193,7 @@
     BOOL bAns=NO;
     if (sqlite3_open([DBPath UTF8String], &MYDB) == SQLITE_OK) {
         if (sqlite3_exec(MYDB, [mysql UTF8String], NULL, NULL, &error) == SQLITE_OK) {
-            *msg = @"";
+            //*msg = @"";
             sqlite3_close(MYDB);
             MYDB = nil;
             bAns = YES;
