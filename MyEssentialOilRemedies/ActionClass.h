@@ -26,9 +26,17 @@
 //Write the XML contents from sOutput to File
 +(NSString *) writeOilDetailsToFileToSendByName:(NSString *) sOutPut;
 
-#pragma mark Write the oil Details to a file
+#pragma mark Write the oil Details to a file based by Name
+//Write the XML contents from sOutput to File based on the Oil Name
++(NSString *) writeOilDetailsToFileToSendOutput:(NSString *) sOutPut WithName:(NSString *) OilName;
+
+#pragma mark Write the Remedy Details to a file
 //Write the XML contents from sOutput to File
 +(NSString *) writeRemedyDetailsToFileToSendByName:(NSString *) sOutPut;
+
+#pragma mark Write the Remedy Details to a file based by Name
+//Write the XML contents from sOutput to File based on the remedy Name
++(NSString *) writeRemedyDetailsToFileToSendOutput:(NSString *) sOutPut WithName:(NSString *) RemedyName;
 
 #pragma mark Format Remedy Details to one String
 //  Append all the Remedy Details fields to one format string for output to send via Airdrop, message, noets etc.

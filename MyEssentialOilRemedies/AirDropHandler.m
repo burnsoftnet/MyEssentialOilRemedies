@@ -170,5 +170,30 @@
     
 }
 
+#pragma mark Process Inbox All Files
+//This will look through the document/inbox directory for all files that relate to this app to process
++(void) processAllInBoxFilesFromViewController:(UIViewController *) viewController
+{
+    NSArray *filePathsArray = [NSArray new];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    documentsDirectory = [documentsDirectory stringByAppendingString:@"/Inbox/"];
+    NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
+    filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.meo'"]];
+    NSString *oilFile = [NSString new];
+    
+    for (int x = 0; x < [dirFiles count]; x++) {
+        oilFile = [documentsDirectory stringByAppendingString:dirFiles[x]];;
+        [self OpenFilebyPath:oilFile ViewController:viewController];
+    }
+    
+    NSString *remedyFile = [NSString new];
+    filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.meor'"]];
+    
+    for (int x = 0; x < [dirFiles count]; x++) {
+        remedyFile= [documentsDirectory stringByAppendingString:dirFiles[x]];;
+        [self OpenFilebyPath:remedyFile ViewController:viewController];
+    }
+}
 
 @end

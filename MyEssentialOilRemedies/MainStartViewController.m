@@ -29,7 +29,32 @@
     //if ([BurnSoftGeneral newFilesfoundProcessing]){
     //    [AirDropHandler processInBoxFilesFromViewController:self];
     //}
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(checkInBox) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
+    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkInBox) userInfo:nil repeats:YES];
 }
+
+
+#pragma mark View Did Disappear
+//Action to take when the view disappears, more of cleanup
+-(void) viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidBecomeActiveNotification
+                                                  object:nil];
+}
+
+#pragma mark Check InBox
+//Check for files to process from the inbox
+-(void) checkInBox
+{
+    if ([BurnSoftGeneral newFilesfoundProcessing]){
+        //[AirDropHandler processInBoxFilesFromViewController:self];
+        [AirDropHandler processAllInBoxFilesFromViewController:self];
+    }
+}
+
 #pragma mark Did Recieve Memory Warning
 // Dispose of any resources that can be recreated.
 - (void)didReceiveMemoryWarning {

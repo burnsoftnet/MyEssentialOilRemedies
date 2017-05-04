@@ -59,7 +59,20 @@
     return sAns;
 }
 
-#pragma mark Write the oil Details to a file
+#pragma mark Write the oil Details to a file based by Name
+//Write the XML contents from sOutput to File based on the Oil Name
++(NSString *) writeOilDetailsToFileToSendOutput:(NSString *) sOutPut WithName:(NSString *) OilName
+{
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [path objectAtIndex:0];
+    NSString *sAns = [docPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.meo",OilName]];
+    
+    [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    
+    return sAns;
+}
+
+#pragma mark Write the Remedy Details to a file
 //Write the XML contents from sOutput to File
 +(NSString *) writeRemedyDetailsToFileToSendByName:(NSString *) sOutPut
 {
@@ -72,6 +85,18 @@
     return sAns;
 }
 
+#pragma mark Write the Remedy Details to a file based by Name
+//Write the XML contents from sOutput to File based on the remedy Name
++(NSString *) writeRemedyDetailsToFileToSendOutput:(NSString *) sOutPut WithName:(NSString *) RemedyName
+{
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [path objectAtIndex:0];
+    NSString *sAns = [docPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.meor",RemedyName]];
+    
+    [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    
+    return sAns;
+}
 #pragma mark Format Oil Details to one String
 // Appened all the Oil Detail Fields to one formated string for output to send via Airdrop, message, email, notes, etc.
 // Used for rawText Details from View Oils Class

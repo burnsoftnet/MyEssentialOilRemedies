@@ -55,14 +55,18 @@
     }
 }
 
+
 #pragma mark Start Action Sheet
 //start the action sheet process and gather the data to send to the ActionClass
 -(void) startAction
 {
     NSString *rawText = [ActionClass OilDetailsToStringByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text];
     NSString *XMLText = [BurnSoftGeneral FCStringXML:[Parser OilDetailsToXMLForInsertByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text]];
-    NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:XMLText];
     
+    NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:XMLText];
+    //Unique Name was aborted do to taking up unessary space on the user side.
+    //NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendOutput:XMLText WithName:self.lblName.text];
+
     // AIR DOP TESTING!!
     //[AirDropHandler OpenFilebyPath:outPutFile ViewController:self];
     //END AIR DROP TESTING
