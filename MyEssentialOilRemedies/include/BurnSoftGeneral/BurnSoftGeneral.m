@@ -83,6 +83,7 @@
     } else {
         bAns = YES;
     }
+    scanner = nil;
     return bAns;
 }
 
@@ -94,6 +95,7 @@
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     [dateFormatter setDateFormat:@"MM'/'dd'/'yyyy"];
     NSString *formattedDate = [dateFormatter stringFromDate:date];
+    dateFormatter = nil;
     return formattedDate;
 }
 -(BOOL) copyFileFrom:(NSString *) sFrom To:(NSString *) sTo ErrorMessage:(NSString **) errorMessage
@@ -133,6 +135,8 @@
         }
     }
     
+    fileManager = nil;
+    
     return bAns;
 }
 
@@ -149,6 +153,9 @@
     }else {
         *msg = [NSString stringWithFormat:@"Delete Successful!"];
     }
+    
+    fileManager = nil;
+    
     return success;
 }
 -(BOOL)createDirectoryIfNotExists:(NSString *) sPath ErrorMessage:(NSString **) errMsg
@@ -166,6 +173,9 @@
     } else {
         bAns = YES;
     }
+    
+    fileManager = nil;
+    
     return bAns;
 }
 +(NSString *) convertBOOLtoString:(BOOL) bValue
@@ -185,6 +195,7 @@
 {
     NSArray *pathArray = [filePath componentsSeparatedByString:@"."];
     NSString *fileExtension = [pathArray lastObject];
+    pathArray = nil;
     return fileExtension;
 }
 
@@ -205,6 +216,10 @@
         deleteFile = [documentsDirectory stringByAppendingString:[NSString stringWithFormat:@"%@",dirFiles[x]]];
         [myObj DeleteFileByPath:deleteFile ErrorMessage:&msg];
     }
+    
+    myObj = nil;
+    paths = nil;
+    dirFiles = nil;
 }
 
 +(BOOL) newFilesfoundProcessing
@@ -218,6 +233,11 @@
     if([dirFiles count] > 0 ) {
         bAns = YES;
     }
+    
+    paths = nil;
+    documentsDirectory = nil;
+    dirFiles = nil;
+    
     return bAns;
 }
 @end

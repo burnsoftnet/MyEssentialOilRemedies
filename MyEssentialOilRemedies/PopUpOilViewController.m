@@ -13,6 +13,7 @@
     NSString * dbPathString;
     sqlite3 *MYDB;
 }
+
 #pragma mark On Form Load
 //When form first loads
 - (void)viewDidLoad
@@ -24,17 +25,20 @@
     [self loadData];
     
 }
+
 #pragma mark Form Memory Error
 //When the form gets a memeory error
 -(void) didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
+
 #pragma mark Close Button
 //then the closed button is touched, it will close out the form
 - (IBAction)btnClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
+
 #pragma mark Load Settings
 //load the database path and set borders
 -(void) loadSettings
@@ -46,6 +50,7 @@
     [myFunctions setBorderLabel:self.lblOilName];
     [myFunctions setBordersTextView:self.lblDescription];
 }
+
 #pragma mark Load Data
 //Loads the data from the database about a quick description of the selected oil.
 -(void) loadData

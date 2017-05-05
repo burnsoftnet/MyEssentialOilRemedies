@@ -145,6 +145,12 @@
         
         [viewController presentViewController:alert animated:YES completion:nil];
     }
+    
+    //This was take out since it is executing this before it asks the questions, therefore it erases the data before we can even reply yes or no.
+    //[parser releaseObjects];
+    //parser = nil;
+    //myAir = nil;
+    //myobjF = nil;
 }
 
 #pragma mark Process Inbox Files
@@ -167,6 +173,9 @@
     if ([fileManager fileExistsAtPath:remedyDropFile]) {
         [self OpenFilebyPath:remedyDropFile ViewController:viewController];
     }
+    
+    paths = nil;
+    fileManager = nil;
     
 }
 
@@ -194,6 +203,11 @@
         remedyFile= [documentsDirectory stringByAppendingString:dirFiles[x]];;
         [self OpenFilebyPath:remedyFile ViewController:viewController];
     }
+    
+    paths = nil;
+    filePathsArray = nil;
+    dirFiles = nil;
+    
 }
 
 @end

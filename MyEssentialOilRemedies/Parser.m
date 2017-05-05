@@ -24,6 +24,9 @@
         parser = [[NSXMLParser alloc] initWithContentsOfURL:dataFile];
         [parser setDelegate:self];
         [parser parse];
+        
+        path = nil;
+        
     }      
     return self;
 }
@@ -43,6 +46,8 @@
         parser = [[NSXMLParser alloc] initWithContentsOfURL:dataFile];
         [parser setDelegate:self];
         [parser parse];
+        
+        path = nil;
     }
     return self;
 }
@@ -64,7 +69,6 @@
 //Get the Elemenents from the XML Data source
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict;
 {
-    //NSLog(@"Started Element %@", elementName);
     [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"Started Element %@", elementName] FromSubFunction:@"Parser.didStartElement"];
     
     element = [NSMutableString string];
@@ -82,12 +86,9 @@
 
 #pragma mark Parser Did End
 //find the end of the elemenent and display the value of that element
+ //Currently processing information and will need to use this information to make the insert details
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    //Currently processing information and will need to use this information to make the insert details
-    
-    //NSLog(@"Found an element named: %@ with a value of: %@", elementName, element);
-    
     [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"Found an element named: %@ with a value of: %@", elementName, element] FromSubFunction:@"Parser.didEndElement"];
     
     if ( _isOIL) {
@@ -176,9 +177,6 @@
         _Oil_description = myValue;
     }
     
-    //if([colName isEqualToString:@""]){
-    //
-    //}
 }
 
 #pragma mark Return XML Type Single Element
@@ -242,6 +240,33 @@
     
     sOutput = [sOutput stringByAppendingString:@"</remedy>\n"];
     return sOutput;
+}
+
+#pragma mark Release all the objects from Memory
+-(void) releaseObjects
+{
+    _databasePath = nil;
+    _appPath = nil;
+    _dataType = nil;
+    _Oil_Name = nil;
+    _Oil_Color = nil;
+    _Oil_vendor = nil;
+    _Oil_InStock = nil;
+    _Oil_description = nil;
+    _Oil_BotanicalName = nil;
+    _Oil_Ingredients = nil;
+    _Oil_SafetyNotes = nil;
+    _Oil_Viscosity = nil;
+    _Oil_CommonName = nil;
+    _Oil_website = nil;
+    
+    _Remedy_Name = nil;
+    _Remedy_Description = nil;
+    _Remedy_Uses = nil;
+    _Remedy_Oils = nil;
+    
+    parser = nil;
+    element = nil;
 }
 
 @end

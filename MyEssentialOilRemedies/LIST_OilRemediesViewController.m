@@ -39,7 +39,7 @@
     //Set TableView to delete mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
 }
-
+#pragma mark View Will Appear
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -61,10 +61,13 @@
                                                   object:nil];
 }
 
+#pragma mark Add Remedy
 - (void) addRemedy {
     [self performSegueWithIdentifier:@"segueNewRemedy" sender:self];
 }
 
+#pragma mark Refresh Table View
+//Perform Refresh when table view is swapped down
 - (IBAction)refresh:(UIRefreshControl *)sender 
 {
     [self.myTableView reloadData];
@@ -91,13 +94,18 @@
     }
 }
 */
+
+#pragma mark Setup Global Variables
 -(void)setupGlobalVars
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     dbPathString = [myObj getDatabasePath:@MYDBNAME];
     myOilCollection = [NSMutableArray new];
+    
+    myObj = nil;
 }
 
+#pragma mark Load Table Data
 -(void)LoadTableData
 {
     [myOilCollection removeAllObjects];
@@ -119,6 +127,11 @@
     }
     
     [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[myOilCollection count]];
+    
+    myFunctions = nil;
+    myObjDB = nil;
+    myObj = nil;
+    
 }
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -159,6 +172,8 @@
     cell.tag = displayCollection.RID;
     return cell;
 }
+
+#pragma mark Table Did Select Row At index Path
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -167,6 +182,9 @@
 
     [self performSegueWithIdentifier:@"segueViewRemedy" sender:self];
 }
+
+#pragma mark Table Edit Action was selected
+//When the row is swiped to the left to give options to edit or delete, etc.
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){EDIT_RemedyViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditRemedy_Description_ViewController"];
@@ -196,5 +214,4 @@
     return  @[deleteAction,editAction];
 }
 
-#pragma mark
 @end

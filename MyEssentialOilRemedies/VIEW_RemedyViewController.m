@@ -56,20 +56,16 @@
     }
 
     NSString *rawText = [ActionClass RemedyDetailsToStringByName:self.lblProblem.text Description:self.lblDescription.text OilsArray:oilList HowToUse:self.lblUses.text];
-    //TODO OUTPUT TO XML TO SAVE TO FILE!
+
     NSString *XMLText = [BurnSoftGeneral FCStringXML:[Parser RemedyDetailsToXMLforInsertByName:self.lblProblem.text Description:self.lblDescription.text HowToUse:self.lblUses.text Oils:myOils]];
     
     NSString *outPutFile = [ActionClass writeRemedyDetailsToFileToSendByName:XMLText];
-    
-    // AIR DOP TESTING!!
-    
-    //[AirDropHandler OpenFilebyPath:outPutFile ViewController:self];
-    
-    // END AIR DOP TESTING!!
 
     NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText];
     
     [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Remedy for: %@",self.lblProblem.text]];
+    
+    myOils = nil;
 }
 
 #pragma mark View Appears Again
@@ -110,6 +106,8 @@
     [objf setBordersTextView:self.lblDescription];
     [objf setBordersTextView:self.lblUses];
     
+    objDB = nil;
+    objf = nil;
 }
 
 #pragma mark Load Data
@@ -282,8 +280,6 @@
     OilRemedies *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
     NSString *instock = displayCollection.oilInStock;
     cell.textLabel.text = displayCollection.name;
-    
-    //[_oilsForAction stringByAppendingString:[NSString stringWithFormat:@"%@\n",displayCollection.name]];
     
     if ([instock intValue] == 1)
     {

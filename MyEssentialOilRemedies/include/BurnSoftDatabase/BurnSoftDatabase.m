@@ -152,6 +152,7 @@
         }
     }
     
+    fileManager = nil;
 }
 #pragma mark Restory Factory Database
 //NOTE: Retore the Factory Database by deleting the database in the user docs and copying it back over.
@@ -170,6 +171,8 @@
             [self copyDbIfNeeded:DBNAME MessageHandler:msg];
         }
     }
+    
+    fileManager = nil;
 }
 #pragma mark Check Database
 //NOTE: Pass the Database name to see if the database is in the path that we need it to be in
@@ -183,6 +186,7 @@
     } else {
         *msg = @"Database found!";
     }
+    fileManager = nil;
 }
 #pragma mark Execute Statements
 //NOTE: Pass a SQL statement, and the database path to execute a statement, if it passes ok, then it will return true

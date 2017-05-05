@@ -56,6 +56,9 @@
     NSString *docPath = [path objectAtIndex:0];
     NSString *sAns = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
     [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    
+    path = nil;
+    
     return sAns;
 }
 
@@ -68,6 +71,8 @@
     NSString *sAns = [docPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.meo",OilName]];
     
     [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    
+    path = nil;
     
     return sAns;
 }
@@ -82,6 +87,8 @@
     
     [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
     
+    path = nil;
+    
     return sAns;
 }
 
@@ -94,6 +101,8 @@
     NSString *sAns = [docPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.meor",RemedyName]];
     
     [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    
+    path = nil;
     
     return sAns;
 }

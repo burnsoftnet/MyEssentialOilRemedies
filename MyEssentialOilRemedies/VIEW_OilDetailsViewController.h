@@ -13,7 +13,6 @@
 #import "BurnSoftDatabase.h"
 #import "ActionClass.h"
 #import <sqlite3.h>
-//#import "XMLClass.h"
 #import "Parser.h"
 #import "AirDropHandler.h"
 

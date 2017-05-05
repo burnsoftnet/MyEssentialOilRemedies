@@ -51,7 +51,9 @@
     for (NSFileVersion *fileVersion in conflictVersions) {
         fileVersion.resolved = YES;
     }
-
+    
+    myObjFF = nil;
+    conflictVersions = nil;
 }
 #pragma mark Load File Listtings
 // PRIVATE - list all the extra files version in the iCloud container to delete
@@ -75,6 +77,10 @@
             [myObjG DeleteFileByPath:[NSString stringWithFormat:@"%@/%@",documentsDirectory,fileName] ErrorMessage:&deleteError];
         }
     }
+    myObjG = nil;
+    myObjFF = nil;
+    filePathsArray = nil;
+    dirFiles = nil;
 }
 
 #pragma mark Get iCloud Backup Name in String format
@@ -129,6 +135,7 @@
     [self removeConflictVersionsiniCloudbyURL:urlNewDBName];
     [myObjG DeleteFileByPath:backupfile ErrorMessage:&deleteError];
     
+    myObjG = nil;
     return bAns;
 }
 
@@ -162,6 +169,8 @@
     } else {
         *msg = deleteError;
     }
+    myObjG = nil;
+    
     return bAns;
 }
 
@@ -184,5 +193,9 @@
     } else {
         NSLog(@"sync Failed");
     }
+    
+    myObj = nil;
+    myObjDM = nil;
+    objFM = nil;
 }
 @end

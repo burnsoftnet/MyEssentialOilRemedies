@@ -28,9 +28,6 @@
     inStockCount = 0;
     [super viewDidLoad];
     
- //   [self checkInBox];
- //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(checkInBox) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
     [self setupGlobalVars];
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
@@ -42,41 +39,33 @@
     
     //Set Tableview to Delete Mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
-    
-    /*[NSTimer scheduledTimerWithTimeInterval:2.0
-                                     target:self
-                                   selector:@selector(checkInBoxTimer)
-                                   userInfo:nil
-                                    repeats:YES];
-     */
 }
 
 #pragma mark View will reappear
 //Sub when the form reloads
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //ADDED FOR TESTING
-  //       [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(checkInBox) name:UIApplicationDidBecomeActiveNotification object:nil];
-  //  [self checkInBox];
     [self reloadData];
-}
-
-#pragma mark View did reappear
-//Sub when the form reloads
-- (void) viewDidAppear:(BOOL)animated
-{
-    //ADDED FOR TESTING
- //        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(checkInBox) name:UIApplicationDidBecomeActiveNotification object:nil];
- //   [self checkInBox];
 }
 
 #pragma mark View Did Disappear
 //Action to take when the view disappears, more of cleanup
 -(void) viewDidDisappear:(BOOL)animated
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIApplicationDidBecomeActiveNotification
-                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+    myOilCollection = nil;
+    inStockCount = 0;
+    SelectedCellID = nil;
+    dbPathString = nil;
+    //_myTableView = nil;
+}
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+    myOilCollection = nil;
+    inStockCount = 0;
+    SelectedCellID = nil;
+    dbPathString = nil;
 }
 
 #pragma mark Did Recieve Memory Warning
@@ -99,21 +88,6 @@
     [self setupGlobalVars];
     [self loadData];
 }
-/*
--(void) checkInBoxTimer
-{
-    [self checkInBox];
-}
-#pragma mark Check InBox
-//Check for files to process from the inbox
--(void) checkInBox
-{
-    if ([BurnSoftGeneral newFilesfoundProcessing]){
-        //[AirDropHandler processInBoxFilesFromViewController:self];
-        [AirDropHandler processAllInBoxFilesFromViewController:self];
-    }
-}
-*/
 
 #pragma mark Setup Global Variables
 // Setup the global variablies like the database path
@@ -125,6 +99,9 @@
     
     [myFunctions doBuggermeMessage:dbPathString FromSubFunction:@"LIST_OilsTableViewController.setupGlobalVars.DatabasePath"];
     myOilCollection = [NSMutableArray new];
+    
+    myPath = nil;
+    myFunctions = nil;
 }
 
 #pragma mark Load Data
@@ -148,6 +125,10 @@
     }
     
     [[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d",[myObjDB getTotalNumberofRowsInTable:@"eo_remedy_list" DatabasePath:dbPathString ErrorMessage:nil]]];
+    
+    myObj = nil;
+    myObjDB = nil;
+    myFunctions = nil;
     
 }
 

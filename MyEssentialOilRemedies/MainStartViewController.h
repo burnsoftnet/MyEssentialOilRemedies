@@ -15,5 +15,5 @@
 #import "FormFunctions.h"
 
 @interface MainStartViewController : UITabBarController
--(void)handleOpenURL:(NSURL *)url;
+
 @end

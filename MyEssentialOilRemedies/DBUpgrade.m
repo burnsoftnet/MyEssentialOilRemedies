@@ -34,6 +34,11 @@
     } else {
         [myObjFF doBuggermeMessage:@"DEBUG: DBVersion is equal to or greater than expected." FromSubFunction:@"DBUpgrade"];
     }
+    
+    myObj = nil;
+    myObjFF = nil;
+    dbVersion = 0;
+    
 }
 #pragma mark DB Upgrade Version 1.1
 //NOTE: PRIVATE - Update Database to version 1.1

@@ -30,6 +30,9 @@
         [myObjFF sendMessage:msg MyTitle:@"ERROR!" ViewController:self];
     }
     [DatabaseManagement startiCloudSync];
+    
+    myObjDM = nil;
+    myObjFF = nil;
 }
 
 #pragma mark Restore from iCloud Button
@@ -46,6 +49,18 @@
     } else {
         [myObjFF sendMessage:msg MyTitle:@"ERROR!" ViewController:self];
     }
+    
+    myObjDM = nil;
+    myObjFF = nil;
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    dbPathString = nil;
+    OilDB = nil;
+    filePathsArray = nil;
+    _lblAppVersion = nil;
+    _lblDBVersion = nil;
 }
 
 #pragma mark On Form Load
@@ -80,6 +95,7 @@
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     dbPathString = [myObj getDatabasePath:@MYDBNAME];
     [DatabaseManagement startiCloudSync];
+    myObj = nil;
 }
 
 #pragma mark Load Version
@@ -94,6 +110,9 @@
     
     self.lblAppVersion.text = [NSString stringWithFormat:@"%@.%@", appVersionString, appBuildString];
     self.lblDBVersion.text = [myObj getCurrentDatabaseVersionfromTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&errorMsg];
+    
+    myObj = nil;
+    
 }
 
 #pragma mark Clear Oils
@@ -104,21 +123,25 @@
     NSString *errorMsg;
     BurnSoftDatabase *objDB = [BurnSoftDatabase new];
     FormFunctions *objF = [FormFunctions new];
-    NSString *myTitle = @"Clear Data";
+    //NSString *myTitle = @"Clear Data";
     
     statement = @"DELETE from eo_remedy_oil_list";
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:&errorMsg];
-    [objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
+    //[objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
     
     statement = @"DELETE from eo_oil_list_details";
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:&errorMsg];
-    [objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
+    //[objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
     
     statement = @"DELETE from eo_oil_list";
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:&errorMsg];
-    [objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
+    //[objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
     
     [objF sendMessage:@"Data Cleared" MyTitle:@"This database is clean!" ViewController:self];
+    
+    objDB = nil;
+    objF = nil;
+    
     
 }
 
@@ -130,18 +153,20 @@
     NSString *errorMsg;
     BurnSoftDatabase *objDB = [BurnSoftDatabase new];
     FormFunctions *objF = [FormFunctions new];
-    NSString *myTitle = @"Clear Data";
+    //NSString *myTitle = @"Clear Data";
     
     statement = @"DELETE from eo_remedy_oil_list";
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:&errorMsg];
-    [objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
+    //[objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
     
     statement =@"DELETE from eo_remedy_list";
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:&errorMsg];
-    [objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
+    //[objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
 
     [objF sendMessage:@"Data Cleared" MyTitle:@"This database is clean!" ViewController:self];
     
+    objDB = nil;
+    objF = nil;
 }
 
 #pragma mark Restore Factory Database
@@ -155,6 +180,10 @@
     
     [objDB restoreFactoryDB:@MYDBNAME MessageHandler:&errorMsg];
     [objF sendMessage:myTitle MyTitle:@"DB Restored to Factory." ViewController:self];
+    
+    objDB = nil;
+    objF = nil;
+    
 }
 
 #pragma mark Clear Oils Button
@@ -214,6 +243,9 @@
     }else {
         msg = [NSString stringWithFormat:@"Delete Successful!"];
     }
+    
+    fileManager = nil;
+    
     return success;
 }
 @end

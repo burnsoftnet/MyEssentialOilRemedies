@@ -33,6 +33,40 @@
 
 }
 
+-(void) enduse
+{
+    _OID = nil;
+    _RID = nil;
+    _lblName = nil;
+    _lblCommonName = nil;
+    _lblBotanicalName = nil;
+    _lblIngredients = nil;
+    _lblSafetyNotes = nil;
+    _lblColor = nil;
+    _lblViscosity = nil;
+    _swInStock = nil;
+    _lblDescription = nil;
+    _lblVendor = nil;
+    _txtWebsite = nil;
+    _viewContent = nil;
+    _viewRelatedRemedies = nil;
+    _RelatedRemediesTable = nil;
+    
+    myRelatedRemedies = nil;
+    MYDB = nil;
+    currView = 0;
+    SelectedCellID = nil;
+    dbPathString = nil;
+}
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [self enduse];
+}
+
+-(void) viewDidDisappear:(BOOL)animated
+{
+    [self enduse];
+}
 #pragma mark Controller Load
 //Actions to take when the Controller Loads
 - (void)viewDidLoad {
@@ -140,6 +174,8 @@
     [myFunctions setBorderLabel:self.lblVendor];
     [myFunctions setBordersTextView:self.txtWebsite];
     
+    myObj = nil;
+    myFunctions = nil;
 }
 
 #pragma mark Load Related Remedies
@@ -150,6 +186,8 @@
     OilLists *myObj = [OilLists new];
     NSString *errMsg = [NSString new];
     myRelatedRemedies = [myObj getRemediesRelatedToOilID:self.OID DatabasePath:dbPathString ErrorMessage:&errMsg];
+    
+    myObj = nil;
 }
 
 #pragma mark Load Data
@@ -205,6 +243,8 @@
         NSString *msg = [NSString stringWithFormat:@"Error occured while attempting to open the database. %s",sqlite3_errmsg(MYDB)];
         [objF sendMessage:msg MyTitle:@"OpenDB Error" ViewController:self];
     }
+    
+    objF = nil;
 }
 
 #pragma mark Tab Description

@@ -14,6 +14,7 @@
     sqlite3 *MYDB;
     int currView;
 }
+
 #pragma mark On Form Load
 //When form first loads
 -(void) viewDidLoad
@@ -31,12 +32,14 @@
     [tapGestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:tapGestureRecognizer];
 }
+
 #pragma mark View appears again
 //When the view appears again
 -(void) viewDidAppear:(BOOL)animated
 {
     [self loadSettings];
 }
+
 #pragma mark Remedy Name Texbox Lost Focus
 // occurs after the usee finished editing the field and touches elsewhere on the form
 - (IBAction)RemedyNameLostFocus:(id)sender {
@@ -50,7 +53,8 @@
     {
         [myObj sendMessage:[NSString stringWithFormat:@"An remedy already exists with the name %@",myRemedyName] MyTitle:@"Remedy Exists!" ViewController:self];
     }
-
+    myObj = nil;
+    myOilRemedies = nil;
 }
 
 #pragma mark Form Exits
@@ -95,7 +99,11 @@
     [self.myTableView reloadData];
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    
+    mysettings = nil;
+    myObj = nil;
 }
+
 #pragma mark Change Views
 //This will change the views when a button on the toolbar is touched
 // 1 is Description View is selected
@@ -120,6 +128,7 @@
             self.viewUses.hidden = NO;
     }
 }
+
 #pragma mark Dissmiss Keyboard
 //Dissmiss the keyboard when the view is selected
 -(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
@@ -130,6 +139,7 @@
     [self.txtOilName resignFirstResponder];
     
 }
+
 #pragma mark Oils Array Handler
 //if this is the first time loading that database into the array, then initialize the array
 -(NSMutableArray *) myOils
@@ -139,12 +149,14 @@
     }
     return _myOils;
 }
+
 #pragma mark Tab Uses
 //Actions to take when the Tool Bar Uses button is clicked
 - (IBAction)tbUses:(id)sender {
     //[self runToView:@"AddRemedy_Uses_ViewController"];
     [self changeCurrentViewTo:3];
 }
+
 #pragma mark Add Oils to Remedy
 // Sub to add the oils in the table to the database
 - (void) addOilsToRemedy: (NSString *) RemedyID
@@ -163,7 +175,12 @@
         [objDB addOilToremedyOilList:OID RID:RemedyID DatabasePath:dbPathString ERRORMESSAGE:&errorMsg];
         [objFF doBuggermeMessage:errorMsg FromSubFunction:@"Add_RemedyViewController.addOilstoRemedy"];
     }
+    
+    objDB = nil;
+    objFF = nil;
+    
 }
+
 #pragma mark Clear and Exit
 //Use this to close out the view and go back to the Main view.
 -(void) ClearAndExit
@@ -192,40 +209,47 @@
         RID = [objDB AddRemedyDetailsByName:[myObj FCString:myRN] Description:myRD Uses:myU DatabasePath:dbPathString ERRORMESSAGE:&errorMsg];
         [self addOilsToRemedy:RID];
         [self ClearAndExit];
+        myObj = nil;
     } else {
         FormFunctions *myAlert = [FormFunctions new];
         [myAlert sendMessage:@"Please put in a Problem description!" MyTitle:@"Add Error" ViewController:self];
     }
     
 }
+
 #pragma mark Oil Button Tool Bar Button
 //Action to take when the oil button on the tool bar has been selected
 - (IBAction)tbOils:(id)sender {
     [self changeCurrentViewTo:2];
 }
+
 #pragma mark Description Button Tool Bar Button
 //Action to take when the description button on the tool bar has been selected
 - (IBAction)tbDescription:(id)sender {
     [self changeCurrentViewTo:1];
 }
+
 #pragma mark TableView EditRowAt Index
 //Set to enable or diable the ablity to be able to edit the ros on the table
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
+
 #pragma mark TableView Number of Section
 //Set the number of sections allowed in the table view
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 #pragma mark TableView Number of Rows
 //set the number of rows that are in the able
 -(NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.myOils count];
 }
+
 #pragma mark TableView Populate Table with Database or Array
 //This is where the table gets populated with the data from an array or direct from the database.
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath

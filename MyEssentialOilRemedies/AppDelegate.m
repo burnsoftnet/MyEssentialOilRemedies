@@ -23,22 +23,6 @@
     return YES;
 }
 
-//TODO: MIGHT BE ABLE TO DELETE
--(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    
-    //MainStartViewController *rootController = [MainStartViewController new];
-    //if (url != nil && [url isFileURL]) {
-    //    [rootController handleOpenURL:url];
-    //}
-    if ([BurnSoftGeneral newFilesfoundProcessing]){
-        LIST_OilsTableViewController *oilController = [LIST_OilsTableViewController new];
-        [AirDropHandler processInBoxFilesFromViewController:oilController];
-        
-    }
-    return YES;
-    
-}
-
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -58,8 +42,8 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     if ([BurnSoftGeneral newFilesfoundProcessing]){
         LIST_OilsTableViewController *oilController = [LIST_OilsTableViewController new];
-        //[AirDropHandler processInBoxFilesFromViewController:oilController];
         [AirDropHandler processAllInBoxFilesFromViewController:oilController];
+        oilController = nil;
     }
 }
 

@@ -62,4 +62,6 @@
 #pragma mark Format Data from Remedies to XML
 +(NSString *) RemedyDetailsToXMLforInsertByName:(NSString *) remedyName Description:(NSString *) description HowToUse:(NSString *) uses Oils:(NSArray *) oils;
 
+#pragma mark Release all the objects from Memory
+-(void) releaseObjects;
 @end
