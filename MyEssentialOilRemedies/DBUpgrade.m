@@ -55,7 +55,7 @@
     
     if (![myObj VersionExists:[NSString stringWithFormat:@"%f",newDBVersion] VersionTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&msg])
     {
-        // Send to NSLog if enabled, that the database upgrade is begining
+        // Send to doBuggermeMessage if enabled, that the database upgrade is begining
         msg = [NSString stringWithFormat:@"DEBUG: Start DBVersion Upgrade to version %.01f", newDBVersion];
         [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
         
@@ -84,7 +84,7 @@
         [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
         [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
         
-        // Send to NSLog if enabled that the database was upgraded
+        // Send to doBuggermeMessage if enabled that the database was upgraded
         msg = [NSString stringWithFormat:@"DEBUG: End DBVersion Upgrade to version %.01f", newDBVersion];
         [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
     } else {
@@ -107,7 +107,7 @@
     newDBVersion = 1.2;
     if (![myObj VersionExists:[NSString stringWithFormat:@"%f",newDBVersion] VersionTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&msg])
     {
-        // Send to NSLog if enabled, that the database upgrade is begining
+        // Send to doBuggermeMessage if enabled, that the database upgrade is begining
         msg = [NSString stringWithFormat:@"DEBUG: Start DBVersion Upgrade to version %.01f", newDBVersion];
         [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
         
@@ -126,7 +126,7 @@
         [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
         [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
         
-        // Send to NSLog if enabled that the database was upgraded
+        // Send to doBuggermeMessage if enabled that the database was upgraded
         msg = [NSString stringWithFormat:@"DEBUG: End DBVersion Upgrade to version %.01f", newDBVersion];
         [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
     } else {
@@ -149,7 +149,7 @@
     newDBVersion = 0.0;
     if (![myObj VersionExists:[NSString stringWithFormat:@"%f",newDBVersion] VersionTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&msg])
     {
-        // Send to NSLog if enabled, that the database upgrade is begining
+        // Send to doBuggermeMessage if enabled, that the database upgrade is begining
         msg = [NSString stringWithFormat:@"DEBUG: Start DBVersion Upgrade to version %.01f", newDBVersion];
         [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
         
@@ -157,7 +157,7 @@
         [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
         [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
         
-        // Send to NSLog if enabled that the database was upgraded
+        // Send to doBuggermeMessage if enabled that the database was upgraded
         msg = [NSString stringWithFormat:@"DEBUG: End DBVersion Upgrade to version %.01f", newDBVersion];
         [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
     } else {

@@ -212,7 +212,6 @@
     NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
 
     for (int x = 0; x < [dirFiles count]; x++) {
-        NSLog(@"%@",dirFiles[x]);
         deleteFile = [documentsDirectory stringByAppendingString:[NSString stringWithFormat:@"%@",dirFiles[x]]];
         [myObj DeleteFileByPath:deleteFile ErrorMessage:&msg];
     }

@@ -189,9 +189,9 @@
     
     NSFileManager *objFM = [NSFileManager new];
     if ([objFM startDownloadingUbiquitousItemAtURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"] error:nil]) {
-        NSLog(@"sync started");
+        [FormFunctions doBuggermeMessage:@"sync started!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
     } else {
-        NSLog(@"sync Failed");
+        [FormFunctions doBuggermeMessage:@"sync FAILED!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
     }
     
     myObj = nil;

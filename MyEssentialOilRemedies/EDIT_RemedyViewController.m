@@ -139,7 +139,7 @@
             sqlite3_finalize(statement);
             MYDB = nil;
         } else {
-            NSLog(@"%@",[NSString stringWithFormat:@"Error while creating select statement for LoadData. '%s'", sqlite3_errmsg(MYDB)]);
+            [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"Error while creating select statement for LoadData. '%s'", sqlite3_errmsg(MYDB)] FromSubFunction:@"EDIT_RemedyViewController.loadData"];
         }
     }
     FormFunctions *myFunctions = [FormFunctions new];

@@ -184,7 +184,6 @@
 {
     //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //NSString *cellTag = [NSString stringWithFormat:@"%@",cell.textLabel.text];
-    //NSLog(@"%@",cellTag);
 }
 
 #pragma mark Table Edit actions

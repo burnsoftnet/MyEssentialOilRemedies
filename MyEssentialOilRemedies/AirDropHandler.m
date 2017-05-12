@@ -118,7 +118,7 @@
                                         
                                         if (REMEDY_EXISTS) {
                                             NSNumber *MYRID = [OilRemedies getRemedyIDByName:parser.Remedy_Name DatabasePath:dbpath ErrorMessage:nil];
-                                            NSLog(@"Remedy Exists with ID %@",MYRID);
+                                            [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"Remedy Exists with ID %@",MYRID] FromSubFunction:@"AirDropHandler.OpenFileByPath"];
                                             [myObjOR deleteRemedyByID:[MYRID stringValue] DatabasePath:dbpath MessageHandler:nil];
                                         }
                                         
