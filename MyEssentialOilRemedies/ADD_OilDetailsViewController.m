@@ -150,23 +150,6 @@
     {
         if (![name isEqualToString:@""])
         {
-            /*
-            NSNumber *MYOID = [OilLists getOilIDByName:name InStock:[iStock intValue] DatabasePath:dbPathString ErrorMessage:&msg];
-            if (!(MYOID==0)){
-                if ([OilLists insertOilDetailsByOID:MYOID Description:description BotanicalName:BotName Ingredients:Ingredients SafetyNotes:safetyNotes Color:color Viscosity:viscosity CommonName:commonName Vendor:vendor WebSite:website DatabasePath:dbPathString ErrorMessage:&msg])
-                {
-                    [self clearValues];
-                    UINavigationController *navController = self.navigationController;
-                    [navController popViewControllerAnimated:NO];
-                    [navController popViewControllerAnimated:YES];
-                } else {
-                    [myobjF checkForError:msg MyTitle:@"Adding Details" ViewController:self];
-                }
-            } else {
-                [myobjF checkForError:msg MyTitle:@"Adding Name" ViewController:self];
-            }
-            */
-            //START OLD METHOD
             sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list (name,instock) VALUES ('%@',%i)",name,[iStock intValue]];
             
             if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]){
@@ -186,7 +169,6 @@
             } else {
                 [myobjF checkForError:msg MyTitle:@"Adding Name" ViewController:self];
             }
-            //END OLD METHOD
         } else {
             FormFunctions *myAlert = [FormFunctions new];
             [myAlert sendMessage:@"Please put in an Oil Name!" MyTitle:@"Missing Name" ViewController:self];

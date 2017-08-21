@@ -24,9 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //[self checkInBox];
-   //  [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(checkInBox) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
     [self setupGlobalVars];
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
@@ -43,7 +40,6 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-   // [self checkInBox];
     [self reloadCrap];
 }
 
@@ -71,7 +67,6 @@
 - (IBAction)refresh:(UIRefreshControl *)sender 
 {
     [self.myTableView reloadData];
-    //[self checkInBox];
     [self LoadTableData];
     [sender endRefreshing];
 }
@@ -82,18 +77,6 @@
     [self setupGlobalVars];
     [self LoadTableData];
 }
-
-#pragma mark Check InBox
-//Check for files to process from the inbox
-/*
--(void) checkInBox
-{
-    if ([BurnSoftGeneral newFilesfoundProcessing]){
-        //[AirDropHandler processInBoxFilesFromViewController:self];
-        [AirDropHandler processAllInBoxFilesFromViewController:self];
-    }
-}
-*/
 
 #pragma mark Setup Global Variables
 -(void)setupGlobalVars

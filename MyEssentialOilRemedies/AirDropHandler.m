@@ -145,12 +145,6 @@
         
         [viewController presentViewController:alert animated:YES completion:nil];
     }
-    
-    //This was take out since it is executing this before it asks the questions, therefore it erases the data before we can even reply yes or no.
-    //[parser releaseObjects];
-    //parser = nil;
-    //myAir = nil;
-    //myobjF = nil;
 }
 
 #pragma mark Process Inbox Files

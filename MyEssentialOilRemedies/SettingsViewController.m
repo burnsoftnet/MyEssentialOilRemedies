@@ -153,7 +153,6 @@
     NSString *errorMsg;
     BurnSoftDatabase *objDB = [BurnSoftDatabase new];
     FormFunctions *objF = [FormFunctions new];
-    //NSString *myTitle = @"Clear Data";
     
     statement = @"DELETE from eo_remedy_oil_list";
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:&errorMsg];

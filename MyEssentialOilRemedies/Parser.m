@@ -18,7 +18,6 @@
         NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *docPath = [path objectAtIndex:0];
         NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
-        //NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"/InBox/OilDetails.meo"];
         
         NSURL *dataFile = [NSURL fileURLWithPath:fullDocPath];
         parser = [[NSXMLParser alloc] initWithContentsOfURL:dataFile];
@@ -40,7 +39,6 @@
         NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *docPath = [path objectAtIndex:0];
         NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"RemedyDetails.meor"];
-        //NSString *fullDocPath = [docPath stringByAppendingPathComponent:@"/InBox/RemedyDetails.meor"];
         
         NSURL *dataFile = [NSURL fileURLWithPath:fullDocPath];
         parser = [[NSXMLParser alloc] initWithContentsOfURL:dataFile];

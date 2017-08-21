@@ -45,7 +45,6 @@
 -(void) checkInBox
 {
     if ([BurnSoftGeneral newFilesfoundProcessing]){
-        //[AirDropHandler processInBoxFilesFromViewController:self];
         [AirDropHandler processAllInBoxFilesFromViewController:self];
     }
 }

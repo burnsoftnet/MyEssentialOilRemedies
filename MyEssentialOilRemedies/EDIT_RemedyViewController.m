@@ -78,13 +78,6 @@
 #pragma mark Form Exits
 //Clean up when the form is leaving
 -(void) viewWillDisappear:(BOOL)animated {
-    //KEEP THIS JUST IN CASE YOU NEED IT!!!!!
-    // When Back button is hit on the view it will take you back to view the remidy list.
-    //if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-    //    LIST_OilRemediesViewController * destinationVewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RemedyListController"];
-    //    [self.navigationController pushViewController:destinationVewController animated:YES];
-    //}
-    
     UINavigationController *navController = self.navigationController;
     [navController popViewControllerAnimated:NO];
     [navController popViewControllerAnimated:YES];

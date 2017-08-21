@@ -98,12 +98,7 @@
     NSString *XMLText = [BurnSoftGeneral FCStringXML:[Parser OilDetailsToXMLForInsertByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text]];
     
     NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:XMLText];
-    //Unique Name was aborted do to taking up unessary space on the user side.
-    //NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendOutput:XMLText WithName:self.lblName.text];
 
-    // AIR DOP TESTING!!
-    //[AirDropHandler OpenFilebyPath:outPutFile ViewController:self];
-    //END AIR DROP TESTING
     NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText];
     
     [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Details for: %@",self.lblName.text]];

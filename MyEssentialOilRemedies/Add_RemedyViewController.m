@@ -59,14 +59,8 @@
 
 #pragma mark Form Exits
 //Clean up when the form is leaving
+// When Back button is hit on the view it will take you back to view the remidy list.
 -(void) viewWillDisappear:(BOOL)animated {
-    // When Back button is hit on the view it will take you back to view the remidy list.
-    //if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-    //    LIST_OilRemediesViewController * destinationVewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RemedyListController"];
-   //     [self.navigationController pushViewController:destinationVewController animated:YES];
-    //}
-    //[self dismissViewControllerAnimated:YES completion:Nil];
-    //[super viewWillDisappear:animated];
     UINavigationController *navController = self.navigationController;
     [navController popViewControllerAnimated:NO];
     [navController popViewControllerAnimated:YES];
@@ -186,11 +180,6 @@
 -(void) ClearAndExit
 {
     [self.myOils removeAllObjects];
-/*
-    UINavigationController *navController = self.navigationController;
-    [navController popViewControllerAnimated:NO];
-    [navController popViewControllerAnimated:YES];
- */
     [self viewWillDisappear:NO];
 }
 
