@@ -151,6 +151,7 @@
 		A50CF9571D75BB4A0037C7CD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A50CF95A1D75C2E10037C7CD /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		A51FBBC61F5C5146001214B6 /* My Essential Oil Remedies copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "My Essential Oil Remedies copy-Info.plist"; path = "/Users/burnsoft/Documents/Source_Code/xCode/BS_Projects/production/iOS/MyEssentialOilRemedies/My Essential Oil Remedies copy-Info.plist"; sourceTree = "<absolute>"; };
 		A52043EF1D86F995001AFD40 /* BurnSoftDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftDatabase.h; sourceTree = "<group>"; };
 		A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftDatabase.m; sourceTree = "<group>"; };
 		A52043F21D86F9DB001AFD40 /* BurnSoftGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftGeneral.h; sourceTree = "<group>"; };
@@ -267,6 +268,7 @@
 				A505B05B1D09A76900800310 /* MyEssentialOilRemediesUITests */,
 				A505B0321D09A76900800310 /* Products */,
 				A5C159521E3C153C00F9864B /* Frameworks */,
+				A51FBBC61F5C5146001214B6 /* My Essential Oil Remedies copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};

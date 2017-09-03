@@ -51,6 +51,16 @@
     [MyViewController presentViewController:alert animated:YES completion:nil];
 }
 
++(void)sendMessage:(NSString *) msg MyTitle:(NSString *) mytitle ViewController:(UIViewController *) MyViewController
+{
+    //Send MessageBox Alert message to screen
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:mytitle message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * Action) {}];
+    [alert addAction:defaultAction];
+    [MyViewController presentViewController:alert animated:YES completion:nil];
+}
+
+
 #pragma mark Check For Error in Message via MessageBog
 //NOTE: This will check the message to see if something is in it, if not it will not alert via MessageBox
 //USEBD: GENERAL

@@ -29,6 +29,7 @@
 //NOTE: Send a Message box from the View controller that you are currently on. It's easier then copying this function all over the place
 //USEBD: GENERAL
 -(void)sendMessage:(NSString *) msg MyTitle:(NSString *) mytitle ViewController:(UIViewController *) MyViewController;
++(void)sendMessage:(NSString *) msg MyTitle:(NSString *) mytitle ViewController:(UIViewController *) MyViewController;
 
 #pragma mark Check For Error in Message via MessageBog
 //NOTE: This will check the message to see if something is in it, if not it will not alert via MessageBox

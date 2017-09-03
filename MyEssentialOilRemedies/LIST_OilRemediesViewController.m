@@ -124,12 +124,13 @@
     [[self myTableView] reloadData];
     
     int InStockCount = [OilLists listInStock:dbPathString ErrorMessage:&errorMsg];
+    OilCount = [myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];
     
     if (InStockCount == 0) {
-        OilCount = [myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];
+        //OilCount = [myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];
         [[self.tabBarController.tabBar.items objectAtIndex:0] setBadgeValue:[NSString stringWithFormat:@"%d",OilCount]];
     } else {
-        OilCount =[myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];
+        //OilCount =[myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];
         [[self.tabBarController.tabBar.items objectAtIndex:0] setBadgeValue:[NSString stringWithFormat:@"%i/%d",InStockCount,OilCount]];
 
     }
