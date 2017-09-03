@@ -12,6 +12,9 @@
 #define MYDBVERSION 1.2         //Expected Database Version for the current version of this app
 //extern BOOL * const BUGGERME;   //Enable the Debug Functions for additional information during run time.
 static BOOL BUGGERME = NO;
+static BOOL ISLITE = NO;
+static int LITE_LIMIT = 10;
+
 @interface MYSettings : NSObject
 
 

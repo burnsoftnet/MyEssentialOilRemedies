@@ -17,6 +17,8 @@
     NSMutableArray *myOilCollection;
     NSString *SelectedCellID;
     int inStockCount;
+    int RemedyCount; //Added for Lite Version tracking
+    int OilCount; //Added for Lite Version tracking
 }
 @end
 
@@ -33,12 +35,25 @@
     [[self myTableView]setDataSource:self];
     [self loadData];
     
-    //Create an Add Button in Nav Bat
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addMoreOils)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    
     //Set Tableview to Delete Mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
+}
+-(void) addNavButton
+{
+    //Create an Add Button in Nav Bat
+    if (ISLITE)
+    {
+        if (OilCount <= (LITE_LIMIT -1 ))
+        {
+            UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addMoreOils)];
+            self.navigationItem.rightBarButtonItem = addButton;
+        } else {
+            self.navigationItem.rightBarButtonItem = nil;
+        }
+    } else {
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addMoreOils)];
+        self.navigationItem.rightBarButtonItem = addButton;
+    }
 }
 
 #pragma mark View will reappear
@@ -80,6 +95,7 @@
     [self.myTableView reloadData];
         [self loadData];
     [sender endRefreshing];
+    [self addNavButton];
 }
 
 #pragma mark Reload Data
@@ -87,6 +103,7 @@
 -(void) reloadData {
     [self setupGlobalVars];
     [self loadData];
+     [self addNavButton];
 }
 
 #pragma mark Setup Global Variables
@@ -123,8 +140,11 @@
     } else {
         [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%i/%lu",inStockCount,(unsigned long)[myOilCollection count]];
     }
+    //Added for Lite Version tracking
+    OilCount = (int)[myOilCollection count];
+    RemedyCount = [myObjDB getTotalNumberofRowsInTable:@"eo_remedy_list" DatabasePath:dbPathString ErrorMessage:nil];
     
-    [[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d",[myObjDB getTotalNumberofRowsInTable:@"eo_remedy_list" DatabasePath:dbPathString ErrorMessage:nil]]];
+    [[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d",RemedyCount]];
     
     myObj = nil;
     myObjDB = nil;
@@ -217,6 +237,7 @@
         } else {
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while deleting! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }
+        [self reloadData];
 
     }];
     deleteAction.backgroundColor = [UIColor redColor];
