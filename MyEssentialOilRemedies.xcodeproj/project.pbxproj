@@ -26,8 +26,6 @@
 		A505B0421D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */; };
 		A505B0441D09A76900800310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A505B0431D09A76900800310 /* Assets.xcassets */; };
 		A505B0471D09A76900800310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A505B0451D09A76900800310 /* LaunchScreen.storyboard */; };
-		A505B0521D09A76900800310 /* MyEssentialOilRemediesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0511D09A76900800310 /* MyEssentialOilRemediesTests.m */; };
-		A505B05D1D09A76900800310 /* MyEssentialOilRemediesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B05C1D09A76900800310 /* MyEssentialOilRemediesUITests.m */; };
 		A505B0781D09A7F700800310 /* OilRemedies.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0771D09A7F700800310 /* OilRemedies.m */; };
 		A505B07A1D09A82600800310 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A505B0791D09A82600800310 /* libsqlite3.0.tbd */; };
 		A505B07D1D09AB5E00800310 /* LIST_OilRemediesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B07C1D09AB5E00800310 /* LIST_OilRemediesViewController.m */; };
@@ -91,23 +89,6 @@
 		A5F605261D1C65340059BF27 /* MainStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F605251D1C65340059BF27 /* MainStartViewController.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A505B04E1D09A76900800310 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A505B0291D09A76900800310 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A505B0301D09A76900800310;
-			remoteInfo = MyEssentialOilRemedies;
-		};
-		A505B0591D09A76900800310 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A505B0291D09A76900800310 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A505B0301D09A76900800310;
-			remoteInfo = MyEssentialOilRemedies;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		A5033F261E3D3DEF00D22B7D /* iPad_Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-72.png"; sourceTree = "<group>"; };
 		A5033F271E3D3DEF00D22B7D /* iPad_Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-72@2x.png"; sourceTree = "<group>"; };
@@ -131,10 +112,8 @@
 		A505B0431D09A76900800310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A505B0461D09A76900800310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A505B0481D09A76900800310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A505B04D1D09A76900800310 /* MyEssentialOilRemediesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyEssentialOilRemediesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A505B0511D09A76900800310 /* MyEssentialOilRemediesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyEssentialOilRemediesTests.m; sourceTree = "<group>"; };
 		A505B0531D09A76900800310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A505B0581D09A76900800310 /* MyEssentialOilRemediesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyEssentialOilRemediesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A505B05C1D09A76900800310 /* MyEssentialOilRemediesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyEssentialOilRemediesUITests.m; sourceTree = "<group>"; };
 		A505B05E1D09A76900800310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A505B0761D09A7F700800310 /* OilRemedies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OilRemedies.h; sourceTree = "<group>"; };
@@ -151,7 +130,6 @@
 		A50CF9571D75BB4A0037C7CD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A50CF95A1D75C2E10037C7CD /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
-		A51FBBC61F5C5146001214B6 /* My Essential Oil Remedies copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "My Essential Oil Remedies copy-Info.plist"; path = "/Users/burnsoft/Documents/Source_Code/xCode/BS_Projects/production/iOS/MyEssentialOilRemedies/My Essential Oil Remedies copy-Info.plist"; sourceTree = "<absolute>"; };
 		A52043EF1D86F995001AFD40 /* BurnSoftDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftDatabase.h; sourceTree = "<group>"; };
 		A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftDatabase.m; sourceTree = "<group>"; };
 		A52043F21D86F9DB001AFD40 /* BurnSoftGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftGeneral.h; sourceTree = "<group>"; };
@@ -242,20 +220,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A505B04A1D09A76900800310 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A505B0551D09A76900800310 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -268,7 +232,6 @@
 				A505B05B1D09A76900800310 /* MyEssentialOilRemediesUITests */,
 				A505B0321D09A76900800310 /* Products */,
 				A5C159521E3C153C00F9864B /* Frameworks */,
-				A51FBBC61F5C5146001214B6 /* My Essential Oil Remedies copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -276,8 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				A505B0311D09A76900800310 /* My Essential Oil Remedies.app */,
-				A505B04D1D09A76900800310 /* MyEssentialOilRemediesTests.xctest */,
-				A505B0581D09A76900800310 /* MyEssentialOilRemediesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -533,42 +494,6 @@
 			productReference = A505B0311D09A76900800310 /* My Essential Oil Remedies.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A505B04C1D09A76900800310 /* MyEssentialOilRemediesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A505B0641D09A76900800310 /* Build configuration list for PBXNativeTarget "MyEssentialOilRemediesTests" */;
-			buildPhases = (
-				A505B0491D09A76900800310 /* Sources */,
-				A505B04A1D09A76900800310 /* Frameworks */,
-				A505B04B1D09A76900800310 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A505B04F1D09A76900800310 /* PBXTargetDependency */,
-			);
-			name = MyEssentialOilRemediesTests;
-			productName = MyEssentialOilRemediesTests;
-			productReference = A505B04D1D09A76900800310 /* MyEssentialOilRemediesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		A505B0571D09A76900800310 /* MyEssentialOilRemediesUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A505B0671D09A76900800310 /* Build configuration list for PBXNativeTarget "MyEssentialOilRemediesUITests" */;
-			buildPhases = (
-				A505B0541D09A76900800310 /* Sources */,
-				A505B0551D09A76900800310 /* Frameworks */,
-				A505B0561D09A76900800310 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A505B05A1D09A76900800310 /* PBXTargetDependency */,
-			);
-			name = MyEssentialOilRemediesUITests;
-			productName = MyEssentialOilRemediesUITests;
-			productReference = A505B0581D09A76900800310 /* MyEssentialOilRemediesUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -593,15 +518,6 @@
 							};
 						};
 					};
-					A505B04C1D09A76900800310 = {
-						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = MF94VYSKL4;
-						TestTargetID = A505B0301D09A76900800310;
-					};
-					A505B0571D09A76900800310 = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = A505B0301D09A76900800310;
-					};
 				};
 			};
 			buildConfigurationList = A505B02C1D09A76900800310 /* Build configuration list for PBXProject "MyEssentialOilRemedies" */;
@@ -618,8 +534,6 @@
 			projectRoot = "";
 			targets = (
 				A505B0301D09A76900800310 /* My Essential Oil Remedies */,
-				A505B04C1D09A76900800310 /* MyEssentialOilRemediesTests */,
-				A505B0571D09A76900800310 /* MyEssentialOilRemediesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -677,20 +591,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A505B04B1D09A76900800310 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A505B0561D09A76900800310 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -733,36 +633,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A505B0491D09A76900800310 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A505B0521D09A76900800310 /* MyEssentialOilRemediesTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A505B0541D09A76900800310 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A505B05D1D09A76900800310 /* MyEssentialOilRemediesUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A505B04F1D09A76900800310 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A505B0301D09A76900800310 /* My Essential Oil Remedies */;
-			targetProxy = A505B04E1D09A76900800310 /* PBXContainerItemProxy */;
-		};
-		A505B05A1D09A76900800310 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A505B0301D09A76900800310 /* My Essential Oil Remedies */;
-			targetProxy = A505B0591D09A76900800310 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A505B0451D09A76900800310 /* LaunchScreen.storyboard */ = {
@@ -904,54 +775,6 @@
 			};
 			name = Release;
 		};
-		A505B0651D09A76900800310 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = MF94VYSKL4;
-				INFOPLIST_FILE = MyEssentialOilRemediesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyEssentialOilRemedies.app/MyEssentialOilRemedies";
-			};
-			name = Debug;
-		};
-		A505B0661D09A76900800310 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = MF94VYSKL4;
-				INFOPLIST_FILE = MyEssentialOilRemediesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyEssentialOilRemedies.app/MyEssentialOilRemedies";
-			};
-			name = Release;
-		};
-		A505B0681D09A76900800310 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = MyEssentialOilRemediesUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = MyEssentialOilRemedies;
-			};
-			name = Debug;
-		};
-		A505B0691D09A76900800310 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = MyEssentialOilRemediesUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = MyEssentialOilRemedies;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -969,24 +792,6 @@
 			buildConfigurations = (
 				A505B0621D09A76900800310 /* Debug */,
 				A505B0631D09A76900800310 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A505B0641D09A76900800310 /* Build configuration list for PBXNativeTarget "MyEssentialOilRemediesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A505B0651D09A76900800310 /* Debug */,
-				A505B0661D09A76900800310 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A505B0671D09A76900800310 /* Build configuration list for PBXNativeTarget "MyEssentialOilRemediesUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A505B0681D09A76900800310 /* Debug */,
-				A505B0691D09A76900800310 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

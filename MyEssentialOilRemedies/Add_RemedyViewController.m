@@ -79,6 +79,7 @@
         BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
         int OilCount = [myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];
         
+        //Add for Lite Version restriction
         if (OilCount <= (LITE_LIMIT - 1))
         {
             if (![newOil isEqualToString:@""])
@@ -91,6 +92,7 @@
             [FormFunctions sendMessage:@"Reached Max Limit on Lite Version!\n If you want to add more, please purchase the full version." MyTitle:@"Reached Lite Limit" ViewController:self];
         }
     } else {
+        //Original Code before lite version
         if (![newOil isEqualToString:@""])
         {
             [self.myOils addObject:self.txtOilName.text];
@@ -210,8 +212,12 @@
     NSString *myRN = self.RemedyName.text;
     NSString *myRD = self.RemedyDescription.text;
     NSString *myU = self.txtUses.text;
+    BOOL MissingRemedyName = [myRN isEqualToString:@""];
+    BOOL MissingRemedyDescription = (BOOL)[myRD isEqualToString:@""];
     
-    if (![myRN isEqualToString:@""]) {
+    
+    
+    if (!MissingRemedyName && !MissingRemedyDescription) {
         BurnSoftGeneral *myObj = [BurnSoftGeneral new];
         OilRemedies *objDB = [OilRemedies new];
         RID = [objDB AddRemedyDetailsByName:[myObj FCString:myRN] Description:myRD Uses:myU DatabasePath:dbPathString ERRORMESSAGE:&errorMsg];
@@ -219,8 +225,17 @@
         [self ClearAndExit];
         myObj = nil;
     } else {
-        FormFunctions *myAlert = [FormFunctions new];
-        [myAlert sendMessage:@"Please put in a Problem description!" MyTitle:@"Add Error" ViewController:self];
+        if (MissingRemedyDescription && !MissingRemedyName) {
+            [FormFunctions sendMessage:@"Please put in a Problem description!" MyTitle:@"Missing Value" ViewController:self];
+        } else if (MissingRemedyName && !MissingRemedyDescription) {
+            [FormFunctions sendMessage:@"Please Put in a Problem Name!" MyTitle:@"Missing Value" ViewController:self];
+        } else if (MissingRemedyDescription && MissingRemedyName) {
+            [FormFunctions sendMessage:@"Please Put in a Problem Name & Description!" MyTitle:@"Missing Value" ViewController:self];
+        }
+        
+        //FormFunctions *myAlert = [FormFunctions new];
+        
+        //[myAlert sendMessage:@"Please put in a Problem description!" MyTitle:@"Add Error" ViewController:self];
     }
     
 }
