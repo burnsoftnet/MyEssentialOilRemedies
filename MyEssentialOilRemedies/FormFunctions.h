@@ -31,6 +31,10 @@
 -(void)sendMessage:(NSString *) msg MyTitle:(NSString *) mytitle ViewController:(UIViewController *) MyViewController;
 +(void)sendMessage:(NSString *) msg MyTitle:(NSString *) mytitle ViewController:(UIViewController *) MyViewController;
 
+#pragma mark Alert on Limit
+//Alert on limit reached and give the option to buy the full verion from the app sotre.
++(void) AlertonLimitForViewController:(UIViewController *) MyVewController;
+
 #pragma mark Check For Error in Message via MessageBog
 //NOTE: This will check the message to see if something is in it, if not it will not alert via MessageBox
 //USEBD: GENERAL

@@ -30,6 +30,13 @@
     
     myObj = nil;
     myDB = nil;
+    //ISLITE = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ISLITE"];
+    //LITE_LIMIT = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"LITE_LIMIT"];
+    //BOOL IsFree = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ISLITE"];
+    //NSNumber *FreeLimit = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"LITE_LIMIT"];
+    
+    //NSLog(@"%@ : %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ISLITE"], FreeLimit);
+    
 }
 
 

@@ -51,6 +51,9 @@
     [MyViewController presentViewController:alert animated:YES completion:nil];
 }
 
+#pragma mark Common Alert/Message Handling
+//NOTE: Send a Message box from the View controller that you are currently on. It's easier then copying this function all over the place
+//USEBD: GENERAL
 +(void)sendMessage:(NSString *) msg MyTitle:(NSString *) mytitle ViewController:(UIViewController *) MyViewController
 {
     //Send MessageBox Alert message to screen
@@ -60,6 +63,35 @@
     [MyViewController presentViewController:alert animated:YES completion:nil];
 }
 
+#pragma mark Alert on Limit
+//Alert on limit reached and give the option to buy the full verion from the app sotre.
++(void) AlertonLimitForViewController:(UIViewController *) MyVewController
+{
+    UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"Limit Reached!"
+                                                                  message:@"You Have reached your limit on the Lite Version!\n Please Purchase the Regular Version for Unlimited access!"
+                                                           preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* yesButton = [UIAlertAction actionWithTitle:@"Purchase"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * action)
+                                {
+                                    NSURL *AppStore = [NSURL URLWithString:@"https://itunes.apple.com/us/app/my-essential-oil-remedies/id1188303079?ls=1&mt=8"];
+                                    UIApplication *application = [UIApplication sharedApplication];
+                                    [application openURL:AppStore options:@{} completionHandler:nil];
+                                }];
+    
+    UIAlertAction* noButton = [UIAlertAction actionWithTitle:@"No Thanks"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * action)
+                               {
+                                   // call method whatever u need
+                               }];
+    
+    [alert addAction:yesButton];
+    [alert addAction:noButton];
+    
+    [MyVewController presentViewController:alert animated:YES completion:nil];
+}
 
 #pragma mark Check For Error in Message via MessageBog
 //NOTE: This will check the message to see if something is in it, if not it will not alert via MessageBox

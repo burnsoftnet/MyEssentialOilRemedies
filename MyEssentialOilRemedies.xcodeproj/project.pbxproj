@@ -34,12 +34,89 @@
 		A50AF6F91E401C2A00CC4754 /* DatabaseManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */; };
 		A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */; };
 		A50CF95B1D75C2E10037C7CD /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = A50CF95A1D75C2E10037C7CD /* gear.png */; };
+		A51FBC221F5CBCF2001214B6 /* VIEW_SingleRemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */; };
+		A51FBC231F5CBCF2001214B6 /* EDIT_OilDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */; };
+		A51FBC241F5CBCF2001214B6 /* SettingsiTunesBackupRestoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */; };
+		A51FBC251F5CBCF2001214B6 /* LIST_OilRemediesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B07C1D09AB5E00800310 /* LIST_OilRemediesViewController.m */; };
+		A51FBC261F5CBCF2001214B6 /* OilRemedies.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0771D09A7F700800310 /* OilRemedies.m */; };
+		A51FBC271F5CBCF2001214B6 /* VIEW_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AA1D52379300B42F4A /* VIEW_RemedyViewController.m */; };
+		A51FBC281F5CBCF2001214B6 /* FormFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A57BF9D91D6C96EC005D3113 /* FormFunctions.m */; };
+		A51FBC291F5CBCF2001214B6 /* MainStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F605251D1C65340059BF27 /* MainStartViewController.m */; };
+		A51FBC2A1F5CBCF2001214B6 /* SearchDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C1FB11D95949000A4E337 /* SearchDatabase.m */; };
+		A51FBC2B1F5CBCF2001214B6 /* OilLists.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B07F1D09DD9600800310 /* OilLists.m */; };
+		A51FBC2C1F5CBCF2001214B6 /* BurnSoftDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */; };
+		A51FBC2D1F5CBCF2001214B6 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5841ED11D8D9FDC00DCDC98 /* SearchViewController.m */; };
+		A51FBC2E1F5CBCF2001214B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0381D09A76900800310 /* AppDelegate.m */; };
+		A51FBC2F1F5CBCF2001214B6 /* MYSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F605221D1C45CD0059BF27 /* MYSettings.m */; };
+		A51FBC301F5CBCF2001214B6 /* PopUpOilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B02CF01D8846A30004334B /* PopUpOilViewController.m */; };
+		A51FBC311F5CBCF2001214B6 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = A542B39B1EB40E9100CDA83F /* Parser.m */; };
+		A51FBC321F5CBCF2001214B6 /* DBUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BDC4231E1715E600A98652 /* DBUpgrade.m */; };
+		A51FBC331F5CBCF2001214B6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */; };
+		A51FBC341F5CBCF2001214B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0351D09A76900800310 /* main.m */; };
+		A51FBC351F5CBCF2001214B6 /* ActionClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A53A25851E946A35006C4B8F /* ActionClass.m */; };
+		A51FBC361F5CBCF2001214B6 /* AirDropHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A573E1421EB7712000C11C71 /* AirDropHandler.m */; };
+		A51FBC371F5CBCF2001214B6 /* DatabaseManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */; };
+		A51FBC381F5CBCF2001214B6 /* VIEW_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */; };
+		A51FBC391F5CBCF2001214B6 /* EDIT_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */; };
+		A51FBC3A1F5CBCF2001214B6 /* MyEssentialOilRemedies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */; };
+		A51FBC3B1F5CBCF2001214B6 /* Add_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */; };
+		A51FBC3C1F5CBCF2001214B6 /* PopUpOilSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */; };
+		A51FBC3D1F5CBCF2001214B6 /* BurnSoftGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */; };
+		A51FBC3E1F5CBCF2001214B6 /* ADD_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3E1D1862D30047055D /* ADD_OilDetailsViewController.m */; };
+		A51FBC3F1F5CBCF2001214B6 /* BurnSoftMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */; };
+		A51FBC401F5CBCF2001214B6 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C41FE71D94271700973340 /* SearchResultsViewController.m */; };
+		A51FBC411F5CBCF2001214B6 /* LIST_OilsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0821D09ED3F00800310 /* LIST_OilsTableViewController.m */; };
+		A51FBC431F5CBCF2001214B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54B57941E665A3300EFF9BA /* Foundation.framework */; };
+		A51FBC441F5CBCF2001214B6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A505B0791D09A82600800310 /* libsqlite3.0.tbd */; };
+		A51FBC471F5CBCF2001214B6 /* MEO.db in Resources */ = {isa = PBXBuildFile; fileRef = A5C4C2231D7F44710073CB2A /* MEO.db */; };
+		A51FBC481F5CBCF2001214B6 /* TBB_remedies.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E821D0B500700052005 /* TBB_remedies.png */; };
+		A51FBC491F5CBCF2001214B6 /* iPad_Icon-iPadPro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2B1E3D3DEF00D22B7D /* iPad_Icon-iPadPro@2x.png */; };
+		A51FBC4A1F5CBCF2001214B6 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = A50CF95A1D75C2E10037C7CD /* gear.png */; };
+		A51FBC4B1F5CBCF2001214B6 /* iPad_Icon-Spotlight-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F331E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png */; };
+		A51FBC4C1F5CBCF2001214B6 /* iPad_Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2F1E3D3DEF00D22B7D /* iPad_Icon-Small@2x.png */; };
+		A51FBC4D1F5CBCF2001214B6 /* TBB_remedies@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E831D0B500700052005 /* TBB_remedies@2x.png */; };
+		A51FBC4E1F5CBCF2001214B6 /* iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C26B541D37BDB000476766 /* iphone.storyboard */; };
+		A51FBC4F1F5CBCF2001214B6 /* Icon-notification-20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8B1E3E5F290029EB7A /* Icon-notification-20@2x.png */; };
+		A51FBC501F5CBCF2001214B6 /* Icon-notification-20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */; };
+		A51FBC511F5CBCF2001214B6 /* Icon-notification-20.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */; };
+		A51FBC521F5CBCF2001214B6 /* Icon-Spotlight-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E911D0B515300052005 /* Icon-Spotlight-40@2x.png */; };
+		A51FBC531F5CBCF2001214B6 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E861D0B515300052005 /* Icon-60.png */; };
+		A51FBC541F5CBCF2001214B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A505B0451D09A76900800310 /* LaunchScreen.storyboard */; };
+		A51FBC551F5CBCF2001214B6 /* TBB_oils.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E7E1D0B4FDD00052005 /* TBB_oils.png */; };
+		A51FBC561F5CBCF2001214B6 /* iPad_Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F271E3D3DEF00D22B7D /* iPad_Icon-72@2x.png */; };
+		A51FBC571F5CBCF2001214B6 /* Icon-57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D891E3E5F290029EB7A /* Icon-57@2x.png */; };
+		A51FBC581F5CBCF2001214B6 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E871D0B515300052005 /* Icon-60@2x.png */; };
+		A51FBC591F5CBCF2001214B6 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E891D0B515300052005 /* Icon-76.png */; };
+		A51FBC5A1F5CBCF2001214B6 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E941D0B515300052005 /* iTunesArtwork@2x */; };
+		A51FBC5B1F5CBCF2001214B6 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E881D0B515300052005 /* Icon-60@3x.png */; };
+		A51FBC5C1F5CBCF2001214B6 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E8D1D0B515300052005 /* Icon-Small.png */; };
+		A51FBC5D1F5CBCF2001214B6 /* iPad_Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2D1E3D3DEF00D22B7D /* iPad_Icon-Small-50@2x.png */; };
+		A51FBC5E1F5CBCF2001214B6 /* close-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D255881D8B167500977619 /* close-icon.png */; };
+		A51FBC5F1F5CBCF2001214B6 /* iPad_Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2C1E3D3DEF00D22B7D /* iPad_Icon-Small-50.png */; };
+		A51FBC601F5CBCF2001214B6 /* iPad_Icon-Spotlight-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F321E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@2x.png */; };
+		A51FBC611F5CBCF2001214B6 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D881E3E5F290029EB7A /* Icon-57.png */; };
+		A51FBC621F5CBCF2001214B6 /* iPad_Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F261E3D3DEF00D22B7D /* iPad_Icon-72.png */; };
+		A51FBC631F5CBCF2001214B6 /* iPad_Icon-Spotlight-40.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F311E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40.png */; };
+		A51FBC641F5CBCF2001214B6 /* iPad_Icon-76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2A1E3D3DEF00D22B7D /* iPad_Icon-76@3x.png */; };
+		A51FBC651F5CBCF2001214B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A505B0431D09A76900800310 /* Assets.xcassets */; };
+		A51FBC661F5CBCF2001214B6 /* Icon-Spotlight-40.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E901D0B515300052005 /* Icon-Spotlight-40.png */; };
+		A51FBC671F5CBCF2001214B6 /* Icon-Spotlight-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E921D0B515300052005 /* Icon-Spotlight-40@3x.png */; };
+		A51FBC691F5CBCF2001214B6 /* Icon-76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E8B1D0B515300052005 /* Icon-76@3x.png */; };
+		A51FBC6A1F5CBCF2001214B6 /* iPad_Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F301E3D3DEF00D22B7D /* iPad_Icon-Small@3x.png */; };
+		A51FBC6B1F5CBCF2001214B6 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E931D0B515300052005 /* iTunesArtwork */; };
+		A51FBC6C1F5CBCF2001214B6 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = A5841ECC1D8D9C9000DCDC98 /* search.png */; };
+		A51FBC6D1F5CBCF2001214B6 /* iPad_Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F281E3D3DEF00D22B7D /* iPad_Icon-76.png */; };
+		A51FBC6E1F5CBCF2001214B6 /* iPad_Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F291E3D3DEF00D22B7D /* iPad_Icon-76@2x.png */; };
+		A51FBC701F5CBCF2001214B6 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E8E1D0B515300052005 /* Icon-Small@2x.png */; };
+		A51FBC711F5CBCF2001214B6 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E8A1D0B515300052005 /* Icon-76@2x.png */; };
+		A51FBC721F5CBCF2001214B6 /* iPad_Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F2E1E3D3DEF00D22B7D /* iPad_Icon-Small.png */; };
+		A51FBC731F5CBCF2001214B6 /* TBB_oils@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E7F1D0B4FDD00052005 /* TBB_oils@2x.png */; };
+		A51FBC7A1F5CC00C001214B6 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51FBC791F5CC00C001214B6 /* CloudKit.framework */; };
 		A52043F11D86F995001AFD40 /* BurnSoftDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */; };
 		A52043F61D86F9DB001AFD40 /* BurnSoftGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */; };
 		A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */; };
 		A53A25861E946A35006C4B8F /* ActionClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A53A25851E946A35006C4B8F /* ActionClass.m */; };
 		A542B39C1EB40E9100CDA83F /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = A542B39B1EB40E9100CDA83F /* Parser.m */; };
-		A5464FCC1E3CF73B006F9A59 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */; };
 		A54B57951E665A3300EFF9BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54B57941E665A3300EFF9BA /* Foundation.framework */; };
 		A55062021DD0D865001CF00C /* VIEW_SingleRemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */; };
 		A5652D8D1E3E5F290029EB7A /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D881E3E5F290029EB7A /* Icon-57.png */; };
@@ -55,6 +132,28 @@
 		A5841ED21D8D9FDC00DCDC98 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5841ED11D8D9FDC00DCDC98 /* SearchViewController.m */; };
 		A594288F1E19B88100D059BE /* PopUpOilSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */; };
 		A59C1FB21D95949000A4E337 /* SearchDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C1FB11D95949000A4E337 /* SearchDatabase.m */; };
+		A5A149C91F5CC491007B3371 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51FBC791F5CC00C001214B6 /* CloudKit.framework */; };
+		A5A149E11F5CE57A007B3371 /* lite_Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149CC1F5CE57A007B3371 /* lite_Icon-60.png */; };
+		A5A149E21F5CE57A007B3371 /* lite_Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149CD1F5CE57A007B3371 /* lite_Icon-60@2x.png */; };
+		A5A149E31F5CE57A007B3371 /* lite_Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149CE1F5CE57A007B3371 /* lite_Icon-60@3x.png */; };
+		A5A149E41F5CE57A007B3371 /* lite_Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149CF1F5CE57A007B3371 /* lite_Icon-72.png */; };
+		A5A149E51F5CE57A007B3371 /* lite_Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149D01F5CE57A007B3371 /* lite_Icon-72@2x.png */; };
+		A5A149E61F5CE57A007B3371 /* lite_Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149D11F5CE57A007B3371 /* lite_Icon-76.png */; };
+		A5A149E71F5CE57A007B3371 /* lite_Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149D21F5CE57A007B3371 /* lite_Icon-76@2x.png */; };
+		A5A149E81F5CE57A007B3371 /* lite_Icon-76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149D31F5CE57A007B3371 /* lite_Icon-76@3x.png */; };
+		A5A149E91F5CE57A007B3371 /* lite_Icon-iPadPro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149D41F5CE57A007B3371 /* lite_Icon-iPadPro@2x.png */; };
+		A5A149EA1F5CE57A007B3371 /* lite_Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149D51F5CE57A007B3371 /* lite_Icon-Small-50.png */; };
+		A5A149EB1F5CE57A007B3371 /* lite_Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149D61F5CE57A007B3371 /* lite_Icon-Small-50@2x.png */; };
+		A5A149EC1F5CE57A007B3371 /* lite_Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149D71F5CE57A007B3371 /* lite_Icon-Small.png */; };
+		A5A149ED1F5CE57A007B3371 /* lite_Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149D81F5CE57A007B3371 /* lite_Icon-Small@2x.png */; };
+		A5A149EE1F5CE57A007B3371 /* lite_Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149D91F5CE57A007B3371 /* lite_Icon-Small@3x.png */; };
+		A5A149EF1F5CE57A007B3371 /* lite_Icon-Spotlight-40.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149DA1F5CE57A007B3371 /* lite_Icon-Spotlight-40.png */; };
+		A5A149F01F5CE57A007B3371 /* lite_Icon-Spotlight-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149DB1F5CE57A007B3371 /* lite_Icon-Spotlight-40@2x.png */; };
+		A5A149F11F5CE57A007B3371 /* lite_Icon-Spotlight-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149DC1F5CE57A007B3371 /* lite_Icon-Spotlight-40@3x.png */; };
+		A5A149F21F5CE57A007B3371 /* lite_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149DD1F5CE57A007B3371 /* lite_Icon.png */; };
+		A5A149F31F5CE57A007B3371 /* lite_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149DE1F5CE57A007B3371 /* lite_Icon@2x.png */; };
+		A5A149F41F5CE57A007B3371 /* lite_iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149DF1F5CE57A007B3371 /* lite_iTunesArtwork.png */; };
+		A5A149F51F5CE57A007B3371 /* lite_iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5A149E01F5CE57A007B3371 /* lite_iTunesArtwork@2x.png */; };
 		A5AA21A81D52377200B42F4A /* Add_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */; };
 		A5AA21AB1D52379300B42F4A /* VIEW_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AA1D52379300B42F4A /* VIEW_RemedyViewController.m */; };
 		A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */; };
@@ -130,6 +229,9 @@
 		A50CF9571D75BB4A0037C7CD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A50CF95A1D75C2E10037C7CD /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		A51FBC771F5CBCF2001214B6 /* My Essential Oil Remedies Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Essential Oil Remedies Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A51FBC781F5CBCF2001214B6 /* My Essential Oil Remedies Lite.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "My Essential Oil Remedies Lite.plist"; path = "/Users/burnsoft/Documents/Source_Code/xCode/BS_Projects/production/iOS/MyEssentialOilRemedies/My Essential Oil Remedies Lite.plist"; sourceTree = "<absolute>"; };
+		A51FBC791F5CC00C001214B6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A52043EF1D86F995001AFD40 /* BurnSoftDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftDatabase.h; sourceTree = "<group>"; };
 		A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftDatabase.m; sourceTree = "<group>"; };
 		A52043F21D86F9DB001AFD40 /* BurnSoftGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftGeneral.h; sourceTree = "<group>"; };
@@ -140,7 +242,6 @@
 		A53A25851E946A35006C4B8F /* ActionClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionClass.m; sourceTree = "<group>"; };
 		A542B39A1EB40E9100CDA83F /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		A542B39B1EB40E9100CDA83F /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
-		A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A54B57941E665A3300EFF9BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A55062001DD0D865001CF00C /* VIEW_SingleRemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_SingleRemedyViewController.h; sourceTree = "<group>"; };
 		A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_SingleRemedyViewController.m; sourceTree = "<group>"; };
@@ -162,6 +263,27 @@
 		A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpOilSearchViewController.m; sourceTree = "<group>"; };
 		A59C1FB01D95949000A4E337 /* SearchDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDatabase.h; sourceTree = "<group>"; };
 		A59C1FB11D95949000A4E337 /* SearchDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDatabase.m; sourceTree = "<group>"; };
+		A5A149CC1F5CE57A007B3371 /* lite_Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-60.png"; sourceTree = "<group>"; };
+		A5A149CD1F5CE57A007B3371 /* lite_Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-60@2x.png"; sourceTree = "<group>"; };
+		A5A149CE1F5CE57A007B3371 /* lite_Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-60@3x.png"; sourceTree = "<group>"; };
+		A5A149CF1F5CE57A007B3371 /* lite_Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-72.png"; sourceTree = "<group>"; };
+		A5A149D01F5CE57A007B3371 /* lite_Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-72@2x.png"; sourceTree = "<group>"; };
+		A5A149D11F5CE57A007B3371 /* lite_Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-76.png"; sourceTree = "<group>"; };
+		A5A149D21F5CE57A007B3371 /* lite_Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-76@2x.png"; sourceTree = "<group>"; };
+		A5A149D31F5CE57A007B3371 /* lite_Icon-76@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-76@3x.png"; sourceTree = "<group>"; };
+		A5A149D41F5CE57A007B3371 /* lite_Icon-iPadPro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-iPadPro@2x.png"; sourceTree = "<group>"; };
+		A5A149D51F5CE57A007B3371 /* lite_Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-Small-50.png"; sourceTree = "<group>"; };
+		A5A149D61F5CE57A007B3371 /* lite_Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		A5A149D71F5CE57A007B3371 /* lite_Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-Small.png"; sourceTree = "<group>"; };
+		A5A149D81F5CE57A007B3371 /* lite_Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-Small@2x.png"; sourceTree = "<group>"; };
+		A5A149D91F5CE57A007B3371 /* lite_Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-Small@3x.png"; sourceTree = "<group>"; };
+		A5A149DA1F5CE57A007B3371 /* lite_Icon-Spotlight-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-Spotlight-40.png"; sourceTree = "<group>"; };
+		A5A149DB1F5CE57A007B3371 /* lite_Icon-Spotlight-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-Spotlight-40@2x.png"; sourceTree = "<group>"; };
+		A5A149DC1F5CE57A007B3371 /* lite_Icon-Spotlight-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-Spotlight-40@3x.png"; sourceTree = "<group>"; };
+		A5A149DD1F5CE57A007B3371 /* lite_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lite_Icon.png; sourceTree = "<group>"; };
+		A5A149DE1F5CE57A007B3371 /* lite_Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon@2x.png"; sourceTree = "<group>"; };
+		A5A149DF1F5CE57A007B3371 /* lite_iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lite_iTunesArtwork.png; sourceTree = "<group>"; };
+		A5A149E01F5CE57A007B3371 /* lite_iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		A5AA21A61D52377200B42F4A /* Add_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Add_RemedyViewController.h; sourceTree = "<group>"; };
 		A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Add_RemedyViewController.m; sourceTree = "<group>"; };
 		A5AA21A91D52379300B42F4A /* VIEW_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_RemedyViewController.h; sourceTree = "<group>"; };
@@ -214,9 +336,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51FBC7A1F5CC00C001214B6 /* CloudKit.framework in Frameworks */,
 				A54B57951E665A3300EFF9BA /* Foundation.framework in Frameworks */,
 				A505B07A1D09A82600800310 /* libsqlite3.0.tbd in Frameworks */,
-				A5464FCC1E3CF73B006F9A59 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A51FBC421F5CBCF2001214B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A149C91F5CC491007B3371 /* CloudKit.framework in Frameworks */,
+				A51FBC431F5CBCF2001214B6 /* Foundation.framework in Frameworks */,
+				A51FBC441F5CBCF2001214B6 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +364,7 @@
 				A505B05B1D09A76900800310 /* MyEssentialOilRemediesUITests */,
 				A505B0321D09A76900800310 /* Products */,
 				A5C159521E3C153C00F9864B /* Frameworks */,
+				A51FBC781F5CBCF2001214B6 /* My Essential Oil Remedies Lite.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -239,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				A505B0311D09A76900800310 /* My Essential Oil Remedies.app */,
+				A51FBC771F5CBCF2001214B6 /* My Essential Oil Remedies Lite.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -376,11 +510,39 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		A5A149CB1F5CE57A007B3371 /* lite */ = {
+			isa = PBXGroup;
+			children = (
+				A5A149CC1F5CE57A007B3371 /* lite_Icon-60.png */,
+				A5A149CD1F5CE57A007B3371 /* lite_Icon-60@2x.png */,
+				A5A149CE1F5CE57A007B3371 /* lite_Icon-60@3x.png */,
+				A5A149CF1F5CE57A007B3371 /* lite_Icon-72.png */,
+				A5A149D01F5CE57A007B3371 /* lite_Icon-72@2x.png */,
+				A5A149D11F5CE57A007B3371 /* lite_Icon-76.png */,
+				A5A149D21F5CE57A007B3371 /* lite_Icon-76@2x.png */,
+				A5A149D31F5CE57A007B3371 /* lite_Icon-76@3x.png */,
+				A5A149D41F5CE57A007B3371 /* lite_Icon-iPadPro@2x.png */,
+				A5A149D51F5CE57A007B3371 /* lite_Icon-Small-50.png */,
+				A5A149D61F5CE57A007B3371 /* lite_Icon-Small-50@2x.png */,
+				A5A149D71F5CE57A007B3371 /* lite_Icon-Small.png */,
+				A5A149D81F5CE57A007B3371 /* lite_Icon-Small@2x.png */,
+				A5A149D91F5CE57A007B3371 /* lite_Icon-Small@3x.png */,
+				A5A149DA1F5CE57A007B3371 /* lite_Icon-Spotlight-40.png */,
+				A5A149DB1F5CE57A007B3371 /* lite_Icon-Spotlight-40@2x.png */,
+				A5A149DC1F5CE57A007B3371 /* lite_Icon-Spotlight-40@3x.png */,
+				A5A149DD1F5CE57A007B3371 /* lite_Icon.png */,
+				A5A149DE1F5CE57A007B3371 /* lite_Icon@2x.png */,
+				A5A149DF1F5CE57A007B3371 /* lite_iTunesArtwork.png */,
+				A5A149E01F5CE57A007B3371 /* lite_iTunesArtwork@2x.png */,
+			);
+			path = lite;
+			sourceTree = "<group>";
+		};
 		A5C159521E3C153C00F9864B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A51FBC791F5CC00C001214B6 /* CloudKit.framework */,
 				A54B57941E665A3300EFF9BA /* Foundation.framework */,
-				A5464FCB1E3CF73B006F9A59 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -397,6 +559,7 @@
 		A5E28E7D1D0B4FCE00052005 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A5A149CB1F5CE57A007B3371 /* lite */,
 				A5652D881E3E5F290029EB7A /* Icon-57.png */,
 				A5652D891E3E5F290029EB7A /* Icon-57@2x.png */,
 				A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */,
@@ -494,6 +657,23 @@
 			productReference = A505B0311D09A76900800310 /* My Essential Oil Remedies.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A51FBC201F5CBCF2001214B6 /* My Essential Oil Remedies Lite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A51FBC741F5CBCF2001214B6 /* Build configuration list for PBXNativeTarget "My Essential Oil Remedies Lite" */;
+			buildPhases = (
+				A51FBC211F5CBCF2001214B6 /* Sources */,
+				A51FBC421F5CBCF2001214B6 /* Frameworks */,
+				A51FBC461F5CBCF2001214B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "My Essential Oil Remedies Lite";
+			productName = MyEssentialOilRemedies;
+			productReference = A51FBC771F5CBCF2001214B6 /* My Essential Oil Remedies Lite.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -518,6 +698,14 @@
 							};
 						};
 					};
+					A51FBC201F5CBCF2001214B6 = {
+						DevelopmentTeam = MF94VYSKL4;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = A505B02C1D09A76900800310 /* Build configuration list for PBXProject "MyEssentialOilRemedies" */;
@@ -534,6 +722,7 @@
 			projectRoot = "";
 			targets = (
 				A505B0301D09A76900800310 /* My Essential Oil Remedies */,
+				A51FBC201F5CBCF2001214B6 /* My Essential Oil Remedies Lite */,
 			);
 		};
 /* End PBXProject section */
@@ -591,6 +780,77 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A51FBC461F5CBCF2001214B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A51FBC471F5CBCF2001214B6 /* MEO.db in Resources */,
+				A51FBC481F5CBCF2001214B6 /* TBB_remedies.png in Resources */,
+				A5A149EB1F5CE57A007B3371 /* lite_Icon-Small-50@2x.png in Resources */,
+				A5A149EA1F5CE57A007B3371 /* lite_Icon-Small-50.png in Resources */,
+				A51FBC491F5CBCF2001214B6 /* iPad_Icon-iPadPro@2x.png in Resources */,
+				A51FBC4A1F5CBCF2001214B6 /* gear.png in Resources */,
+				A51FBC4B1F5CBCF2001214B6 /* iPad_Icon-Spotlight-40@3x.png in Resources */,
+				A5A149F11F5CE57A007B3371 /* lite_Icon-Spotlight-40@3x.png in Resources */,
+				A51FBC4C1F5CBCF2001214B6 /* iPad_Icon-Small@2x.png in Resources */,
+				A5A149EE1F5CE57A007B3371 /* lite_Icon-Small@3x.png in Resources */,
+				A51FBC4D1F5CBCF2001214B6 /* TBB_remedies@2x.png in Resources */,
+				A51FBC4E1F5CBCF2001214B6 /* iphone.storyboard in Resources */,
+				A51FBC4F1F5CBCF2001214B6 /* Icon-notification-20@2x.png in Resources */,
+				A5A149F51F5CE57A007B3371 /* lite_iTunesArtwork@2x.png in Resources */,
+				A51FBC501F5CBCF2001214B6 /* Icon-notification-20@3x.png in Resources */,
+				A51FBC511F5CBCF2001214B6 /* Icon-notification-20.png in Resources */,
+				A51FBC521F5CBCF2001214B6 /* Icon-Spotlight-40@2x.png in Resources */,
+				A5A149E81F5CE57A007B3371 /* lite_Icon-76@3x.png in Resources */,
+				A51FBC531F5CBCF2001214B6 /* Icon-60.png in Resources */,
+				A51FBC541F5CBCF2001214B6 /* LaunchScreen.storyboard in Resources */,
+				A51FBC551F5CBCF2001214B6 /* TBB_oils.png in Resources */,
+				A51FBC561F5CBCF2001214B6 /* iPad_Icon-72@2x.png in Resources */,
+				A51FBC571F5CBCF2001214B6 /* Icon-57@2x.png in Resources */,
+				A51FBC581F5CBCF2001214B6 /* Icon-60@2x.png in Resources */,
+				A51FBC591F5CBCF2001214B6 /* Icon-76.png in Resources */,
+				A51FBC5A1F5CBCF2001214B6 /* iTunesArtwork@2x in Resources */,
+				A5A149ED1F5CE57A007B3371 /* lite_Icon-Small@2x.png in Resources */,
+				A51FBC5B1F5CBCF2001214B6 /* Icon-60@3x.png in Resources */,
+				A51FBC5C1F5CBCF2001214B6 /* Icon-Small.png in Resources */,
+				A51FBC5D1F5CBCF2001214B6 /* iPad_Icon-Small-50@2x.png in Resources */,
+				A51FBC5E1F5CBCF2001214B6 /* close-icon.png in Resources */,
+				A5A149E31F5CE57A007B3371 /* lite_Icon-60@3x.png in Resources */,
+				A51FBC5F1F5CBCF2001214B6 /* iPad_Icon-Small-50.png in Resources */,
+				A5A149EC1F5CE57A007B3371 /* lite_Icon-Small.png in Resources */,
+				A5A149F41F5CE57A007B3371 /* lite_iTunesArtwork.png in Resources */,
+				A5A149E41F5CE57A007B3371 /* lite_Icon-72.png in Resources */,
+				A51FBC601F5CBCF2001214B6 /* iPad_Icon-Spotlight-40@2x.png in Resources */,
+				A51FBC611F5CBCF2001214B6 /* Icon-57.png in Resources */,
+				A5A149E61F5CE57A007B3371 /* lite_Icon-76.png in Resources */,
+				A51FBC621F5CBCF2001214B6 /* iPad_Icon-72.png in Resources */,
+				A51FBC631F5CBCF2001214B6 /* iPad_Icon-Spotlight-40.png in Resources */,
+				A51FBC641F5CBCF2001214B6 /* iPad_Icon-76@3x.png in Resources */,
+				A5A149E51F5CE57A007B3371 /* lite_Icon-72@2x.png in Resources */,
+				A51FBC651F5CBCF2001214B6 /* Assets.xcassets in Resources */,
+				A51FBC661F5CBCF2001214B6 /* Icon-Spotlight-40.png in Resources */,
+				A51FBC671F5CBCF2001214B6 /* Icon-Spotlight-40@3x.png in Resources */,
+				A5A149E21F5CE57A007B3371 /* lite_Icon-60@2x.png in Resources */,
+				A5A149EF1F5CE57A007B3371 /* lite_Icon-Spotlight-40.png in Resources */,
+				A51FBC691F5CBCF2001214B6 /* Icon-76@3x.png in Resources */,
+				A51FBC6A1F5CBCF2001214B6 /* iPad_Icon-Small@3x.png in Resources */,
+				A5A149F31F5CE57A007B3371 /* lite_Icon@2x.png in Resources */,
+				A5A149F01F5CE57A007B3371 /* lite_Icon-Spotlight-40@2x.png in Resources */,
+				A5A149E11F5CE57A007B3371 /* lite_Icon-60.png in Resources */,
+				A5A149E71F5CE57A007B3371 /* lite_Icon-76@2x.png in Resources */,
+				A51FBC6B1F5CBCF2001214B6 /* iTunesArtwork in Resources */,
+				A51FBC6C1F5CBCF2001214B6 /* search.png in Resources */,
+				A5A149F21F5CE57A007B3371 /* lite_Icon.png in Resources */,
+				A51FBC6D1F5CBCF2001214B6 /* iPad_Icon-76.png in Resources */,
+				A5A149E91F5CE57A007B3371 /* lite_Icon-iPadPro@2x.png in Resources */,
+				A51FBC6E1F5CBCF2001214B6 /* iPad_Icon-76@2x.png in Resources */,
+				A51FBC701F5CBCF2001214B6 /* Icon-Small@2x.png in Resources */,
+				A51FBC711F5CBCF2001214B6 /* Icon-76@2x.png in Resources */,
+				A51FBC721F5CBCF2001214B6 /* iPad_Icon-Small.png in Resources */,
+				A51FBC731F5CBCF2001214B6 /* TBB_oils@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -630,6 +890,45 @@
 				A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */,
 				A5C41FE81D94271700973340 /* SearchResultsViewController.m in Sources */,
 				A505B0831D09ED3F00800310 /* LIST_OilsTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A51FBC211F5CBCF2001214B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A51FBC221F5CBCF2001214B6 /* VIEW_SingleRemedyViewController.m in Sources */,
+				A51FBC231F5CBCF2001214B6 /* EDIT_OilDetailViewController.m in Sources */,
+				A51FBC241F5CBCF2001214B6 /* SettingsiTunesBackupRestoreViewController.m in Sources */,
+				A51FBC251F5CBCF2001214B6 /* LIST_OilRemediesViewController.m in Sources */,
+				A51FBC261F5CBCF2001214B6 /* OilRemedies.m in Sources */,
+				A51FBC271F5CBCF2001214B6 /* VIEW_RemedyViewController.m in Sources */,
+				A51FBC281F5CBCF2001214B6 /* FormFunctions.m in Sources */,
+				A51FBC291F5CBCF2001214B6 /* MainStartViewController.m in Sources */,
+				A51FBC2A1F5CBCF2001214B6 /* SearchDatabase.m in Sources */,
+				A51FBC2B1F5CBCF2001214B6 /* OilLists.m in Sources */,
+				A51FBC2C1F5CBCF2001214B6 /* BurnSoftDatabase.m in Sources */,
+				A51FBC2D1F5CBCF2001214B6 /* SearchViewController.m in Sources */,
+				A51FBC2E1F5CBCF2001214B6 /* AppDelegate.m in Sources */,
+				A51FBC2F1F5CBCF2001214B6 /* MYSettings.m in Sources */,
+				A51FBC301F5CBCF2001214B6 /* PopUpOilViewController.m in Sources */,
+				A51FBC311F5CBCF2001214B6 /* Parser.m in Sources */,
+				A51FBC321F5CBCF2001214B6 /* DBUpgrade.m in Sources */,
+				A51FBC331F5CBCF2001214B6 /* SettingsViewController.m in Sources */,
+				A51FBC341F5CBCF2001214B6 /* main.m in Sources */,
+				A51FBC351F5CBCF2001214B6 /* ActionClass.m in Sources */,
+				A51FBC361F5CBCF2001214B6 /* AirDropHandler.m in Sources */,
+				A51FBC371F5CBCF2001214B6 /* DatabaseManagement.m in Sources */,
+				A51FBC381F5CBCF2001214B6 /* VIEW_OilDetailsViewController.m in Sources */,
+				A51FBC391F5CBCF2001214B6 /* EDIT_RemedyViewController.m in Sources */,
+				A51FBC3A1F5CBCF2001214B6 /* MyEssentialOilRemedies.xcdatamodeld in Sources */,
+				A51FBC3B1F5CBCF2001214B6 /* Add_RemedyViewController.m in Sources */,
+				A51FBC3C1F5CBCF2001214B6 /* PopUpOilSearchViewController.m in Sources */,
+				A51FBC3D1F5CBCF2001214B6 /* BurnSoftGeneral.m in Sources */,
+				A51FBC3E1F5CBCF2001214B6 /* ADD_OilDetailsViewController.m in Sources */,
+				A51FBC3F1F5CBCF2001214B6 /* BurnSoftMath.m in Sources */,
+				A51FBC401F5CBCF2001214B6 /* SearchResultsViewController.m in Sources */,
+				A51FBC411F5CBCF2001214B6 /* LIST_OilsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +1074,47 @@
 			};
 			name = Release;
 		};
+		A51FBC751F5CBCF2001214B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = UniversalLite;
+				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = MF94VYSKL4;
+				INFOPLIST_FILE = "My Essential Oil Remedies Lite.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyEssentialOilRemedies",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesLite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A51FBC761F5CBCF2001214B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = UniversalLite;
+				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MF94VYSKL4;
+				INFOPLIST_FILE = "My Essential Oil Remedies Lite.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyEssentialOilRemedies",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesLite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -792,6 +1132,15 @@
 			buildConfigurations = (
 				A505B0621D09A76900800310 /* Debug */,
 				A505B0631D09A76900800310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A51FBC741F5CBCF2001214B6 /* Build configuration list for PBXNativeTarget "My Essential Oil Remedies Lite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A51FBC751F5CBCF2001214B6 /* Debug */,
+				A51FBC761F5CBCF2001214B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -5,11 +5,11 @@
 	<key>LITE_LIMIT</key>
 	<integer>15</integer>
 	<key>ISLITE</key>
-	<false/>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>My Essential Oil Remedies</string>
+	<string>My Essential Oil Remedies LIte</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>

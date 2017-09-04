@@ -43,12 +43,15 @@
     //Create an Add Button in Nav Bat
     if (ISLITE)
     {
-        if (OilCount <= (LITE_LIMIT -1 ))
+        if (OilCount <= ((int)LITE_LIMIT -1 ))
         {
             UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addMoreOils)];
             self.navigationItem.rightBarButtonItem = addButton;
         } else {
             self.navigationItem.rightBarButtonItem = nil;
+            //[FormFunctions sendMessage:@"You Have reached your limit on the Lite Version!\n Please Purchase the Regular Version for Unlimited access!" MyTitle:@"Limit Reached!" ViewController:self];
+             [FormFunctions AlertonLimitForViewController:self];
+            
         }
     } else {
         UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addMoreOils)];

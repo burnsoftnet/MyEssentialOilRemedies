@@ -80,7 +80,7 @@
         int OilCount = [myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];
         
         //Add for Lite Version restriction
-        if (OilCount <= (LITE_LIMIT - 1))
+        if (OilCount <= ((int)LITE_LIMIT - 1))
         {
             if (![newOil isEqualToString:@""])
             {
@@ -89,7 +89,7 @@
             }
             self.txtOilName.text=@"";
         } else {
-            [FormFunctions sendMessage:@"Reached Max Limit on Lite Version!\n If you want to add more, please purchase the full version." MyTitle:@"Reached Lite Limit" ViewController:self];
+            [FormFunctions AlertonLimitForViewController:self];
         }
     } else {
         //Original Code before lite version
