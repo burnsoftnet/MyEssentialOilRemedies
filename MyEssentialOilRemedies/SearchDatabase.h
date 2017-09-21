@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "BurnSoftDatabase.h"
-#import "MySettings.h"
+#import "MYSettings.h"
 #import "FormFunctions.h"
 
 @interface SearchDatabase : NSObject

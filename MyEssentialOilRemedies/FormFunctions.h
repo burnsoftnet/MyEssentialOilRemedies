@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MySettings.h"
+#import "MYSettings.h"
 @interface FormFunctions : UIViewController
 
 #pragma mark Textbox View Layouts

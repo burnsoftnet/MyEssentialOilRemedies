@@ -10,7 +10,7 @@
 #import "BurnSoftGeneral.h"
 #import "BurnSoftDatabase.h"
 #import "LIST_OilsTableViewController.h"
-#import "MySettings.h"
+#import "MYSettings.h"
 #import "FormFunctions.h"
 
 @interface ADD_OilDetailsViewController : UIViewController <UIGestureRecognizerDelegate,UITextFieldDelegate>

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OilRemedies.h"
 #import "BurnSoftDatabase.h"
-#import "MySettings.h"
+#import "MYSettings.h"
 #import "FormFunctions.h"
 #import "VIEW_RemedyViewController.h"
 #import "EDIT_RemedyViewController.h"
