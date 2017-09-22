@@ -292,6 +292,7 @@
 		A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDIT_RemedyViewController.m; sourceTree = "<group>"; };
 		A5B02CEF1D8846A30004334B /* PopUpOilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpOilViewController.h; sourceTree = "<group>"; };
 		A5B02CF01D8846A30004334B /* PopUpOilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpOilViewController.m; sourceTree = "<group>"; };
+		A5BC6D111F749B9D00274FE8 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@2x.png"; path = "../../../../images/MyEssentialOilRemedies/iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		A5BDC4221E1715E600A98652 /* DBUpgrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUpgrade.h; sourceTree = "<group>"; };
 		A5BDC4231E1715E600A98652 /* DBUpgrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUpgrade.m; sourceTree = "<group>"; };
 		A5C159511E3C13FC00F9864B /* My Essential Oil Remedies.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "My Essential Oil Remedies.entitlements"; sourceTree = "<group>"; };
@@ -559,6 +560,7 @@
 		A5E28E7D1D0B4FCE00052005 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A5BC6D111F749B9D00274FE8 /* iTunesArtwork@2x.png */,
 				A5A149CB1F5CE57A007B3371 /* lite */,
 				A5652D881E3E5F290029EB7A /* Icon-57.png */,
 				A5652D891E3E5F290029EB7A /* Icon-57@2x.png */,
