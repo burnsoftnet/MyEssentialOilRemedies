@@ -202,7 +202,7 @@
 {
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){EDIT_RemedyViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditRemedy_Description_ViewController"];
         
-        OilRemedies *a = [myOilCollection objectAtIndex:indexPath.row];
+        OilRemedies *a = [self->myOilCollection objectAtIndex:indexPath.row];
         destViewController.RID = [NSString stringWithFormat:@"%d",a.RID];
         [self.navigationController pushViewController:destViewController animated:YES];
     }];
@@ -210,14 +210,14 @@
     
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
     {
-        OilRemedies *a = [myOilCollection objectAtIndex:indexPath.row];
+        OilRemedies *a = [self->myOilCollection objectAtIndex:indexPath.row];
         OilRemedies *obj = [OilRemedies new];
         FormFunctions *objF = [FormFunctions new];
         NSString *Msg;
-        if ([obj deleteRemedyByID:[NSString stringWithFormat:@"%d",a.RID] DatabasePath:dbPathString MessageHandler:&Msg])
+        if ([obj deleteRemedyByID:[NSString stringWithFormat:@"%d",a.RID] DatabasePath:self->dbPathString MessageHandler:&Msg])
         {
             [objF sendMessage:[NSString stringWithFormat:@"%@ was deleted!",a.name] MyTitle:@"Delete" ViewController:self];
-            [myOilCollection removeObjectAtIndex:indexPath.row];
+            [self->myOilCollection removeObjectAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
         } else {
             [objF sendMessage:[NSString stringWithFormat:@"Error while deleting! %@",Msg] MyTitle:@"ERROR" ViewController:self];

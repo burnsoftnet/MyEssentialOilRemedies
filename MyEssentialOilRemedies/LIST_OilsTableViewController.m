@@ -215,24 +215,24 @@
 {
     FormFunctions *myFunctions = [FormFunctions new];
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){EDIT_OilDetailViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOils"];
-        OilLists *a = [myOilCollection objectAtIndex:indexPath.row];
+        OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         destViewController.OID = [NSString stringWithFormat:@"%d",a.OID];
         [self.navigationController pushViewController:destViewController animated:YES];
     }];
     editAction.backgroundColor = [UIColor blueColor];
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         //insert your deleteAction here
-        OilLists *a = [myOilCollection objectAtIndex:indexPath.row];
+        OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         NSString *Msg;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
         NSString *sql = [NSString stringWithFormat:@"Delete from eo_oil_list_details where OID=%d",a.OID];
-        if ([myObj runQuery:sql DatabasePath:dbPathString MessageHandler:&Msg])
+        if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
         {
             sql = [NSString stringWithFormat:@"DELETE from eo_oil_list where ID=%d",a.OID];
-            if ([myObj runQuery:sql DatabasePath:dbPathString MessageHandler:&Msg])
+            if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
             {
                 [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was deleted!",a.name] MyTitle:@"Delete" ViewController:self];
-                [myOilCollection removeObjectAtIndex:indexPath.row];
+                [self->myOilCollection removeObjectAtIndex:indexPath.row];
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
             } else {
                 [myFunctions sendMessage:[NSString stringWithFormat:@"Error while deleting! %@",Msg] MyTitle:@"ERROR" ViewController:self];
