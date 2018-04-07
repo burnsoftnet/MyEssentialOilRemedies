@@ -138,6 +138,50 @@
 #pragma mark DB Upgrade Version x.x
 //NOTE: PRIVATE - Update Database to version x.x
 //USEDBY: checkDBVersionAgainstExpectedVersion
+-(void) dbupgrade13
+{
+    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+    FormFunctions *myObjFF = [FormFunctions new];
+    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    double newDBVersion = 0;
+    NSString *msg;
+    NSString *sqlstmt = [NSString new];
+    newDBVersion = 0.0;
+    if (![myObj VersionExists:[NSString stringWithFormat:@"%f",newDBVersion] VersionTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&msg])
+    {
+        // Send to doBuggermeMessage if enabled, that the database upgrade is begining
+        msg = [NSString stringWithFormat:@"DEBUG: Start DBVersion Upgrade to version %.01f", newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+        
+        sqlstmt=@"ALTER TABLE eo_oil_list_details ADD isBlend INTEGER;";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        sqlstmt=@"Update eo_oil_list_details set isBlend=0;";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        // Drop View Before Create
+        sqlstmt=@"DROP VIEW VIEW view_eo_oil_list_all";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        sqlstmt=@"CREATE VIEW view_eo_oil_list_all AS SELECT ol.ID, ol.name, ol.INSTOCK, old.ID as DetailsID,old.description, old.BotanicalName,old.Ingredients, old.SafetyNotes, old.Color,old.Viscosity, old.CommonName, old.vendor, old.vendor_site , old.isBlend from eo_oil_list ol inner join eo_oil_list_details old on old.OID=ol.ID";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        // Send to doBuggermeMessage if enabled that the database was upgraded
+        msg = [NSString stringWithFormat:@"DEBUG: End DBVersion Upgrade to version %.01f", newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+    } else {
+        msg = [NSString stringWithFormat:@"DEBUG: Database has already had %.01f patch applied!",newDBVersion];
+        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+    }
+}
+
+#pragma mark DB Upgrade Version x.x
+//NOTE: PRIVATE - Update Database to version x.x
+//USEDBY: checkDBVersionAgainstExpectedVersion
 -(void) dbupgradexx
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
