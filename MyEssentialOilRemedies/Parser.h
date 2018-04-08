@@ -24,6 +24,7 @@
 //Oil Global Varabiles
 @property (strong, nonatomic) NSString *Oil_Name;
 @property (nonatomic,strong) NSString *Oil_InStock;
+@property (nonatomic,strong) NSString *Oil_isBlend;
 @property (nonatomic,strong) NSString *Oil_description;
 @property (nonatomic,strong) NSString *Oil_BotanicalName;
 @property (nonatomic,strong) NSString *Oil_Ingredients;

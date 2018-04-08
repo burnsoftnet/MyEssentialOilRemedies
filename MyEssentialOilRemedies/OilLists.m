@@ -306,7 +306,7 @@
 
 #pragma mark Insert Oil Details
 //Insert the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
-+(BOOL) insertOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
++(BOOL) insertOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website Blended:(NSString *) isBlend DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
 {
     BOOL bAns = NO;
     NSString *errMsg = @"";
@@ -314,7 +314,8 @@
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
     //TODO Need to Update Instert with the IsBlended
     //  Currently going to wait until the interface needs it and will concentrate on the display listing
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@')", MYOID,[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website]];
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site,isBlend) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')", MYOID,[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website],[myObjG FCString:isBlend]];
+    
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&errMsg]) {
         bAns = YES;
     } else {

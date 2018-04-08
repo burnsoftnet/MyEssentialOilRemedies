@@ -81,7 +81,7 @@
 
 #pragma mark Insert Oil Details
 //Insert the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
-+(BOOL) insertOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
++(BOOL) insertOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website Blended:(NSString *) isBlend DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg;
 
 #pragma mark Update Oil Details
 //Update the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
