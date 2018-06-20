@@ -196,6 +196,12 @@
     } else {
         cell.contentView.backgroundColor = [UIColor whiteColor];
     }
+    NSString *isBlend = displayCollection.isBlend;
+    
+    if ([isBlend intValue] == 1)
+    {
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:18.0];
+    }
     return cell;
 }
 

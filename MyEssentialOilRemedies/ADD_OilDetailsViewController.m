@@ -140,12 +140,20 @@
     NSString *vendor = [myObjOF FCString:self.txtVedor.text];
     NSString *website = [myObjOF FCString:self.txtWebsite.text];
     NSString *iStock = 0;
+    NSString *iBlend = 0;
     
     if (self.swInStock.isOn){
         iStock = @"1";
     } else {
         iStock = @"0";
     }
+    
+    if ( self.swIsBlend.isOn){
+        iBlend = @"1";
+    } else {
+        iBlend = @"0";
+    }
+    
     if (![self oilExistsByName:name])
     {
         if (![name isEqualToString:@""])
@@ -155,7 +163,7 @@
             if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]){
                 NSNumber *MYOID = [myObjDB getLastOneEntryIDbyName:name LookForColumnName:@"name" GetIDFomColumn:@"ID" InTable:@"eo_oil_list" DatabasePath:dbPathString MessageHandler:&msg];
                 if (!(MYOID==0)){
-                    sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@')", MYOID,description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website];
+                    sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site, isBlend) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')", MYOID,description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website,iBlend];
                     
                     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]) {
                         [self clearValues];
