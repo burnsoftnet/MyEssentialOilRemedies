@@ -110,7 +110,7 @@
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
         [oilCollection removeAllObjects];
-        NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID from view_eo_oil_list_all order by name COLLATE NOCASE ASC"];
+        NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend from view_eo_oil_list_all order by name COLLATE NOCASE ASC"];
         int ret = sqlite3_prepare_v2(OilDB,[querySQL UTF8String],-1,&statement,NULL);
         if (ret == SQLITE_OK) {
             while (sqlite3_step(statement)==SQLITE_ROW) {
@@ -126,6 +126,7 @@
                 NSString *InStock = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text(statement,2)];
                 NSString *oid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,3)];
                 NSString *detailsid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,4)];
+                NSString *isBlend = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)];
                 
                 OilLists *myCollection = [OilLists new];
                 [myCollection setName:name];
@@ -133,6 +134,7 @@
                 [myCollection setInStock:InStock];
                 [myCollection setMydescription:description];
                 [myCollection setDetailsID:detailsid];
+                [myCollection setIsBlend:isBlend];
                 
                 [oilCollection addObject:myCollection];
             }
@@ -153,7 +155,7 @@
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
         [oilCollection removeAllObjects];
-        NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
+        NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
         int ret = sqlite3_prepare_v2(OilDB,[querySQL UTF8String],-1,&statement,NULL);
         if (ret == SQLITE_OK) {
             while (sqlite3_step(statement)==SQLITE_ROW) {
@@ -162,6 +164,7 @@
                 NSString *InStock = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text(statement,2)];
                 NSString *oid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,4)];
                 NSString *detailsid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,5)];
+                NSString *isBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 6)];
                 
                 OilLists *myCollection = [OilLists new];
                 [myCollection setName:name];
@@ -169,6 +172,7 @@
                 [myCollection setInStock:InStock];
                 [myCollection setMydescription:description];
                 [myCollection setDetailsID:detailsid];
+                [myCollection setIsBlend:isBlend];
                 
                 [oilCollection addObject:myCollection];
             }
@@ -219,7 +223,7 @@
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
         [oilCollection removeAllObjects];
-        NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID from view_eo_oil_list_all where INSTOCK=0 order by name COLLATE NOCASE ASC"];
+        NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend from view_eo_oil_list_all where INSTOCK=0 order by name COLLATE NOCASE ASC"];
         int ret = sqlite3_prepare_v2(OilDB,[querySQL UTF8String],-1,&statement,NULL);
         if (ret == SQLITE_OK) {
             while (sqlite3_step(statement)==SQLITE_ROW) {
@@ -228,6 +232,7 @@
                 NSString *InStock = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text(statement,2)];
                 NSString *oid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,4)];
                 NSString *detailsid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,5)];
+                NSString *isBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 6)];
                 
                 OilLists *myCollection = [OilLists new];
                 [myCollection setName:name];
@@ -235,6 +240,7 @@
                 [myCollection setInStock:InStock];
                 [myCollection setMydescription:description];
                 [myCollection setDetailsID:detailsid];
+                [myCollection setIsBlend:isBlend];
                 
                 [oilCollection addObject:myCollection];
             }
@@ -306,7 +312,7 @@
     NSString *errMsg = @"";
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
-    
+    //TODO Need to Update Instert
     NSString *sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@')", MYOID,[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website]];
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&errMsg]) {
         bAns = YES;

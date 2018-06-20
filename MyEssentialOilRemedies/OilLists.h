@@ -14,6 +14,7 @@
 @interface OilLists : NSObject
 @property (assign) int OID;
 @property (nonatomic,strong) NSString *InStock;
+@property (nonatomic, strong) NSString *isBlend;
 @property (nonatomic,strong) NSString *name;
 @property (nonatomic,strong) NSString *mydescription;
 @property (nonatomic,strong) NSString *DetailsID;

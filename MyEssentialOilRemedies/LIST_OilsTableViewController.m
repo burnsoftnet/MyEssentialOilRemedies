@@ -16,7 +16,7 @@
     NSString *dbPathString;
     NSMutableArray *myOilCollection;
     NSString *SelectedCellID;
-    int inStockCount;
+    int inStockCount; // Mark if it is instock or not or the badge count
     int RemedyCount; //Added for Lite Version tracking
     int OilCount; //Added for Lite Version tracking
 }
