@@ -30,6 +30,7 @@
     
     myObj = nil;
     myDB = nil;
+    //TODELETE
     //ISLITE = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ISLITE"];
     //LITE_LIMIT = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"LITE_LIMIT"];
     //BOOL IsFree = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ISLITE"];
