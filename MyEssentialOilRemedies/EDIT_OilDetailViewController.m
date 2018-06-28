@@ -93,6 +93,7 @@
     NSString *viscosity = [myObjOF FCString:self.txtViscosity.text];
     NSString *description = [myObjOF FCString:self.txtDescription.text];
     NSString *iStock = 0;
+    NSString *iBlend = 0;
     NSString *vendor = [myObjOF FCString:self.txtVendor.text];
     NSString *website = [myObjOF FCString:self.txtWebsite.text];
     
@@ -101,6 +102,13 @@
     } else {
         iStock = @"0";
     }
+    
+    if (self.swIsBlend.isOn){
+        iBlend = @"1";
+    } else {
+        iBlend = @"0";
+    }
+    
     sql = [NSString stringWithFormat:@"UPDATE eo_oil_list set name='%@',instock=%i where OID=%@",name,[iStock intValue],self.OID];
     
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]){
