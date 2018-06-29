@@ -58,7 +58,7 @@
 -initWithXMLFile:(NSString *) docPath;
 
 #pragma mark Format Data for Oils to XML
-+(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description;
++(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description IsBlend:(NSString *) isblend;
 
 #pragma mark Format Data from Remedies to XML
 +(NSString *) RemedyDetailsToXMLforInsertByName:(NSString *) remedyName Description:(NSString *) description HowToUse:(NSString *) uses Oils:(NSArray *) oils;

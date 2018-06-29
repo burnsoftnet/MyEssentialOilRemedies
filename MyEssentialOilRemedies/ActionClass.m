@@ -109,7 +109,7 @@
 #pragma mark Format Oil Details to one String
 // Appened all the Oil Detail Fields to one formated string for output to send via Airdrop, message, email, notes, etc.
 // Used for rawText Details from View Oils Class
-+(NSString *) OilDetailsToStringByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
++(NSString *) OilDetailsToStringByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description IsBlend:(NSString *) isblend
 {
     
     NSString *sOutput = [NSString new];
@@ -124,7 +124,7 @@
     sOutput = [self appendToOuput:sOutput forField:@"Vendor" Value:vendor];
     sOutput = [self appendToOuput:sOutput forField:@"WebSite" Value:website];
     sOutput = [self appendToOuput:sOutput forField:@"Description" Value:description];
-    
+    sOutput = [self appendToOuput:sOutput forField:@"Is-Blend" Value:isblend];
     return sOutput;
 }
 

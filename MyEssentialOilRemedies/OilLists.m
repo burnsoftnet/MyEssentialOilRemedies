@@ -314,7 +314,7 @@
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
     //TODO Need to Update Instert with the IsBlended
     //  Currently going to wait until the interface needs it and will concentrate on the display listing
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site,isBlend) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')", MYOID,[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website],[myObjG FCString:isBlend]];
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site,isBlend) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@',%i)", MYOID,[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website],[isBlend intValue]];
     
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&errMsg]) {
         bAns = YES;
@@ -327,15 +327,17 @@
 
 #pragma mark Update Oil Details
 //Update the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
-+(BOOL) updateOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
++(BOOL) updateOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website IsBlend:(NSString *) isblend DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
 {
     BOOL bAns = NO;
     NSString *errMsg = @"";
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
+    int iblend=[isblend intValue];
+    
     //TODO:  Need to Update this section with the isBlended
     //  Currently going to wait until the interface needs it and will concentrate on the display listing
-    NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@' where OID=%@",[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website], MYOID];
+    NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@',isBlend=%i where OID=%@",[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website],iblend, MYOID];
     
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&errMsg]) {
         bAns = YES;

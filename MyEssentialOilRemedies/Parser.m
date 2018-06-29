@@ -193,7 +193,7 @@
 
 #pragma mark Format Data for Oils to XML
 //Format the values passed to this function to be put into XML Format for Oils
-+(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description
++(NSString *) OilDetailsToXMLForInsertByName:(NSString *) OilName CommonName:(NSString *) commonName BotanicalName:(NSString *) botName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity InStock:(NSString *) instock Vendor:(NSString *) vendor WebSite:(NSString *)website Description:(NSString *) description IsBlend:(NSString *) isblend
 {
     NSString *sOutput = [NSString new];
     BOOL doNewLine = NO;
@@ -211,6 +211,7 @@
     sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"vendor" WithValue:vendor UseNewLine:doNewLine]];
     sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"website" WithValue:website UseNewLine:doNewLine]];
     sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"description" WithValue:description UseNewLine:doNewLine]];
+    sOutput = [sOutput stringByAppendingString:[self returnXMLTypeBySingleElement:@"isblend" WithValue:isblend UseNewLine:doNewLine]];
     
     sOutput = [sOutput stringByAppendingString:@"</oils>\n"];
     return sOutput;
