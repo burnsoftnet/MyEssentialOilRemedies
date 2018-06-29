@@ -163,7 +163,7 @@
             if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]){
                 NSNumber *MYOID = [myObjDB getLastOneEntryIDbyName:name LookForColumnName:@"name" GetIDFomColumn:@"ID" InTable:@"eo_oil_list" DatabasePath:dbPathString MessageHandler:&msg];
                 if (!(MYOID==0)){
-                    sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site, isBlend) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')", MYOID,description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website,iBlend];
+                    sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site, isBlend) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@',%i)", MYOID,description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website,[iBlend intValue]];
                     
                     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]) {
                         [self clearValues];

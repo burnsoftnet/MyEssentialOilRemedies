@@ -114,7 +114,7 @@
     
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]){
         if (!(self.OID==0)){
-            sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@',isBlend='%@' where OID=%@",description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website,iBlend, self.OID];
+            sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@',isBlend=%i where OID=%@",description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website,[iBlend intValue], self.OID];
             
             if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]) {
                 
