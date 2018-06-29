@@ -1291,14 +1291,14 @@
                         <viewControllerLayoutGuide type="bottom" id="CiU-E5-z4n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uJ9-X0-TzO">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="1050"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSF-L2-uar">
-                                <rect key="frame" x="0.0" y="0.0" width="391" height="992"/>
+                                <rect key="frame" x="0.0" y="0.0" width="391" height="1042"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8oi-jN-SZd" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="391" height="999"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="391" height="1199"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xBU-JW-pxu">
                                                 <rect key="frame" x="22" y="195" width="349" height="70"/>
@@ -1413,28 +1413,28 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vendor:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHA-m6-XOd">
-                                                <rect key="frame" x="22" y="570" width="75" height="21"/>
+                                                <rect key="frame" x="20" y="602" width="75" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsY-NM-qrh">
-                                                <rect key="frame" x="23" y="637" width="121" height="21"/>
+                                                <rect key="frame" x="21" y="669" width="121" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gZJ-Nm-Uq9">
-                                                <rect key="frame" x="22" y="666" width="341" height="216"/>
+                                                <rect key="frame" x="20" y="698" width="341" height="216"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGT-Is-85M">
-                                                <rect key="frame" x="153" y="570" width="210" height="21"/>
+                                                <rect key="frame" x="151" y="602" width="210" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -1444,14 +1444,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Website:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1D8-Cg-jHe">
-                                                <rect key="frame" x="23" y="608" width="75" height="21"/>
+                                                <rect key="frame" x="21" y="640" width="75" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1eA-7g-w7y">
-                                                <rect key="frame" x="131" y="604" width="240" height="29"/>
+                                                <rect key="frame" x="129" y="636" width="240" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1480,10 +1480,20 @@
                                                 </items>
                                                 <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </toolbar>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Is Blend:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntb-2J-3cD">
+                                                <rect key="frame" x="24" y="570" width="71" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Cst-cJ-Rfz">
+                                                <rect key="frame" x="164" y="565" width="51" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </switch>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="999" id="v2f-5b-sxl"/>
+                                            <constraint firstAttribute="height" constant="1199" id="v2f-5b-sxl"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRe-Lm-H50">
@@ -1539,7 +1549,7 @@
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="400" height="1050"/>
+                    <size key="freeformSize" width="400" height="1100"/>
                     <connections>
                         <outlet property="RelatedRemediesTable" destination="fr1-UA-wla" id="r8w-7J-daB"/>
                         <outlet property="lblBotanicalName" destination="hks-0J-SiB" id="lfn-mQ-i2j"/>
@@ -1552,6 +1562,7 @@
                         <outlet property="lblVendor" destination="OGT-Is-85M" id="SXy-PE-LuT"/>
                         <outlet property="lblViscosity" destination="oQe-kc-Uot" id="7wk-M4-uPJ"/>
                         <outlet property="swInStock" destination="Pmz-vP-2cc" id="cux-ew-JIl"/>
+                        <outlet property="swIsBlend" destination="Cst-cJ-Rfz" id="bdJ-t7-9ZC"/>
                         <outlet property="txtWebsite" destination="1eA-7g-w7y" id="5Vp-4h-5ep"/>
                         <outlet property="viewContent" destination="8oi-jN-SZd" id="1Hf-tg-chh"/>
                         <outlet property="viewRelatedRemedies" destination="LRe-Lm-H50" id="tjK-p1-CbD"/>
@@ -2553,6 +2564,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="QYv-jo-sTt"/>
         <segue reference="9Qq-SB-b9d"/>
-        <segue reference="tE5-8K-Pn9"/>
+        <segue reference="EWW-Fh-Ngj"/>
     </inferredMetricsTieBreakers>
 </document>

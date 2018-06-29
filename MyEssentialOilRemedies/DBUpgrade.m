@@ -30,6 +30,7 @@
         } else if ([@MYDBVERSION doubleValue] == 1.2) {
             [self dbupgrade11];
             [self dbupgrade12];
+            //Version 1.2 was released to production any upgrade after this will just need to be the latest dbupgrade.
         }
     } else {
         [myObjFF doBuggermeMessage:@"DEBUG: DBVersion is equal to or greater than expected." FromSubFunction:@"DBUpgrade"];
