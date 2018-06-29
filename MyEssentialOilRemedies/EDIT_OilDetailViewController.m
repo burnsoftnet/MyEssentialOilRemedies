@@ -108,12 +108,13 @@
     } else {
         iBlend = @"0";
     }
+
     
     sql = [NSString stringWithFormat:@"UPDATE eo_oil_list set name='%@',instock=%i where OID=%@",name,[iStock intValue],self.OID];
     
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]){
         if (!(self.OID==0)){
-            sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@' where OID=%@",description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website, self.OID];
+            sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@',isBlend='%@' where OID=%@",description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website,iBlend, self.OID];
             
             if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]) {
                 
@@ -204,6 +205,12 @@
                 }
                 iCol = 12;
                 if (sqlite3_column_type(statement, iCol) != SQLITE_NULL) {self.txtWebsite.text = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
+                }
+                iCol = 13;
+                
+                NSString *iBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
+                if ([iBlend intValue] == 1){
+                    [self.swIsBlend setOn:YES];
                 }
                 
             }
