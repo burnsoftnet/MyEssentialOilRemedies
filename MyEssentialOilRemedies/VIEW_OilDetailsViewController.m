@@ -226,6 +226,11 @@
                 iCol=12;
                 if (sqlite3_column_type(statement,iCol) != SQLITE_NULL) {self.txtWebsite.text = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
                 }
+                iCol=13;
+                NSString *iBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
+                if ([iBlend intValue] == 1){
+                    //[self.swIsBlend setOn:YES];
+                }
             }
             sqlite3_close(MYDB);
             sqlite3_finalize(statement);
