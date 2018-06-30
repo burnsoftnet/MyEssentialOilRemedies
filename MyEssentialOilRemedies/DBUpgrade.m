@@ -158,16 +158,24 @@
         [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
         [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
         
+        sqlstmt=@"ALTER TABLE eo_oil_list_details ADD reorder INTEGER;";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
         sqlstmt=@"Update eo_oil_list_details set isBlend=0;";
         [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
         [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
         
-        // Drop View Before Create
-        sqlstmt=@"DROP VIEW VIEW view_eo_oil_list_all";
+        sqlstmt=@"Update eo_oil_list_details set reorder=0;";
         [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
         [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
         
-        sqlstmt=@"CREATE VIEW view_eo_oil_list_all AS SELECT ol.ID, ol.name, ol.INSTOCK, old.ID as DetailsID,old.description, old.BotanicalName,old.Ingredients, old.SafetyNotes, old.Color,old.Viscosity, old.CommonName, old.vendor, old.vendor_site , old.isBlend from eo_oil_list ol inner join eo_oil_list_details old on old.OID=ol.ID";
+        // Drop View Before Create
+        sqlstmt=@"DROP VIEW view_eo_oil_list_all;";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        sqlstmt=@"CREATE VIEW view_eo_oil_list_all AS SELECT ol.ID, ol.name, ol.INSTOCK, old.ID as DetailsID,old.description, old.BotanicalName,old.Ingredients, old.SafetyNotes, old.Color,old.Viscosity, old.CommonName, old.vendor, old.vendor_site , old.isBlend, old.reorder from eo_oil_list ol inner join eo_oil_list_details old on old.OID=ol.ID;";
         [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
         [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
         
