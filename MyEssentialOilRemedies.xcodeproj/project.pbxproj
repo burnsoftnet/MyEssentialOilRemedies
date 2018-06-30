@@ -35,6 +35,10 @@
 		A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */; };
 		A50CF95B1D75C2E10037C7CD /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = A50CF95A1D75C2E10037C7CD /* gear.png */; };
 		A515BA0320E7FF2F009F4845 /* List_ReOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A515BA0220E7FF2F009F4845 /* List_ReOrderTableViewController.m */; };
+		A515BA1A20E8432A009F4845 /* cart-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1620E84328009F4845 /* cart-plus@2x.png */; };
+		A515BA1B20E8432A009F4845 /* TBB_cart-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1720E84329009F4845 /* TBB_cart-plus.png */; };
+		A515BA1C20E8432A009F4845 /* TBB_cart-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1820E84329009F4845 /* TBB_cart-plus@2x.png */; };
+		A515BA1D20E8432A009F4845 /* cart-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1920E84329009F4845 /* cart-plus.png */; };
 		A51FBC221F5CBCF2001214B6 /* VIEW_SingleRemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */; };
 		A51FBC231F5CBCF2001214B6 /* EDIT_OilDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */; };
 		A51FBC241F5CBCF2001214B6 /* SettingsiTunesBackupRestoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */; };
@@ -232,6 +236,10 @@
 		A50CF95A1D75C2E10037C7CD /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		A515BA0120E7FF2F009F4845 /* List_ReOrderTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = List_ReOrderTableViewController.h; sourceTree = "<group>"; };
 		A515BA0220E7FF2F009F4845 /* List_ReOrderTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = List_ReOrderTableViewController.m; sourceTree = "<group>"; };
+		A515BA1620E84328009F4845 /* cart-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart-plus@2x.png"; sourceTree = "<group>"; };
+		A515BA1720E84329009F4845 /* TBB_cart-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TBB_cart-plus.png"; sourceTree = "<group>"; };
+		A515BA1820E84329009F4845 /* TBB_cart-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TBB_cart-plus@2x.png"; sourceTree = "<group>"; };
+		A515BA1920E84329009F4845 /* cart-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart-plus.png"; sourceTree = "<group>"; };
 		A51FBC771F5CBCF2001214B6 /* My Essential Oil Remedies Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Essential Oil Remedies Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A51FBC781F5CBCF2001214B6 /* My Essential Oil Remedies Lite.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "My Essential Oil Remedies Lite.plist"; path = "/Users/burnsoft/Documents/Source_Code/xCode/BS_Projects/production/iOS/MyEssentialOilRemedies/My Essential Oil Remedies Lite.plist"; sourceTree = "<absolute>"; };
 		A51FBC791F5CC00C001214B6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -573,6 +581,10 @@
 		A5E28E7D1D0B4FCE00052005 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A515BA1920E84329009F4845 /* cart-plus.png */,
+				A515BA1620E84328009F4845 /* cart-plus@2x.png */,
+				A515BA1720E84329009F4845 /* TBB_cart-plus.png */,
+				A515BA1820E84329009F4845 /* TBB_cart-plus@2x.png */,
 				A5BC6D111F749B9D00274FE8 /* iTunesArtwork@2x.png */,
 				A5A149CB1F5CE57A007B3371 /* lite */,
 				A5652D881E3E5F290029EB7A /* Icon-57.png */,
@@ -750,6 +762,7 @@
 				A57CB7C41D805F7700380B23 /* MEO.db in Resources */,
 				A5E28E841D0B500700052005 /* TBB_remedies.png in Resources */,
 				A5033F391E3D3DEF00D22B7D /* iPad_Icon-iPadPro@2x.png in Resources */,
+				A515BA1C20E8432A009F4845 /* TBB_cart-plus@2x.png in Resources */,
 				A50CF95B1D75C2E10037C7CD /* gear.png in Resources */,
 				A5033F411E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png in Resources */,
 				A5033F3D1E3D3DEF00D22B7D /* iPad_Icon-Small@2x.png in Resources */,
@@ -763,9 +776,11 @@
 				A505B0471D09A76900800310 /* LaunchScreen.storyboard in Resources */,
 				A5E28E801D0B4FDD00052005 /* TBB_oils.png in Resources */,
 				A5033F351E3D3DEF00D22B7D /* iPad_Icon-72@2x.png in Resources */,
+				A515BA1A20E8432A009F4845 /* cart-plus@2x.png in Resources */,
 				A5652D8E1E3E5F290029EB7A /* Icon-57@2x.png in Resources */,
 				A5E28E961D0B515300052005 /* Icon-60@2x.png in Resources */,
 				A5E28E981D0B515300052005 /* Icon-76.png in Resources */,
+				A515BA1B20E8432A009F4845 /* TBB_cart-plus.png in Resources */,
 				A5E28EA31D0B515300052005 /* iTunesArtwork@2x in Resources */,
 				A5E28E971D0B515300052005 /* Icon-60@3x.png in Resources */,
 				A5E28E9C1D0B515300052005 /* Icon-Small.png in Resources */,
@@ -778,6 +793,7 @@
 				A5033F3F1E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40.png in Resources */,
 				A5033F381E3D3DEF00D22B7D /* iPad_Icon-76@3x.png in Resources */,
 				A505B0441D09A76900800310 /* Assets.xcassets in Resources */,
+				A515BA1D20E8432A009F4845 /* cart-plus.png in Resources */,
 				A5E28E9F1D0B515300052005 /* Icon-Spotlight-40.png in Resources */,
 				A5E28EA11D0B515300052005 /* Icon-Spotlight-40@3x.png in Resources */,
 				A5E28E9E1D0B515300052005 /* Icon-Small@3x.png in Resources */,

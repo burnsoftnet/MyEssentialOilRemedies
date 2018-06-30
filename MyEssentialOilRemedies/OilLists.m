@@ -346,7 +346,7 @@
 // Used By List_ReOrderTableViewController
 - (NSMutableArray *) getOilsForReOrder: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
-    NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
+    NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where reorder=1 order by name COLLATE NOCASE ASC"];
     return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
 }
 

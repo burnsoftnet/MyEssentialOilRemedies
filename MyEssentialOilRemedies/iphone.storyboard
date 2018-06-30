@@ -23,6 +23,7 @@
                     <connections>
                         <segue destination="Yov-bx-CFe" kind="relationship" relationship="viewControllers" id="WHX-X6-YbS"/>
                         <segue destination="pXh-zL-dcx" kind="relationship" relationship="viewControllers" id="YsK-5p-pLd"/>
+                        <segue destination="7zr-8q-URm" kind="relationship" relationship="viewControllers" id="V6t-LX-NFU"/>
                         <segue destination="rbl-Lh-Pee" kind="relationship" relationship="viewControllers" id="GAd-n5-MMF"/>
                         <segue destination="lO5-lO-B3g" kind="relationship" relationship="viewControllers" id="qK3-oj-Edi"/>
                     </connections>
@@ -35,7 +36,7 @@
         <scene sceneID="gUN-Y5-eny">
             <objects>
                 <navigationController title="Settings Nav Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lO5-lO-B3g" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="XlV-KL-MhV"/>
+                    <tabBarItem key="tabBarItem" title="Settingd" image="gear.png" id="XlV-KL-MhV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="agg-h2-ZEF">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -123,6 +124,7 @@
         <scene sceneID="1UB-WT-NxW">
             <objects>
                 <navigationController storyboardIdentifier="ReOrderNav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7zr-8q-URm" userLabel="ReOrder Nav" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Re-Order" image="cart-plus.png" id="Ows-aE-xQq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JcP-dH-zvb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1230,7 +1232,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear.png" id="FpA-xF-MVG"/>
-                    <navigationItem key="navigationItem" id="ceE-nf-3Nt"/>
+                    <navigationItem key="navigationItem" title="Settings" id="ceE-nf-3Nt"/>
                     <connections>
                         <outlet property="lblAppVersion" destination="wuY-6m-duX" id="adD-DB-qEq"/>
                         <outlet property="lblDBVersion" destination="FA0-KK-9hV" id="XVj-Qm-mCx"/>
@@ -2595,6 +2597,7 @@
     <resources>
         <image name="TBB_oils.png" width="30" height="30"/>
         <image name="TBB_remedies.png" width="30" height="30"/>
+        <image name="cart-plus.png" width="30" height="40"/>
         <image name="close-icon.png" width="256" height="256"/>
         <image name="gear.png" width="30" height="30"/>
         <image name="search.png" width="30" height="30"/>
