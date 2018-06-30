@@ -86,5 +86,7 @@
 #pragma mark Update Oil Details
 //Update the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
 +(BOOL) updateOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website IsBlend:(NSString *) isblend DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg;
-
+#pragma mark Get Oils for Re-Order
+// Get the list of oils that are marked for reOrder.
+- (NSMutableArray *) getOilsForReOrder: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 @end
