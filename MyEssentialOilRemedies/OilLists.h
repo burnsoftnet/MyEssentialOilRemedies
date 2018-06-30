@@ -14,7 +14,7 @@
 @interface OilLists : NSObject
 @property (assign) int OID;
 @property (nonatomic,strong) NSString *InStock;
-@property (nonatomic, strong) NSString *isBlend;
+@property (nonatomic,strong) NSString *isBlend;
 @property (nonatomic,strong) NSString *name;
 @property (nonatomic,strong) NSString *mydescription;
 @property (nonatomic,strong) NSString *DetailsID;
@@ -25,6 +25,9 @@
 @property (nonatomic,strong) NSString *Viscosity;
 @property (nonatomic,strong) NSString *CommonName;
 @property (nonatomic,strong) NSString *RemedyName;
+@property (nonatomic,strong) NSString *IsReOrder;
+@property (nonatomic,strong) NSString *Vendor;
+@property (nonatomic,strong) NSString *VendorWebSite;
 @property (assign) int RID;
 
 #pragma mark Get List of Oils Only Name

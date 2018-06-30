@@ -106,6 +106,8 @@
 //USEDBY:
 -(NSMutableArray *) getAllOilsList :(NSString *) dbPath : (NSString **) errorMsg;
 {
+#warning #45 Code Optimization
+    /*
     oilCollection = [NSMutableArray new];
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
@@ -145,12 +147,18 @@
         sqlite3_finalize(statement);
     }
     return oilCollection;
+    */
+     //NSString **errMsg=[NSString new];
+    NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all order by name COLLATE NOCASE ASC"];
+    return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
 }
 #pragma mark Get Only InStock Oils
 //NOTE: This will return an array of only the oils that are in stock
 //USEDBY:
 -(NSMutableArray *) getInStockOilsList :(NSString *) dbPath : (NSString **) errorMsg;
 {
+    #warning #45 Code Optimization
+    /*
     oilCollection = [NSMutableArray new];
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
@@ -182,10 +190,15 @@
         }
     }
     return oilCollection;
+     */
+     NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
+    return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
 }
 #pragma mark Private Return Oil Lists By SQL Statement
 // Private function to return the oil list based on the sql statement, the fields for the SQL
-// statement need to include name,description,INSTOCK,ID,DetailsID,isBlend in that order
+// statement need to include:
+// name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site
+//in that order
 - (NSMutableArray *) returnOilListsBySQLStatement :(NSString *) querySQL DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     oilCollection = [NSMutableArray new];
@@ -195,12 +208,112 @@
         int ret = sqlite3_prepare_v2(OilDB,[querySQL UTF8String],-1,&statement,NULL);
         if (ret == SQLITE_OK) {
             while (sqlite3_step(statement)==SQLITE_ROW) {
-                NSString *name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,0)];
-                NSString *description = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,1)];
-                NSString *InStock = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text(statement,2)];
-                NSString *oid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,4)];
-                NSString *detailsid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,5)];
-                NSString *isBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 6)];
+                NSString *name = @"";
+                NSString *description = @"";
+                NSString *InStock = @"";
+                NSString *oid = @"";
+                NSString *detailsid = @"";
+                NSString *isBlend = @"";
+                NSString *reOrder = @"";
+                NSString *BotanicalName = @"";
+                NSString *Ingredients = @"";
+                NSString *SafetyNotes = @"";
+                NSString *Color = @"";
+                NSString *Viscosity = @"";
+                NSString *CommonName = @"";
+                NSString *Vendor = @"";
+                NSString *VendorWeb = @"";
+                int iCol=0;
+                
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 1;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    description = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 2;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    InStock = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 3;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    oid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 4;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    detailsid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 5;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    isBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 6;
+                
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    reOrder = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 7;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    BotanicalName = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 8;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    Ingredients = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 9;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    SafetyNotes = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 10;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    Color = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 11;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    Viscosity = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 12;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    CommonName = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 13;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    Vendor = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+                
+                iCol = 14;
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    VendorWeb = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
                 
                 OilLists *myCollection = [OilLists new];
                 [myCollection setName:name];
@@ -209,6 +322,15 @@
                 [myCollection setMydescription:description];
                 [myCollection setDetailsID:detailsid];
                 [myCollection setIsBlend:isBlend];
+                [myCollection setIsReOrder:reOrder];
+                [myCollection setBotanicalName:BotanicalName];
+                [myCollection setIngredients:Ingredients];
+                [myCollection setSafetyNotes:SafetyNotes];
+                [myCollection setColor:Color];
+                [myCollection setViscosity:Viscosity];
+                [myCollection setCommonName:CommonName];
+                [myCollection setVendor:Vendor];
+                [myCollection setVendorWebSite:VendorWeb];
                 
                 [oilCollection addObject:myCollection];
             }
@@ -224,7 +346,7 @@
 // Used By List_ReOrderTableViewController
 - (NSMutableArray *) getOilsForReOrder: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
-    NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
+    NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
     return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
 }
 
@@ -263,6 +385,8 @@
 //USEDBY:
 -(NSMutableArray *) getOutOfStockOilsList :(NSString *) dbPath : (NSString **) errorMsg;
 {
+    #warning #45 Code Optimization
+    /*
     oilCollection = [NSMutableArray new];
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
@@ -294,6 +418,9 @@
         }
     }
     return oilCollection;
+     */
+    NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where INSTOCK=0 order by name COLLATE NOCASE ASC"];
+    return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
 }
 #pragma mark Delete Oil
 //NOTE:  This will delete the oil from the database
