@@ -94,6 +94,7 @@
 //start the action sheet process and gather the data to send to the ActionClass
 -(void) startAction
 {
+    //[self loadData];
     NSString *rawText = [ActionClass OilDetailsToStringByName:self.lblName.text CommonName:self.lblCommonName.text BotanicalName:self.lblBotanicalName.text Ingredients:self.lblIngredients.text SafetyNotes:self.lblSafetyNotes.text Color:self.lblColor.text Viscosity:self.lblViscosity.text InStock:[BurnSoftGeneral convertBOOLtoString:self.swInStock.isOn] Vendor:self.lblVendor.text WebSite:self.txtWebsite.text Description:self.lblDescription.text IsBlend:[BurnSoftGeneral convertBOOLtoString:self.swIsBlend.isOn]];
     
     
