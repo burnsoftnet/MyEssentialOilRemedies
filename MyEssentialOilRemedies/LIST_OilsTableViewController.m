@@ -156,6 +156,8 @@
     if (ReOrderCount > 0)
     {
         [[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:[NSString stringWithFormat:@"%d",ReOrderCount]];
+    } else {
+        [[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:nil];
     }
     myObj = nil;
     myObjDB = nil;
@@ -274,7 +276,6 @@
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while adding to shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }
         [self reloadData];
-#warning #44 need to test add to shopping list
     }];
     reOrderAction.backgroundColor = [UIColor darkGrayColor];
     return  @[deleteAction,editAction,reOrderAction];

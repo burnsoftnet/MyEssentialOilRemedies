@@ -76,6 +76,8 @@
     ReOrderCount = [OilLists listInShopping:dbPathString ErrorMessage:&errorMsg];
     if (ReOrderCount > 0){
         [[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:[NSString stringWithFormat:@"%d",ReOrderCount]];
+    } else {
+        [[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:nil];
     }
     myObj = nil;
     myFunctions = nil;
@@ -156,7 +158,6 @@
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while removing from shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }
         [self reloadData];
-#warning #44 need to test add to shopping list
     }];
     DeleteAction.backgroundColor = [UIColor redColor];
     return  @[DeleteAction,OrderAction];
