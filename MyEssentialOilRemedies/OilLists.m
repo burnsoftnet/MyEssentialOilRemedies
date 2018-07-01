@@ -161,40 +161,6 @@
 -(NSMutableArray *) getInStockOilsList :(NSString *) dbPath : (NSString **) errorMsg;
 {
     #warning #45 Code Optimization
-    /*
-    oilCollection = [NSMutableArray new];
-    sqlite3_stmt *statement;
-    if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
-        [oilCollection removeAllObjects];
-        NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
-        int ret = sqlite3_prepare_v2(OilDB,[querySQL UTF8String],-1,&statement,NULL);
-        if (ret == SQLITE_OK) {
-            while (sqlite3_step(statement)==SQLITE_ROW) {
-                NSString *name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,0)];
-                NSString *description = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,1)];
-                NSString *InStock = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text(statement,2)];
-                NSString *oid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,4)];
-                NSString *detailsid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,5)];
-                NSString *isBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 6)];
-                
-                OilLists *myCollection = [OilLists new];
-                [myCollection setName:name];
-                [myCollection setOID:[oid intValue]];
-                [myCollection setInStock:InStock];
-                [myCollection setMydescription:description];
-                [myCollection setDetailsID:detailsid];
-                [myCollection setIsBlend:isBlend];
-                
-                [oilCollection addObject:myCollection];
-            }
-            sqlite3_close(OilDB);
-        } else {
-            *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for getInStockOilsList . '%s'", sqlite3_errmsg(OilDB)];
-        }
-    }
-    return oilCollection;
-     */
-/*
      NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
     return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
 }
@@ -438,40 +404,6 @@
 -(NSMutableArray *) getOutOfStockOilsList :(NSString *) dbPath : (NSString **) errorMsg;
 {
     #warning #45 Code Optimization
-    /*
-    oilCollection = [NSMutableArray new];
-    sqlite3_stmt *statement;
-    if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
-        [oilCollection removeAllObjects];
-        NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend from view_eo_oil_list_all where INSTOCK=0 order by name COLLATE NOCASE ASC"];
-        int ret = sqlite3_prepare_v2(OilDB,[querySQL UTF8String],-1,&statement,NULL);
-        if (ret == SQLITE_OK) {
-            while (sqlite3_step(statement)==SQLITE_ROW) {
-                NSString *name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,0)];
-                NSString *description = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,1)];
-                NSString *InStock = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text(statement,2)];
-                NSString *oid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,4)];
-                NSString *detailsid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,5)];
-                NSString *isBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 6)];
-                
-                OilLists *myCollection = [OilLists new];
-                [myCollection setName:name];
-                [myCollection setOID:[oid intValue]];
-                [myCollection setInStock:InStock];
-                [myCollection setMydescription:description];
-                [myCollection setDetailsID:detailsid];
-                [myCollection setIsBlend:isBlend];
-                
-                [oilCollection addObject:myCollection];
-            }
-            sqlite3_close(OilDB);
-        } else {
-            *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for getOutOfStockOilsList. '%s'", sqlite3_errmsg(OilDB)];
-        }
-    }
-    return oilCollection;
-     */
-/*
     NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where INSTOCK=0 order by name COLLATE NOCASE ASC"];
     return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
 }
@@ -540,8 +472,7 @@
     NSString *errMsg = @"";
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
-    //TODO Need to Update Instert with the IsBlended
-    //  Currently going to wait until the interface needs it and will concentrate on the display listing
+    #warning #45 Check to see if you can use this in the Add Oil Details Section
     NSString *sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site,isBlend) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@',%i)", MYOID,[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website],[isBlend intValue]];
     
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&errMsg]) {
@@ -564,8 +495,7 @@
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
     int iblend=[isblend intValue];
     
-    //TODO:  Need to Update this section with the isBlended
-    //  Currently going to wait until the interface needs it and will concentrate on the display listing
+    #warning #45 Check to see if you can use this in the Edit Oil Details Section
     NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@',isBlend=%i where OID=%@",[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website],iblend, MYOID];
     
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&errMsg]) {
