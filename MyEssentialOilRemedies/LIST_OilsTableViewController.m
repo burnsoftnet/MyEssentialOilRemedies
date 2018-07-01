@@ -228,6 +228,7 @@
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     FormFunctions *myFunctions = [FormFunctions new];
+    
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){EDIT_OilDetailViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOils"];
         OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         destViewController.OID = [NSString stringWithFormat:@"%d",a.OID];
@@ -238,11 +239,12 @@
         //insert your deleteAction here
         OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         NSString *Msg;
+        int OID = a.OID;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-        NSString *sql = [NSString stringWithFormat:@"Delete from eo_oil_list_details where OID=%d",a.OID];
+        NSString *sql = [NSString stringWithFormat:@"Delete from eo_oil_list_details where OID=%d",OID];
         if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
         {
-            sql = [NSString stringWithFormat:@"DELETE from eo_oil_list where ID=%d",a.OID];
+            sql = [NSString stringWithFormat:@"DELETE from eo_oil_list where ID=%d",OID];
             if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
             {
                 [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was deleted!",a.name] MyTitle:@"Delete" ViewController:self];
@@ -261,10 +263,12 @@
     UITableViewRowAction *reOrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Add to Shopping Cart" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         NSString *Msg;
+        int OID = a.OID;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-        NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=1 where OID=%d",a.OID];
+        NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=1 where OID=%d",OID];
         if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
         {
+            [a updateStockStatus:@"0" OilID:[NSString stringWithFormat:@"%d",OID] DatabasePath:self->dbPathString ErrorMessage:&Msg];
             [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was put in the shopping cart!",a.name] MyTitle:@"Order" ViewController:self];
         } else {
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while adding to shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];

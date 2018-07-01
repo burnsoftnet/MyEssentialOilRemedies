@@ -114,6 +114,7 @@
                     <navigationItem key="navigationItem" title="Shopping Cart" id="uGD-Jd-5Ip"/>
                     <connections>
                         <outlet property="myTableView" destination="Qt6-Xj-PBP" id="N3V-kX-HRv"/>
+                        <segue destination="R9C-XY-0pR" kind="show" identifier="segueShoppingViewOil" id="RBu-Ci-AeC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ory-ut-xqA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2605,6 +2606,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="QYv-jo-sTt"/>
         <segue reference="9Qq-SB-b9d"/>
+        <segue reference="RBu-Ci-AeC"/>
         <segue reference="tE5-8K-Pn9"/>
     </inferredMetricsTieBreakers>
 </document>

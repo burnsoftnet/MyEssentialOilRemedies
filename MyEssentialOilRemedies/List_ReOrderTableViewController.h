@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BurnSoftDatabase.h"
+#import "VIEW_OilDetailsViewController.h"
 #import "MYSettings.h"
 #import "FormFunctions.h"
 #import "OilLists.h"

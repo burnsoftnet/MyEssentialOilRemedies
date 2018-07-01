@@ -7,6 +7,7 @@
 //
 
 #import "List_ReOrderTableViewController.h"
+#import "VIEW_OilDetailsViewController.h"
 
 @interface List_ReOrderTableViewController ()
 {
@@ -27,6 +28,10 @@
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
     [self loadData];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.myTableView addSubview:refreshControl];
 }
 
 -(void) setupGlobalVars
@@ -156,7 +161,18 @@
     DeleteAction.backgroundColor = [UIColor redColor];
     return  @[DeleteAction,OrderAction];
 }
+
+#pragma mark Table Row Selected
+//actions to take when a row has been selected.
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellTag = [NSString stringWithFormat:@"%ld",(long)cell.tag];
+    SelectedCellID = cellTag;
+    [self performSegueWithIdentifier:@"segueShoppingViewOil" sender:self];
+}
 /*
+ 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -182,14 +198,14 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"segueShoppingViewOil"]) {
+        VIEW_OilDetailsViewController *destViewController = (VIEW_OilDetailsViewController *)segue.destinationViewController;
+        destViewController.OID = SelectedCellID;
+    }
 }
-*/
 
 @end
