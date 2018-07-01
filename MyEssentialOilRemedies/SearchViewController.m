@@ -185,27 +185,36 @@
 //set the cell data by use of an array
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.textLabel.text = [_myCombinedResults objectAtIndex:indexPath.row];
-
+        #warning #22 modify for adavance search option with descriptions
+    /*
+    SearchDatabase *myObj = [_myCombinedResults objectAtIndex:indexPath.row];
+    cell.textLabel.text = myObj.SearchName;
+    cell.detailTextLabel.text = myObj.SearchDescription;
+    */
     return cell;
 }
 
 #pragma mark Update the Search Results
 //Update the search results table with the filtered results
+// see https://academy.realm.io/posts/nspredicate-cheatsheet/
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    if (self.controller.searchBar.text.length > 0)
+    {
+        NSString *lookFor = [[NSString alloc]initWithFormat:@"%@",self.controller.searchBar.text];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self contains[cd] %@",lookFor];
+        @try
+        {
+            self.results = [_myCombinedResults filteredArrayUsingPredicate:predicate];
+        }
+        @catch (NSException *e)
+        {
+            NSLog(@"%@", e.reason);
+        }
+    }
     
-    // filter the search results
-    //this might be the search function tha you need
-    NSString *searchFormat = [NSString new];
-    //searchFormat =@"SELF.SearchName contains [cd] %@";
-    //searchFormat =@"SELF.SearchName LIKE [cd] %@";
-    // =@"%K LIKE[cd] %@";
-    searchFormat = @"%@ contains[c] %@";
-    NSString *lookFor = self.controller.searchBar.text;
-    //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self contains[c] %@",lookFor];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self contains [cd] %@",lookFor];
-    self.results = [_myCombinedResults filteredArrayUsingPredicate:predicate];
 }
 
 #pragma mark Search Button

@@ -11,9 +11,11 @@
 #import "BurnSoftDatabase.h"
 #import "MYSettings.h"
 #import "FormFunctions.h"
+#import "OilLists.h"
 
 @interface SearchDatabase : NSObject
 @property (nonatomic,strong) NSString *SearchName;
+@property (nonatomic,strong) NSString *SearchDescription;
 @property (nonatomic,strong) NSString *SearchType;
 @property (assign) int SearchID;
 @property (nonatomic,strong) NSString *SearchContent;
