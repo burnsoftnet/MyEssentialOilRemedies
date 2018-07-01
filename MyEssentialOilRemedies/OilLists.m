@@ -398,7 +398,8 @@
     OilLists *myobj = [OilLists new];
     return [myobj getCountOfTableBySQL:querySQL DatabasePath:dbPath FromFunction:@"+listInStock" ErrorMessage:errorMsg];
 }
-
+#pragma mark Private function to count the number of oils based on the SQL qurey
+//  Private function to count the number of oils based on the SQL qurey
 -(int) getCountOfTableBySQL:(NSString *) querySQL DatabasePath:(NSString *) dbPath FromFunction:(NSString *) fromFunction ErrorMessage:(NSString **) errorMsg
 {
     int iAns = 0;
