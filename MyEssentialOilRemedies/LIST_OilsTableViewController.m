@@ -153,8 +153,11 @@
     [[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d",RemedyCount]];
     
     ReOrderCount = [OilLists listInShopping:dbPathString ErrorMessage:&errorMsg];
-    [[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:[NSString stringWithFormat:@"%d",ReOrderCount]];
     
+    if (ReOrderCount > 0)
+    {
+        [[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:[NSString stringWithFormat:@"%d",ReOrderCount]];
+    }
     myObj = nil;
     myObjDB = nil;
     myFunctions = nil;
