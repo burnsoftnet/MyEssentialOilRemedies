@@ -19,6 +19,7 @@
     int inStockCount; // Mark if it is instock or not or the badge count
     int RemedyCount; //Added for Lite Version tracking
     int OilCount; //Added for Lite Version tracking
+    int ReOrderCount;
 #warning #44 need to add shopping list count badge
 }
 @end
@@ -29,6 +30,7 @@
 //Actions to take when the Controller Loads
 - (void)viewDidLoad {
     inStockCount = 0;
+    ReOrderCount = 0;
     [super viewDidLoad];
     
     [self setupGlobalVars];
@@ -149,6 +151,9 @@
     RemedyCount = [myObjDB getTotalNumberofRowsInTable:@"eo_remedy_list" DatabasePath:dbPathString ErrorMessage:nil];
     
     [[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d",RemedyCount]];
+    
+    ReOrderCount = [OilLists listInShopping:dbPathString ErrorMessage:&errorMsg];
+    [[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:[NSString stringWithFormat:@"%d",ReOrderCount]];
     
     myObj = nil;
     myObjDB = nil;

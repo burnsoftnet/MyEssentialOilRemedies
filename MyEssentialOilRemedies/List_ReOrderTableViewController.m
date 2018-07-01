@@ -78,6 +78,8 @@
     
     [[self myTableView] reloadData];
     //inStockCount = [myObj getInStockCountByDatabase:dbPathString ErrorMessage:&errorMsg];
+    ReOrderCount = [OilLists listInShopping:dbPathString ErrorMessage:&errorMsg];
+     [[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:[NSString stringWithFormat:@"%d",ReOrderCount]];
     myObj = nil;
     //myObjDB = nil;
     myFunctions = nil;
@@ -127,21 +129,34 @@
 //actions to take when a row has been selected for editing.
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    UITableViewRowAction *OrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete from Re-Order" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+    UITableViewRowAction *OrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Oil is Now In Stock." handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         FormFunctions *myFunctions = [FormFunctions new];
         OilLists *a = [self->myReOrderLists objectAtIndex:indexPath.row];
         NSString *Msg;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-        NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=0 where OID=%d",a.OID];
+        int OID = a.OID;
+        NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=0 where OID=%d",OID];
         if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
         {
-            [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was removed from shopping cart!",a.name] MyTitle:@"Order" ViewController:self];
+           
+#warning TODO: Need to add to InStock since they marked that they marked as bought
+            sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=0 where OID=%d",OID];
+            if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
+            {
+                //OilLists *objO = [OilLists new];
+                //[objO updateStockStatus:@"1" OilID:[a.OID stringValue] DatabasePath:dbPathString ErrorMessage:&Msg];
+                [a updateStockStatus:@"1" OilID:[NSString stringWithFormat:@"%d",OID] DatabasePath:self->dbPathString ErrorMessage:&Msg];
+                
+                [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was removed from shopping cart!",a.name] MyTitle:@"Order" ViewController:self];
+            }
         } else {
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while removing from shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }
         [self reloadData];
         #warning #44 need to test add to shopping list
     }];
+#warning TODO: need to add Delete from Cart option
+    
     OrderAction.backgroundColor = [UIColor darkGrayColor];
     return  @[OrderAction];
 }

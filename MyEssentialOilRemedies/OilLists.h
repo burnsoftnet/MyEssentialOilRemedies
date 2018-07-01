@@ -92,4 +92,7 @@
 #pragma mark Get Oils for Re-Order
 // Get the list of oils that are marked for reOrder.
 - (NSMutableArray *) getOilsForReOrder: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
+#pragma mark Count all the items marked to reorder
+//  Get a count of all the oils that are marked for order or re-order
++(int) listInShopping:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 @end

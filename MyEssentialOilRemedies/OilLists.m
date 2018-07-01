@@ -390,6 +390,15 @@
     return [myobj getCountOfTableBySQL:querySQL DatabasePath:dbPath FromFunction:@"+listInStock" ErrorMessage:errorMsg];
 }
 
+#pragma mark Count all the items marked to reorder
+//  Get a count of all the oils that are marked for order or re-order
++(int) listInShopping:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
+{
+    NSString *querySQL = [NSString stringWithFormat:@"select count(*) from view_eo_oil_list_all where reorder=1 order by name COLLATE NOCASE ASC"];
+    OilLists *myobj = [OilLists new];
+    return [myobj getCountOfTableBySQL:querySQL DatabasePath:dbPath FromFunction:@"+listInStock" ErrorMessage:errorMsg];
+}
+
 -(int) getCountOfTableBySQL:(NSString *) querySQL DatabasePath:(NSString *) dbPath FromFunction:(NSString *) fromFunction ErrorMessage:(NSString **) errorMsg
 {
     int iAns = 0;
