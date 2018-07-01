@@ -16,7 +16,8 @@
 }
 #pragma mark Get List of Oils Only Name
 //NOTE: This will Get the List of oils in the table and put them into an Array, This only returns the name
-//USEDBY:
+//USEDBY: NOTHING
+/*
 -(NSMutableArray *) getOilNameOnly :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 {
     oilCollection = [NSMutableArray new];
@@ -43,8 +44,10 @@
     }
     return oilCollection;
 }
+ */
 #pragma mark "Oil Exists By Name
 // Look up the oil by name to see if it already exists in the database, if it doesn't return NO, else yes
+// USED BY: AirDropHandler, OilLists, Add_OilDetailsViewController
 -(BOOL) oilExistsByName:(NSString *) oilname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     BOOL bAns = NO;
@@ -68,6 +71,7 @@
 }
 #pragma mark Get Remedies that Contain Oil
 //Gets the list of Remedies that have the oil listed in the Oils to remedy table, this does not include anything in the uses and description sections
+//USED BY: View_OilDetailsViewController
 -(NSMutableArray *) getRemediesRelatedToOilID :(NSString *) oilID DatabasePath: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     remedyCollection = [NSMutableArray new];
@@ -101,7 +105,7 @@
 #pragma mark Get List of Oils
 //NOTE: This will Get the List of oils in the table and put them into an Array,
 //      This returns the Name, Description, Stock Status, Oil ID and Details ID.
-//USEDBY:
+//USEDBY: List_OilsTableViewController
 -(NSMutableArray *) getAllOilsList :(NSString *) dbPath : (NSString **) errorMsg;
 {
 #warning #45 Code Optimization
@@ -150,9 +154,10 @@
     NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all order by name COLLATE NOCASE ASC"];
     return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
 }
+/*
 #pragma mark Get Only InStock Oils
 //NOTE: This will return an array of only the oils that are in stock
-//USEDBY:
+//USEDBY: NOTHING
 -(NSMutableArray *) getInStockOilsList :(NSString *) dbPath : (NSString **) errorMsg;
 {
     #warning #45 Code Optimization
@@ -189,14 +194,17 @@
     }
     return oilCollection;
      */
+/*
      NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
     return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
 }
+*/
 #pragma mark Private Return Oil Lists By SQL Statement
 // Private function to return the oil list based on the sql statement, the fields for the SQL
 // statement need to include:
 // name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site
 //in that order
+//USED BY: getalloilslist, getinstockoilslist, getoilsforreorder, getoutofstockoils
 - (NSMutableArray *) returnOilListsBySQLStatement :(NSString *) querySQL DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     oilCollection = [NSMutableArray new];
@@ -342,6 +350,7 @@
 #pragma mark Get Oils for Re-Order
 // Get the list of oils that are marked for reOrder.
 // Used By List_ReOrderTableViewController
+//USED BY: list_reodertableviewcontroller
 - (NSMutableArray *) getOilsForReOrder: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where reorder=1 order by name COLLATE NOCASE ASC"];
@@ -350,7 +359,7 @@
 
 #pragma mark Get InStock Count from Database
 //Function that will return all the oils marked as instock form the datbase
-//USEDBY: listInStock
+//USEDBY: list_oilstableviewcontroller
 -(int) getInStockCountByDatabase :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 {
 #warning #45 Code REfacotring and consolidation
@@ -378,6 +387,7 @@
 }
 #pragma mark List In Stock
 //method version of the get instockcountbydatabase
+//USEDBY: list_oilstableviewcontroller
 +(int) listInStock:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     #warning #45 Code REfacotring and consolidation
@@ -392,6 +402,7 @@
 
 #pragma mark Count all the items marked to reorder
 //  Get a count of all the oils that are marked for order or re-order
+//USEDBY: list_oilstableviewcontroller, list_reordertablevliewcontroller
 +(int) listInShopping:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     NSString *querySQL = [NSString stringWithFormat:@"select count(*) from view_eo_oil_list_all where reorder=1 order by name COLLATE NOCASE ASC"];
@@ -400,6 +411,7 @@
 }
 #pragma mark Private function to count the number of oils based on the SQL qurey
 //  Private function to count the number of oils based on the SQL qurey
+//USEDBY:
 -(int) getCountOfTableBySQL:(NSString *) querySQL DatabasePath:(NSString *) dbPath FromFunction:(NSString *) fromFunction ErrorMessage:(NSString **) errorMsg
 {
     int iAns = 0;
@@ -419,9 +431,10 @@
     return iAns;
 }
 
-#pragma mark Get Only Out-Of-Stock Oils
+//#pragma mark Get Only Out-Of-Stock Oils
 //NOTE:  This will only return the oils that are out of stock
-//USEDBY:
+//USEDBY: NOTHING
+/*
 -(NSMutableArray *) getOutOfStockOilsList :(NSString *) dbPath : (NSString **) errorMsg;
 {
     #warning #45 Code Optimization
@@ -458,9 +471,11 @@
     }
     return oilCollection;
      */
+/*
     NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where INSTOCK=0 order by name COLLATE NOCASE ASC"];
     return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
 }
+ */
 #pragma mark Delete Oil
 //NOTE:  This will delete the oil from the database
 //USEDBY:  Oil List View
@@ -491,6 +506,7 @@
 
 #pragma mark Get Oil ID by Name
 //Get the Oil ID by name, if it will check to see if it exists, if not, it will attempt to insert it and return the ID of that name.
+//USEDBY:
 +(NSNumber *) getOilIDByName:(NSString *) name InStock:(int) iStock DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
 {
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
@@ -517,6 +533,7 @@
 
 #pragma mark Insert Oil Details
 //Insert the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
+//USEDBY:
 +(BOOL) insertOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website Blended:(NSString *) isBlend DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
 {
     BOOL bAns = NO;
@@ -538,6 +555,7 @@
 
 #pragma mark Update Oil Details
 //Update the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
+//USEDBY:
 +(BOOL) updateOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website IsBlend:(NSString *) isblend DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
 {
     BOOL bAns = NO;
