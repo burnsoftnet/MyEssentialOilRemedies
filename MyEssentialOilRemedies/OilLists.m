@@ -353,6 +353,8 @@
 //USEDBY: listInStock
 -(int) getInStockCountByDatabase :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 {
+#warning #45 Code REfacotring and consolidation
+    /*
     int iAns = 0;
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
@@ -369,13 +371,42 @@
 
     }
     return iAns;
+     */
+    NSString *querySQL = [NSString stringWithFormat:@"select count(*) from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
+    OilLists *myobj = [OilLists new];
+    return [myobj getCountOfTableBySQL:querySQL DatabasePath:dbPath FromFunction:@"-listInStock" ErrorMessage:errorMsg];
 }
 #pragma mark List In Stock
 //method version of the get instockcountbydatabase
 +(int) listInStock:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
+    #warning #45 Code REfacotring and consolidation
+    /*
     OilLists *myobj = [OilLists new];
     return [myobj getInStockCountByDatabase:dbPath ErrorMessage:errorMsg];
+    */
+    NSString *querySQL = [NSString stringWithFormat:@"select count(*) from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
+    OilLists *myobj = [OilLists new];
+    return [myobj getCountOfTableBySQL:querySQL DatabasePath:dbPath FromFunction:@"+listInStock" ErrorMessage:errorMsg];
+}
+
+-(int) getCountOfTableBySQL:(NSString *) querySQL DatabasePath:(NSString *) dbPath FromFunction:(NSString *) fromFunction ErrorMessage:(NSString **) errorMsg
+{
+    int iAns = 0;
+    sqlite3_stmt *statement;
+    if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
+        int ret = sqlite3_prepare_v2(OilDB,[querySQL UTF8String],-1,&statement,NULL);
+        if (ret == SQLITE_OK) {
+            while (sqlite3_step(statement)==SQLITE_ROW) {
+                iAns = [[[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,0)] intValue];
+            }
+            sqlite3_close(OilDB);
+        } else {
+            *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for '%@'. '%s'",fromFunction, sqlite3_errmsg(OilDB)];
+        }
+        
+    }
+    return iAns;
 }
 
 #pragma mark Get Only Out-Of-Stock Oils
