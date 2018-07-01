@@ -147,7 +147,7 @@
                 //[objO updateStockStatus:@"1" OilID:[a.OID stringValue] DatabasePath:dbPathString ErrorMessage:&Msg];
                 [a updateStockStatus:@"1" OilID:[NSString stringWithFormat:@"%d",OID] DatabasePath:self->dbPathString ErrorMessage:&Msg];
                 
-                [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was removed from shopping cart!",a.name] MyTitle:@"Order" ViewController:self];
+                [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was removed from shopping cart and marked as In Stock!",a.name] MyTitle:@"Order" ViewController:self];
             }
         } else {
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while removing from shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
@@ -155,10 +155,26 @@
         [self reloadData];
         #warning #44 need to test add to shopping list
     }];
-#warning TODO: need to add Delete from Cart option
-    
     OrderAction.backgroundColor = [UIColor darkGrayColor];
-    return  @[OrderAction];
+#warning TODO: #44 need to add Delete from Cart option
+    UITableViewRowAction *DeleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Remove from Cart" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        FormFunctions *myFunctions = [FormFunctions new];
+        OilLists *a = [self->myReOrderLists objectAtIndex:indexPath.row];
+        NSString *Msg;
+        BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+        int OID = a.OID;
+        NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=0 where OID=%d",OID];
+        if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
+        {
+            [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was removed from shopping cart!",a.name] MyTitle:@"Order" ViewController:self];
+        } else {
+            [myFunctions sendMessage:[NSString stringWithFormat:@"Error while removing from shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
+        }
+        [self reloadData];
+#warning #44 need to test add to shopping list
+    }];
+    DeleteAction.backgroundColor = [UIColor redColor];
+    return  @[DeleteAction,OrderAction];
 }
 /*
 // Override to support editing the table view.
