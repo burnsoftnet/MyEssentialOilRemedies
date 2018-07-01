@@ -20,7 +20,6 @@
     int RemedyCount; //Added for Lite Version tracking
     int OilCount; //Added for Lite Version tracking
     int ReOrderCount;
-#warning #44 need to add shopping list count badge
 }
 @end
 

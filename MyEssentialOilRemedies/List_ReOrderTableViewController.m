@@ -13,9 +13,6 @@
     NSString *dbPathString;
     NSMutableArray *myReOrderLists;
     NSString *SelectedCellID;
-    //int inStockCount;
-    //int RemedyCount;
-    //int OilCount;
     int ReOrderCount;
 }
 @end
@@ -24,19 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //inStockCount = 0;
     ReOrderCount = 0;
     
     [self setupGlobalVars];
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
     [self loadData];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void) setupGlobalVars
@@ -98,8 +88,6 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -112,7 +100,6 @@
     cell.textLabel.text = displayCollection.name;
     cell.detailTextLabel.text = displayCollection.mydescription;
     cell.tag = displayCollection.OID;
-    
     
     return cell;
 }
