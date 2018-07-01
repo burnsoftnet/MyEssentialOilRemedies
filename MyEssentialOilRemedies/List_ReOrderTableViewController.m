@@ -117,14 +117,34 @@
     return cell;
 }
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
+#pragma mark Table Edit actions
+//actions to take when a row has been selected for editing.
+-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    UITableViewRowAction *OrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete from Re-Order" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        FormFunctions *myFunctions = [FormFunctions new];
+        OilLists *a = [self->myReOrderLists objectAtIndex:indexPath.row];
+        NSString *Msg;
+        BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+        NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=0 where OID=%d",a.OID];
+        if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
+        {
+            [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was removed from shopping cart!",a.name] MyTitle:@"Order" ViewController:self];
+        } else {
+            [myFunctions sendMessage:[NSString stringWithFormat:@"Error while removing from shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
+        }
+        [self reloadData];
+        #warning #44 need to test add to shopping list
+    }];
+    OrderAction.backgroundColor = [UIColor darkGrayColor];
+    return  @[OrderAction];
+}
 /*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

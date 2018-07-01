@@ -19,6 +19,7 @@
     int inStockCount; // Mark if it is instock or not or the badge count
     int RemedyCount; //Added for Lite Version tracking
     int OilCount; //Added for Lite Version tracking
+#warning #44 need to add shopping list count badge
 }
 @end
 
@@ -250,7 +251,22 @@
 
     }];
     deleteAction.backgroundColor = [UIColor redColor];
-    return  @[deleteAction,editAction];
+    UITableViewRowAction *reOrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Add to Shopping Cart" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
+        NSString *Msg;
+        BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+        NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=1 where OID=%d",a.OID];
+        if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
+        {
+            [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was put in the shopping cart!",a.name] MyTitle:@"Order" ViewController:self];
+        } else {
+            [myFunctions sendMessage:[NSString stringWithFormat:@"Error while adding to shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
+        }
+        [self reloadData];
+#warning #44 need to test add to shopping list
+    }];
+    reOrderAction.backgroundColor = [UIColor darkGrayColor];
+    return  @[deleteAction,editAction,reOrderAction];
 }
 
 #pragma mark Prepare for Segue

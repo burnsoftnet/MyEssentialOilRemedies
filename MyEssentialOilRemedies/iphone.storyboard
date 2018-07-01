@@ -111,7 +111,7 @@
                             <outlet property="delegate" destination="4YL-Ci-M8G" id="tpm-Wz-Eet"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Re-Order" id="uGD-Jd-5Ip"/>
+                    <navigationItem key="navigationItem" title="Shopping Cart" id="uGD-Jd-5Ip"/>
                     <connections>
                         <outlet property="myTableView" destination="Qt6-Xj-PBP" id="N3V-kX-HRv"/>
                     </connections>
@@ -124,7 +124,7 @@
         <scene sceneID="1UB-WT-NxW">
             <objects>
                 <navigationController storyboardIdentifier="ReOrderNav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7zr-8q-URm" userLabel="ReOrder Nav" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Re-Order" image="cart-plus.png" id="Ows-aE-xQq"/>
+                    <tabBarItem key="tabBarItem" title="Shopping" image="cart-plus.png" id="Ows-aE-xQq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JcP-dH-zvb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

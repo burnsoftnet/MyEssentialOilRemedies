@@ -66,8 +66,6 @@
     }
     return  bAns;
 }
-
-
 #pragma mark Get Remedies that Contain Oil
 //Gets the list of Remedies that have the oil listed in the Oils to remedy table, this does not include anything in the uses and description sections
 -(NSMutableArray *) getRemediesRelatedToOilID :(NSString *) oilID DatabasePath: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg
@@ -439,6 +437,7 @@
         }
     }
 }
+
 #pragma mark Update Stock Status
 //NOTE: This will update the oil Stock status, pass the new value In-Stock=1, Out-Of-Stock-0
 //USEDBY: Oil List View
