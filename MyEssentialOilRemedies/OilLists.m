@@ -14,37 +14,6 @@
     NSMutableArray *remedyCollection;
     sqlite3 *OilDB;
 }
-#pragma mark Get List of Oils Only Name
-//NOTE: This will Get the List of oils in the table and put them into an Array, This only returns the name
-//USEDBY: NOTHING
-/*
--(NSMutableArray *) getOilNameOnly :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
-{
-    oilCollection = [NSMutableArray new];
-    sqlite3_stmt *statement;
-    if (sqlite3_open([dbPath UTF8String], &OilDB) == SQLITE_OK)
-    {
-        [oilCollection removeAllObjects];
-        NSString *sql = [NSString stringWithFormat:@"select name from eo_oil_list order by name COLLATE NOCASE ASC"];
-        int ret = sqlite3_prepare_v2(OilDB,[sql UTF8String],-1,&statement,NULL);
-        if (ret == SQLITE_OK) {
-            while (sqlite3_step(statement)==SQLITE_ROW) {
-                NSString *name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,0)];
-                
-                OilLists *myCollection = [OilLists new];
-                [myCollection setName:name];
-                
-                [oilCollection addObject:myCollection];
-            }
-            sqlite3_close(OilDB);
-        } else {
-            *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for getOilNameOnly . '%s'", sqlite3_errmsg(OilDB)];
-        }
-        sqlite3_finalize(statement);
-    }
-    return oilCollection;
-}
- */
 #pragma mark "Oil Exists By Name
 // Look up the oil by name to see if it already exists in the database, if it doesn't return NO, else yes
 // USED BY: AirDropHandler, OilLists, Add_OilDetailsViewController
@@ -108,63 +77,10 @@
 //USEDBY: List_OilsTableViewController
 -(NSMutableArray *) getAllOilsList :(NSString *) dbPath : (NSString **) errorMsg;
 {
-#warning #45 Code Optimization
-    /*
-    oilCollection = [NSMutableArray new];
-    sqlite3_stmt *statement;
-    if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
-        [oilCollection removeAllObjects];
-        NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend from view_eo_oil_list_all order by name COLLATE NOCASE ASC"];
-        int ret = sqlite3_prepare_v2(OilDB,[querySQL UTF8String],-1,&statement,NULL);
-        if (ret == SQLITE_OK) {
-            while (sqlite3_step(statement)==SQLITE_ROW) {
-                NSString *name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,0)];
-                NSString *description = [NSString new];
-                
-                if ( sqlite3_column_type(statement, 1) != SQLITE_NULL )
-                {
-                    description = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,1)];
-                } else {
-                    description = @" ";
-                }
-                NSString *InStock = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text(statement,2)];
-                NSString *oid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,3)];
-                NSString *detailsid = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,4)];
-                NSString *isBlend = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)];
-                
-                OilLists *myCollection = [OilLists new];
-                [myCollection setName:name];
-                [myCollection setOID:[oid intValue]];
-                [myCollection setInStock:InStock];
-                [myCollection setMydescription:description];
-                [myCollection setDetailsID:detailsid];
-                [myCollection setIsBlend:isBlend];
-                
-                [oilCollection addObject:myCollection];
-            }
-            sqlite3_close(OilDB);
-        } else {
-            *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for getAllOilsList . '%s'", sqlite3_errmsg(OilDB)];
-        }
-        sqlite3_finalize(statement);
-    }
-    return oilCollection;
-    */
-     //NSString **errMsg=[NSString new];
     NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all order by name COLLATE NOCASE ASC"];
     return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
 }
-/*
-#pragma mark Get Only InStock Oils
-//NOTE: This will return an array of only the oils that are in stock
-//USEDBY: NOTHING
--(NSMutableArray *) getInStockOilsList :(NSString *) dbPath : (NSString **) errorMsg;
-{
-    #warning #45 Code Optimization
-     NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
-    return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
-}
-*/
+
 #pragma mark Private Return Oil Lists By SQL Statement
 // Private function to return the oil list based on the sql statement, the fields for the SQL
 // statement need to include:
@@ -328,25 +244,6 @@
 //USEDBY: list_oilstableviewcontroller
 -(int) getInStockCountByDatabase :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 {
-#warning #45 Code REfacotring and consolidation
-    /*
-    int iAns = 0;
-    sqlite3_stmt *statement;
-    if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
-        NSString *querySQL = [NSString stringWithFormat:@"select count(*) from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
-        int ret = sqlite3_prepare_v2(OilDB,[querySQL UTF8String],-1,&statement,NULL);
-        if (ret == SQLITE_OK) {
-            while (sqlite3_step(statement)==SQLITE_ROW) {
-                iAns = [[[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,0)] intValue];
-            }
-            sqlite3_close(OilDB);
-        } else {
-            *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for getOutOfStockOilsList. '%s'", sqlite3_errmsg(OilDB)];
-        }
-
-    }
-    return iAns;
-     */
     NSString *querySQL = [NSString stringWithFormat:@"select count(*) from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
     OilLists *myobj = [OilLists new];
     return [myobj getCountOfTableBySQL:querySQL DatabasePath:dbPath FromFunction:@"-listInStock" ErrorMessage:errorMsg];
@@ -356,11 +253,6 @@
 //USEDBY: list_oilstableviewcontroller
 +(int) listInStock:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
-    #warning #45 Code REfacotring and consolidation
-    /*
-    OilLists *myobj = [OilLists new];
-    return [myobj getInStockCountByDatabase:dbPath ErrorMessage:errorMsg];
-    */
     NSString *querySQL = [NSString stringWithFormat:@"select count(*) from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
     OilLists *myobj = [OilLists new];
     return [myobj getCountOfTableBySQL:querySQL DatabasePath:dbPath FromFunction:@"+listInStock" ErrorMessage:errorMsg];
@@ -397,17 +289,6 @@
     return iAns;
 }
 
-//#pragma mark Get Only Out-Of-Stock Oils
-//NOTE:  This will only return the oils that are out of stock
-//USEDBY: NOTHING
-/*
--(NSMutableArray *) getOutOfStockOilsList :(NSString *) dbPath : (NSString **) errorMsg;
-{
-    #warning #45 Code Optimization
-    NSString *querySQL = [NSString stringWithFormat:@"select name,description,INSTOCK,ID,DetailsID,isBlend,reorder,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site from view_eo_oil_list_all where INSTOCK=0 order by name COLLATE NOCASE ASC"];
-    return [self returnOilListsBySQLStatement:querySQL DatabasePath:dbPath ErrorMessage:errorMsg];
-}
- */
 #pragma mark Delete Oil
 //NOTE:  This will delete the oil from the database
 //USEDBY:  Oil List View

@@ -30,26 +30,11 @@
 @property (nonatomic,strong) NSString *VendorWebSite;
 @property (assign) int RID;
 
-//#pragma mark Get List of Oils Only Name
-//NOTE: This will Get the List of oils in the table and put them into an Array, This only returns the name
-//USEDBY:
-//-(NSMutableArray *) getOilNameOnly :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
-
 #pragma mark Get List of Oils
 //NOTE: This will Get the List of oils in the table and put them into an Array,
 //      This returns the Name, Description, Stock Status, Oil ID and Details ID.
 //USEDBY:
 -(NSMutableArray *) getAllOilsList :(NSString *) dbPath : (NSString **) errorMsg;
-
-//#pragma mark Get Only InStock Oils
-//NOTE: This will return an array of only the oils that are in stock
-//USEDBY:
-//-(NSMutableArray *) getInStockOilsList :(NSString *) dbPath : (NSString **) errorMsg;
-
-//#pragma mark Get Only Out-Of-Stock Oils
-//NOTE:  This will only return the oils that are out of stock
-//USEDBY:
-//-(NSMutableArray *) getOutOfStockOilsList :(NSString *) dbPath : (NSString **) errorMsg;
 
 #pragma mark Delete Oil
 //NOTE:  This will delete the oil from the database
