@@ -91,7 +91,6 @@
 -(void) ClearAndExit
 {
     [self.myOils removeAllObjects];
-    
     [self viewWillDisappear:NO];
 }
 

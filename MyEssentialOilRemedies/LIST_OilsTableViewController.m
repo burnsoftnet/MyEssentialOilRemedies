@@ -51,9 +51,7 @@
             self.navigationItem.rightBarButtonItem = addButton;
         } else {
             self.navigationItem.rightBarButtonItem = nil;
-            //[FormFunctions sendMessage:@"You Have reached your limit on the Lite Version!\n Please Purchase the Regular Version for Unlimited access!" MyTitle:@"Limit Reached!" ViewController:self];
              [FormFunctions AlertonLimitForViewController:self];
-            
         }
     } else {
         UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addMoreOils)];
@@ -77,7 +75,6 @@
     inStockCount = 0;
     SelectedCellID = nil;
     dbPathString = nil;
-    //_myTableView = nil;
 }
 -(void) viewWillDisappear:(BOOL)animated
 {

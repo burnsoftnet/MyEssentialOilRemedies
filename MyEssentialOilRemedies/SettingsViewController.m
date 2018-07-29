@@ -123,19 +123,15 @@
     NSString *errorMsg;
     BurnSoftDatabase *objDB = [BurnSoftDatabase new];
     FormFunctions *objF = [FormFunctions new];
-    //NSString *myTitle = @"Clear Data";
     
     statement = @"DELETE from eo_remedy_oil_list";
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:&errorMsg];
-    //[objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
     
     statement = @"DELETE from eo_oil_list_details";
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:&errorMsg];
-    //[objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
     
     statement = @"DELETE from eo_oil_list";
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:&errorMsg];
-    //[objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
     
     [objF sendMessage:@"Data Cleared" MyTitle:@"This database is clean!" ViewController:self];
     
@@ -156,11 +152,9 @@
     
     statement = @"DELETE from eo_remedy_oil_list";
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:&errorMsg];
-    //[objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
     
     statement =@"DELETE from eo_remedy_list";
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:&errorMsg];
-    //[objF checkForError:errorMsg MyTitle:myTitle ViewController:self];
 
     [objF sendMessage:@"Data Cleared" MyTitle:@"This database is clean!" ViewController:self];
     

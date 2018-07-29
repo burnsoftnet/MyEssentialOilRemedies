@@ -50,7 +50,7 @@
             self.navigationItem.rightBarButtonItem = addButton;
         } else {
             self.navigationItem.rightBarButtonItem = nil;
-            //[FormFunctions sendMessage:@"You Have reached your limit on the Lite Version!\n Please Purchase the Regular Version for Unlimited access!" MyTitle:@"Limit Reached!" ViewController:self];
+
             [FormFunctions AlertonLimitForViewController:self];
         }
     } else {
@@ -129,10 +129,8 @@
     OilCount = [myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];
     
     if (InStockCount == 0) {
-        //OilCount = [myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];
         [[self.tabBarController.tabBar.items objectAtIndex:0] setBadgeValue:[NSString stringWithFormat:@"%d",OilCount]];
     } else {
-        //OilCount =[myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];
         [[self.tabBarController.tabBar.items objectAtIndex:0] setBadgeValue:[NSString stringWithFormat:@"%i/%d",InStockCount,OilCount]];
 
     }

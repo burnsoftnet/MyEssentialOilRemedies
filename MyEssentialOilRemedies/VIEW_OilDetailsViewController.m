@@ -58,12 +58,6 @@
     SelectedCellID = nil;
     dbPathString = nil;
 }
--(void) viewWillDisappear:(BOOL)animated
-{
-    //#39 This section was disabled to fix the second air drop attempt and null values
-    //Enduse sets all values to null
-    //[self enduse];
-}
 
 -(void) viewDidDisappear:(BOOL)animated
 {

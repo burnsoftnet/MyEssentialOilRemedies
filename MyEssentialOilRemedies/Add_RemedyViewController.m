@@ -232,12 +232,7 @@
         } else if (MissingRemedyDescription && MissingRemedyName) {
             [FormFunctions sendMessage:@"Please Put in a Problem Name & Description!" MyTitle:@"Missing Value" ViewController:self];
         }
-        
-        //FormFunctions *myAlert = [FormFunctions new];
-        
-        //[myAlert sendMessage:@"Please put in a Problem description!" MyTitle:@"Add Error" ViewController:self];
     }
-    
 }
 
 #pragma mark Oil Button Tool Bar Button
