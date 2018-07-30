@@ -272,6 +272,19 @@
     [objO updateStockStatus:iStock OilID:self.OID DatabasePath:dbPathString ErrorMessage:&errorMsg];
 }
 
+- (IBAction)swUpdateBlendStatus:(id)sender
+{
+    NSString *iBlend = 0;
+    NSString *errorMsg;
+    if (self.swIsBlend.isOn){
+        iBlend = @"1";
+    } else {
+        iBlend = @"0";
+    }
+    
+    [OilLists updateBlendStatusWithNewValue:iBlend OilID:self.OID DatabasePath:dbPathString ErrorMessage:&errorMsg];
+}
+
 #pragma mark Close Button from Search
 //Actions to take when the close button is touched
 - (IBAction)btnClose:(id)sender {

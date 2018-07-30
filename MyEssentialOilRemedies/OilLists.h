@@ -80,4 +80,8 @@
 #pragma mark Count all the items marked to reorder
 //  Get a count of all the oils that are marked for order or re-order
 +(int) listInShopping:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
+
+#pragma mark UPdate Blend Status
+//NOTE: This will update the Blend Status
++(void) updateBlendStatusWithNewValue:(NSString *) newValue OilID:(NSString *) myOID DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 @end

@@ -178,7 +178,7 @@
                         [myobjF checkForError:msg MyTitle:@"Adding Details" ViewController:self];
                     }
                      */
-#warning #45 REFACTOR - commented out sql statement with insert function from oillists
+//#warning #45 REFACTOR - commented out sql statement with insert function from oillists
                     if ([OilLists insertOilDetailsByOID:MYOID Description:description BotanicalName:BotName Ingredients:Ingredients SafetyNotes:safetyNotes Color:color Viscosity:viscosity CommonName:commonName Vendor:vendor WebSite:website Blended:[NSString stringWithFormat:@"%@",iBlend] DatabasePath:dbPathString ErrorMessage:&msg]) {
                         [self clearValues];
                         UINavigationController *navController = self.navigationController;

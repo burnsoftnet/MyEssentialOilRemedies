@@ -317,6 +317,15 @@
     [objDB runQuery:sql DatabasePath:dbPath MessageHandler:errorMsg];
 }
 
+#pragma mark UPdate Blend Status
+//NOTE: This will update the Blend Status
++(void) updateBlendStatusWithNewValue:(NSString *) newValue OilID:(NSString *) myOID DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
+{
+    BurnSoftDatabase *objDB = [BurnSoftDatabase new];
+    NSString *sql = [NSString stringWithFormat:@"update eo_oil_list_details set isBlend=%@ where ID=%@",newValue,myOID];
+    [objDB runQuery:sql DatabasePath:dbPath MessageHandler:errorMsg];
+}
+
 #pragma mark Get Oil ID by Name
 //Get the Oil ID by name, if it will check to see if it exists, if not, it will attempt to insert it and return the ID of that name.
 //USEDBY:

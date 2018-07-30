@@ -43,6 +43,7 @@
 - (IBAction)tbDescription:(id)sender;
 - (IBAction)tbRelatedRemedies:(id)sender;
 - (IBAction)swUpdateStockStatus:(id)sender;
+- (IBAction)swUpdateBlendStatus:(id)sender;
 - (IBAction)btnClose:(id)sender;
 - (IBAction)btnEdit:(id)sender;
 
