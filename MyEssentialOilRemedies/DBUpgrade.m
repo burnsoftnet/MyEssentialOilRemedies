@@ -149,7 +149,7 @@
     double newDBVersion = 0;
     NSString *msg;
     NSString *sqlstmt = [NSString new];
-    newDBVersion = 0.0;
+    newDBVersion = 1.3;
     if (![myObj VersionExists:[NSString stringWithFormat:@"%f",newDBVersion] VersionTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&msg])
     {
         // Send to doBuggermeMessage if enabled, that the database upgrade is begining
@@ -178,6 +178,11 @@
         [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
         
         sqlstmt=@"CREATE VIEW view_eo_oil_list_all AS SELECT ol.ID, ol.name, ol.INSTOCK, old.ID as DetailsID,old.description, old.BotanicalName,old.Ingredients, old.SafetyNotes, old.Color,old.Viscosity, old.CommonName, old.vendor, old.vendor_site , old.isBlend, old.reorder from eo_oil_list ol inner join eo_oil_list_details old on old.OID=ol.ID;";
+        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        
+        //Update Database to current Version
+        sqlstmt=[NSString stringWithFormat:@"INSERT INTO DB_Version (version) VALUES('%.01f')", newDBVersion];
         [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
         [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
         
