@@ -353,7 +353,7 @@
     NSString *errMsg = @"";
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
-    //#warning #45 Check to see if you can use this in the Add Oil Details Section
+
     NSString *sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site,isBlend) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@',%i)", MYOID,[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website],[isBlend intValue]];
     
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&errMsg]) {
