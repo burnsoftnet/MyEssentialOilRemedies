@@ -158,14 +158,28 @@
     {
         if (![name isEqualToString:@""])
         {
+            
+            //+(BOOL) insertOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website Blended:(NSString *) isBlend DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
+            
             sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list (name,instock) VALUES ('%@',%i)",name,[iStock intValue]];
             
             if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]){
                 NSNumber *MYOID = [myObjDB getLastOneEntryIDbyName:name LookForColumnName:@"name" GetIDFomColumn:@"ID" InTable:@"eo_oil_list" DatabasePath:dbPathString MessageHandler:&msg];
                 if (!(MYOID==0)){
+                    /*
                     sql = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,BotanicalName,Ingredients,SafetyNotes,Color,Viscosity,CommonName,vendor,vendor_site, isBlend) VALUES(%@,'%@','%@','%@','%@','%@','%@','%@','%@','%@',%i)", MYOID,description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website,[iBlend intValue]];
                     
                     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]) {
+                        [self clearValues];
+                        UINavigationController *navController = self.navigationController;
+                        [navController popViewControllerAnimated:NO];
+                        [navController popViewControllerAnimated:YES];
+                    } else {
+                        [myobjF checkForError:msg MyTitle:@"Adding Details" ViewController:self];
+                    }
+                     */
+#warning #45 REFACTOR - commented out sql statement with insert function from oillists
+                    if ([OilLists insertOilDetailsByOID:MYOID Description:description BotanicalName:BotName Ingredients:Ingredients SafetyNotes:safetyNotes Color:color Viscosity:viscosity CommonName:commonName Vendor:vendor WebSite:website Blended:[NSString stringWithFormat:@"%@",iBlend] DatabasePath:dbPathString ErrorMessage:&msg]) {
                         [self clearValues];
                         UINavigationController *navController = self.navigationController;
                         [navController popViewControllerAnimated:NO];
