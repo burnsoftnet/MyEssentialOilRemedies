@@ -135,7 +135,7 @@
             }
              */
 //#warning #45 REFACTOR Added the updateOilDetailsByOIL from OilLists
-            if ([OilLists updateOilDetailsByOID:[NSString stringWithFormat:@"%@",self.OID] Description:description BotanicalName:BotName Ingredients:Ingredients SafetyNotes:safetyNotes Color:color Viscosity:viscosity CommonName:commonName Vendor:vendor WebSite:website IsBlend:[NSString stringWithFormat:@"%@",iBlend] DatabasePath:dbPathString ErrorMessage:&msg]){
+            if ([OilLists updateOilDetailsByOID:[BurnSoftGeneral convertToNSNumberByString:self.OID] Description:description BotanicalName:BotName Ingredients:Ingredients SafetyNotes:safetyNotes Color:color Viscosity:viscosity CommonName:commonName Vendor:vendor WebSite:website IsBlend:[NSString stringWithFormat:@"%@",iBlend] DatabasePath:dbPathString ErrorMessage:&msg]){
                 if (!self.IsFromSearch)
                 {
                     UINavigationController *navController = self.navigationController;

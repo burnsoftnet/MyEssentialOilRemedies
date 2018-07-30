@@ -239,4 +239,12 @@
     
     return bAns;
 }
+//Convert a string to NSNumber
++(NSNumber *) convertToNSNumberByString:(NSString *) sValue
+{
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *nNumber = [f numberFromString:sValue];
+    return nNumber;
+}
 @end
