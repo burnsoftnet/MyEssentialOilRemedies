@@ -44,6 +44,8 @@
     NSString *msg = [NSString new];
     BOOL success =[myObjDM restoreDatabaseFromiCloudByDBName:@MYDBNAME LocalDatabasePath:dbPathString ErrorMessage:&msg];
     if (success){
+        DBUpgrade *myDB = [DBUpgrade new];
+        [myDB checkDBVersionAgainstExpectedVersion];
         msg = [NSString stringWithFormat:@"Databae Restore was successful!"];
         [myObjFF sendMessage:msg MyTitle:@"Success!" ViewController:self];
     } else {

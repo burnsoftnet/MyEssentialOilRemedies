@@ -34,6 +34,11 @@
     [self.myTableView addSubview:refreshControl];
 }
 
+- (void) refreshData
+{
+    [self reloadData];
+}
+
 -(void) setupGlobalVars
 {
     BurnSoftDatabase *myPath = [BurnSoftDatabase new];

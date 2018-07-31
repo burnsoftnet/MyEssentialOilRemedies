@@ -12,6 +12,7 @@
 #import "MYSettings.h"
 #import "FormFunctions.h"
 #import "DatabaseManagement.h"
+#import "DBUpgrade.h"
 
 @interface SettingsViewController : UIViewController <UIAlertViewDelegate>
 - (IBAction)btnClearOils:(id)sender;

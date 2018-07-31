@@ -16,4 +16,5 @@
 @interface List_ReOrderTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 - (IBAction)refresh:(UIRefreshControl *)sender;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
+- (void) refreshData;
 @end

@@ -272,6 +272,8 @@
         } else {
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while adding to shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }
+        //List_ReOrderTableViewController *objRefresh = [List_ReOrderTableViewController new];
+        //[objRefresh refreshData];
         [self reloadData];
     }];
     reOrderAction.backgroundColor = [UIColor darkGrayColor];
