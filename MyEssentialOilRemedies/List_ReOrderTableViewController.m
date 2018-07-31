@@ -34,9 +34,17 @@
     [self.myTableView addSubview:refreshControl];
 }
 
+#pragma mark View will reappear
+//Sub when the form reloads
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self reloadData];
+}
+
 - (void) refreshData
 {
-    [self reloadData];
+    [self.myTableView reloadData];
+    [self loadData];
 }
 
 -(void) setupGlobalVars
