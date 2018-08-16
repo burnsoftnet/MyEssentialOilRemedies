@@ -192,6 +192,8 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    cell.textLabel.font = [UIFont systemFontOfSize:16];
+    
     OilLists *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
     cell.textLabel.text = displayCollection.name;
     cell.detailTextLabel.text = displayCollection.mydescription;
@@ -207,7 +209,7 @@
     
     if ([isBlend intValue] == 1)
     {
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:18.0];
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:19.0];
     }
     return cell;
 }
