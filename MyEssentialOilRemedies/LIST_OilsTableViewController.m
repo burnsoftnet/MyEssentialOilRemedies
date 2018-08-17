@@ -40,6 +40,9 @@
     //Set Tableview to Delete Mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
 }
+
+#pragma mark Add Navigation Button
+// Add new navigation button called add to add more oils
 -(void) addNavButton
 {
     //Create an Add Button in Nav Bat
@@ -76,6 +79,9 @@
     SelectedCellID = nil;
     dbPathString = nil;
 }
+
+#pragma mark View Will Disappear
+//when the view will disappear
 -(void) viewWillDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];

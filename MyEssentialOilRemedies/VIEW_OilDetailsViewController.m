@@ -272,7 +272,8 @@
     OilLists *objO = [OilLists new];
     [objO updateStockStatus:iStock OilID:self.OID DatabasePath:dbPathString ErrorMessage:&errorMsg];
 }
-
+#pragma mark Update Blend Status
+//Switch for Blend Status
 - (IBAction)swUpdateBlendStatus:(id)sender
 {
     NSString *iBlend = 0;

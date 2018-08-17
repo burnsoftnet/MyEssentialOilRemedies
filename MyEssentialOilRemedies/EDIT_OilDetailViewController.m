@@ -114,27 +114,6 @@
     
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]){
         if (!(self.OID==0)){
-            //+(BOOL) updateOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website IsBlend:(NSString *) isblend DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg
-            /*
-            sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@',isBlend=%i where OID=%@",description,BotName,Ingredients,safetyNotes,color,viscosity,commonName,vendor,website,[iBlend intValue], self.OID];
-            
-            if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&msg]) {
-                
-                if (!self.IsFromSearch)
-                {
-                    UINavigationController *navController = self.navigationController;
-                    [navController popViewControllerAnimated:NO];
-                    [navController popViewControllerAnimated:YES];
-                } else {
-                    [self dismissViewControllerAnimated:YES completion:Nil];
-                    [self dismissViewControllerAnimated:YES completion:Nil];
-                }
-                
-            } else {
-                [myObjF checkForError:msg MyTitle:@"Updating Details" ViewController:self];
-            }
-             */
-//#warning #45 REFACTOR Added the updateOilDetailsByOIL from OilLists
             if ([OilLists updateOilDetailsByOID:[BurnSoftGeneral convertToNSNumberByString:self.OID] Description:description BotanicalName:BotName Ingredients:Ingredients SafetyNotes:safetyNotes Color:color Viscosity:viscosity CommonName:commonName Vendor:vendor WebSite:website IsBlend:[NSString stringWithFormat:@"%@",iBlend] DatabasePath:dbPathString ErrorMessage:&msg]){
                 if (!self.IsFromSearch)
                 {

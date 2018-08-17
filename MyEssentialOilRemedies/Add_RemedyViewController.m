@@ -214,9 +214,7 @@
     NSString *myU = self.txtUses.text;
     BOOL MissingRemedyName = [myRN isEqualToString:@""];
     BOOL MissingRemedyDescription = (BOOL)[myRD isEqualToString:@""];
-    
-    
-    
+       
     if (!MissingRemedyName && !MissingRemedyDescription) {
         BurnSoftGeneral *myObj = [BurnSoftGeneral new];
         OilRemedies *objDB = [OilRemedies new];
