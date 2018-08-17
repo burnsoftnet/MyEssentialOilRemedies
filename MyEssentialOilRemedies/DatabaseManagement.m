@@ -20,6 +20,7 @@
      NSMutableArray * _entries;
 }
 #pragma mark Initiate Call Back
+//  Initialize with Call Back
 - (id)initWithCallback:(InitCallbackBlock)callback;
 {
     if (!(self = [super init])) return nil;

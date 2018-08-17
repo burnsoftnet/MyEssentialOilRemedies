@@ -32,7 +32,7 @@
 {
 
 }
-
+#pragma mark Kill everything in the form when the form is no longer active
 -(void) enduse
 {
     _OID = nil;
@@ -58,11 +58,13 @@
     SelectedCellID = nil;
     dbPathString = nil;
 }
-
+#pragma mark View Did Disappear
+//When the form disappears set everything to null
 -(void) viewDidDisappear:(BOOL)animated
 {
     [self enduse];
 }
+
 #pragma mark Controller Load
 //Actions to take when the Controller Loads
 - (void)viewDidLoad {
@@ -84,7 +86,6 @@
         [self changeCurrentViewTo:1];
     }
 }
-
 
 #pragma mark Start Action Sheet
 //start the action sheet process and gather the data to send to the ActionClass

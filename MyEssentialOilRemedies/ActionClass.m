@@ -14,6 +14,7 @@
 }
 
 #pragma mark Create an Action Sheet for iPhone and iPad to send data to another device
+// Create an Action Sheet to send data to another apple device using the action sheets
 +(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects eMailSubject:(NSString *) emailSubject
 {
     

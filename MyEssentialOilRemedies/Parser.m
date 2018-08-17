@@ -242,6 +242,7 @@
 }
 
 #pragma mark Release all the objects from Memory
+// Release objects form memory
 -(void) releaseObjects
 {
     _databasePath = nil;

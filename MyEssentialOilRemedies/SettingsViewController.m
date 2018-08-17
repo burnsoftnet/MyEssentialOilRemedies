@@ -55,7 +55,8 @@
     myObjDM = nil;
     myObjFF = nil;
 }
-
+#pragma mark View will Disappear
+// Handle when the form is no longer active
 -(void) viewWillDisappear:(BOOL)animated
 {
     dbPathString = nil;

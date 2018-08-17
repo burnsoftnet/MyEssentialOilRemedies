@@ -31,6 +31,8 @@
     [[self myTableView]setDataSource:self];
 }
 
+#pragma mark Reload Data
+// Reload the Data when executed from another function
 -(void) reloadData
 {
     [self LoadSettings];
@@ -182,8 +184,7 @@
 //actions to take when a row has been selected.
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    //NSString *cellTag = [NSString stringWithFormat:@"%@",cell.textLabel.text];
+    //Currently does nothing, but is required by the UITableView
 }
 
 #pragma mark Table Edit actions

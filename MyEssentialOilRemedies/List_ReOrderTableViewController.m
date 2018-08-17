@@ -20,6 +20,7 @@
 
 @implementation List_ReOrderTableViewController
 
+#pragma mark View did Load
 - (void)viewDidLoad {
     [super viewDidLoad];
     ReOrderCount = 0;
@@ -47,6 +48,8 @@
     [self loadData];
 }
 
+#pragma mark Setup Global Variables
+// Setup global variables for the List Reorder forms
 -(void) setupGlobalVars
 {
     BurnSoftDatabase *myPath = [BurnSoftDatabase new];
@@ -60,19 +63,27 @@
     myFunctions = nil;
     
 }
+
+#pragma mark Memory Warnings
 -(void) didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
+#pragma mark Reload Data
+//Reload the data as is the form was first visited
 - (void) reloadData {
     [self setupGlobalVars];
     [self loadData];
 }
+#pragma mark Refresh
+// refresh the data on the form when swapped down
 - (IBAction) refresh:(UIRefreshControl *)sender{
     [self.myTableView reloadData];
     [self loadData];
     [sender endRefreshing];
 }
 
+#pragma mark Load Data
+// Load the data when the form first loads or when the data is reloaded
 - (void) loadData
 {
     [myReOrderLists removeAllObjects];
@@ -101,12 +112,12 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
-
+#pragma mark - Table view Number of Rows
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [myReOrderLists count];
 }
 
-
+#pragma mark Table View Cell At Path
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -124,6 +135,7 @@
     return cell;
 }
 
+#pragma mark Table View Can Edit Row
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
@@ -185,32 +197,7 @@
     SelectedCellID = cellTag;
     [self performSegueWithIdentifier:@"segueShoppingViewOil" sender:self];
 }
-/*
- 
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Navigation
 
