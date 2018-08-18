@@ -131,6 +131,7 @@
 		A5652D911E3E5F290029EB7A /* Icon-notification-20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */; };
 		A56787D62127A20E008168C2 /* cart-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1620E84328009F4845 /* cart-plus@2x.png */; };
 		A56787D72127A211008168C2 /* cart-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1920E84329009F4845 /* cart-plus.png */; };
+		A56787D82127A379008168C2 /* List_ReOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A515BA0220E7FF2F009F4845 /* List_ReOrderTableViewController.m */; };
 		A56D7F7E1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */; };
 		A573E1431EB7712000C11C71 /* AirDropHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A573E1421EB7712000C11C71 /* AirDropHandler.m */; };
 		A57BF9DA1D6C96EC005D3113 /* FormFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A57BF9D91D6C96EC005D3113 /* FormFunctions.m */; };
@@ -947,6 +948,7 @@
 				A51FBC2F1F5CBCF2001214B6 /* MYSettings.m in Sources */,
 				A51FBC301F5CBCF2001214B6 /* PopUpOilViewController.m in Sources */,
 				A51FBC311F5CBCF2001214B6 /* Parser.m in Sources */,
+				A56787D82127A379008168C2 /* List_ReOrderTableViewController.m in Sources */,
 				A51FBC321F5CBCF2001214B6 /* DBUpgrade.m in Sources */,
 				A51FBC331F5CBCF2001214B6 /* SettingsViewController.m in Sources */,
 				A51FBC341F5CBCF2001214B6 /* main.m in Sources */,
