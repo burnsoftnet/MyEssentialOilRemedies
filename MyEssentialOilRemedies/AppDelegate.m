@@ -100,7 +100,7 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         //#53 Commented out the abort() command since the
 #warning Comment out abort for issues 53
-        abort();
+        //abort();
     }
     
     return _persistentStoreCoordinator;
