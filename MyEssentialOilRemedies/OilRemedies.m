@@ -176,7 +176,7 @@
         statement =[NSString stringWithFormat:@"INSERT INTO eo_oil_list (name) VALUES ('%@')",myoilname];
         [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:errorMsg];
         sAns = [NSString stringWithFormat:@"%@",[objDB getLastOneEntryIDbyName:myoilname LookForColumnName:@"name" GetIDFomColumn:@"ID" InTable:@"eo_oil_list" DatabasePath:dbPathString MessageHandler:errorMsg]];
-        statement = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description) VALUES(%@,'N/A')",[objG FCString:sAns]];
+        statement = [NSString stringWithFormat:@"INSERT INTO eo_oil_list_details (OID,description,isBlend,reorder) VALUES(%@,'N/A',0,0)",[objG FCString:sAns]];
         [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:errorMsg];
     }
     return sAns;

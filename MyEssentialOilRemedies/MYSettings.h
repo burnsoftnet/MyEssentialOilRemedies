@@ -10,7 +10,7 @@
 
 #define MYDBNAME "MEO.db"       //Database Name
 #define MYDBVERSION 1.3         //Expected Database Version for the current version of this app
-static BOOL BUGGERME = NO;
+static BOOL BUGGERME = YES;
 //#warning TODO: ON RELEASE COMPILE LITE AND REGULAR VERSION
 static BOOL ISLITE = NO;
 static int LITE_LIMIT = 15;
