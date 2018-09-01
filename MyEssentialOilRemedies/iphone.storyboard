@@ -36,7 +36,7 @@
         <scene sceneID="gUN-Y5-eny">
             <objects>
                 <navigationController title="Settings Nav Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lO5-lO-B3g" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settingd" image="gear.png" id="XlV-KL-MhV"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear.png" id="XlV-KL-MhV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="agg-h2-ZEF">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
