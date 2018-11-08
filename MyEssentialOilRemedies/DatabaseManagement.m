@@ -187,12 +187,12 @@
     //Remove any conflicting versions and maybe initialize icloud sync
     DatabaseManagement *myObjDM = [DatabaseManagement new];
     [myObjDM removeConflictVersionsiniCloudbyURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"]];
-    
+    NSError *errOut = nil;
     NSFileManager *objFM = [NSFileManager new];
-    if ([objFM startDownloadingUbiquitousItemAtURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"] error:nil]) {
+    if ([objFM startDownloadingUbiquitousItemAtURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"] error:&errOut]) {
         [FormFunctions doBuggermeMessage:@"sync started!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
     } else {
-        [FormFunctions doBuggermeMessage:@"sync FAILED!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+        [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"iCloud Sync Error: %@", errOut] FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
     }
     
     myObj = nil;
