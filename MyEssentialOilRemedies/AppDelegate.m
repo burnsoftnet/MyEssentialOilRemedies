@@ -98,9 +98,6 @@
         // Replace this with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        //#53 Commented out the abort() command since the
-#warning Comment out abort for issues 53
-        //abort();
     }
     
     return _persistentStoreCoordinator;
