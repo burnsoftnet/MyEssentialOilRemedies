@@ -16,7 +16,8 @@
     int currView;
 }
 #pragma mark Form Load
-//When the form is loading
+/*! @brief When the form is loading
+ */
 -(void) viewDidLoad
 {
     [super viewDidLoad];
@@ -49,7 +50,8 @@
 }
 
 #pragma mark View appears again
-//When the view appears again
+/*! @brief When the view appears again
+ */
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -57,7 +59,8 @@
 }
 
 #pragma mark Button Add Oil
-//when the Add button is pressed
+/*! @brief when the Add button is pressed
+ */
 -(IBAction)btnAddOil:(id)sender
 {
     NSString *newOil = self.txtOilName.text;
@@ -70,13 +73,15 @@
 }
 
 #pragma mark Did Recieve Memory Warning
-// Dispose of any resources that can be recreated.
+/*! @brief  Dispose of any resources that can be recreated.
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark Form Exits
-//Clean up when the form is leaving
+/*! @brief Clean up when the form is leaving
+ */
 -(void) viewWillDisappear:(BOOL)animated {
     UINavigationController *navController = self.navigationController;
     [navController popViewControllerAnimated:NO];
@@ -87,7 +92,8 @@
 }
 
 #pragma mark Clear and Exit
-//Clear out the values and exit
+/*! @brief Clear out the values and exit
+ */
 -(void) ClearAndExit
 {
     [self.myOils removeAllObjects];
@@ -95,7 +101,8 @@
 }
 
 #pragma mark Keyboard Disappear
-//Makes the Keyboard disappear when outside of the textbox is clicked
+/*! @brief Makes the Keyboard disappear when outside of the textbox is clicked
+ */
 -(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
 {
     [self.txtUses resignFirstResponder];
@@ -106,7 +113,8 @@
 }
 
 #pragma mark Load Data
-//load the data when the form starts or when nedded.
+/*! @brief load the data when the form starts or when nedded.
+ */
 -(void) loadData
 {
     sqlite3_stmt *statement;
@@ -143,7 +151,8 @@
 }
 
 #pragma mark Reload Data
-//Reload everything as if the form was new but it isn't
+/*! @brief Reload everything as if the form was new but it isn't
+ */
 -(void) reloadData
 {
     [self loadSettings];
@@ -151,7 +160,8 @@
 }
 
 #pragma mark Load Settings
-// Load the database path and make the borders around the textboxes and text views
+/*! @brief  Load the database path and make the borders around the textboxes and text views
+ */
 -(void) loadSettings
 {
     BurnSoftDatabase *objDB = [BurnSoftDatabase new];
@@ -168,10 +178,11 @@
 }
 
 #pragma mark Change Views
-//This will change the views when a button on the toolbar is touched
-// 1 is Description View is selected
-// 2 is Oils View was selcted
-// 3 is the Uses View was selected
+/*! @brief This will change the views when a button on the toolbar is touched
+    1 is Description View is selected
+    2 is Oils View was selcted
+    3 is the Uses View was selected
+ */
 -(void)changeCurrentViewTo:(int) iValue
 {
     switch (iValue) {
@@ -193,7 +204,8 @@
 }
 
 #pragma mark Oils Arral
-//swap the oils array for next view
+/*! @brief swap the oils array for next view
+ */
 -(NSMutableArray *) myOils
 {
     if (_myOils == nil ) {
@@ -203,7 +215,8 @@
 }
 
 #pragma mark Add Oils to Remedy
-//Add the oils lsted to the remedy link table
+/*! @brief Add the oils lsted to the remedy link table
+ */
 - (void) addOilsToRemedy: (NSString *) RemedyID
 {
     OilRemedies *objDB = [OilRemedies new];
@@ -220,28 +233,32 @@
 }
 
 #pragma mark Uses ToolBar button
-//Button to switch to the uses view
+/*! @brief Button to switch to the uses view
+ */
 -(IBAction)tbUses:(id)sender
 {
     [self changeCurrentViewTo:3];
 }
 
 #pragma mark Description ToolBar button
-//buttong to switch to the description view
+/*! @brief buttong to switch to the description view
+ */
 -(IBAction)tbDescription:(id)sender
 {
      [self changeCurrentViewTo:1];
 }
 
 #pragma mark Oils ToolBar button
-//buttong to switch to the oils view
+/*! @brief buttong to switch to the oils view
+ */
 -(IBAction)tbOils:(id)sender
 {
     [self changeCurrentViewTo:2];
 }
 
 #pragma mark Update Button
-//Start the update process
+/*! @brief Start the update process
+ */
 -(IBAction)tbUpdate:(id)sender
 {
     FormFunctions *myObj = [FormFunctions new];
@@ -268,34 +285,39 @@
 }
 
 #pragma mark Close Button
-//action to take when the close button has been touched.
+/*! @brief action to take when the close button has been touched.
+ */
 - (IBAction)tbClose:(id)sender {
     [self ClearAndExit];
 }
 
 #pragma mark Table Edit Rows
-//function for table editing
+/*! @brief function for table editing
+ */
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
 
 #pragma mark Table Set Sections
-//set the sections in the table
+/*! @brief set the sections in the table
+ */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
 #pragma mark Table Set Number of Rows
-//set the number of rows int he table
+/*! @brief set the number of rows int he table
+ */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return  [_myOils count];
 }
 
 #pragma mark Table Set Cell Data
-//set the cell data by use of an array
+/*! @brief set the cell data by use of an array
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier=@"Cell";
@@ -308,7 +330,8 @@
 }
 
 #pragma mark Table Edit Swipe actions
-//what to do when the field is swiped
+/*! @brief what to do when the field is swiped
+ */
 -(NSArray *) tableView:(UITableView *) tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete" handler:^(UITableViewRowAction *action,NSIndexPath *indexPath){
