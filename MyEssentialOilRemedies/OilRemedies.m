@@ -17,8 +17,8 @@
 }
 
 #pragma mark Remedy Exists By Name
-// Look up the Remedy by name to see if it already exists in the database, if it doesn't return NO, else yes
-// USEDBY:
+/*! @brief Look up the Remedy by name to see if it already exists in the database, if it doesn't return NO, else yes
+ */
 -(BOOL) RemedyExistsByName:(NSString *) oilname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     BOOL bAns = NO;
@@ -42,8 +42,8 @@
 }
 
 #pragma mark Get Remedy ID By Name
-// Look up the Remedy by name to get the ID in the database, if it doesn't return 0, else ID
-// USEDBY:
+/*! @brief Look up the Remedy by name to get the ID in the database, if it doesn't return 0, else ID
+ */
 +(NSNumber *) getRemedyIDByName:(NSString *) Remedyname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString *_Nullable*) errorMsg
 {
     NSNumber *nAns = 0;
@@ -55,8 +55,9 @@
 }
 
 #pragma mark Get all Oils for Remedy
-//NOTE: Array to get all the oils needed that have been tagged for a remedy based on the Remedy ID.
-//USEDFOR: View Remedies, Edit Remedies
+/*! @brief Array to get all the oils needed that have been tagged for a remedy based on the Remedy ID.
+ @remark View Remedies, Edit Remedies
+ */
 -(NSMutableArray *) getAllOilfForremedyByRID:(NSString *) RID DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **)errorMsg
 {
     oilRemedyCollection = [NSMutableArray new];
@@ -83,8 +84,9 @@
     return oilRemedyCollection;
 }
 #pragma mark Get all Oils for Remedy Name Only
-//NOTE: Array to get all the oils needed that have been tagged for a remedy based on the Remedy ID.
-//USEDFOR: View Edit Remedies
+/*! @brief  Array to get all the oils needed that have been tagged for a remedy based on the Remedy ID.
+ @remark View Edit Remedies
+ */
 -(NSMutableArray *) getAllOilfForremedyByRIDNameOnly:(NSString *) RID DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **)errorMsg
 {
     EditOilsInRemedy = [NSMutableArray new];
@@ -109,8 +111,9 @@
 }
 
 #pragma mark Get a List of all Remedies Name Only
-//NOTE: Array to get all the Remedies.
-//USEDFOR: List, Edit remedy
+/*! @brief Array to get all the Remedies.
+ @remark List, Edit remedy
+ */
 -(NSMutableArray *) getAllRemedies:(NSString *)dbPathString :(NSString **)errorMsg
 {
     remedyCollection = [NSMutableArray new];
@@ -143,9 +146,10 @@
     return  remedyCollection;
 }
 #pragma mark See if Oil Exists
-//NOTE: This will check to see if the oil exists, if it exists then it will return true
-//USEDFOR:  Add New Remedy, or Edit Remedy
-//USEDBY: AddOilName, PRIVATE
+/*! @brief  Checks to see if the oil already exists in the database by name
+ @remark USEDFOR:  Add New Remedy, or Edit Remedy
+ USEDBY: AddOilName, PRIVATE
+ */
 -(BOOL) oilNameExists:(NSString *) lookforoilname DatabasePath:(NSString *)dbPathString ERRORMESSAGE:(NSString **)errorMsg
 {
     BOOL bAns;
@@ -158,8 +162,9 @@
     return bAns;
 }
 #pragma mark Add Oil to Database
-//NOTE:This will add the Oil to the Database, but it will check first to see if the oil is already in the database before adding, if it does exist, then it will get the oil ID to add to the remediy oil relations table.
-//USEDFOR:  Add New Remedy, or Edit Remedy
+/*! @brief This will add the Oil to the Database, but it will check first to see if the oil is already in the database before adding, if it does exist, then it will get the oil ID to add to the remediy oil relations table.
+ @remark  Add New Remedy, or Edit Remedy
+ */
 -(NSString *)AddOilName :(NSString *) myoilname DatabasePath:(NSString *)dbPathString ERRORMESSAGE:(NSString **) errorMsg
 {
     NSString *sAns =@"0";
@@ -182,8 +187,9 @@
     return sAns;
 }
 #pragma mark Add Oil to remedy Oil List
-//NOTE: This works with AddOilName by the ID that is returned to add to the Remedy oil List relations table.
-//USEDFOR:  Add New Remedy, or Edit Remedy
+/*! @brief This works with AddOilName by the ID that is returned to add to the Remedy oil List relations table.
+ @remark  Add New Remedy, or Edit Remedy
+ */
 -(void) addOilToremedyOilList:(NSString *) oilID RID:(NSString *) RemedyID DatabasePath:(NSString *) dbPathString ERRORMESSAGE:(NSString **) errorMsg
 {
     NSString *statement;
@@ -192,8 +198,9 @@
     [objDB runQuery:statement DatabasePath:dbPathString MessageHandler:errorMsg];
 }
 #pragma mark Add Remedy to Database
-//NOTE:  This will add the remedy to the database and Returnt he Remedy ID
-//USEDBY: tbSave Action in Remedy Edit and Add
+/*! @brief  This will add the remedy to the database and Returnt he Remedy ID
+ @remark tbSave Action in Remedy Edit and Add
+ */
 -(NSString *)AddRemedyDetailsByName:(NSString *) RemedyName Description:(NSString *) myDescription Uses:(NSString *) myUses DatabasePath:(NSString *) dbPathString ERRORMESSAGE:(NSString **) errorMsg
 {
     NSString *sAns;
@@ -213,8 +220,9 @@
     return sAns;
 }
 #pragma mark Update Remedy Details by RID
-//NOTE: This will update the remedy details
-//USEDBY: Edit Remedy
+/*! @brief This will update the remedy details
+ @remark Edit Remedy
+ */
 -(BOOL) updateRemedyDetailsByRID:(NSString *) RID Name:(NSString *) RemedyName Description:(NSString *) myDescription Uses:(NSString *) myUses DatabasePath:(NSString *) dbPathString ERRORMESSAGE:(NSString **) errorMsg
 {
     BOOL bAns = NO;
@@ -226,8 +234,9 @@
     return bAns;
 }
 #pragma mark Delete Remedy
-//NOTE: Delete the Remedy and the oils that are tagged to it without deleting the oils themselfs.
-//USEDBY: List Remedy Details.
+/*! @brief Delete the Remedy and the oils that are tagged to it without deleting the oils themselfs.
+ @remark List Remedy Details.
+ */
 -(BOOL) deleteRemedyByID:(NSString *)RID DatabasePath:(NSString *) dbPathString MessageHandler:(NSString **) errorMsg
 {
     BOOL bAns = NO;
@@ -245,8 +254,9 @@
     return bAns;
 }
 #pragma mark Delete Related Links of Oils by Remedy ID
-//NOTE:  This will delete all the oils that are int eh remedy oil list table that are tied to the RID:
-//USEDBY: deleteRemedyByID
+/*! @brief  This will delete all the oils that are int eh remedy oil list table that are tied to the RID:
+ @remark deleteRemedyByID
+ */
 -(BOOL) ClearOilsPerRemedyByRID:(NSString *) RID DatabasePath:(NSString *) dbPathString MessageHandler:(NSString **) errorMsg
 {
     BOOL bAns = NO;
@@ -261,7 +271,9 @@
 }
 
 #pragma mark Add Oils to Remedy
-// Sub to add the oils in the table to the database
+/*! @brief  This will delete all the oils that are int eh remedy oil list table that are tied to the RID:
+ @remark deleteRemedyByID
+ */
 -(void) addOilsToRemedyByRemedyID:(NSString *) RID OilsArray:(NSArray *) oilList DatabasePath:(NSString *) dbpath ErrorMessage:(NSString **) ErrMsg
 {
     NSString *oilName = [NSString new];
