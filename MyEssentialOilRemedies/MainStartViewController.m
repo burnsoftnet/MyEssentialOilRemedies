@@ -15,7 +15,8 @@
 
 @implementation MainStartViewController
 #pragma mark On Form Load
-//When form first loads
+/*! @brief When form first loads
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -34,14 +35,16 @@
 
 
 #pragma mark View Did Disappear
-//Action to take when the view disappears, more of cleanup
+/*! @brief Action to take when the view disappears, more of cleanup
+ */
 -(void) viewDidDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 #pragma mark Check InBox
-//Check for files to process from the inbox
+/*! @brief Check for files to process from the inbox
+ */
 -(void) checkInBox
 {
     if ([BurnSoftGeneral newFilesfoundProcessing]){
@@ -50,7 +53,8 @@
 }
 
 #pragma mark Did Recieve Memory Warning
-// Dispose of any resources that can be recreated.
+/*! @brief Dispose of any resources that can be recreated.
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
