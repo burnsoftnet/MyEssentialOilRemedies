@@ -43,15 +43,12 @@
 
 
 #pragma mark Paser Did Start
-//Get the Elemenents from the XML Data source
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict;
 
 #pragma mark Parser Did End
-//find the end of the elemenent and display the value of that element
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName;
 
 #pragma mark Parser Found Characters
-//Append to string when a value was found
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string;
 
 #pragma mark Initizlies with XML File

@@ -13,7 +13,8 @@
     
 }
 #pragma mark Open File By Path
-// Set the database path and file for this application
+/*! @brief  Set the database path and file for this application
+ */
 -(NSString *) setDataBasePath
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -21,7 +22,8 @@
 }
 
 #pragma mark Open File By Path for XML Importing
-//IMport a the data from a file via AirDrop or email file.
+/*! @brief IMport a the data from a file via AirDrop or email file.
+ */
 +(void) OpenFilebyPath:(NSString *) filePath ViewController:(UIViewController *) viewController
 {
     Parser *parser = [[Parser alloc] initWithXMLFile:filePath];
@@ -149,7 +151,8 @@
 }
 
 #pragma mark Process Inbox Files
-//This will look through the document/inbox files and start processing the files based on the name.
+/*! @brief This will look through the document/inbox files and start processing the files based on the name.
+ */
 +(void) processInBoxFilesFromViewController:(UIViewController *) viewController
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -175,7 +178,8 @@
 }
 
 #pragma mark Process Inbox All Files
-//This will look through the document/inbox directory for all files that relate to this app to process
+/*! @brief This will look through the document/inbox directory for all files that relate to this app to process
+ */
 +(void) processAllInBoxFilesFromViewController:(UIViewController *) viewController
 {
     NSArray *filePathsArray = [NSArray new];
