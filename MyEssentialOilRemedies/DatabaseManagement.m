@@ -20,7 +20,8 @@
      NSMutableArray * _entries;
 }
 #pragma mark Initiate Call Back
-//  Initialize with Call Back
+/*! @brief  Initialize with Call Back
+ */
 - (id)initWithCallback:(InitCallbackBlock)callback;
 {
     if (!(self = [super init])) return nil;
@@ -31,7 +32,8 @@
 }
 
 #pragma mark  Remove iCloud Conflicts
-// Every device that backups the database to the iCloud container is given a version status which will cause conflicts when attempting to restore the database on another device.  This function will remove any of the conflict version allowing the latest greatest version to exist for restore.
+/*! @brief  Every device that backups the database to the iCloud container is given a version status which will cause conflicts when attempting to restore the database on another device.  This function will remove any of the conflict version allowing the latest greatest version to exist for restore.
+ */
 -(void) removeConflictVersionsiniCloudbyURL:(NSURL *) urlNewDBName
 {
     NSError *error;
@@ -57,7 +59,8 @@
     conflictVersions = nil;
 }
 #pragma mark Load File Listtings
-// PRIVATE - list all the extra files version in the iCloud container to delete
+/*! @brief PRIVATE - list all the extra files version in the iCloud container to delete
+ */
 -(void) loadFileListings
 {
     FormFunctions *myObjFF = [FormFunctions new];
@@ -85,7 +88,8 @@
 }
 
 #pragma mark Get iCloud Backup Name in String format
-//Get the iCloud backup file name and path
+/*! @brief  Get the iCloud backup file name and path
+ */
 -(NSString *) getiCloudDatabaseBackupByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt
 {
     NSString *sAns = [NSString new];
@@ -96,7 +100,8 @@
 }
 
 #pragma mark Get iCloud Backup Name in NSURL format
-//Get the iCloud backup file name and path
+/*! @brief Get the iCloud backup file name and path
+ */
 -(NSURL *) getiCloudDatabaseBackupURLByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt
 {
     NSURL *uAns = [NSURL new];
@@ -106,7 +111,8 @@
 
 
 #pragma mark Backup Database to iCloud
-//Backup the database to the iCloud container
+/*! @brief Backup the database to the iCloud container
+ */
 -(BOOL) backupDatabaseToiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg
 {
     NSString *newExt = @"zip";
@@ -141,7 +147,8 @@
 }
 
 #pragma mark Restore Database from iCloud 
-//Restore the database from the iCloud Drive
+/*! @brief Restore the database from the iCloud Drive
+ */
 -(BOOL) restoreDatabaseFromiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg
 {
     NSString *newExt = @"zip";
@@ -176,7 +183,8 @@
 }
 
 #pragma mark Start iCloud sync
-//Start the sync process from the iCloud container. This needs to be ran from the application at start and before the restore is going to be initiated to make sure the latest version is download from the cloud.
+/*! @brief Start the sync process from the iCloud container. This needs to be ran from the application at start and before the restore is going to be initiated to make sure the latest version is download from the cloud.
+ */
 +(void) startiCloudSync
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
