@@ -16,7 +16,8 @@
 }
 
 #pragma mark On Form Load
-//When form first loads
+/*! @brief When form first loads
+ */
 -(void) viewDidLoad
 {
     [super viewDidLoad];
@@ -34,14 +35,16 @@
 }
 
 #pragma mark View appears again
-//When the view appears again
+/*! @brief When the view appears again
+ */
 -(void) viewDidAppear:(BOOL)animated
 {
     [self loadSettings];
 }
 
 #pragma mark Remedy Name Texbox Lost Focus
-// occurs after the usee finished editing the field and touches elsewhere on the form
+/*! @brief occurs after the usee finished editing the field and touches elsewhere on the form
+ */
 - (IBAction)RemedyNameLostFocus:(id)sender {
     FormFunctions *myObj = [FormFunctions new];
     OilRemedies *myOilRemedies = [OilRemedies new];
@@ -58,8 +61,9 @@
 }
 
 #pragma mark Form Exits
-//Clean up when the form is leaving
-// When Back button is hit on the view it will take you back to view the remidy list.
+/*! @brief Clean up when the form is leaving
+    When Back button is hit on the view it will take you back to view the remidy list.
+ */
 -(void) viewWillDisappear:(BOOL)animated {
     UINavigationController *navController = self.navigationController;
     [navController popViewControllerAnimated:NO];
@@ -70,7 +74,8 @@
 }
 
 #pragma mark Add Oil Button
-//Action to take when the Add oil Button has been selected
+/*! @brief Action to take when the Add oil Button has been selected
+ */
 - (IBAction)btnAddOil:(id)sender {
     NSString *newOil = self.txtOilName.text;
     
@@ -103,7 +108,8 @@
 }
 
 #pragma mark Load Settings
-//This will load the setting for the for as well as database and set the borders for the textboxes and text views.
+/*! @brief This will load the setting for the for as well as database and set the borders for the textboxes and text views.
+ */
 -(void) loadSettings
 {
     FormFunctions *mysettings = [FormFunctions new];
@@ -120,10 +126,11 @@
 }
 
 #pragma mark Change Views
-//This will change the views when a button on the toolbar is touched
-// 1 is Description View is selected
-// 2 is Oils View was selcted
-// 3 is the Uses View was selected
+/*! @brief This will change the views when a button on the toolbar is touched
+    1 is Description View is selected
+    2 is Oils View was selcted
+    3 is the Uses View was selected
+ */
 -(void)changeCurrentViewTo:(int) iValue
 {
     switch (iValue) {
@@ -145,7 +152,8 @@
 }
 
 #pragma mark Dissmiss Keyboard
-//Dissmiss the keyboard when the view is selected
+/*! @brief Dissmiss the keyboard when the view is selected
+ */
 -(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
 {
     [self.txtUses resignFirstResponder];
@@ -156,7 +164,8 @@
 }
 
 #pragma mark Oils Array Handler
-//if this is the first time loading that database into the array, then initialize the array
+/*! @brief if this is the first time loading that database into the array, then initialize the array
+ */
 -(NSMutableArray *) myOils
 {
     if (_myOils == nil ) {
@@ -166,14 +175,16 @@
 }
 
 #pragma mark Tab Uses
-//Actions to take when the Tool Bar Uses button is clicked
+/*! @brief Actions to take when the Tool Bar Uses button is clicked
+ */
 - (IBAction)tbUses:(id)sender {
     //[self runToView:@"AddRemedy_Uses_ViewController"];
     [self changeCurrentViewTo:3];
 }
 
 #pragma mark Add Oils to Remedy
-// Sub to add the oils in the table to the database
+/*! @brief Sub to add the oils in the table to the database
+ */
 - (void) addOilsToRemedy: (NSString *) RemedyID
 {
     OilRemedies *objDB = [OilRemedies new];
@@ -197,7 +208,8 @@
 }
 
 #pragma mark Clear and Exit
-//Use this to close out the view and go back to the Main view.
+/*! @brief Use this to close out the view and go back to the Main view.
+ */
 -(void) ClearAndExit
 {
     [self.myOils removeAllObjects];
@@ -205,7 +217,8 @@
 }
 
 #pragma mark Save ToolBar Button
-//Action to take when the Save button on the tool bar has been sleected
+/*! @brief Action to take when the Save button on the tool bar has been sleected
+ */
 - (IBAction)tbSave:(id)sender {
     NSString *RID;
     NSString *errorMsg;
@@ -234,40 +247,46 @@
 }
 
 #pragma mark Oil Button Tool Bar Button
-//Action to take when the oil button on the tool bar has been selected
+/*! @brief Action to take when the oil button on the tool bar has been selected
+ */
 - (IBAction)tbOils:(id)sender {
     [self changeCurrentViewTo:2];
 }
 
 #pragma mark Description Button Tool Bar Button
-//Action to take when the description button on the tool bar has been selected
+/*! @brief Action to take when the description button on the tool bar has been selected
+ */
 - (IBAction)tbDescription:(id)sender {
     [self changeCurrentViewTo:1];
 }
 
 #pragma mark TableView EditRowAt Index
-//Set to enable or diable the ablity to be able to edit the ros on the table
+/*! @brief Set to enable or diable the ablity to be able to edit the ros on the table
+ */
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
 
 #pragma mark TableView Number of Section
-//Set the number of sections allowed in the table view
+/*! @brief Set the number of sections allowed in the table view
+ */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
 #pragma mark TableView Number of Rows
-//set the number of rows that are in the able
+/*! @brief set the number of rows that are in the able
+ */
 -(NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.myOils count];
 }
 
 #pragma mark TableView Populate Table with Database or Array
-//This is where the table gets populated with the data from an array or direct from the database.
+/*! @brief This is where the table gets populated with the data from an array or direct from the database.
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";

@@ -18,7 +18,8 @@
 }
 
 #pragma mark On Form Load
-//When form first loads
+/*! @brief When form first loads
+ */
 -(void) viewDidLoad
 {
     [super viewDidLoad];
@@ -38,7 +39,8 @@
 }
 
 #pragma mark Start Action Sheet
-//start the action sheet process and gather the data to send to the ActionClass
+/*! @brief start the action sheet process and gather the data to send to the ActionClass
+ */
 -(void) startAction
 {
     int a;
@@ -69,7 +71,8 @@
 }
 
 #pragma mark View Appears Again
-//when the view is reloaded
+/*! @brief when the view is reloaded
+ */
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -77,7 +80,8 @@
 }
 
 #pragma mark Form Exits
-//Clean up when the form is leaving
+/*! @brief Clean up when the form is leaving
+ */
 -(void) viewWillDisappear:(BOOL)animated {
     // When Back button is hit on the view it will take you back to view the remidy list.
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
@@ -87,7 +91,8 @@
 }
 
 #pragma mark Sub Reload Data
-//Reloads the Settings and Data
+/*! @brief Reloads the Settings and Data
+ */
 -(void)reloadData
 {
     [self loadSettings];
@@ -95,7 +100,8 @@
 }
 
 #pragma mark Load Settings
-//This will load the setting for the for as well as database and set the borders for the textboxes and text views.
+/*! @brief This will load the setting for the for as well as database and set the borders for the textboxes and text views.
+ */
 -(void) loadSettings
 {
     BurnSoftDatabase *objDB = [BurnSoftDatabase new];
@@ -111,7 +117,8 @@
 }
 
 #pragma mark Load Data
-//Loads the information from the Database based on the RID.
+/*! @brief Loads the information from the Database based on the RID.
+ */
 -(void) loadData
 {
     sqlite3_stmt *statement;
@@ -148,10 +155,11 @@
 }
 
 #pragma mark Change Views
-//This will change the views when a button on the toolbar is touched
-// 1 is Description View is selected
-// 2 is Oils View was selcted
-// 3 is the Uses View was selected
+/*! @brief This will change the views when a button on the toolbar is touched
+    1 is Description View is selected
+    2 is Oils View was selcted
+    3 is the Uses View was selected
+ */
 -(void)changeCurrentViewTo:(int) iValue
 {
     switch (iValue) {
@@ -173,7 +181,8 @@
 }
 
 #pragma mark Edit Button Tool Bar Button
-//Action to take when the Edit button on the tool bar has been selected
+/*! @brief Action to take when the Edit button on the tool bar has been selected
+ */
 - (IBAction)tbEdit:(id)sender {
     VIEW_RemedyViewController * destinationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditRemedy_Description_ViewController"];
     [destinationViewController setRID:self.RID];
@@ -181,13 +190,15 @@
 }
 
 #pragma mark Description Button Tool Bar Button
-//Action to take when the description button on the tool bar has been selected
+/*! @brief Action to take when the description button on the tool bar has been selected
+ */
 - (IBAction)tbDescription:(id)sender {
     [self changeCurrentViewTo:1];
 }
 
 #pragma mark Close Button Tool Bar Button
-//Action to take when the Close button on the tool bar as been selected.
+/*! @brief Action to take when the Close button on the tool bar as been selected.
+ */
 - (IBAction)tbClose:(id)sender {
     UINavigationController *navController = self.navigationController;
     [navController popViewControllerAnimated:NO];
@@ -195,19 +206,22 @@
 }
 
 #pragma mark Oil Button Tool Bar Button
-//Action to take when the oil button on the tool bar has been selected
+/*! @brief Action to take when the oil button on the tool bar has been selected
+ */
 - (IBAction)tbOils:(id)sender {
     [self changeCurrentViewTo:2];
 }
 
 #pragma mark Tab Uses
-//Actions to take when the Tool Bar Uses button is clicked
+/*! @brief Actions to take when the Tool Bar Uses button is clicked
+ */
 - (IBAction)tbUses:(id)sender {
     [self changeCurrentViewTo:3];
 }
 
 #pragma mark View popup WIndow for details
-//Prep Presentation Style for Oil Description View Popup
+/*! @brief Prep Presentation Style for Oil Description View Popup
+ */
 - (void)setPresentationStyleForSelfController:(UIViewController *)selfController presentingController:(UIViewController *)presentingController
 {
     presentingController.providesPresentationContextTransitionStyle = YES;
@@ -216,7 +230,8 @@
 }
 
 #pragma mark Prepare for Segue
-//Actions to take before switching to the next window
+/*! @brief Actions to take before switching to the next window
+ */
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"segueViewOilPopUp"]){
@@ -236,28 +251,32 @@
 }
 
 #pragma mark Table Edit Rows
-//function for table editing
+/*! @brief function for table editing
+ */
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
 
 #pragma mark Table Set Sections
-//set the sections in the table
+/*! @brief set the sections in the table
+ */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
 #pragma mark Table Set Number of Rows
-//set the number of rows int he table
+/*! @brief set the number of rows int he table
+ */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return  [myOilCollection count];
 }
 
 #pragma mark Table Row Selected
-//actions to take when a row has been selected.
+/*! @brief actions to take when a row has been selected.
+ */
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -269,7 +288,8 @@
 }
 
 #pragma mark Table Set Cell Data
-//set the cell data by use of an array
+/*! @brief set the cell data by use of an array
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier=@"Cell";

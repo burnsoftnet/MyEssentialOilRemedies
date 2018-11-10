@@ -22,7 +22,8 @@
 @implementation LIST_OilRemediesViewController
 
 #pragma mark Controller Load
-//Actions to take when the Controller Loads
+/*! @brief Actions to take when the Controller Loads
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -38,7 +39,8 @@
     //Set TableView to delete mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
 }
-
+/*! @brief  When the Add button on the navigation is clicked
+ */
 -(void) addNavButton
 {
     //Create an Add Button in Nav Bat
@@ -67,12 +69,14 @@
 }
 
 #pragma mark Did Recieve Memory Warning
-// Dispose of any resources that can be recreated.
+/*! @brief  Dispose of any resources that can be recreated.
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 #pragma mark View Did Disappear
-//Action to take when the view disappears, more of cleanup
+/*! @brief Action to take when the view disappears, more of cleanup
+ */
 -(void) viewDidDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -86,7 +90,8 @@
 }
 
 #pragma mark Refresh Table View
-//Perform Refresh when table view is swapped down
+/*! @brief Perform Refresh when table view is swapped down
+ */
 - (IBAction)refresh:(UIRefreshControl *)sender 
 {
     [self.myTableView reloadData];
@@ -152,25 +157,29 @@
     }
 }
 #pragma mark Can Edit Table Row
-// Set the ability to swipe left to edit or delete
+/*! @brief Set the ability to swipe left to edit or delete
+ */
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
 #pragma mark Number of Sections in Row
-// Display the number of sections in the row
+/*! @brief  Display the number of sections in the row
+ */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 #pragma mark Table Number of Rows in Section
-//Count of all the rows
+/*! @brief Count of all the rows
+ */
 -(NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
 {
     return [myOilCollection count];
 }
 #pragma mark Populate Table
-// populate the table with data from the array
+/*! @brief  populate the table with data from the array
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -195,7 +204,8 @@
 }
 
 #pragma mark Table Edit Action was selected
-//When the row is swiped to the left to give options to edit or delete, etc.
+/*! @brief When the row is swiped to the left to give options to edit or delete, etc.
+ */
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){EDIT_RemedyViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditRemedy_Description_ViewController"];
