@@ -20,7 +20,8 @@
 }
 
 #pragma mark Load Controller
-//Sub to perform actions when the controller loads
+/*! @brief Sub to perform actions when the controller loads
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSettings];
@@ -38,7 +39,8 @@
 }
 
 #pragma mark Make Keyboard Dissapear
-//When the view is selected, make the keyboard dissapear
+/*! @brief When the view is selected, make the keyboard dissapear
+ */
 -(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
 {
     [self.txtName resignFirstResponder];
@@ -52,7 +54,8 @@
 }
 
 #pragma mark View did reappear
-//Sub when the form reloads
+/*! @brief Sub when the form reloads
+ */
 - (void)viewDidAppear:(BOOL)animated
 {
     [self loadSettings];
@@ -60,13 +63,15 @@
 }
 
 #pragma mark Memroy Error
-//Sub when a memory error occurs
+/*! @brief Sub when a memory error occurs
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark Prepare For Segue
-//Action to take before segue occurs
+/*! @brief Action to take before segue occurs
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"EditOilDetails"]) {
         EDIT_OilDetailViewController *destViewController = (EDIT_OilDetailViewController *)segue.destinationViewController;
@@ -75,7 +80,8 @@
 }
 
 #pragma mark Update Oils
-//Private Sub used byt the btnUpdate button to update the details from the form to the update the details in the database.
+/*! @brief Private Sub used byt the btnUpdate button to update the details from the form to the update the details in the database.
+ */
 -(void)updateOils
 {
     BurnSoftGeneral *myObjOF = [BurnSoftGeneral new];
@@ -135,13 +141,14 @@
 }
 
 #pragma mark Update Button
-//Actions to take when the Update button is touched
+/*! @brief Actions to take when the Update button is touched
+ */
 - (IBAction)btnUpdate:(id)sender {
     [self updateOils];
 }
 
-#pragma mark Load Settings
-//Loads the Database Path and the borders to the textboxes
+/*! @brief Loads the Database Path and the borders to the textboxes
+ */
 -(void) loadSettings
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -161,7 +168,8 @@
 }
 
 #pragma mark Load Data
-//Load the Data from the database to populate the fields
+/*! @brief Load the Data from the database to populate the fields
+ */
 -(void) loadData
 {
     sqlite3_stmt *statement;

@@ -20,7 +20,8 @@
 }
 
 #pragma mark Controller Load
-//Actions to take when the Controller Loads
+/*! @brief Actions to take when the Controller Loads
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSettings];
@@ -35,7 +36,8 @@
     self.navigationItem.rightBarButtonItem = addButton;
 }
 #pragma mark Oil Exists By Name
-//Look up to see if the oil already exists in the database by Name
+/*! @brief Look up to see if the oil already exists in the database by Name
+ */
 -(BOOL) oilExistsByName:(NSString *) myOilName
 {
     BOOL bAns = NO;
@@ -53,7 +55,8 @@
 }
 
 #pragma mark Oil Name Texbox Lost Focus
-// occurs after the usee finished editing the field and touches elsewhere on the form
+/*! @brief occurs after the usee finished editing the field and touches elsewhere on the form
+ */
 - (IBAction)OilNameEditingEnded:(id)sender {
     FormFunctions *myObj = [FormFunctions new];
     
@@ -64,7 +67,8 @@
 }
 
 #pragma mark Clear Values
-//Clear all the details from the Form
+/*! @brief Clear all the details from the Form
+ */
 -(void)clearValues
 {
     self.txtName.text=@"";
@@ -80,7 +84,8 @@
 }
 
 #pragma mark Make Keyboard Dissapear
-//Dissmiss the keyboard when the view is selected
+/*! @brief Dissmiss the keyboard when the view is selected
+ */
 -(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
 {
     [self.txtName resignFirstResponder];
@@ -96,13 +101,15 @@
 }
 
 #pragma mark Memroy Error
-//events to take when a memory error occurs
+/*! @brief events to take when a memory error occurs
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark LoadSettings
-//Set the Database Path and Textbox borders
+/*! @brief Set the Database Path and Textbox borders
+ */
 - (void)loadSettings
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -121,7 +128,8 @@
 }
 
 #pragma mark Add Oil
-//This is mostly used by the btnAdd Button to add the details from the form to the database.  This is a Private Sub.
+/*! @brief This is mostly used by the btnAdd Button to add the details from the form to the database.  This is a Private Sub.
+ */
 - (void) addMoreOils
 {
     BurnSoftGeneral *myObjOF = [BurnSoftGeneral new];
@@ -187,7 +195,8 @@
 }
 
 #pragma mark Add Oil Button
-//Perform actions to save database to database
+/*! @brief Perform actions to save database to database
+ */
 - (IBAction)btnAdd:(id)sender {
     [self addMoreOils];
 }

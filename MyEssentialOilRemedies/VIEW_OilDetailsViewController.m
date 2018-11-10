@@ -27,12 +27,15 @@
 
 
 #pragma mark View Did Appear
-//When the view appears again
+/*! @brief When the view appears again
+ */
 - (void) viewDidAppear:(BOOL)animated
 {
 
 }
 #pragma mark Kill everything in the form when the form is no longer active
+/*! @brief Kill everything in the form when the form is not longer active
+ */
 -(void) enduse
 {
     _OID = nil;
@@ -59,14 +62,16 @@
     dbPathString = nil;
 }
 #pragma mark View Did Disappear
-//When the form disappears set everything to null
+/*! @brief When the form disappears set everything to null
+ */
 -(void) viewDidDisappear:(BOOL)animated
 {
     [self enduse];
 }
 
 #pragma mark Controller Load
-//Actions to take when the Controller Loads
+/*! @brief Actions to take when the Controller Loads
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSettings];
@@ -88,7 +93,8 @@
 }
 
 #pragma mark Start Action Sheet
-//start the action sheet process and gather the data to send to the ActionClass
+/*! @brief start the action sheet process and gather the data to send to the ActionClass
+ */
 -(void) startAction
 {
     
@@ -105,9 +111,10 @@
 }
 
 #pragma mark Change Views
-//This will change the views when a button on the toolbar is touchec
-// 1 is Description view
-// 2 is Related Oils
+/*! @brief This will change the views when a button on the toolbar is touchec
+    1 is Description view
+    2 is Related Oils
+ */
 -(void)changeCurrentViewTo:(int) iValue
 {
     switch (iValue) {
@@ -123,14 +130,16 @@
 }
 
 #pragma mark Did Recieve Memory Warning
-// Dispose of any resources that can be recreated.
+/*! @brief  Dispose of any resources that can be recreated.
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark Edit Oils
-// Action to take when the Exit option is selected from the table.
+/*! @brief  Action to take when the Exit option is selected from the table.
+ */
 - (void) editOils {
     EDIT_OilDetailViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOils"];
     destViewController.OID = self.OID;
@@ -138,7 +147,8 @@
 }
 
 #pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+/*! @brief In a storyboard-based application, you will often want to do a little preparation before navigation
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"EditOilSegue"] || [segue.identifier isEqualToString:@"segueEditOilFromSearch"] ) {
         EDIT_OilDetailViewController * destViewController = (EDIT_OilDetailViewController *)segue.destinationViewController;
@@ -151,7 +161,8 @@
 }
 
 #pragma mark Load Settings
-// Load Database Path and set the borders for the labels and text view
+/*! @brief Load Database Path and set the borders for the labels and text view
+ */
 -(void) loadSettings
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -174,7 +185,8 @@
 }
 
 #pragma mark Load Related Remedies
-//  Load the related remedies in the table.
+/*! @brief  Load the related remedies in the table.
+ */
 -(void) LoadRelatedRemedies
 {
     myRelatedRemedies = [NSMutableArray new];
@@ -186,7 +198,8 @@
 }
 
 #pragma mark Load Data
-//Connect to the database to load the fields with the data from the selected oil.
+/*! @brief Connect to the database to load the fields with the data from the selected oil.
+ */
 - (void) loadData {
     sqlite3_stmt *statement;
     FormFunctions *objF = [FormFunctions new];
@@ -256,19 +269,22 @@
 }
 
 #pragma mark Tab Description
-// this will show the contentView when the description tab is touched
+/*! @brief  this will show the contentView when the description tab is touched
+ */
 - (IBAction)tbDescription:(id)sender {
     [self changeCurrentViewTo:1];
 }
 
 #pragma mark Tab Related Remedies
-// this will show the Related Remedies when the Related Remedies tab is touched
+/*! @brief  this will show the Related Remedies when the Related Remedies tab is touched
+ */
 - (IBAction)tbRelatedRemedies:(id)sender {
     [self changeCurrentViewTo:2];
 }
 
 #pragma mark Update Stock Status
-//Allow the Use to updated if the oil is in stock or out of stock without having to go into editing.
+/*! @brief Allow the Use to updated if the oil is in stock or out of stock without having to go into editing.
+ */
 - (IBAction)swUpdateStockStatus:(id)sender {
     NSString *iStock = 0;
     NSString *errorMsg;
@@ -281,7 +297,8 @@
     [objO updateStockStatus:iStock OilID:self.OID DatabasePath:dbPathString ErrorMessage:&errorMsg];
 }
 #pragma mark Update Blend Status
-//Switch for Blend Status
+/*! @brief Switch for Blend Status
+ */
 - (IBAction)swUpdateBlendStatus:(id)sender
 {
     NSString *iBlend = 0;
@@ -296,40 +313,46 @@
 }
 
 #pragma mark Close Button from Search
-//Actions to take when the close button is touched
+/*! @brief Actions to take when the close button is touched
+ */
 - (IBAction)btnClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
 
 #pragma mark Edit Button form Search
-//Actions to take when the edit button from search is touched
+/*! @brief Actions to take when the edit button from search is touched
+ */
 - (IBAction)btnEdit:(id)sender {
     [self performSegueWithIdentifier:@"segueEditOilFromSearch" sender:self];
 }
 
 #pragma mark Can Edit Table Row
-// Set the ability to swipe left to edit or delete
+/*! @brief Set the ability to swipe left to edit or delete
+ */
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return NO;
 }
 
 #pragma mark Number of Sections in Row
-// Display the number of sections in the row
+/*! @brief  Display the number of sections in the row
+ */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
 #pragma mark Table Number of Rows in Section
-//Count of all the rows
+/*! @brief Count of all the rows
+ */
 -(NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
 {
     return [myRelatedRemedies count];
 }
 
 #pragma mark Populate Table
-// populate the table with data from the array
+/*! @brief populate the table with data from the array
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -344,7 +367,8 @@
 }
 
 #pragma mark Table Row Selected
-//actions to take when a row has been selected.
+/*! @brief actions to take when a row has been selected.
+ */
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];

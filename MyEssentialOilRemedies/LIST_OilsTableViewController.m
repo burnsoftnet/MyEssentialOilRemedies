@@ -26,7 +26,8 @@
 @implementation LIST_OilsTableViewController
 
 #pragma mark Controller Load
-//Actions to take when the Controller Loads
+/*! @brief Actions to take when the Controller Loads
+ */
 - (void)viewDidLoad {
     inStockCount = 0;
     ReOrderCount = 0;
@@ -42,7 +43,8 @@
 }
 
 #pragma mark Add Navigation Button
-// Add new navigation button called add to add more oils
+/*! @brief  Add new navigation button called add to add more oils
+ */
 -(void) addNavButton
 {
     //Create an Add Button in Nav Bat
@@ -63,14 +65,16 @@
 }
 
 #pragma mark View will reappear
-//Sub when the form reloads
+/*! @brief Sub when the form reloads
+ */
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reloadData];
 }
 
 #pragma mark View Did Disappear
-//Action to take when the view disappears, more of cleanup
+/*! @brief Action to take when the view disappears, more of cleanup
+ */
 -(void) viewDidDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
@@ -81,7 +85,8 @@
 }
 
 #pragma mark View Will Disappear
-//when the view will disappear
+/*! @brief when the view will disappear
+ */
 -(void) viewWillDisappear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
@@ -92,13 +97,15 @@
 }
 
 #pragma mark Did Recieve Memory Warning
-// Dispose of any resources that can be recreated.
+/*! @brief  Dispose of any resources that can be recreated.
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark Refresh Table Data
-// when you swipe down on the table, it will reload the data
+/*! @brief  when you swipe down on the table, it will reload the data
+ */
 - (IBAction)refresh:(UIRefreshControl *)sender {
     [self.myTableView reloadData];
         [self loadData];
@@ -107,7 +114,8 @@
 }
 
 #pragma mark Reload Data
-//  Reload the data as is the for first appeared
+/*! @brief  Reload the data as is the for first appeared
+ */
 -(void) reloadData {
     [self setupGlobalVars];
     [self loadData];
@@ -115,7 +123,8 @@
 }
 
 #pragma mark Setup Global Variables
-// Setup the global variablies like the database path
+/*! @brief Setup the global variablies like the database path
+ */
 -(void) setupGlobalVars
 {
     BurnSoftDatabase *myPath = [BurnSoftDatabase new];
@@ -130,7 +139,8 @@
 }
 
 #pragma mark Load Data
-// Load the data from the database into the local array
+/*! @brief  Load the data from the database into the local array
+ */
 - (void) loadData
 {
     [myOilCollection removeAllObjects];
@@ -170,27 +180,31 @@
 
 
 #pragma mark Table set Edit Mode
-// Set if you can edit the table by swiping left to view options.
+/*! @brief  Set if you can edit the table by swiping left to view options.
+ */
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
 
 #pragma mark Table Set Sections
-//set the sections in the table
+/*! @brief set the sections in the table
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 #pragma mark Table Set Number of Rows
-//set the number of rows int he table
+/*! @brief set the number of rows int he table
+ */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [myOilCollection count];
 }
 
 #pragma mark Table Set Cell Data
-//set the cell data by use of an array
+ /*! @brief set the cell data by use of an array
+  */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -221,7 +235,8 @@
 }
 
 #pragma mark Table Row Selected
-//actions to take when a row has been selected.
+/*! @brief actions to take when a row has been selected.
+ */
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -231,7 +246,8 @@
 }
 
 #pragma mark Table Edit actions
-//actions to take when a row has been selected for editing.
+/*! @brief actions to take when a row has been selected for editing.
+ */
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     FormFunctions *myFunctions = [FormFunctions new];
@@ -289,7 +305,8 @@
 }
 
 #pragma mark Prepare for Segue
-//Actions to take before switching to the next window
+/*! @brief Actions to take before switching to the next window
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"OilSelected"]) {
         VIEW_OilDetailsViewController *destViewController = (VIEW_OilDetailsViewController *)segue.destinationViewController;
@@ -297,7 +314,8 @@
     }
 }
 #pragma mark Add More Oils
-// Sub to add more Oils.
+/*! @brief  Sub to add more Oils.
+ */
 -(void) addMoreOils {
     [self performSegueWithIdentifier:@"NewOil" sender:self];
 }
