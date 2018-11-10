@@ -23,7 +23,8 @@
 }
 
 #pragma mark On Form Load
-//When form first loads
+/*! @brief When form first loads
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupGlobalVars];
@@ -33,27 +34,31 @@
 }
 
 #pragma mark View will reappear
-//Sub when the form reloads
+/*! @brief Sub when the form reloads
+ */
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reloadData];
 }
 
 #pragma mark Reload Data
-//  Reload the data as is the for first appeared
+/*! @brief Reload the data as is the for first appeared
+ */
 -(void) reloadData {
     [self setupGlobalVars];
     //[self loadData];
 }
 
 #pragma mark Did Recieve Memory Warning
-// Dispose of any resources that can be recreated.
+/*! @brief Dispose of any resources that can be recreated.
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 #pragma mark Global Variables
-// Setup the Global variables
+/*! @brief Setup the Global variables
+ */
 -(void)setupGlobalVars
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -61,7 +66,8 @@
 }
 
 #pragma mark My Combine Results Array
-// Define the main results array
+/*! @brief Define the main results array
+ */
 - (NSMutableArray *) myCombinedResults
 {
     //In the sample code, myCombinedResults replaced data
@@ -74,7 +80,8 @@
 }
 
 #pragma mark Combine Results
-// Combine the arrays from both results from the oils and remedies
+/*! @brief Combine the arrays from both results from the oils and remedies
+ */
 -(NSMutableArray *) combineOilsandRemedies
 {
     SearchDatabase *myObj = [SearchDatabase new];
@@ -83,8 +90,9 @@
 }
 
 #pragma mark Find Loaction of Cell Value that was picked
-//NOTE: This will get the cell calue that was touched and pass it through and figure out is it is oil or a remedy
-//ALSO_USED_AT: SearchResultsViewController.m
+/*! @brief NOTE: This will get the cell calue that was touched and pass it through and figure out is it is oil or a remedy
+    @remark ALSO_USED_AT: SearchResultsViewController.m
+ */
 -(void)findLocationofSelection:(NSString *) myValue
 {
     SearchDatabase *myObj = [SearchDatabase new];
@@ -130,7 +138,8 @@
 }
 
 #pragma mark Table Row Selected
-//actions to take when a row has been selected.
+/*! @brief actions to take when a row has been selected.
+ */
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -140,7 +149,8 @@
 }
 
 #pragma mark Controller
-// Define the controller for the search results
+/*! @brief Define the controller for the search results
+ */
 - (UISearchController *)controller {
     
     if (!_controller) {
@@ -161,28 +171,32 @@
 }
 
 #pragma mark Table Edit Rows
-//function for table editing
+/*! @brief function for table editing
+ */
 - (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
 
 #pragma mark Sections in Table View
-// define the number of sections in the table view
+/*! @brief define the number of sections in the table view
+ */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
 #pragma mark Table Set Sections
-//set the sections in the table
+/*! @brief set the sections in the table
+ */
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.myCombinedResults.count;
 }
 
 #pragma mark Table Set Cell Data
-//set the cell data by use of an array
+/*! @brief set the cell data by use of an array
+ */
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -198,8 +212,9 @@
 }
 
 #pragma mark Update the Search Results
-//Update the search results table with the filtered results
-// see https://academy.realm.io/posts/nspredicate-cheatsheet/
+/*! @brief Update the search results table with the filtered results
+    @remark see https://academy.realm.io/posts/nspredicate-cheatsheet/
+ */
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     if (self.controller.searchBar.text.length > 0)
     {
@@ -218,7 +233,8 @@
 }
 
 #pragma mark Search Button
-// Present the search controller when the button is clicked
+/*! @brief Present the search controller when the button is clicked
+ */
 - (IBAction)btnSearch:(id)sender {
     [self presentViewController:self.controller animated:YES completion:nil];
 }
