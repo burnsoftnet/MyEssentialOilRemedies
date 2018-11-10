@@ -18,8 +18,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 
 #pragma mark Backup Database for iTunes
-//This will make a copy of the database for iTunes to to retrived or in case you need to restore.
-//This will make a backup file meo_datetime.bak
 - (IBAction)btnBackUpDatabaseForiTunes:(id)sender;
 
 @end

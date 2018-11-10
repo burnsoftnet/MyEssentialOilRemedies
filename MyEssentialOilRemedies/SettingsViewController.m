@@ -16,7 +16,8 @@
 }
 
 #pragma mark Backup to iCloud Button
-// Action to start the backup to iCloud Drive
+/*! @brief Action to start the backup to iCloud Drive
+ */
 - (IBAction)btnBackuptoiCloud:(id)sender {
     DatabaseManagement *myObjDM = [DatabaseManagement new];
     FormFunctions *myObjFF = [FormFunctions new];
@@ -36,7 +37,8 @@
 }
 
 #pragma mark Restore from iCloud Button
-// Action to start the restore from iCloud Drive
+/*! @brief Action to start the restore from iCloud Drive
+ */
 - (IBAction)btnRestoreFromiCloud:(id)sender {
     [DatabaseManagement startiCloudSync];
     DatabaseManagement *myObjDM = [DatabaseManagement new];
@@ -56,7 +58,8 @@
     myObjFF = nil;
 }
 #pragma mark View will Disappear
-// Handle when the form is no longer active
+/*! @brief Handle when the form is no longer active
+ */
 -(void) viewWillDisappear:(BOOL)animated
 {
     dbPathString = nil;
@@ -67,7 +70,8 @@
 }
 
 #pragma mark On Form Load
-//When form first loads
+/*! @brief When form first loads
+ */
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -76,7 +80,8 @@
 }
 
 #pragma mark Form Loads Again
-// When the view reloads itself
+/*! @brief When the view reloads itself
+ */
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -84,7 +89,8 @@
 }
 
 #pragma mark Reload Data
-// Reload the settings and information as if the form first load.
+/*! @brief Reload the settings and information as if the form first load.
+ */
 -(void) reloadData
 {
     [self LoadSettings];
@@ -92,7 +98,8 @@
 }
 
 #pragma mark Load Settings
-// Load the Database Path
+/*! @brief Load the Database Path
+ */
 -(void) LoadSettings;
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -102,7 +109,8 @@
 }
 
 #pragma mark Load Version
-// Get the version of the App and the Database to view in the label boxes
+/*! @brief Get the version of the App and the Database to view in the label boxes
+ */
 -(void) loadVersioning
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -119,7 +127,8 @@
 }
 
 #pragma mark Clear Oils
-// Sub to clear the oils table
+/*! @brief Sub to clear the oils table
+ */
 -(void) ClearDataOil
 {
     NSString *statement;
@@ -145,7 +154,8 @@
 }
 
 #pragma mark Clear Remedies
-// Sub to clear the Remedies Table
+/*! @brief Sub to clear the Remedies Table
+ */
 -(void) ClearDataRemedy
 {
     NSString *statement;
@@ -166,7 +176,8 @@
 }
 
 #pragma mark Restore Factory Database
-// Sub to restore the factory Database, copy it from app path to Doc's directory.
+/*! @brief Sub to restore the factory Database, copy it from app path to Doc's directory.
+ */
 -(void) RestoreFactoryDatabase
 {
     NSString *errorMsg;
@@ -183,7 +194,8 @@
 }
 
 #pragma mark Clear Oils Button
-// Button action to confirm and clear the Oils Table
+/*! @brief Button action to confirm and clear the Oils Table
+ */
 - (IBAction)btnClearOils:(id)sender {
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Clear Oils" message:@"Do you wish to clear out all the oils from the database?" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Purify it!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * Action) {[self ClearDataOil];}];
@@ -195,7 +207,8 @@
 }
 
 #pragma mark Clear Remedies Button
-// Button action to confirm and clear the Remedies table
+/*! @brief Button action to confirm and clear the Remedies table
+ */
 - (IBAction)btnClearRemedies:(id)sender {
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Clear Remedies" message:@"Do you wish to clear out all the Remedies from the database?" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Purify it!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * Action) {[self ClearDataRemedy];}];
@@ -207,7 +220,8 @@
 }
 
 #pragma mark Restore Factory Button
-// Button action to confirm and replace the database in the docs with the one in the apps directory
+/*! @brief Button action to confirm and replace the database in the docs with the one in the apps directory
+ */
 - (IBAction)btnRestoreFactory:(id)sender {
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Restore Factory Database" message:@"Do you want to restore the the factory Database?" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Restore!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * Action) {[self RestoreFactoryDatabase];}];
@@ -219,7 +233,8 @@
 }
 
 #pragma mark Delete File by Name
-// Delete the file + path that you want to delete
+/*! @brief Delete the file + path that you want to delete
+ */
 -(BOOL)DeleteFileByName:(NSString *) sFile
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];

@@ -20,7 +20,8 @@
 }
 
 #pragma mark On Form Load
-//When form first loads
+/*! @brief When form first loads
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self LoadSettings];
@@ -32,7 +33,8 @@
 }
 
 #pragma mark Reload Data
-// Reload the Data when executed from another function
+/*! @brief Reload the Data when executed from another function
+ */
 -(void) reloadData
 {
     [self LoadSettings];
@@ -41,7 +43,8 @@
 }
 
 #pragma mark Load File Data
-//  Load the contents of the docs directory
+/*! @brief Load the contents of the docs directory
+ */
 -(void) loadFileListings
 {
     filePathsArray = [NSArray new];
@@ -52,7 +55,8 @@
 }
 
 #pragma mark Load Settings
-// Load the Database Path
+/*! @brief Load the Database Path
+ */
 -(void) LoadSettings;
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -60,8 +64,9 @@
 }
 
 #pragma mark Backup Database for iTunes
-//This will make a copy of the database for iTunes to to retrived or in case you need to restore.
-//This will make a backup file meo_datetime.bak
+/*! @briefThis will make a copy of the database for iTunes to to retrived or in case you need to restore.
+    This will make a backup file meo_datetime.bak
+ */
 - (IBAction)btnBackUpDatabaseForiTunes:(id)sender
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -96,7 +101,8 @@
 }
 
 #pragma mark Delete File by Name
-//  Delete the a file in the local documents for the app.
+/*! @brief Delete the a file in the local documents for the app.
+ */
 -(BOOL)DeleteFileByName:(NSString *) sFile
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -120,7 +126,8 @@
 }
 
 #pragma mark Restore Database for iTunes by File Name
-//  Restore selected database and rename it to the main database name.
+/*! @brief Restore selected database and rename it to the main database name.
+ */
 -(void)RestoreDatabaseforiTunesbyFileName:(NSString *) sFile
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -147,28 +154,32 @@
 }
 
 #pragma mark Can Edit Table Row
-// Set the ability to swipe left to edit or delete
+/*! @brief Set the ability to swipe left to edit or delete
+ */
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
 
 #pragma mark Number of Sections in Row
-// Display the number of sections in the row
+/*! @brief Display the number of sections in the row
+ */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
 #pragma mark Table Number of Rows in Section
-//Count of all the rows
+/*! @brief Count of all the rows
+ */
 -(NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
 {
     return [filePathsArray count];
 }
 
 #pragma mark Populate Table
-// populate the table with data from the array
+/*! @brief populate the table with data from the array
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -181,14 +192,16 @@
 }
 
 #pragma mark Table Row Selected
-//actions to take when a row has been selected.
+/*! @brief actions to take when a row has been selected.
+ */
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     //Currently does nothing, but is required by the UITableView
 }
 
 #pragma mark Table Edit actions
-//actions to take when a row has been selected for editing.
+/*! @brief actions to take when a row has been selected for editing.
+ */
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
