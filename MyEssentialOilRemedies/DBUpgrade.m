@@ -13,8 +13,9 @@
     NSString *dbPathString;
 }
 #pragma mark Check if DB needs upgrading
-//NOTE: Checks the expected version of the app to see if the database needs to be upgraded by looking at it's version
-//USEDBY: MainStartViewController.m
+/*! @brief Checks the expected version of the app to see if the database needs to be upgraded by looking at it's version
+    @remark USEDBY: MainStartViewController.m
+ */
 -(void) checkDBVersionAgainstExpectedVersion
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -44,8 +45,9 @@
     
 }
 #pragma mark DB Upgrade Version 1.1
-//NOTE: PRIVATE - Update Database to version 1.1
-//USEDBY: checkDBVersionAgainstExpectedVersion
+/*! @brief  PRIVATE - Update Database to version 1.1
+    @remark USEDBY: checkDBVersionAgainstExpectedVersion
+ */
 -(void) dbupgrade11
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -97,8 +99,9 @@
     
 }
 #pragma mark DB Upgrade Version 1.2
-//NOTE: PRIVATE Update Database to version x.x
-//USEDBY: checkDBVersionAgainstExpectedVersion
+/*! @brief  PRIVATE Update Database to version x.x
+    @remark USEDBY: checkDBVersionAgainstExpectedVersion
+*/
 -(void) dbupgrade12
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -139,8 +142,9 @@
 
 }
 #pragma mark DB Upgrade Version x.x
-//NOTE: PRIVATE - Update Database to version x.x
-//USEDBY: checkDBVersionAgainstExpectedVersion
+/*! @brief PRIVATE - Update Database to version x.x
+    @remark USEDBY: checkDBVersionAgainstExpectedVersion
+ */
 -(void) dbupgrade13
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -196,8 +200,9 @@
 }
 
 #pragma mark DB Upgrade Version x.x
-//NOTE: PRIVATE - Update Database to version x.x
-//USEDBY: checkDBVersionAgainstExpectedVersion
+/*! @brief  PRIVATE - Update Database to version x.x
+    @remark USEDBY: checkDBVersionAgainstExpectedVersion
+ */
 -(void) dbupgradexx
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
