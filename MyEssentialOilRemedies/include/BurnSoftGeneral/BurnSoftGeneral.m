@@ -14,8 +14,9 @@
 }
 
 #pragma mark Fluff Content String
-//This will Fluff/Prep the string for inserting value into a database
-//It will mostly take out things that can conflict, such as the single qoute
+/*! @briefThis will Fluff/Prep the string for inserting value into a database
+ It will mostly take out things that can conflict, such as the single qoute
+ */
 -(NSString *) FCString: (NSString *) sValue {
     NSString *sAns = [NSString new];
     sAns = [sValue stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
@@ -25,8 +26,9 @@
 }
 
 #pragma mark Fluff Content String for XML
-//This will Fluff/Prep the string for inserting value into a database and XML File
-//It will mostly take out things that can conflict, such as the single qoute
+/*! @briefThis will Fluff/Prep the string for inserting value into a database and XML File
+ It will mostly take out things that can conflict, such as the single qoute
+ */
 +(NSString *) FCStringXML: (NSString *) sValue {
     NSString *sAns = [NSString new];
     sAns = [sValue stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
@@ -37,7 +39,8 @@
 }
 
 #pragma mark Fluff Content String to Long
-//This will convert a string into a long value
+/*! @brief This will convert a string into a long value
+ */
 -(unsigned long) FCLong:(NSString *) sValue;{
     NSUInteger uAns = [sValue length];
     unsigned long iAns = uAns;
@@ -45,13 +48,15 @@
 }
 
 #pragma mark Get Value from Long String
-//This will get the value that is store in a long string
-//Pass the string, the common seperater, and the ares it should be located at
-//EXAMPE:
-//sValue = @"brown,cow,how,two"
-//mySeperator = @","
-//myIndex = 2
-//Result = @"how"
+/*! @brief This will get the value that is store in a long string
+ Pass the string, the common seperater, and the ares it should be located at
+ @code
+ sValue = @"brown,cow,how,two"
+ mySeperator = @","
+ myIndex = 2
+ Result = @"how"
+ @endcode
+ */
 -(NSString *)getValueFromLongString:(NSString *)sValue :(NSString *)mySeparater :(NSInteger) myIndex
 {
     NSString *sAns = [NSString new];
@@ -61,7 +66,8 @@
 }
 
 #pragma mark Count Characters
-//This will return the number of characters in a string
+/*! @briefThis will return the number of characters in a string
+ */
 -(unsigned long) CountCharacters:(NSString *)sValue{
     NSUInteger uAns = [sValue length];
     unsigned long iAns = uAns;
@@ -69,7 +75,8 @@
 }
 
 #pragma mark Is Numeric
-//This will return true if the value is a number, false if it isn't
+/*! @brief This will return true if the value is a number, false if it isn't
+ */
 -(BOOL) isNumeric :(NSString *) sValue
 {
     static BOOL bAns = NO;
@@ -88,7 +95,8 @@
 }
 
 #pragma mark Format Date
-//Format date to mm/dd/yyyy
+/*! @brief Format date to mm/dd/yyyy
+ */
 -(NSString *)formatDate:(NSDate *)date
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -178,6 +186,9 @@
     
     return bAns;
 }
+/*! @brief  Convert the boolen to a string yes or No
+    @return yes or no as string
+ */
 +(NSString *) convertBOOLtoString:(BOOL) bValue
 {
     NSString *sAns = [NSString new];
@@ -190,7 +201,8 @@
 }
 
 #pragma mark Get File Exteension From File Path
-// Get the extension of the file from the full path
+/*! @brief Get the extension of the file from the full path
+ */
 +(NSString *) getFileExtensionbyPath:(NSString *) filePath
 {
     NSArray *pathArray = [filePath componentsSeparatedByString:@"."];
@@ -239,7 +251,8 @@
     
     return bAns;
 }
-//Convert a string to NSNumber
+/*! @brief  Convert a string to NSNumber
+ */
 +(NSNumber *) convertToNSNumberByString:(NSString *) sValue
 {
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
