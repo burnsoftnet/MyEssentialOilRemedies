@@ -22,7 +22,8 @@
 }
 
 #pragma mark On Form Load
-//When form first loads
+/*! @brief When form first loads
+ */
 -(void) viewDidLoad
 {
     [super viewDidLoad];
@@ -45,7 +46,8 @@
 }
 
 #pragma mark View appears again
-//When the view appears again
+/*! @brief When the view appears again
+ */
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -53,7 +55,8 @@
 }
 
 #pragma mark Form Exits
-//Clean up when the form is leaving
+/*! @brief Clean up when the form is leaving
+ */
 -(void) viewWillDisappear:(BOOL)animated {
     // When Back button is hit on the view it will take you back to view the remidy list.
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
@@ -65,7 +68,8 @@
 }
 
 #pragma mark Reload Data
-//Reloads the data as if it loaded for the first time, mor like a reset
+/*! @brief Reloads the data as if it loaded for the first time, mor like a reset
+ */
 -(void)reloadData
 {
     [self loadSettings];
@@ -74,7 +78,8 @@
 }
 
 #pragma mark Load Settings
-//load the database path and set borders
+/*! @brief load the database path and set borders
+ */
 -(void) loadSettings
 {
     BurnSoftDatabase *objDB = [BurnSoftDatabase new];
@@ -86,7 +91,8 @@
 }
 
 #pragma mark  Load Textboxes with Vars
-//Loads the text boxes in the form with the varables that were set in loaddata
+/*! @brief Loads the text boxes in the form with the varables that were set in loaddata
+ */
 -(void) loadForm
 {
     self.lblProblem.text=self.myremedyName;
@@ -96,7 +102,8 @@
 }
 
 #pragma mark Load Data To Variables
-//Loads the data from the database based on the RID/RemedyID
+/*! @brief Loads the data from the database based on the RID/RemedyID
+ */
 -(void) loadData
 {
     sqlite3_stmt *statement;
@@ -141,7 +148,8 @@
 }
 
 #pragma mark Clear All Fields
-//Clears the textboxes
+/*! @brief Clears the textboxes
+ */
 -(void) clearFields
 {
     self.lblProblem.text = @"";
@@ -150,32 +158,37 @@
 }
 
 #pragma mark Toolbar Save Button
-// Save information and Exit
-//Might not be in use.
+/*! @brief  Save information and Exit
+    @remark Might not be in use.
+ */
 - (IBAction)tbSave:(id)sender {
     //[self runToView:@"EditRemedy_Description_ViewController"];
 }
 
 #pragma mark Toolbar Description Button
-// Switch to the Descriptions view
+/*! @brief Switch to the Descriptions view
+ */
 - (IBAction)tbDescription:(id)sender {
     [self changeCurrentViewTo:1];
 }
 
 #pragma mark Toolbar Close Button
-// Close the entire view
+/*! @brief Close the entire view
+ */
 - (IBAction)tbClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
 
 #pragma mark Toolbar Oils Button
-// Switch to the Oils View
+/*! @brief Switch to the Oils View
+ */
 - (IBAction)tbOils:(id)sender {
     [self changeCurrentViewTo:2];
 }
 
 #pragma mark Chage Views 
-//This will changethe views when a button on the toolbar is touched
+/*! @brief This will changethe views when a button on the toolbar is touched
+ */
 -(void)changeCurrentViewTo :(int) iValue
 {
     switch (iValue) {
@@ -203,13 +216,15 @@
 }
 
 #pragma mark Toolbar Uses Button
-// Switch to Use's View
+/*! @brief Switch to Use's View
+ */
 - (IBAction)tbUses:(id)sender {
     [self changeCurrentViewTo:3];
 }
 
 #pragma mark View popup WIndow for details
-// Setup to Presentation for the Pop View Controllers
+/*! @brief Setup to Presentation for the Pop View Controllers
+ */
 - (void)setPresentationStyleForSelfController:(UIViewController *)selfController presentingController:(UIViewController *)presentingController
 {
     presentingController.providesPresentationContextTransitionStyle = YES;
@@ -218,7 +233,8 @@
 }
 
 #pragma mark Prepare for Segue
-//Actions to Take before moving to next controller
+/*! @brief Actions to Take before moving to next controller
+ */
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"segueViewOilPopUpSearch"]){
@@ -233,28 +249,32 @@
 }
 
 #pragma mark Table Set Cell Data
-//set the cell data by use of an array
+/*! @brief set the cell data by use of an array
+ */
 -(BOOL)tableView:(UITableView *) tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     return YES;
 }
 
 #pragma mark Table Set Sections
-//set the sections in the table
+/*! @brief set the sections in the table
+ */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
 #pragma mark Table Set Number of Rows
-//set the number of rows int he table
+/*! @brief set the number of rows int he table
+ */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return  [myOilCollection count];
 }
 
 #pragma mark Table Row Selected
-//actions to take when a row has been selected.
+/*! @brief actions to take when a row has been selected.
+ */
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -265,7 +285,8 @@
     [self performSegueWithIdentifier:@"segueViewOilPopUpSearch" sender:self];
 }
 #pragma mark Table Set Cell Data
-//set the cell data by use of an array
+/*! @brief set the cell data by use of an array
+ */
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier=@"Cell";

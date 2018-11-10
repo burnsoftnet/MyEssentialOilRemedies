@@ -11,8 +11,6 @@
 #import "BurnSoftDatabase.h"
 #import "MYSettings.h"
 #import "FormFunctions.h"
-//#import "OilRemedies.h"
-//#import "OilLists.h"
 #import "SearchDatabase.h"
 
 #import "VIEW_OilDetailsViewController.h"

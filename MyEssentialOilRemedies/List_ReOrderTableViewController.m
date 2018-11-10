@@ -21,6 +21,8 @@
 @implementation List_ReOrderTableViewController
 
 #pragma mark View did Load
+/*! @brief When form first loads
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     ReOrderCount = 0;
@@ -36,7 +38,8 @@
 }
 
 #pragma mark View will reappear
-//Sub when the form reloads
+/*! @brief Sub when the form reloads
+ */
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reloadData];
@@ -49,7 +52,8 @@
 }
 
 #pragma mark Setup Global Variables
-// Setup global variables for the List Reorder forms
+/*! @brief  Setup global variables for the List Reorder forms
+ */
 -(void) setupGlobalVars
 {
     BurnSoftDatabase *myPath = [BurnSoftDatabase new];
@@ -65,17 +69,21 @@
 }
 
 #pragma mark Memory Warnings
+/*! @brief When a memroy warning occurs
+ */
 -(void) didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
 #pragma mark Reload Data
-//Reload the data as is the form was first visited
+/*! @brief Reload the data as is the form was first visited
+ */
 - (void) reloadData {
     [self setupGlobalVars];
     [self loadData];
 }
 #pragma mark Refresh
-// refresh the data on the form when swapped down
+/*! @brief  refresh the data on the form when swapped down
+ */
 - (IBAction) refresh:(UIRefreshControl *)sender{
     [self.myTableView reloadData];
     [self loadData];
@@ -83,7 +91,8 @@
 }
 
 #pragma mark Load Data
-// Load the data when the form first loads or when the data is reloaded
+/*! @brief  Load the data when the form first loads or when the data is reloaded
+ */
 - (void) loadData
 {
     [myReOrderLists removeAllObjects];
@@ -108,16 +117,21 @@
 }
 
 #pragma mark - Table view data source
-
+/*! @brief  Number of Section in the Table View
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 #pragma mark - Table view Number of Rows
+/*! @brief Number of rows in section
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [myReOrderLists count];
 }
 
 #pragma mark Table View Cell At Path
+/*! @brief For each cell in table view
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -136,14 +150,16 @@
 }
 
 #pragma mark Table View Can Edit Row
-// Override to support conditional editing of the table view.
+/*! @brief  Override to support conditional editing of the table view.
+ */
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
 #pragma mark Table Edit actions
-//actions to take when a row has been selected for editing.
+/*! @brief actions to take when a row has been selected for editing.
+ */
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewRowAction *OrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Oil is Now In Stock." handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
@@ -189,7 +205,8 @@
 }
 
 #pragma mark Table Row Selected
-//actions to take when a row has been selected.
+/*! @brief actions to take when a row has been selected.
+ */
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -200,8 +217,8 @@
 
 
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+/*! @brief  In a storyboard-based application, you will often want to do a little preparation before navigation
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segueShoppingViewOil"]) {
         VIEW_OilDetailsViewController *destViewController = (VIEW_OilDetailsViewController *)segue.destinationViewController;
