@@ -17,7 +17,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="9m3-lE-B8x">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -2685,7 +2686,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="FVx-dx-Rr4"/>
         <segue reference="9Qq-SB-b9d"/>
-        <segue reference="RBu-Ci-AeC"/>
+        <segue reference="i3e-cA-Y4r"/>
         <segue reference="tE5-8K-Pn9"/>
     </inferredMetricsTieBreakers>
 </document>
