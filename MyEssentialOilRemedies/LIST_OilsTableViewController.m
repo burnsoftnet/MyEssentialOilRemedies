@@ -55,6 +55,7 @@
         if (OilCount <= ((int)LITE_LIMIT -1 ))
         {
             UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addMoreOils)];
+            addButton.tintColor = UIColor.blackColor;
             self.navigationItem.rightBarButtonItem = addButton;
         } else {
             self.navigationItem.rightBarButtonItem = nil;
@@ -62,6 +63,7 @@
         }
     } else {
         UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addMoreOils)];
+        addButton.tintColor = UIColor.blackColor;
         self.navigationItem.rightBarButtonItem = addButton;
     }
 }

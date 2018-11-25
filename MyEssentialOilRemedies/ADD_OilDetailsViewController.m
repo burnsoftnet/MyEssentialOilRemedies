@@ -33,6 +33,7 @@
     
     //Create an Add Button in Nav Bat
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addMoreOils)];
+    addButton.tintColor = UIColor.blackColor;
     self.navigationItem.rightBarButtonItem = addButton;
     
     [FormFunctions setBackGroundImage:self.view];
