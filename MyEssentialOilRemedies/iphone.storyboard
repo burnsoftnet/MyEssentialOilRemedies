@@ -756,7 +756,7 @@
                                             <constraint firstItem="N29-mZ-UTM" firstAttribute="leading" secondItem="7k1-bs-kv1" secondAttribute="leadingMargin" id="Xy0-Du-flc"/>
                                         </constraints>
                                     </view>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtG-fd-zq4">
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtG-fd-zq4">
                                         <rect key="frame" x="0.0" y="5" width="400" height="44"/>
                                         <items>
                                             <barButtonItem title="Description" id="y0f-tN-5xq">
@@ -865,7 +865,8 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="p13-l8-9WX" secondAttribute="bottom" id="9sJ-up-sv7"/>
                             <constraint firstItem="p13-l8-9WX" firstAttribute="leading" secondItem="E5Y-CE-lH8" secondAttribute="leading" id="dR5-oX-ycV"/>
@@ -917,6 +918,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tX3-Ef-Nto">
+                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -2183,7 +2185,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6h6-Do-rKi" firstAttribute="top" secondItem="QAu-aQ-m5Y" secondAttribute="top" id="11p-2w-obg"/>
                             <constraint firstAttribute="trailing" secondItem="6h6-Do-rKi" secondAttribute="trailing" id="GAH-e7-Ujl"/>

@@ -33,7 +33,7 @@
     NavArray = [[NSArray alloc] initWithObjects:actionButton, nil];
     self.navigationItem.rightBarButtonItems = NavArray;
     
-    [FormFunctions setBackGroundImage:self.view];
+    //[FormFunctions setBackGroundImage:self.view];
     [FormFunctions setBackGroundImage:self.viewOils];
     [FormFunctions setBackGroundImage:self.viewUses];
     [FormFunctions setBackGroundImage:self.myTableView];

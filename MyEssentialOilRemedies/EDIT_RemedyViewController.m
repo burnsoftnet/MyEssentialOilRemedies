@@ -33,7 +33,7 @@
     [FormFunctions setBackGroundImage:self.viewDescription];
     [FormFunctions setBackGroundImage:self.viewUses];
     [FormFunctions setBackGroundImage:self.viewOils];
-    [FormFunctions setBackGroundImage:self.view];
+    //[FormFunctions setBackGroundImage:self.view];
     [FormFunctions setBackGroundImage:self.myTableView];
     
     if (currView == 0) {
