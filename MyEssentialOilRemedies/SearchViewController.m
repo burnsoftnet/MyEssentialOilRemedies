@@ -206,7 +206,7 @@
     cell.textLabel.text = [_myCombinedResults objectAtIndex:indexPath.row];
     [FormFunctions setBackGroundImage:cell.contentView];
     
-        #warning #22 modify for adavance search option with descriptions
+        //#warning #22 modify for adavance search option with descriptions
     /*
     SearchDatabase *myObj = [_myCombinedResults objectAtIndex:indexPath.row];
     cell.textLabel.text = myObj.SearchName;

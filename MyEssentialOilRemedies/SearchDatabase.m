@@ -53,7 +53,7 @@
  */
 -(NSMutableArray *) searchAllOilsListSimple :(NSString *) dbPath ErrorMessage: (NSString **) errorMsg;
 {
-#warning #22 This is where you can add to the results table
+//#warning #22 This is where you can add to the results table
     oilCollection = [NSMutableArray new];
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
