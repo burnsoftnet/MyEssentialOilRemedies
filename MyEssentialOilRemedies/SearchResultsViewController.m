@@ -59,6 +59,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     UITableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
     NSString *myName = cell.textLabel.text;
+     [FormFunctions setBackGroundImage:cell.contentView];
     [self findLocationofSelection:myName];
 }
 

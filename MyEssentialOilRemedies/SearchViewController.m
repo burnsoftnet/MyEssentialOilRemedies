@@ -32,6 +32,7 @@
     SearchResultsViewController *searchResults = (SearchResultsViewController *)self.controller.searchResultsController;
     [self addObserver:searchResults forKeyPath:@"results" options:NSKeyValueObservingOptionNew context:nil];
     [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.myTableView];
     
 }
 
