@@ -31,6 +31,8 @@
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
     [self LoadTableData];
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.myTableView];
     
     //Create and Add button in the Nav Bar
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addRemedy)];
@@ -187,6 +189,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    [FormFunctions setBackGroundImage:cell.contentView];
     OilRemedies *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
     cell.textLabel.text = displayCollection.name;
     cell.tag = displayCollection.RID;

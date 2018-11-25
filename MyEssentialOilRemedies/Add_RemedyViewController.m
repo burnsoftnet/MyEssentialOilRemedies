@@ -32,6 +32,12 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapReceived:)];
     [tapGestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:tapGestureRecognizer];
+    
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.viewOils];
+    //[FormFunctions setBackGroundImage:self.viewLoaded];
+    [FormFunctions setBackGroundImage:self.viewUses];
+    [FormFunctions setBackGroundImage:self.myTableView];
 }
 
 #pragma mark View appears again
@@ -294,6 +300,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    [FormFunctions setBackGroundImage:cell.contentView];
     cell.textLabel.text = self.myOils [indexPath.row];
     return cell;
 }
