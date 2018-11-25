@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSettings];
+    [FormFunctions setBackGroundImage:self.view];
 }
 
 #pragma mark Did Recieve Memory Warning
@@ -131,6 +132,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
+    [FormFunctions setBackGroundImage:cell.contentView];
     
     NSString *currentValue = [self.searchResults objectAtIndex:[indexPath row]];
     [[cell textLabel]setText:currentValue];

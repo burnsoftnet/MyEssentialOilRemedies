@@ -35,6 +35,8 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.myTableView addSubview:refreshControl];
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.myTableView];
 }
 
 #pragma mark View will reappear
@@ -139,6 +141,7 @@
     if (!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    [FormFunctions setBackGroundImage:cell.contentView];
     
     OilLists *displayCollection = [myReOrderLists objectAtIndex:indexPath.row];
     

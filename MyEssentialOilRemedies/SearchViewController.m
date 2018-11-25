@@ -31,6 +31,8 @@
 
     SearchResultsViewController *searchResults = (SearchResultsViewController *)self.controller.searchResultsController;
     [self addObserver:searchResults forKeyPath:@"results" options:NSKeyValueObservingOptionNew context:nil];
+    [FormFunctions setBackGroundImage:self.view];
+    
 }
 
 #pragma mark View will reappear
@@ -202,6 +204,8 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.textLabel.text = [_myCombinedResults objectAtIndex:indexPath.row];
+    [FormFunctions setBackGroundImage:cell.contentView];
+    
         #warning #22 modify for adavance search option with descriptions
     /*
     SearchDatabase *myObj = [_myCombinedResults objectAtIndex:indexPath.row];
