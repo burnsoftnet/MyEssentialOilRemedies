@@ -42,6 +42,11 @@
     [[myObj layer] setCornerRadius:2];
 }
 
++(void) setBackGroundImage:(UIView *) myview
+{
+    //[[myview layer] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]]];
+    myview.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]];
+}
 #pragma mark Common Alert/Message Handling
 /*! @brief Send a Message box from the View controller that you are currently on. It's easier then copying this function all over the place
     @remark USEBD: GENERAL

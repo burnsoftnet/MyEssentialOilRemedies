@@ -30,6 +30,10 @@
     //Read backup files
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
+    
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.mainView];
+    [FormFunctions setBackGroundImage:self.myTableView];
 }
 
 #pragma mark Reload Data

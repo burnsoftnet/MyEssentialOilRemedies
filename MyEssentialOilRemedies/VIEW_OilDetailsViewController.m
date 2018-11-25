@@ -90,6 +90,10 @@
     if (currView == 0) {
         [self changeCurrentViewTo:1];
     }
+
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.viewContent];
+    [FormFunctions setBackGroundImage:self.viewRelatedRemedies];
 }
 
 #pragma mark Start Action Sheet

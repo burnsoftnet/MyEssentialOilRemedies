@@ -17,6 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 
+@property (weak, nonatomic) IBOutlet UIView *mainView;
 #pragma mark Backup Database for iTunes
 - (IBAction)btnBackUpDatabaseForiTunes:(id)sender;
 

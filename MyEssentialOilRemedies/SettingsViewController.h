@@ -20,6 +20,7 @@
 - (IBAction)btnRestoreFactory:(id)sender;
 - (IBAction)btnBackuptoiCloud:(id)sender;
 - (IBAction)btnRestoreFromiCloud:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *viewMain;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblAppVersion;
 @property (weak, nonatomic) IBOutlet UILabel *lblDBVersion;

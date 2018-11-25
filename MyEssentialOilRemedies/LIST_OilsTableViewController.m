@@ -40,6 +40,8 @@
     
     //Set Tableview to Delete Mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage: self.myTableView];
 }
 
 #pragma mark Add Navigation Button

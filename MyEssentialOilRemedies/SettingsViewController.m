@@ -77,6 +77,8 @@
     [super viewDidLoad];
     [self LoadSettings];
     [self loadVersioning];
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.viewMain];
 }
 
 #pragma mark Form Loads Again

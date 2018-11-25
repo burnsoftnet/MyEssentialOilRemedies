@@ -34,6 +34,9 @@
     //Create an Add Button in Nav Bat
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addMoreOils)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.viewMain];
 }
 #pragma mark Oil Exists By Name
 /*! @brief Look up to see if the oil already exists in the database by Name

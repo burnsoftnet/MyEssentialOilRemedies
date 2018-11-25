@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *txtDescription;
 @property (weak, nonatomic) IBOutlet UITextField *txtVedor;
 @property (weak, nonatomic) IBOutlet UITextField *txtWebsite;
+@property (weak, nonatomic) IBOutlet UIView *viewMain;
 
 #pragma mark Add Oil Button
 - (IBAction)btnAdd:(id)sender;
