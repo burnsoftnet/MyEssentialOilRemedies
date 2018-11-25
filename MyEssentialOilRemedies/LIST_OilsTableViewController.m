@@ -227,7 +227,8 @@
     {
         cell.contentView.backgroundColor = [UIColor greenColor];
     } else {
-        cell.contentView.backgroundColor = [UIColor whiteColor];
+        //cell.contentView.backgroundColor = [UIColor whiteColor];
+        [FormFunctions setBackGroundImage:cell.contentView];
     }
     NSString *isBlend = displayCollection.isBlend;
     

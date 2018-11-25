@@ -94,6 +94,7 @@
     [FormFunctions setBackGroundImage:self.view];
     [FormFunctions setBackGroundImage:self.viewContent];
     [FormFunctions setBackGroundImage:self.viewRelatedRemedies];
+    [FormFunctions setBackGroundImage:self.RelatedRemediesTable];
 }
 
 #pragma mark Start Action Sheet
@@ -367,6 +368,7 @@
     OilLists   *displayCollection = [myRelatedRemedies objectAtIndex:indexPath.row];
     cell.textLabel.text = displayCollection.RemedyName;
     cell.tag = displayCollection.RID;
+    [FormFunctions setBackGroundImage:cell.contentView];
     return cell;
 }
 
