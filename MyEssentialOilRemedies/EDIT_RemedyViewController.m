@@ -30,6 +30,12 @@
     [tapGestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
+    [FormFunctions setBackGroundImage:self.viewDescription];
+    [FormFunctions setBackGroundImage:self.viewUses];
+    [FormFunctions setBackGroundImage:self.viewOils];
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.myTableView];
+    
     if (currView == 0) {
         [self changeCurrentViewTo:1];
     }
@@ -325,6 +331,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    [FormFunctions setBackGroundImage:cell.contentView];
     cell.textLabel.text = self.myOils [indexPath.row];
     return cell;
 }

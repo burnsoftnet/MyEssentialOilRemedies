@@ -33,6 +33,12 @@
     NavArray = [[NSArray alloc] initWithObjects:actionButton, nil];
     self.navigationItem.rightBarButtonItems = NavArray;
     
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.viewOils];
+    [FormFunctions setBackGroundImage:self.viewUses];
+    [FormFunctions setBackGroundImage:self.myTableView];
+    [FormFunctions setBackGroundImage:self.viewDescription];
+    
     if (currView == 0) {
         [self changeCurrentViewTo:1];
     }
@@ -305,7 +311,8 @@
     {
         cell.contentView.backgroundColor = [UIColor greenColor];
     } else {
-        cell.contentView.backgroundColor = [UIColor whiteColor];
+        //cell.contentView.backgroundColor = [UIColor whiteColor];
+        [FormFunctions setBackGroundImage:cell.contentView];
     }
         
     return cell;

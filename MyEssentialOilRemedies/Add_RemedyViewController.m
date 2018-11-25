@@ -38,6 +38,7 @@
     //[FormFunctions setBackGroundImage:self.viewLoaded];
     [FormFunctions setBackGroundImage:self.viewUses];
     [FormFunctions setBackGroundImage:self.myTableView];
+    [FormFunctions setBackGroundImage:self.viewDescription];
 }
 
 #pragma mark View appears again
