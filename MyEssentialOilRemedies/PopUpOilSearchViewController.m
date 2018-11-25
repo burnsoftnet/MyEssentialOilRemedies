@@ -23,6 +23,7 @@
     self.lblDescription.text = @"";
     [self loadSettings];
     [self loadData];
+    [FormFunctions setBackGroundImage:self.view];
 
 }
 

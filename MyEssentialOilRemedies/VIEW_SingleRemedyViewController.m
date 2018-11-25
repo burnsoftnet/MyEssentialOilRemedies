@@ -43,6 +43,12 @@
     if (currView == 0) {
         [self changeCurrentViewTo:1];
     }
+    
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.ViewOils];
+    [FormFunctions setBackGroundImage:self.ViewUses];
+    [FormFunctions setBackGroundImage:self.myTableView];
+    [FormFunctions setBackGroundImage:self.ViewDescription];
 }
 
 #pragma mark View appears again
@@ -301,7 +307,8 @@
     {
         cell.contentView.backgroundColor = [UIColor greenColor];
     } else {
-        cell.contentView.backgroundColor = [UIColor whiteColor];
+        //cell.contentView.backgroundColor = [UIColor whiteColor];
+        [FormFunctions setBackGroundImage:cell.contentView];
     }
     
     return cell;
