@@ -119,11 +119,11 @@
     NSString *deleteError = [NSString new];
     NSString *copyError = [NSString new];
     BOOL bAns = NO;
-
+    
+    // Get the Database Backup name in the local path
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
    
     NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:newExt];
-    
     NSURL *urlNewDBName = [NSURL fileURLWithPath:newDBName];
     
     BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
@@ -142,6 +142,7 @@
     [self removeConflictVersionsiniCloudbyURL:urlNewDBName];
     [myObjG DeleteFileByPath:backupfile ErrorMessage:&deleteError];
     
+    [DatabaseManagement startiCloudSync];
     myObjG = nil;
     return bAns;
 }
@@ -187,36 +188,43 @@
  */
 +(void) startiCloudSync
 {
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    NSString *dbPathString = [NSString new];
-    
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
-    
-    //Remove any conflicting versions and maybe initialize icloud sync
-    DatabaseManagement *myObjDM = [DatabaseManagement new];
-    NSURL *fileLocation = [myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"];
-    
-    [myObjDM removeConflictVersionsiniCloudbyURL:fileLocation];
-    NSError *errOut = nil;
-    NSFileManager *objFM = [NSFileManager new];
-    
-    NSNumber *isDownloadedValue = NULL;
-    
-    BOOL success = [fileLocation getResourceValue:&isDownloadedValue forKey: NSURLUbiquitousItemDownloadingStatusKey  error:&errOut];
-    
-    if (success)
-    {
-        if ([objFM startDownloadingUbiquitousItemAtURL:fileLocation error:&errOut]) {
-            [FormFunctions doBuggermeMessage:@"sync started!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+    @try {
+        BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+        NSString *dbPathString = [NSString new];
+        
+        dbPathString = [myObj getDatabasePath:@MYDBNAME];
+        
+        //Remove any conflicting versions and maybe initialize icloud sync
+        DatabaseManagement *myObjDM = [DatabaseManagement new];
+        NSURL *fileLocation = [myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"];
+        [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"iCloud Backup Path : %@", fileLocation] FromSubFunction:@"startiCloudSync"];
+        
+        [myObjDM removeConflictVersionsiniCloudbyURL:fileLocation];
+        NSError *errOut = nil;
+        NSFileManager *objFM = [NSFileManager new];
+        
+        NSNumber *isDownloadedValue = NULL;
+        
+        BOOL success = [fileLocation getResourceValue:&isDownloadedValue forKey: NSURLUbiquitousItemDownloadingStatusKey  error:&errOut];
+        
+        if (success)
+        {
+            if ([objFM startDownloadingUbiquitousItemAtURL:fileLocation error:&errOut]) {
+                [FormFunctions doBuggermeMessage:@"sync started!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+            } else {
+                [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"iCloud Sync Error on startDownloadingUbiquitousItemAtURL : %@", errOut] FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+            }
         } else {
-            [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"iCloud Sync Error on startDownloadingUbiquitousItemAtURL : %@", errOut] FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+            [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"iCloud Sync Error on NSURLUbiquitousItemDownloadingStatusKey : %@", errOut] FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
         }
-    } else {
-        [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"iCloud Sync Error on NSURLUbiquitousItemDownloadingStatusKey : %@", errOut] FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+        
+        myObj = nil;
+        myObjDM = nil;
+        objFM = nil;
+        
+    } @catch (NSException *exception) {
+        NSLog(@"ERROR!!!: %@", exception.reason);
     }
     
-    myObj = nil;
-    myObjDM = nil;
-    objFM = nil;
 }
 @end
