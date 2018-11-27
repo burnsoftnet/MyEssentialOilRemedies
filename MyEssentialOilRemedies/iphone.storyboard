@@ -1639,8 +1639,8 @@
                                                 <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </toolbar>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fr1-UA-wla">
-                                                <rect key="frame" x="8" y="60" width="375" height="511"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="8" y="60" width="375" height="601"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableView>
                                         </subviews>
@@ -2693,6 +2693,6 @@
         <segue reference="FVx-dx-Rr4"/>
         <segue reference="9Qq-SB-b9d"/>
         <segue reference="i3e-cA-Y4r"/>
-        <segue reference="tE5-8K-Pn9"/>
+        <segue reference="EWW-Fh-Ngj"/>
     </inferredMetricsTieBreakers>
 </document>
