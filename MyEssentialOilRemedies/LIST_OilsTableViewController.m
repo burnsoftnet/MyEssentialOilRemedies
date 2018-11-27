@@ -222,6 +222,7 @@
     cell.textLabel.text = displayCollection.name;
     cell.detailTextLabel.text = displayCollection.mydescription;
     cell.tag = displayCollection.OID;
+
     NSString *instock = displayCollection.InStock;
     if ([instock intValue] == 1)
     {
@@ -323,5 +324,17 @@
  */
 -(void) addMoreOils {
     [self performSegueWithIdentifier:@"NewOil" sender:self];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    NSLog(@"%@", title);
+    //return [myOilCollection indexOfObjectIdenticalTo:title];
+    return [myOilCollection indexOfObject:title];
 }
 @end

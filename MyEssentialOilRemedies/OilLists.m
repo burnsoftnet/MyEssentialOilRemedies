@@ -116,6 +116,8 @@
                 NSString *CommonName = @"";
                 NSString *Vendor = @"";
                 NSString *VendorWeb = @"";
+                NSString *section = @"";
+                
                 int iCol=0;
                 
                 if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
@@ -208,7 +210,9 @@
                     VendorWeb = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
                 }
                 
+                section = [name substringToIndex:1];
                 OilLists *myCollection = [OilLists new];
+                [myCollection setSection:section];
                 [myCollection setName:name];
                 [myCollection setOID:[oid intValue]];
                 [myCollection setInStock:InStock];

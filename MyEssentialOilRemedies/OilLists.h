@@ -29,6 +29,7 @@
 @property (nonatomic,strong) NSString *Vendor;
 @property (nonatomic,strong) NSString *VendorWebSite;
 @property (assign) int RID;
+@property (nonatomic,strong) NSString *section;
 
 #pragma mark Get List of Oils
 -(NSMutableArray *) getAllOilsList :(NSString *) dbPath : (NSString **) errorMsg;
