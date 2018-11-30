@@ -16,6 +16,7 @@
     NSString *dbPathString;
     NSMutableArray *myOilCollection;
     NSString *SelectedCellID;
+    NSArray *oilSections;
     int inStockCount; // Mark if it is instock or not or the badge count
     int RemedyCount; //Added for Lite Version tracking
     int OilCount; //Added for Lite Version tracking
@@ -154,6 +155,17 @@
     NSString *errorMsg = [NSString new];
     myOilCollection = [myObj getAllOilsList:dbPathString :&errorMsg];
     [myFunctions checkForError:errorMsg MyTitle:@"LoadData:" ViewController:self];
+    //oilSections = [NSOrderedSet orderedSetWithArray:myOilCollection]
+#warning "This section if to get the section letters to put in an array"
+    for (OilLists *j in myOilCollection)
+    {
+        //[oilSections setValue:<#(nullable id)#> forKey:@"%@"]
+        //[oilSections addObject: j.section];
+        //[oilSections array];
+        
+        NSLog(@"%@", j.section);
+    }
+    
     [[self myTableView] reloadData];
     inStockCount = [myObj getInStockCountByDatabase:dbPathString ErrorMessage:&errorMsg];
     

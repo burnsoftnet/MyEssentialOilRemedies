@@ -197,9 +197,11 @@
         //Remove any conflicting versions and maybe initialize icloud sync
         DatabaseManagement *myObjDM = [DatabaseManagement new];
         NSURL *fileLocation = [myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"];
+        
         [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"iCloud Backup Path : %@", fileLocation] FromSubFunction:@"startiCloudSync"];
         
         [myObjDM removeConflictVersionsiniCloudbyURL:fileLocation];
+        
         NSError *errOut = nil;
         NSFileManager *objFM = [NSFileManager new];
         
