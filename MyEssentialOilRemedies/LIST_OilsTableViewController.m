@@ -16,7 +16,7 @@
     NSString *dbPathString;
     NSMutableArray *myOilCollection;
     NSString *SelectedCellID;
-    NSMutableArray *oilSections;
+    NSMutableArray *oilSections; //Related to issue #63
     int inStockCount; // Mark if it is instock or not or the badge count
     int RemedyCount; //Added for Lite Version tracking
     int OilCount; //Added for Lite Version tracking
@@ -84,6 +84,7 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
     myOilCollection = nil;
+    oilSections = nil;
     inStockCount = 0;
     SelectedCellID = nil;
     dbPathString = nil;
@@ -155,19 +156,24 @@
     NSString *errorMsg = [NSString new];
     myOilCollection = [myObj getAllOilsList:dbPathString :&errorMsg];
     [myFunctions checkForError:errorMsg MyTitle:@"LoadData:" ViewController:self];
-    //oilSections = [NSOrderedSet orderedSetWithArray:myOilCollection]
-    oilSections = [NSMutableArray new];
-    
-    for (OilLists *j in myOilCollection)
+    //Related to issue #63
+    if (USESECTIONS_OIL)
     {
-        NSString *newObject = j.section;
-        if (![oilSections containsObject:newObject])
+        oilSections = [NSMutableArray new];
+        
+        for (OilLists *j in myOilCollection)
         {
-            [oilSections addObject:newObject];
+            NSString *newObject = j.section;
+            if (![oilSections containsObject:newObject])
+            {
+                [oilSections addObject:newObject];
+            }
         }
+        NSLog(@"%@", oilSections);
     }
     
-    NSLog(@"%@", oilSections);
+    //End issue #63
+    //NSLog(@"%@", oilSections);
     
     [[self myTableView] reloadData];
     inStockCount = [myObj getInStockCountByDatabase:dbPathString ErrorMessage:&errorMsg];
@@ -210,21 +216,35 @@
 /*! @brief set the sections in the table
  */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //Commented out for issue #63
+    //Related to issue #63
     //return 1;
-    return [oilSections count];
+    if (USESECTIONS_OIL)
+    {
+        return [oilSections count];
+    } else {
+        return 1;
+    }
 }
 
+//Related to issue #63
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return [oilSections objectAtIndex:section];
 }
+
 
 #pragma mark Table Set Number of Rows
 /*! @brief set the number of rows int he table
  */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    //Related to issue #63
+    //NOT COMPLETED
+    // Return the number of rows in the section.
+    NSString *sectionTitle = [oilSections objectAtIndex:section];
+    NSLog(@"%@",sectionTitle);
+    //NSArray *sectionAnimals = [myOilCollection objectForKey:sectionTitle];
+    //return [sectionAnimals count];
     return [myOilCollection count];
 }
 
@@ -348,11 +368,19 @@
     [self performSegueWithIdentifier:@"NewOil" sender:self];
 }
 
+//Related to issue #63
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    return @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
+    //return @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
+    if (USESECTIONS_OIL)
+    {
+        return oilSections;
+    } else {
+        return nil;
+    }
+    
 }
-
+//Related to issue #63
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
     NSLog(@"%@", title);
