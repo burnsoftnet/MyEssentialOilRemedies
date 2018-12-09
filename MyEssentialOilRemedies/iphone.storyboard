@@ -1612,9 +1612,8 @@
                                             <constraint firstAttribute="height" constant="1199" id="v2f-5b-sxl"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRe-Lm-H50">
-                                        <rect key="frame" x="0.0" y="0.0" width="391" height="999"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRe-Lm-H50">
+                                        <rect key="frame" x="0.0" y="0.0" width="391" height="1182"/>
                                         <subviews>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HA1-he-Z32">
                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
@@ -1638,13 +1637,18 @@
                                                 </items>
                                                 <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </toolbar>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fr1-UA-wla">
-                                                <rect key="frame" x="8" y="60" width="375" height="601"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fr1-UA-wla">
+                                                <rect key="frame" x="8" y="60" width="375" height="912"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="fr1-UA-wla" secondAttribute="bottom" constant="210" id="2H6-xf-tEl"/>
+                                            <constraint firstItem="fr1-UA-wla" firstAttribute="top" secondItem="LRe-Lm-H50" secondAttribute="top" constant="60" id="fMB-fU-otf"/>
+                                            <constraint firstItem="fr1-UA-wla" firstAttribute="trailing" secondItem="LRe-Lm-H50" secondAttribute="trailingMargin" id="yz4-e4-4OJ"/>
+                                            <constraint firstItem="fr1-UA-wla" firstAttribute="leading" secondItem="LRe-Lm-H50" secondAttribute="leadingMargin" id="zNc-qW-CGi"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -1652,7 +1656,11 @@
                                     <constraint firstItem="8oi-jN-SZd" firstAttribute="top" secondItem="RSF-L2-uar" secondAttribute="top" id="Oem-Dc-k9V"/>
                                     <constraint firstAttribute="trailing" secondItem="8oi-jN-SZd" secondAttribute="trailing" id="OtB-8x-0d8"/>
                                     <constraint firstItem="8oi-jN-SZd" firstAttribute="leading" secondItem="RSF-L2-uar" secondAttribute="leading" id="eFX-h9-XyA"/>
+                                    <constraint firstItem="LRe-Lm-H50" firstAttribute="top" secondItem="8oi-jN-SZd" secondAttribute="top" id="eoT-Um-cXk"/>
+                                    <constraint firstAttribute="bottom" secondItem="LRe-Lm-H50" secondAttribute="bottom" constant="-21" id="gbk-rL-y0B"/>
                                     <constraint firstAttribute="bottom" secondItem="8oi-jN-SZd" secondAttribute="bottom" constant="-38" id="n8m-qB-wQg"/>
+                                    <constraint firstItem="LRe-Lm-H50" firstAttribute="leading" secondItem="8oi-jN-SZd" secondAttribute="leading" id="nUe-V1-weG"/>
+                                    <constraint firstItem="LRe-Lm-H50" firstAttribute="trailing" secondItem="8oi-jN-SZd" secondAttribute="trailing" id="wWv-7Q-XTz"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
