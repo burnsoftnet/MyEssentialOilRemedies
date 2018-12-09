@@ -16,7 +16,7 @@
     NSString *dbPathString;
     NSMutableArray *myOilCollection;
     NSString *SelectedCellID;
-    NSArray *oilSections;
+    NSMutableArray *oilSections;
     int inStockCount; // Mark if it is instock or not or the badge count
     int RemedyCount; //Added for Lite Version tracking
     int OilCount; //Added for Lite Version tracking
@@ -156,15 +156,18 @@
     myOilCollection = [myObj getAllOilsList:dbPathString :&errorMsg];
     [myFunctions checkForError:errorMsg MyTitle:@"LoadData:" ViewController:self];
     //oilSections = [NSOrderedSet orderedSetWithArray:myOilCollection]
-#warning "This section if to get the section letters to put in an array"
+    oilSections = [NSMutableArray new];
+    
     for (OilLists *j in myOilCollection)
     {
-        //[oilSections setValue:<#(nullable id)#> forKey:@"%@"]
-        //[oilSections addObject: j.section];
-        //[oilSections array];
-        
-        NSLog(@"%@", j.section);
+        NSString *newObject = j.section;
+        if (![oilSections containsObject:newObject])
+        {
+            [oilSections addObject:newObject];
+        }
     }
+    
+    NSLog(@"%@", oilSections);
     
     [[self myTableView] reloadData];
     inStockCount = [myObj getInStockCountByDatabase:dbPathString ErrorMessage:&errorMsg];
@@ -207,7 +210,14 @@
 /*! @brief set the sections in the table
  */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    //Commented out for issue #63
+    //return 1;
+    return [oilSections count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [oilSections objectAtIndex:section];
 }
 
 #pragma mark Table Set Number of Rows
