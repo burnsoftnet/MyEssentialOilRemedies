@@ -203,7 +203,6 @@
     
 }
 
-
 #pragma mark Table set Edit Mode
 /*! @brief  Set if you can edit the table by swiping left to view options.
  */
@@ -261,6 +260,7 @@
     cell.textLabel.font = [UIFont systemFontOfSize:16];
     
     OilLists *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
+    //TODO Have this pump into a section somehow for issue #63
     cell.textLabel.text = displayCollection.name;
     cell.detailTextLabel.text = displayCollection.mydescription;
     cell.tag = displayCollection.OID;
@@ -381,6 +381,9 @@
     
 }
 //Related to issue #63
+/*!
+    @brief When the side bar is clicked on the letter
+*/
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
     NSLog(@"%@", title);
