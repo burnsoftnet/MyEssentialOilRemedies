@@ -21,6 +21,7 @@
     int RemedyCount; //Added for Lite Version tracking
     int OilCount; //Added for Lite Version tracking
     int ReOrderCount;
+    NSMutableDictionary *oilDictionary;
 }
 @end
 
@@ -150,6 +151,7 @@
 - (void) loadData
 {
     [myOilCollection removeAllObjects];
+    
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
     OilLists *myObj  = [OilLists new];
     FormFunctions *myFunctions = [FormFunctions new];
@@ -170,6 +172,7 @@
             }
         }
         NSLog(@"%@", oilSections);
+        [self setupDictionary];
     }
     
     //End issue #63
@@ -200,6 +203,25 @@
     myObj = nil;
     myObjDB = nil;
     myFunctions = nil;
+    
+}
+
+-(void)setupDictionary
+{
+    oilDictionary = [NSMutableDictionary dictionary]; //related to issue #63
+    NSString *errorMsg;
+    [oilDictionary removeAllObjects];
+    for (int x = 0; x < [oilSections count]; x++) {
+        /*
+        MatchLists *displayMatcheClasses = [myMatchClasses objectAtIndex:x];
+        NSString *currentClassName = displayMatcheClasses.matchclass;
+        [DictionaryMatchClass setObject:[MatchLists getAllMatchListsByMatchDivision:currentClassName DatabasePath:dbPathString ErrorMessage:&errorMsg] forKey:currentClassName];
+         */
+        OilLists *displayOilSections = [oilSections objectAtIndex:x];
+        NSString *currentSectionName = displayOilSections.section;
+        NSLog(@"%@", currentSectionName);
+        //[oilDictionary setObject:[OilLists ] forKey:<#(nonnull id<NSCopying>)#>]
+    }
     
 }
 
@@ -258,9 +280,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     cell.textLabel.font = [UIFont systemFontOfSize:16];
+    OilLists *displayCollection;
+    if (USESECTIONS_OIL)
+    {
+        //TODO Have this pump into a section somehow for issue #63
+        NSString *sectionTitle = [myOilCollection objectAtIndex:indexPath.section];
+        NSArray *sectionOils = [oilDictionary objectForKey:sectionTitle];
+        displayCollection = [sectionOils objectAtIndex:indexPath.row];
+    } else {
+        displayCollection = [myOilCollection objectAtIndex:indexPath.row];
+    }
     
-    OilLists *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
-    //TODO Have this pump into a section somehow for issue #63
     cell.textLabel.text = displayCollection.name;
     cell.detailTextLabel.text = displayCollection.mydescription;
     cell.tag = displayCollection.OID;
