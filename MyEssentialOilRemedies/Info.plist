@@ -101,6 +101,11 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>My Essential Oils and Remedies Document</string>
+			<key>UTTypeIconFiles</key>
+			<array>
+				<string>Icon-Small.png</string>
+				<string>Icon-76@2x.png</string>
+			</array>
 			<key>UTTypeIdentifier</key>
 			<string>net.burnsoft.MyEssentialOilRemedies.meor</string>
 			<key>UTTypeTagSpecification</key>
@@ -130,7 +135,12 @@
 				<string>com.apple.package</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string></string>
+			<string>MEORDatabase</string>
+			<key>UTTypeIconFiles</key>
+			<array>
+				<string>Icon-Small.png</string>
+				<string>Icon-76@2x.png</string>
+			</array>
 			<key>UTTypeIdentifier</key>
 			<string>net.burnsoft.MyEssentialOilRemedies.db</string>
 		</dict>
@@ -141,6 +151,11 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>My Essential Oils and Remedies Document</string>
+			<key>UTTypeIconFiles</key>
+			<array>
+				<string>Icon-Small.png</string>
+				<string>Icon-76@2x.png</string>
+			</array>
 			<key>UTTypeIdentifier</key>
 			<string>net.burnsoft.MyEssentialOilRemedies.meo</string>
 			<key>UTTypeTagSpecification</key>

@@ -166,8 +166,19 @@
 
     [self removeConflictVersionsiniCloudbyURL:URLnewDBName];
     
-    [myObjG DeleteFileByPath:backupfile ErrorMessage:&deleteError];
-    
+    //[myObjG DeleteFileByPath:backupfile ErrorMessage:&deleteError];
+    [BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError];
+    if ([BurnSoftGeneral copyFileFrom:newDBName To:backupfile ErrorMessage:&deleteError]) {
+        if (![BurnSoftGeneral copyFileFrom:backupfile To:dbPathString ErrorMessage:&copyError]) {
+            *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
+        } else {
+            *msg = [NSString stringWithFormat:@"Backup Successful!"];
+            bAns = YES;
+        }
+    } else {
+        *msg = deleteError;
+    }
+    /*
     if ([myObjG copyFileFrom:newDBName To:backupfile ErrorMessage:&deleteError]) {
         if (![myObjG copyFileFrom:backupfile To:dbPathString ErrorMessage:&copyError]) {
             *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
@@ -178,6 +189,7 @@
     } else {
         *msg = deleteError;
     }
+     */
     myObjG = nil;
     
     return bAns;

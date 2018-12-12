@@ -148,6 +148,109 @@
     return bAns;
 }
 
+#pragma mark CopyFile
+// Simplify the copy and replace method with overwriteoption
++(BOOL) copyFileFromFilePath:(NSString *) fromPath ToNewPath:(NSString *) toPath ErrorMessage:(NSString **) msg
+{
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSError *error;
+    NSString *deleteError = [NSString new];
+    BOOL success;
+    BOOL bAns = NO;
+    
+    BOOL FileExistsAtDest = [fileManager fileExistsAtPath:toPath];
+    BOOL FileExistsAtSource = [fileManager fileExistsAtPath:fromPath];
+    BOOL DESTDELETESUCCESSFUL = NO;
+    
+    if (FileExistsAtSource && FileExistsAtDest) {
+        DESTDELETESUCCESSFUL = [self DeleteFileByPath:toPath ErrorMessage:&deleteError];
+    } else if (!FileExistsAtDest && FileExistsAtSource) {
+        DESTDELETESUCCESSFUL = YES;
+    } else if (!FileExistsAtSource && !FileExistsAtDest) {
+        DESTDELETESUCCESSFUL = NO;
+        *msg = [NSString stringWithFormat:@"File Does not Exist at Source or Destination!"];
+    }
+    
+    if (DESTDELETESUCCESSFUL)
+    {
+        success = [fileManager copyItemAtPath:fromPath toPath:toPath error:&error];
+        if (!success)
+        {
+            *msg = [NSString stringWithFormat:@"Error coping file: %@",[error localizedDescription]];
+        } else {
+            *msg = [NSString stringWithFormat:@"Copy Successful!"];
+            bAns = YES;
+        }
+    } else {
+        if ([*msg isEqualToString:@""])
+        {
+            *msg = deleteError;
+        }
+    }
+    
+    return bAns;
+}
+#pragma mark CopyFile 2
+// Simplify the copy and replace method with overwriteoption
++(BOOL) copyFileFrom:(NSString *) sFrom To:(NSString *) sTo ErrorMessage:(NSString **) errorMessage
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *deleteError = [NSString new];
+    NSError *error;
+    BOOL bAns = NO;
+    BOOL FileExistsInTo = [fileManager fileExistsAtPath:sTo];
+    BOOL FileExistsInFrom = [fileManager fileExistsAtPath:sFrom];
+    BOOL FileClearedInDestination = NO;
+    
+    if (FileExistsInTo && FileExistsInFrom)
+    {
+        FileClearedInDestination = [self DeleteFileByPath:sTo ErrorMessage:&deleteError];
+    } else if (!FileExistsInFrom && FileExistsInTo) {
+        FileClearedInDestination = YES;
+    } else if (FileExistsInFrom && !FileExistsInTo) {
+        //added this with the error getting from a new backup check
+        FileClearedInDestination = YES;
+    } else if (!FileExistsInFrom && !FileExistsInTo) {
+        FileClearedInDestination = NO;
+        *errorMessage = @"File doesn't exist in source or destination!";
+    }
+    
+    if (FileClearedInDestination)
+    {
+        if (![fileManager copyItemAtPath:sFrom toPath:sTo error:&error])
+        {
+            *errorMessage = [NSString stringWithFormat:@"Error copying file: %@",[error localizedDescription]];
+        } else {
+            *errorMessage = [NSString stringWithFormat:@"Backup Successful!"];
+            bAns = YES;
+        }
+    } else {
+        if ([*errorMessage isEqualToString:@""]) {
+            *errorMessage = [NSString stringWithFormat:@"Delete Error: %@",deleteError];
+        }
+    }
+    
+    return bAns;
+}
+#pragma mark Delete File byPath
+// Pass the path and file to delete that file
++(BOOL)DeleteFileByPath:(NSString *) sPath ErrorMessage:(NSString **) msg
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL success = NO;
+    NSError *error;
+    
+    success = [fileManager removeItemAtPath:sPath error:&error];
+    if (!success)
+    {
+        *msg = [NSString stringWithFormat:@"Error deleting database: %@",[error localizedDescription]];
+    }else {
+        *msg = [NSString stringWithFormat:@"Delete Successful!"];
+    }
+    return success;
+}
 -(BOOL)DeleteFileByPath:(NSString *) sPath ErrorMessage:(NSString **) msg
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
