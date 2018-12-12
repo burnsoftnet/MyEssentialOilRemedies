@@ -209,7 +209,7 @@
 -(void)setupDictionary
 {
     oilDictionary = [NSMutableDictionary dictionary]; //related to issue #63
-    NSString *errorMsg;
+    //NSString *errorMsg;
     [oilDictionary removeAllObjects];
     for (int x = 0; x < [oilSections count]; x++) {
         /*

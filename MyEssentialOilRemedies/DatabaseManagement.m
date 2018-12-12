@@ -142,7 +142,7 @@
     [self removeConflictVersionsiniCloudbyURL:urlNewDBName];
     [myObjG DeleteFileByPath:backupfile ErrorMessage:&deleteError];
     
-    [DatabaseManagement startiCloudSync];
+    //[DatabaseManagement startiCloudSync];
     myObjG = nil;
     return bAns;
 }
@@ -186,7 +186,8 @@
 #pragma mark Start iCloud sync
 /*! @brief Start the sync process from the iCloud container. This needs to be ran from the application at start and before the restore is going to be initiated to make sure the latest version is download from the cloud.
  */
-+(void) startiCloudSync
+/*
++(void) startiCloudSyncOld
 {
     @try {
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -228,5 +229,28 @@
         NSLog(@"ERROR!!!: %@", exception.reason);
     }
     
+}
+ */
++(void) startiCloudSync
+{
+    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+    NSString *dbPathString = [NSString new];
+    
+    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    
+    //Remove any conflicting versions and maybe initialize icloud sync
+    DatabaseManagement *myObjDM = [DatabaseManagement new];
+    [myObjDM removeConflictVersionsiniCloudbyURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"]];
+    
+    NSFileManager *objFM = [NSFileManager new];
+    if ([objFM startDownloadingUbiquitousItemAtURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:@"zip"] error:nil]) {
+        [FormFunctions doBuggermeMessage:@"sync started!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+    } else {
+        [FormFunctions doBuggermeMessage:@"sync FAILED!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+    }
+    
+    myObj = nil;
+    myObjDM = nil;
+    objFM = nil;
 }
 @end
