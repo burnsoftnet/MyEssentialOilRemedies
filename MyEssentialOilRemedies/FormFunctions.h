@@ -33,7 +33,7 @@
 
 #pragma mark Check for Error in Message via NSLOG
 -(void)checkForErrorLogOnly :(NSString *) errorMsg MyTitle:(NSString *) errTitle;
-
++(void)checkForErrorLogOnly :(NSString *) errorMsg MyTitle:(NSString *) errTitle;
 #pragma mark NSLog Debug Message
 -(void)doBuggermeMessage :(NSString *) msg FromSubFunction:(NSString *) fromlocation;
 

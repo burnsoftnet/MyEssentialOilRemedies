@@ -133,7 +133,19 @@
     }
 
 }
-
+#pragma mark Check for Error in Message via NSLOG
+/*! @brief his will check the message to see if something is in it, if not it will not alert via NSLog
+ @remark USEBD: GENERAL
+ */
++(void)checkForErrorLogOnly :(NSString *) errorMsg MyTitle:(NSString *) errTitle
+{
+    if (![errorMsg  isEqual: @""])
+    {
+        [self doBuggermeMessage:errorMsg FromSubFunction:[NSString stringWithFormat:@"CheckForError.%@",errTitle]];
+        NSLog(@"%@",errorMsg);
+    }
+    
+}
 #pragma mark NSLog Debug Message
 /*! @brief Mostly used for runtime debugging by sending message of information back to the output window.
     Only when the Global Var BUGGERME is true will it write out message
