@@ -31,8 +31,9 @@
         } else if ([@MYDBVERSION doubleValue] == 1.2) {
             [self dbupgrade11];
             [self dbupgrade12];
+            [self dbupgrade13];
             //Version 1.2 was released to production any upgrade after this will just need to be the latest dbupgrade.
-        } else if ([@MYDBVERSION doubleValue] == 1.3){
+        } else if ([@MYDBVERSION doubleValue] < 1.3 && [@MYDBVERSION doubleValue] > 1.2 ){
             [self dbupgrade13];
         }
     } else {
