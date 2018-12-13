@@ -153,9 +153,11 @@
  */
 -(void)doBuggermeMessage :(NSString *) msg FromSubFunction:(NSString *) fromlocation
 {
+#if DEBUG
     if (BUGGERME) {
         NSLog(@"%@ - %@",fromlocation,msg);
     }
+#endif
 }
 
 #pragma mark NSLog Debug Message
@@ -165,10 +167,11 @@
 */
 +(void)doBuggermeMessage :(NSString *) msg FromSubFunction:(NSString *) fromlocation
 {
+#if DEBUG
     if (BUGGERME) {
         NSLog(@"%@ - %@",fromlocation,msg);
     }
-
+#endif
 }
 #pragma mark
 @end
