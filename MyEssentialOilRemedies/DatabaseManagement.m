@@ -174,6 +174,7 @@
         } else {
             *msg = [NSString stringWithFormat:@"Backup Successful!"];
             bAns = YES;
+            [BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError];
         }
     } else {
         *msg = deleteError;
