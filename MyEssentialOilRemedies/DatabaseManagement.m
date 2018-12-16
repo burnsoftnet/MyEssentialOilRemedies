@@ -34,16 +34,16 @@
 -(void) removeConflictVersionsiniCloudbyURL:(NSURL *) urlNewDBName
 {
     NSError *error;
-    FormFunctions *myObjFF = [FormFunctions new];
+    //FormFunctions *myObjFF = [FormFunctions new];
     
     [self loadFileListings];
     
     if ([NSFileVersion removeOtherVersionsOfItemAtURL:urlNewDBName error:&error])
     {
-        [myObjFF doBuggermeMessage:@"older versions were removed!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
+        [FormFunctions doBuggermeMessage:@"older versions were removed!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
     } else {
-        [myObjFF doBuggermeMessage:@"Problems removing older versions!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
-        [myObjFF doBuggermeMessage:[NSString stringWithFormat:@"%@",[error localizedDescription]] FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
+        [FormFunctions doBuggermeMessage:@"Problems removing older versions!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
+        [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"%@",[error localizedDescription]] FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
     }
     
     
@@ -52,7 +52,7 @@
         fileVersion.resolved = YES;
     }
     
-    myObjFF = nil;
+    //myObjFF = nil;
     conflictVersions = nil;
 }
 #pragma mark Load File Listtings
@@ -71,7 +71,7 @@
     
     for (NSString *fileName in filePathsArray)
     {
-        [myObjFF doBuggermeMessage:[NSString stringWithFormat:@"%@",fileName] FromSubFunction:@"DatabaseManagement.loadFileListings"];
+        [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"%@",fileName] FromSubFunction:@"DatabaseManagement.loadFileListings"];
         
         if (![fileName isEqualToString:@"MNRSS.zip"]){
             [BurnSoftGeneral DeleteFileByPath:[NSString stringWithFormat:@"%@/%@",documentsDirectory,fileName] ErrorMessage:&deleteError];
