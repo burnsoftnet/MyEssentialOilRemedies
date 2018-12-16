@@ -28,7 +28,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(checkInBox) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkInBox) userInfo:nil repeats:YES];
-    
+    ///NSLog(@"%@",${ISLITE})
     myObj = nil;
     myDB = nil;
 }

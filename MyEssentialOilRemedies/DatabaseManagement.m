@@ -157,6 +157,7 @@
     BOOL bAns = NO;
     
     NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:newExt];
+    NSLog(@"%@",newDBName);
     
     NSString *copyError = [NSString new];
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
