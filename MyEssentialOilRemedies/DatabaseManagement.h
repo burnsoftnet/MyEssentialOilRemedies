@@ -14,6 +14,9 @@
 
 typedef void (^InitCallbackBlock)(void);
 
+static NSString *BACKUPEXTENSION = @"zip";
+static NSString *DATABASEEXTENSION = @"db";
+
 @interface DatabaseManagement : NSObject
 @property (strong, readonly) NSManagedObjectContext *managedObjectContext;
 
