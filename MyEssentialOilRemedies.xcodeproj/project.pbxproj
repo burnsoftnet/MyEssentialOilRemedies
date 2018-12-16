@@ -23,7 +23,6 @@
 		A5033F411E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F331E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png */; };
 		A505B0361D09A76900800310 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0351D09A76900800310 /* main.m */; };
 		A505B0391D09A76900800310 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0381D09A76900800310 /* AppDelegate.m */; };
-		A505B0421D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */; };
 		A505B0441D09A76900800310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A505B0431D09A76900800310 /* Assets.xcassets */; };
 		A505B0471D09A76900800310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A505B0451D09A76900800310 /* LaunchScreen.storyboard */; };
 		A505B0781D09A7F700800310 /* OilRemedies.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0771D09A7F700800310 /* OilRemedies.m */; };
@@ -67,7 +66,6 @@
 		A51FBC371F5CBCF2001214B6 /* DatabaseManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */; };
 		A51FBC381F5CBCF2001214B6 /* VIEW_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */; };
 		A51FBC391F5CBCF2001214B6 /* EDIT_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */; };
-		A51FBC3A1F5CBCF2001214B6 /* MyEssentialOilRemedies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */; };
 		A51FBC3B1F5CBCF2001214B6 /* Add_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */; };
 		A51FBC3C1F5CBCF2001214B6 /* PopUpOilSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */; };
 		A51FBC3D1F5CBCF2001214B6 /* BurnSoftGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */; };
@@ -219,7 +217,6 @@
 		A505B0351D09A76900800310 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A505B0371D09A76900800310 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A505B0381D09A76900800310 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A505B0411D09A76900800310 /* MyEssentialOilRemedies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyEssentialOilRemedies.xcdatamodel; sourceTree = "<group>"; };
 		A505B0431D09A76900800310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A505B0461D09A76900800310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A505B0481D09A76900800310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -402,7 +399,6 @@
 				A505B0431D09A76900800310 /* Assets.xcassets */,
 				A505B0451D09A76900800310 /* LaunchScreen.storyboard */,
 				A505B0481D09A76900800310 /* Info.plist */,
-				A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */,
 				A505B0341D09A76900800310 /* Supporting Files */,
 				A5C26B541D37BDB000476766 /* iphone.storyboard */,
 			);
@@ -904,7 +900,6 @@
 				A50AF6F91E401C2A00CC4754 /* DatabaseManagement.m in Sources */,
 				A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */,
 				A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */,
-				A505B0421D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld in Sources */,
 				A5AA21A81D52377200B42F4A /* Add_RemedyViewController.m in Sources */,
 				A594288F1E19B88100D059BE /* PopUpOilSearchViewController.m in Sources */,
 				A515BA0320E7FF2F009F4845 /* List_ReOrderTableViewController.m in Sources */,
@@ -945,7 +940,6 @@
 				A51FBC371F5CBCF2001214B6 /* DatabaseManagement.m in Sources */,
 				A51FBC381F5CBCF2001214B6 /* VIEW_OilDetailsViewController.m in Sources */,
 				A51FBC391F5CBCF2001214B6 /* EDIT_RemedyViewController.m in Sources */,
-				A51FBC3A1F5CBCF2001214B6 /* MyEssentialOilRemedies.xcdatamodeld in Sources */,
 				A51FBC3B1F5CBCF2001214B6 /* Add_RemedyViewController.m in Sources */,
 				A51FBC3C1F5CBCF2001214B6 /* PopUpOilSearchViewController.m in Sources */,
 				A51FBC3D1F5CBCF2001214B6 /* BurnSoftGeneral.m in Sources */,
@@ -1188,19 +1182,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A505B0401D09A76900800310 /* MyEssentialOilRemedies.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A505B0411D09A76900800310 /* MyEssentialOilRemedies.xcdatamodel */,
-			);
-			currentVersion = A505B0411D09A76900800310 /* MyEssentialOilRemedies.xcdatamodel */;
-			path = MyEssentialOilRemedies.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A505B0291D09A76900800310 /* Project object */;
 }
