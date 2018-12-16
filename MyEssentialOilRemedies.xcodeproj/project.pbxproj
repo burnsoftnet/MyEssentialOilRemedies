@@ -223,10 +223,6 @@
 		A505B0431D09A76900800310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A505B0461D09A76900800310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A505B0481D09A76900800310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A505B0511D09A76900800310 /* MyEssentialOilRemediesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyEssentialOilRemediesTests.m; sourceTree = "<group>"; };
-		A505B0531D09A76900800310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A505B05C1D09A76900800310 /* MyEssentialOilRemediesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyEssentialOilRemediesUITests.m; sourceTree = "<group>"; };
-		A505B05E1D09A76900800310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A505B0761D09A7F700800310 /* OilRemedies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OilRemedies.h; sourceTree = "<group>"; };
 		A505B0771D09A7F700800310 /* OilRemedies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OilRemedies.m; sourceTree = "<group>"; };
 		A505B0791D09A82600800310 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -380,8 +376,6 @@
 			children = (
 				A5C159511E3C13FC00F9864B /* My Essential Oil Remedies.entitlements */,
 				A505B0331D09A76900800310 /* MyEssentialOilRemedies */,
-				A505B0501D09A76900800310 /* MyEssentialOilRemediesTests */,
-				A505B05B1D09A76900800310 /* MyEssentialOilRemediesUITests */,
 				A505B0321D09A76900800310 /* Products */,
 				A5C159521E3C153C00F9864B /* Frameworks */,
 				A51FBC781F5CBCF2001214B6 /* My Essential Oil Remedies Lite.plist */,
@@ -424,24 +418,6 @@
 				A505B0351D09A76900800310 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A505B0501D09A76900800310 /* MyEssentialOilRemediesTests */ = {
-			isa = PBXGroup;
-			children = (
-				A505B0511D09A76900800310 /* MyEssentialOilRemediesTests.m */,
-				A505B0531D09A76900800310 /* Info.plist */,
-			);
-			path = MyEssentialOilRemediesTests;
-			sourceTree = "<group>";
-		};
-		A505B05B1D09A76900800310 /* MyEssentialOilRemediesUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A505B05C1D09A76900800310 /* MyEssentialOilRemediesUITests.m */,
-				A505B05E1D09A76900800310 /* Info.plist */,
-			);
-			path = MyEssentialOilRemediesUITests;
 			sourceTree = "<group>";
 		};
 		A505B06A1D09A77900800310 /* Form Classes */ = {
