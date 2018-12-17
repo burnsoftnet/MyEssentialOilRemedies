@@ -29,6 +29,10 @@
     return self;
 }
 
+-(void) BugMe:(NSString *) message FromSub:(NSString *) location
+{
+    [FormFunctions doBuggermeMessage:message FromSubFunction:[NSString stringWithFormat:@"DatabaseManagement.%@", location]];
+}
 #pragma mark  Remove iCloud Conflicts
 // Every device that backups the database to the iCloud container is given a version status which will cause conflicts when attempting to restore the database on another device.  This function will remove any of the conflict version allowing the latest greatest version to exist for restore.
 -(void) removeConflictVersionsiniCloudbyURL:(NSURL *) urlNewDBName
@@ -40,10 +44,14 @@
     
     if ([NSFileVersion removeOtherVersionsOfItemAtURL:urlNewDBName error:&error])
     {
-        [FormFunctions doBuggermeMessage:@"older versions were removed!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
+        [self BugMe:@"older versions were removed!" FromSub:@"removeConflictVersionsiniCloudbyURL"];
+        //[FormFunctions doBuggermeMessage:@"older versions were removed!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
+        
     } else {
-        [FormFunctions doBuggermeMessage:@"Problems removing older versions!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
-        [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"%@",[error localizedDescription]] FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
+        //[FormFunctions doBuggermeMessage:@"Problems removing older versions!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
+        //[FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"%@",[error localizedDescription]] FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
+        [self BugMe:@"Problems removing older versions!" FromSub:@"removeConflictVersionsiniCloudbyURL"];
+        [self BugMe:[NSString stringWithFormat:@"%@",[error localizedDescription]] FromSub:@"removeConflictVersionsiniCloudbyURL"];
     }
     
     
@@ -67,13 +75,14 @@
     documentsDirectory = [NSString stringWithFormat:@"%@/Documents",documentsDirectory];
     NSString *deleteError = [NSString new];
     NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
-    filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.zip'"]];
+    //filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.zip'"]];
+    filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"self ENDSWITH '.%@'", BACKUPEXTENSION]]];
     
     for (NSString *fileName in filePathsArray)
     {
-        [FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"%@",fileName] FromSubFunction:@"DatabaseManagement.loadFileListings"];
-        
-        if (![fileName isEqualToString:@"MEO.zip"]){
+        //[FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"%@",fileName] FromSubFunction:@"DatabaseManagement.loadFileListings"];
+        [self BugMe:[NSString stringWithFormat:@"%@",fileName]  FromSub:@"loadFileListings"];
+        if (![fileName isEqualToString:[NSString stringWithFormat:@"%@.%@",DATABASENAME,BACKUPEXTENSION]]){
             [BurnSoftGeneral DeleteFileByPath:[NSString stringWithFormat:@"%@/%@",documentsDirectory,fileName] ErrorMessage:&deleteError];
         }
     }
@@ -90,7 +99,7 @@
     NSString *sAns = [NSString new];
     NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     NSString *cloudURL = [baseURL path];
-    sAns = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:@"db" withString:newExt]];
+    sAns = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:newExt]];
     return sAns;
 }
 
@@ -108,14 +117,14 @@
 //Backup the database to the iCloud container
 -(BOOL) backupDatabaseToiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg
 {
-    NSString *newExt = BACKUPEXTENSION;
+    //NSString *newExt = BACKUPEXTENSION;
     NSString *deleteError = [NSString new];
     NSString *copyError = [NSString new];
     BOOL bAns = NO;
     
-    NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
+    NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:BACKUPEXTENSION];
     
-    NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:newExt];
+    NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:BACKUPEXTENSION];
     
     NSURL *urlNewDBName = [NSURL fileURLWithPath:newDBName];
     
@@ -133,7 +142,7 @@
     }
     
     [self removeConflictVersionsiniCloudbyURL:urlNewDBName];
-    //[BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError];
+    [BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError];
     
     //myObjG = nil;
     return bAns;
@@ -150,7 +159,7 @@
     NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:newExt];
     
     NSString *copyError = [NSString new];
-    NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:@"db" withString:newExt];
+    NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:newExt];
     //BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     
     NSURL *URLnewDBName = [NSURL fileURLWithPath:newDBName];
@@ -181,17 +190,19 @@
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     NSString *dbPathString = [NSString new];
     
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [myObj getDatabasePath:MAINDBNAME];
     
     //Remove any conflicting versions and maybe initialize icloud sync
     DatabaseManagement *myObjDM = [DatabaseManagement new];
-    [myObjDM removeConflictVersionsiniCloudbyURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:BACKUPEXTENSION]];
+    [myObjDM removeConflictVersionsiniCloudbyURL:[myObjDM getiCloudDatabaseBackupURLByDBName:MAINDBNAME replaceExtentionTo:BACKUPEXTENSION]];
     
     NSFileManager *objFM = [NSFileManager new];
-    if ([objFM startDownloadingUbiquitousItemAtURL:[myObjDM getiCloudDatabaseBackupURLByDBName:@MYDBNAME replaceExtentionTo:BACKUPEXTENSION] error:nil]) {
-        [FormFunctions doBuggermeMessage:@"sync started!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+    if ([objFM startDownloadingUbiquitousItemAtURL:[myObjDM getiCloudDatabaseBackupURLByDBName:MAINDBNAME replaceExtentionTo:BACKUPEXTENSION] error:nil]) {
+        //[FormFunctions doBuggermeMessage:@"sync started!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+        [myObjDM BugMe:@"sync started!"  FromSub:@"StartiCloudSync"];
     } else {
-        [FormFunctions doBuggermeMessage:@"sync FAILED!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+        //[FormFunctions doBuggermeMessage:@"sync FAILED!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
+        [myObjDM BugMe:@"sync FAILED!"  FromSub:@"StartiCloudSync"];
     }
     
     myObj = nil;
