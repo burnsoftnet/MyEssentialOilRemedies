@@ -49,56 +49,44 @@
 -(void) removeConflictVersionsiniCloudbyURL:(NSURL *) urlNewDBName
 {
     NSError *error;
-    //FormFunctions *myObjFF = [FormFunctions new];
-    
     [self loadFileListings];
     
     if ([NSFileVersion removeOtherVersionsOfItemAtURL:urlNewDBName error:&error])
     {
         [self BugMe:@"older versions were removed!" FromSub:@"removeConflictVersionsiniCloudbyURL"];
-        //[FormFunctions doBuggermeMessage:@"older versions were removed!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
-        
     } else {
-        //[FormFunctions doBuggermeMessage:@"Problems removing older versions!" FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
-        //[FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"%@",[error localizedDescription]] FromSubFunction:@"DatabaseManagement.removeConflictVersionsiniCloudbyURL"];
         [self BugMe:@"Problems removing older versions!" FromSub:@"removeConflictVersionsiniCloudbyURL"];
         [self BugMe:[NSString stringWithFormat:@"%@",[error localizedDescription]] FromSub:@"removeConflictVersionsiniCloudbyURL"];
     }
-    
     
     NSArray *conflictVersions = [NSFileVersion unresolvedConflictVersionsOfItemAtURL:urlNewDBName];
     for (NSFileVersion *fileVersion in conflictVersions) {
         fileVersion.resolved = YES;
     }
-    
-    //myObjFF = nil;
     conflictVersions = nil;
 }
+
 #pragma mark Load File Listtings
 // PRIVATE - list all the extra files version in the iCloud container to delete
 -(void) loadFileListings
 {
-    FormFunctions *myObjFF = [FormFunctions new];
-    //BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
+    //FormFunctions *myObjFF = [FormFunctions new];
     NSArray *filePathsArray = [NSArray new];
     NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     NSString *documentsDirectory = [baseURL path];
     documentsDirectory = [NSString stringWithFormat:@"%@/Documents",documentsDirectory];
     NSString *deleteError = [NSString new];
     NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
-    //filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.zip'"]];
     filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"self ENDSWITH '.%@'", BACKUPEXTENSION]]];
     
     for (NSString *fileName in filePathsArray)
     {
-        //[FormFunctions doBuggermeMessage:[NSString stringWithFormat:@"%@",fileName] FromSubFunction:@"DatabaseManagement.loadFileListings"];
         [self BugMe:[NSString stringWithFormat:@"%@",fileName]  FromSub:@"loadFileListings"];
         if (![fileName isEqualToString:[NSString stringWithFormat:@"%@.%@",DATABASENAME,BACKUPEXTENSION]]){
             [BurnSoftGeneral DeleteFileByPath:[NSString stringWithFormat:@"%@/%@",documentsDirectory,fileName] ErrorMessage:&deleteError];
         }
     }
-    //myObjG = nil;
-    myObjFF = nil;
+    //myObjFF = nil;
     filePathsArray = nil;
     dirFiles = nil;
 }
@@ -128,18 +116,13 @@
 //Backup the database to the iCloud container
 -(BOOL) backupDatabaseToiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg
 {
-    //NSString *newExt = BACKUPEXTENSION;
     NSString *deleteError = [NSString new];
     NSString *copyError = [NSString new];
     BOOL bAns = NO;
     
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:BACKUPEXTENSION];
-    
     NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:BACKUPEXTENSION];
-    
     NSURL *urlNewDBName = [NSURL fileURLWithPath:newDBName];
-    
-    //BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
     
     if ([BurnSoftGeneral copyFileFrom:dbPathString To:backupfile ErrorMessage:&deleteError]) {
         if (![BurnSoftGeneral copyFileFrom:backupfile To:newDBName ErrorMessage:&copyError]) {
@@ -154,8 +137,6 @@
     
     [self removeConflictVersionsiniCloudbyURL:urlNewDBName];
     [BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError];
-    
-    //myObjG = nil;
     return bAns;
 }
 
@@ -168,11 +149,8 @@
     BOOL bAns = NO;
     
     NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:newExt];
-    
     NSString *copyError = [NSString new];
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:newExt];
-    //BurnSoftGeneral *myObjG = [BurnSoftGeneral new];
-    
     NSURL *URLnewDBName = [NSURL fileURLWithPath:newDBName];
     
     [self removeConflictVersionsiniCloudbyURL:URLnewDBName];
@@ -189,7 +167,6 @@
     } else {
         *msg = deleteError;
     }
-    //myObjG = nil;
     
     return bAns;
 }
@@ -209,10 +186,8 @@
     
     NSFileManager *objFM = [NSFileManager new];
     if ([objFM startDownloadingUbiquitousItemAtURL:[myObjDM getiCloudDatabaseBackupURLByDBName:MAINDBNAME replaceExtentionTo:BACKUPEXTENSION] error:nil]) {
-        //[FormFunctions doBuggermeMessage:@"sync started!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
         [myObjDM BugMe:@"sync started!"  FromSub:@"StartiCloudSync"];
     } else {
-        //[FormFunctions doBuggermeMessage:@"sync FAILED!" FromSubFunction:@"DatabaseManagement.StartiCloudSync"];
         [myObjDM BugMe:@"sync FAILED!"  FromSub:@"StartiCloudSync"];
     }
     
