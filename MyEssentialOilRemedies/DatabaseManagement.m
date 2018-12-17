@@ -19,7 +19,11 @@
 {
     NSMutableArray * _entries;
 }
+
 #pragma mark Initiate Call Back
+/*!
+    @brief initialize with Call Back for iCloud Sync
+ */
 - (id)initWithCallback:(InitCallbackBlock)callback;
 {
     if (!(self = [super init])) return nil;
@@ -29,12 +33,19 @@
     return self;
 }
 
+#pragma mark Print Debugger
+/*!
+    @brief  Private function to Send Debugger message to FormFunction doBuggermeMessage sub to be printed out via NSLog
+ */
 -(void) BugMe:(NSString *) message FromSub:(NSString *) location
 {
     [FormFunctions doBuggermeMessage:message FromSubFunction:[NSString stringWithFormat:@"DatabaseManagement.%@", location]];
 }
+
 #pragma mark  Remove iCloud Conflicts
-// Every device that backups the database to the iCloud container is given a version status which will cause conflicts when attempting to restore the database on another device.  This function will remove any of the conflict version allowing the latest greatest version to exist for restore.
+/*!
+    @brief Every device that backups the database to the iCloud container is given a version status which will cause conflicts when attempting to restore the database on another device.  This function will remove any of the conflict version allowing the latest greatest version to exist for restore.
+ */
 -(void) removeConflictVersionsiniCloudbyURL:(NSURL *) urlNewDBName
 {
     NSError *error;
