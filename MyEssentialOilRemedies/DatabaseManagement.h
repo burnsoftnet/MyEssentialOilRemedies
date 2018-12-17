@@ -14,33 +14,32 @@
 
 typedef void (^InitCallbackBlock)(void);
 
+/*!
+    @brief Backup Database Extensions that will be stored in the cloud
+ */
 static NSString *BACKUPEXTENSION = @"zip";
+/*!
+ @brief Database Extensions that will be stored locally
+ */
 static NSString *DATABASEEXTENSION = @"db";
+/*!
+ @brief Name of the database in both backup location and local
+ */
 static NSString *DATABASENAME = @"MEO";
+/*!
+ @brief Database name that is set in the MySettings.h
+ */
 static NSString *MAINDBNAME = @MYDBNAME;
 
 @interface DatabaseManagement : NSObject
 @property (strong, readonly) NSManagedObjectContext *managedObjectContext;
 
-#pragma mark Initiate Call Back
 - (id)initWithCallback:(InitCallbackBlock)callback;
-
-#pragma mark Backup Database to iCloud
 -(BOOL) backupDatabaseToiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
-
-#pragma mark Restore Database from iCloud
 -(BOOL) restoreDatabaseFromiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
-
-#pragma mark  Remove iCloud Conflicts
 -(void) removeConflictVersionsiniCloudbyURL:(NSURL *) urlNewDBName;
-
-#pragma mark Get iCloud Backup Name in String format
 -(NSString *) getiCloudDatabaseBackupByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt;
-
-#pragma mark Get iCloud Backup Name in NSURL format
 -(NSURL *) getiCloudDatabaseBackupURLByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt;
-
-#pragma mark Start iCloud sync
 +(void) startiCloudSync;
 
 @end
