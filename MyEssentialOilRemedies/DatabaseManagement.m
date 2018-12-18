@@ -4,6 +4,7 @@
 //
 //  Created by burnsoft on 1/30/17.
 //  Copyright © 2017 burnsoft. All rights reserved.
+//  Version 3.0
 //
 
 #import "DatabaseManagement.h"
@@ -215,24 +216,31 @@
  */
 +(void) startiCloudSync
 {
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    NSString *dbPathString = [NSString new];
-    
-    dbPathString = [myObj getDatabasePath:MAINDBNAME];
-    
-    //Remove any conflicting versions and maybe initialize icloud sync
-    DatabaseManagement *myObjDM = [DatabaseManagement new];
-    [myObjDM removeConflictVersionsiniCloudbyURL:[myObjDM getiCloudDatabaseBackupURLByDBName:MAINDBNAME replaceExtentionTo:BACKUPEXTENSION]];
-    
-    NSFileManager *objFM = [NSFileManager new];
-    if ([objFM startDownloadingUbiquitousItemAtURL:[myObjDM getiCloudDatabaseBackupURLByDBName:MAINDBNAME replaceExtentionTo:BACKUPEXTENSION] error:nil]) {
+    @try {
+        //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+        //NSString *dbPathString = [NSString new];
+        
+        //dbPathString = [myObj getDatabasePath:MAINDBNAME];
+        
+        //Remove any conflicting versions and maybe initialize icloud sync
+        DatabaseManagement *myObjDM = [DatabaseManagement new];
+        [myObjDM removeConflictVersionsiniCloudbyURL:[myObjDM getiCloudDatabaseBackupURLByDBName:MAINDBNAME replaceExtentionTo:BACKUPEXTENSION]];
+        
+        NSFileManager *objFM = [NSFileManager new];
+        NSError *errMsg;
+        if (![objFM startDownloadingUbiquitousItemAtURL:[myObjDM getiCloudDatabaseBackupURLByDBName:MAINDBNAME replaceExtentionTo:BACKUPEXTENSION] error:&errMsg]) {
+            [NSException raise:@"SYNC FAILED!" format:@"Error with iCloud sync: %@", errMsg];
+            //[myObjDM BugMe:@"sync started!"  FromSub:@"StartiCloudSync"];
+        } //else {
+          //  [myObjDM BugMe:@"sync FAILED!"  FromSub:@"StartiCloudSync"];
+          //  [NSException raise:@"SYNC FAILED!" format:@"Error with iCloud sync: %@", errMsg];
+        //}
         [myObjDM BugMe:@"sync started!"  FromSub:@"StartiCloudSync"];
-    } else {
-        [myObjDM BugMe:@"sync FAILED!"  FromSub:@"StartiCloudSync"];
+        //myObj = nil;
+        myObjDM = nil;
+        objFM = nil;
+    } @catch (NSException *exception) {
+        NSLog(@"ERROR - %@",[NSString stringWithFormat:@"%@",[exception reason]]);
     }
-    
-    myObj = nil;
-    myObjDM = nil;
-    objFM = nil;
 }
 @end

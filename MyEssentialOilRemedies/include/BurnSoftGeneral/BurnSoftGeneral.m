@@ -241,14 +241,20 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL success = NO;
     NSError *error;
-    
-    success = [fileManager removeItemAtPath:sPath error:&error];
-    if (!success)
+    BOOL fileExists = [fileManager fileExistsAtPath:sPath];
+    if (fileExists)
     {
-        *msg = [NSString stringWithFormat:@"Error deleting database: %@",[error localizedDescription]];
-    }else {
-        *msg = [NSString stringWithFormat:@"Delete Successful!"];
+        success = [fileManager removeItemAtPath:sPath error:&error];
+        if (!success)
+        {
+            *msg = [NSString stringWithFormat:@"Error deleting database: %@",[error localizedDescription]];
+        }else {
+            *msg = [NSString stringWithFormat:@"Delete Successful!"];
+        }
+    } else {
+        success = YES;
     }
+    
     return success;
 }
 -(BOOL)DeleteFileByPath:(NSString *) sPath ErrorMessage:(NSString **) msg
