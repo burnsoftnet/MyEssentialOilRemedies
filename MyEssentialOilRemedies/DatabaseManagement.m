@@ -129,7 +129,7 @@
     NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:BACKUPEXTENSION];
     NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:BACKUPEXTENSION];
     NSURL *urlNewDBName = [NSURL fileURLWithPath:newDBName];
-    
+    /*
     if ([BurnSoftGeneral copyFileFrom:dbPathString To:backupfile ErrorMessage:&deleteError]) {
         if (![BurnSoftGeneral copyFileFrom:backupfile To:newDBName ErrorMessage:&copyError]) {
             *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
@@ -140,7 +140,13 @@
     } else {
         *msg = deleteError;
     }
-    
+    */
+    bAns = [self performCopyFunctionsFromTarget:dbPathString Destination:backupfile FinalDestination:newDBName ErrorMessage:&copyError];
+    if (!bAns) {
+        *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
+    } else {
+        *msg = [NSString stringWithFormat:@"Backup Successful!"];
+    }
     [self removeConflictVersionsiniCloudbyURL:urlNewDBName];
     [BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError];
     return bAns;
@@ -164,7 +170,7 @@
     [self removeConflictVersionsiniCloudbyURL:URLnewDBName];
     
     [BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError];
-    
+    /*
     if ([BurnSoftGeneral copyFileFrom:newDBName To:backupfile ErrorMessage:&deleteError]) {
         if (![BurnSoftGeneral copyFileFrom:backupfile To:dbPathString ErrorMessage:&copyError]) {
             *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
@@ -175,10 +181,40 @@
     } else {
         *msg = deleteError;
     }
-    
+    */
+    bAns = [self performCopyFunctionsFromTarget:newDBName Destination:backupfile FinalDestination:dbPathString ErrorMessage:&copyError];
+    if (!bAns){
+        *msg = [NSString stringWithFormat:@"Error restoring database: %@",copyError];
+    } else {
+        *msg = [NSString stringWithFormat:@"Restore Successful!"];
+    }
     return bAns;
 }
 
+-(bool) performCopyFunctionsFromTarget:(NSString *) target1 Destination:(NSString *) target2 FinalDestination:(NSString *) target3 ErrorMessage:(NSString **) errMsg
+{
+    BOOL bAns = NO;
+    NSString *copyError = [NSString new];
+    @try {
+        [self BugMe:[NSString stringWithFormat:@"Target 1 Value: %@", target1] FromSub:@"performCopyFunctionsFromTarget"];
+        [self BugMe:[NSString stringWithFormat:@"Target 2 Value: %@", target2] FromSub:@"performCopyFunctionsFromTarget"];
+        [self BugMe:[NSString stringWithFormat:@"Target 3 Value: %@", target3] FromSub:@"performCopyFunctionsFromTarget"];
+        
+        if ([BurnSoftGeneral copyFileFrom:target1 To:target2 ErrorMessage:&copyError]) {
+            if (![BurnSoftGeneral copyFileFrom:target2 To:target3 ErrorMessage:&copyError]) {
+                @throw [NSString stringWithFormat:@"Error backing up the database %@", copyError];
+            } else {
+                bAns = YES;
+            }
+        } else {
+            @throw copyError;
+        }
+    } @catch (NSException *e) {
+        NSLog(@"ERROR Exception: %@", e);
+        //errMsg = [NSString stringWithFormat:"%@",e];
+    }
+    return bAns;
+}
 #pragma mark Start iCloud sync
 /*!
  @brief Start the sync process from the iCloud container. This needs to be ran from the application at start and before the restore is going to be initiated to make sure the latest version is download from the cloud.

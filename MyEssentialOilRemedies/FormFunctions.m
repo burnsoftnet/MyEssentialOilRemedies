@@ -155,7 +155,7 @@
 {
 #if DEBUG
     if (BUGGERME) {
-        NSLog(@"%@ - %@",fromlocation,msg);
+        NSLog(@"DEBUG - %@ - %@",fromlocation,msg);
     }
 #endif
 }
@@ -169,7 +169,7 @@
 {
 #if DEBUG
     if (BUGGERME) {
-        NSLog(@"%@ - %@",fromlocation,msg);
+        NSLog(@"DEBUG - %@ - %@",fromlocation,msg);
     }
 #endif
 }
