@@ -133,18 +133,7 @@
         NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:BACKUPEXTENSION];
         NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:BACKUPEXTENSION];
         NSURL *urlNewDBName = [NSURL fileURLWithPath:newDBName];
-        /*
-         if ([BurnSoftGeneral copyFileFrom:dbPathString To:backupfile ErrorMessage:&deleteError]) {
-         if (![BurnSoftGeneral copyFileFrom:backupfile To:newDBName ErrorMessage:&copyError]) {
-         *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
-         } else {
-         *msg = [NSString stringWithFormat:@"Backup Successful!"];
-         bAns = YES;
-         }
-         } else {
-         *msg = deleteError;
-         }
-         */
+
         bAns = [self performCopyFunctionsFromTarget:dbPathString Destination:backupfile FinalDestination:newDBName ErrorMessage:&copyError];
         if (!bAns) {
             *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
@@ -152,7 +141,6 @@
             *msg = [NSString stringWithFormat:@"Backup Successful!"];
         }
         [self removeConflictVersionsiniCloudbyURL:urlNewDBName];
-        //General Cleanup, no need to throw exception, the restore will attempt to delete when it starts
         [BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError];
     } @catch (NSException *exception) {
        *msg = [NSString stringWithFormat:@"%@",[exception reason]];
@@ -180,22 +168,9 @@
         {
             [NSException raise:@"Delete Error" format:@"Error deleting %@ database: %@",backupfile, deleteError];
         }
-        //[BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError];
-        /*
-         if ([BurnSoftGeneral copyFileFrom:newDBName To:backupfile ErrorMessage:&deleteError]) {
-         if (![BurnSoftGeneral copyFileFrom:backupfile To:dbPathString ErrorMessage:&copyError]) {
-         *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
-         } else {
-         *msg = [NSString stringWithFormat:@"Backup Successful!"];
-         bAns = YES;
-         }
-         } else {
-         *msg = deleteError;
-         }
-         */
+
         bAns = [self performCopyFunctionsFromTarget:newDBName Destination:backupfile FinalDestination:dbPathString ErrorMessage:&copyError];
         if (!bAns){
-            //*msg = [NSString stringWithFormat:@"Error restoring database: %@",copyError];
             [NSException raise:@"Restore Error" format:@"Error restoring database: %@", copyError];
         } else {
             *msg = [NSString stringWithFormat:@"Restore Successful!"];
