@@ -116,6 +116,7 @@
 {
     NSURL *uAns = [NSURL new];
     uAns = [NSURL fileURLWithPath:[self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:newExt]];
+    [self BugMe:[NSString stringWithFormat:@"%@",uAns] FromSub:@"getiCloudDatabaseBackupURLByDBName"];
     return uAns;
 }
 
@@ -137,9 +138,9 @@
         bAns = [self performCopyFunctionsFromTarget:dbPathString Destination:backupfile FinalDestination:newDBName ErrorMessage:&copyError];
         if (!bAns) {
             *msg = [NSString stringWithFormat:@"Error backuping database: %@",copyError];
-        } else {
-            *msg = [NSString stringWithFormat:@"Backup Successful!"];
-        }
+        } //else {
+          //  *msg = [NSString stringWithFormat:@"Backup Successful!"];
+        //}
         [self removeConflictVersionsiniCloudbyURL:urlNewDBName];
         [BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError];
     } @catch (NSException *exception) {
@@ -172,15 +173,19 @@
         bAns = [self performCopyFunctionsFromTarget:newDBName Destination:backupfile FinalDestination:dbPathString ErrorMessage:&copyError];
         if (!bAns){
             [NSException raise:@"Restore Error" format:@"Error restoring database: %@", copyError];
-        } else {
-            *msg = [NSString stringWithFormat:@"Restore Successful!"];
-        }
+        } //else {
+         //   *msg = [NSString stringWithFormat:@"Restore Successful!"];
+        //}
     } @catch (NSException *exception) {
         *msg = [NSString stringWithFormat:@"%@",[exception reason]];
     }
     return bAns;
 }
 
+/*!
+    @brief PRIVATE - Perform the copy functions for the iCloud copy, This will copy the database to the same location with a different extenstion then copy the new file name over to the iCloud Path.
+    @return YES if no errors occured, NO if an error was thrown.
+ */
 -(bool) performCopyFunctionsFromTarget:(NSString *) target1 Destination:(NSString *) target2 FinalDestination:(NSString *) target3 ErrorMessage:(NSString **) errMsg
 {
     BOOL bAns = NO;

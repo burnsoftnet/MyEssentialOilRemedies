@@ -34,12 +34,12 @@ static NSString *MAINDBNAME = @MYDBNAME;
 @interface DatabaseManagement : NSObject
 @property (strong, readonly) NSManagedObjectContext *managedObjectContext;
 
-- (id)initWithCallback:(InitCallbackBlock)callback;
+//- (id)initWithCallback:(InitCallbackBlock)callback;
 -(BOOL) backupDatabaseToiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
 -(BOOL) restoreDatabaseFromiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
--(void) removeConflictVersionsiniCloudbyURL:(NSURL *) urlNewDBName;
--(NSString *) getiCloudDatabaseBackupByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt;
--(NSURL *) getiCloudDatabaseBackupURLByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt;
+//-(void) removeConflictVersionsiniCloudbyURL:(NSURL *) urlNewDBName;
+//-(NSString *) getiCloudDatabaseBackupByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt;
+//-(NSURL *) getiCloudDatabaseBackupURLByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt;
 +(void) startiCloudSync;
 
 @end
