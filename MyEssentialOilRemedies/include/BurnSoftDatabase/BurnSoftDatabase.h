@@ -14,9 +14,9 @@
 @property (nonatomic) long long lastInsertedRowID;
 
 // Translate Errors from SQLITE integer to English
--(NSString *) dbErrorsIDtoEnglish :(int)ret;
+-(NSString *) dbErrorsIDtoEnglish :(int)ret __attribute__((deprecated("Not used!")));
 //Pass the Database Name to find the Path of the database
--(NSString *) getDatabasePath :(NSString *) DBNAME;
+-(NSString *) getDatabasePath :(NSString *) DBNAME __attribute__((deprecated("switching to +(NSString *) getDatabasePath")));
 +(NSString *) getDatabasePath :(NSString *) DBNAME;
 //Pass the Database name to see if the database is in the path that we need it to be in
 -(void)checkDB :(NSString *) DBNAME MessageHandler:(NSString **) msg;

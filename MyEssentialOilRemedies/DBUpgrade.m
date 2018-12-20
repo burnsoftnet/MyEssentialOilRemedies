@@ -49,6 +49,7 @@
 {
     DBUpgrade *obj = [DBUpgrade new];
     [obj checkDBVersionAgainstExpectedVersion];
+    obj = nil;
 }
 #pragma mark DB Upgrade Version 1.1
 /*! @brief  PRIVATE - Update Database to version 1.1

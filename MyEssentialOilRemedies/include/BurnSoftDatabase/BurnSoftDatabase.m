@@ -25,7 +25,7 @@
 #pragma mark Error Handling
 //NOTE: Translate Errors from SQLITE integer to English
 //USEDBY: GENERAL
--(NSString *) dbErrorsIDtoEnglish :(int)ret
+-(NSString *) dbErrorsIDtoEnglish :(int)ret __attribute__((deprecated("Not Used")))
 {
     NSString *msg;
     switch (ret) {
@@ -126,14 +126,18 @@
     return msg;
 }
 #pragma mark Get Database Path
-//NOTE: Pass the Database Name to find the Path of the database
-//USEDBY: GENERAL, copyDbIfNeeded
--(NSString *) getDatabasePath :(NSString *) DBNAME
+/*!
+ @brief Pass the database Name to find the path of the database.
+ */
+-(NSString *) getDatabasePath :(NSString *) DBNAME __attribute__((deprecated("switching to +(NSString *) getDatabasePath")))
 {
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [path objectAtIndex:0];
     return [docPath stringByAppendingPathComponent:DBNAME];
 }
+/*!
+    @brief Pass the database Name to find the path of the database.
+*/
 +(NSString *) getDatabasePath :(NSString *) DBNAME
 {
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -141,9 +145,10 @@
     return [docPath stringByAppendingPathComponent:DBNAME];
 }
 #pragma mark Copy DB if Needed
-//NOTE: Pass the name of the database to see if we need to copy the database from the application directory to the documents directory
-//USEDBY: GENERAL & restoreFactoryDB
--(void) copyDbIfNeeded :(NSString *) DBNAME MessageHandler:(NSString **) msg
+/*!
+ @brief Pass the name of the database to see if we need to copy the database from the application directory to the documents directory
+ */
+-(void) copyDbIfNeeded :(NSString *) DBNAME MessageHandler:(NSString **) msg  __attribute__((deprecated))
 {
     NSString *myDBinAppPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DBNAME];
     NSString *myDBinDocsPath = [self getDatabasePath:DBNAME];
@@ -160,22 +165,32 @@
     
     fileManager = nil;
 }
+/*!
+    @brief Pass the name of the database to see if we need to copy the database from the application directory to the documents directory
+ */
 +(void) copyDbIfNeeded :(NSString *) DBNAME MessageHandler:(NSString **) msg
 {
-    NSString *myDBinAppPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DBNAME];
-    NSString *myDBinDocsPath = [self getDatabasePath:DBNAME];
     
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:myDBinDocsPath]) {
-        NSError *error;
-        BOOL success;
-        success = [fileManager copyItemAtPath:myDBinAppPath toPath:myDBinDocsPath error:&error];
-        if (!success) {
-            *msg = [NSString stringWithFormat:@"Error coping database: %@.",[error localizedDescription]];
+    @try {
+        NSString *myDBinAppPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DBNAME];
+        NSString *myDBinDocsPath = [self getDatabasePath:DBNAME];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if (![fileManager fileExistsAtPath:myDBinDocsPath]) {
+            NSError *error;
+            BOOL success = [fileManager copyItemAtPath:myDBinAppPath toPath:myDBinDocsPath error:&error];
+            //success = [fileManager copyItemAtPath:myDBinAppPath toPath:myDBinDocsPath error:&error];
+            if (!success) [NSException raise:@"Copy Error" format:@"Error coping database: %@.",[error localizedDescription]];
+                //{
+                //*msg = [NSString stringWithFormat:@"Error coping database: %@.",[error localizedDescription]];
+            //}
         }
+        
+        fileManager = nil;
+    } @catch (NSException *exception) {
+        *msg = [NSString stringWithFormat:@"%@",[exception reason]];
     }
-    
-    fileManager = nil;
+   
 }
 #pragma mark Restory Factory Database
 //NOTE: Retore the Factory Database by deleting the database in the user docs and copying it back over.
@@ -191,7 +206,7 @@
         if (!success) {
             *msg = [NSString stringWithFormat:@"Error deleting database: %@",[error localizedDescription]];
         } else {
-            [self copyDbIfNeeded:DBNAME MessageHandler:msg];
+            [BurnSoftDatabase copyDbIfNeeded:DBNAME MessageHandler:msg];
         }
     }
     
