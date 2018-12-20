@@ -83,12 +83,7 @@
  */
 -(void) viewDidDisappear:(BOOL)animated
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
-    myOilCollection = nil;
-    oilSections = nil;
-    inStockCount = 0;
-    SelectedCellID = nil;
-    dbPathString = nil;
+     [self closeObjects];
 }
 
 #pragma mark View Will Disappear
@@ -96,13 +91,21 @@
  */
 -(void) viewWillDisappear:(BOOL)animated
 {
+    [self closeObjects];
+}
+#pragma mark Close all objects
+/*!
+    @brief  Close all objects that are being used globally on the form, this is ran when the view will and did dissapear functions.  This was being repeated and was moved to it's own function to simply 7 unify the closing process.
+ */
+-(void) closeObjects
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
     myOilCollection = nil;
     inStockCount = 0;
     SelectedCellID = nil;
     dbPathString = nil;
+    ReOrderCount = 0;
 }
-
 #pragma mark Did Recieve Memory Warning
 /*! @brief  Dispose of any resources that can be recreated.
  */
