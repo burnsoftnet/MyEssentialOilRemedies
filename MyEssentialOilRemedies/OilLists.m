@@ -259,6 +259,24 @@
     OilLists *myobj = [OilLists new];
     return [myobj getCountOfTableBySQL:querySQL DatabasePath:dbPath FromFunction:@"-listInStock" ErrorMessage:errorMsg];
 }
+#pragma mark Get InStock Count from NSMutableArray
+/*!
+    @brief This function will return all the oils that are marked as instock from the NSMutable Attray that is passed to it
+    @remark USEDBY: list_oilstableviewcontroller
+ */
++(int) getInStockCountByArray:(NSMutableArray *) myList ErrorMessage:(NSString **) errorMsg;
+{
+    int iAns = 0;
+    @try {
+        for (OilLists *o in myList)
+        {
+            iAns += ([o.InStock isEqualToString:@"1"]?1:0);
+        }
+    } @catch (NSException *exception) {
+        *errorMsg = [NSString stringWithFormat:@"%@",[exception reason]];
+    }
+    return iAns;
+}
 #pragma mark List In Stock
 /*! @brief method version of the get instockcountbydatabase
     @remark USEDBY: list_oilstableviewcontroller
@@ -280,6 +298,21 @@
     OilLists *myobj = [OilLists new];
     return [myobj getCountOfTableBySQL:querySQL DatabasePath:dbPath FromFunction:@"+listInStock" ErrorMessage:errorMsg];
 }
+
+ +(int) listInShoppingByArray:(NSMutableArray *) myList ErrorMessage:(NSString **) errorMsg
+{
+    int iAns = 0;
+    @try {
+        for (OilLists *o in myList)
+        {
+            iAns += ([o.IsReOrder isEqualToString:@"1"]?1:0);
+        }
+    } @catch (NSException *exception) {
+        *errorMsg = [NSString stringWithFormat:@"%@",[exception reason]];
+    }
+    return iAns;
+}
+
 #pragma mark Private function to count the number of oils based on the SQL qurey
 /*! @brief  Private function to count the number of oils based on the SQL qurey
 */

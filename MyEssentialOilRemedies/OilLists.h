@@ -48,9 +48,11 @@
 
 #pragma mark Get InStock Count from Database
 -(int) getInStockCountByDatabase :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
++(int) getInStockCountByArray:(NSMutableArray *) myList ErrorMessage:(NSString **) errorMsg;
 
 #pragma mark List In Stock
 +(int) listInStock:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
++(int) listInShoppingByArray:(NSMutableArray *) myList ErrorMessage:(NSString **) errorMsg;
 
 #pragma mark Get Oil ID by Name
 +(NSNumber *) getOilIDByName:(NSString *) name InStock:(int) iStock DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;

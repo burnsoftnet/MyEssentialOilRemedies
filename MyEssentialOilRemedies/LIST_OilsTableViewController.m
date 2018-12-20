@@ -179,7 +179,15 @@
     //NSLog(@"%@", oilSections);
     
     [[self myTableView] reloadData];
+    /*
+    int i = 0;
+    for (OilLists *o in myOilCollection)
+    {
+        i += ([o.InStock isEqualToString:@"1"]?1:0);
+    }
     inStockCount = [myObj getInStockCountByDatabase:dbPathString ErrorMessage:&errorMsg];
+    */
+    inStockCount = [OilLists getInStockCountByArray:myOilCollection ErrorMessage:&errorMsg];
     
     if (inStockCount == 0) {
         [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[myOilCollection count]];
@@ -192,7 +200,8 @@
     
     [[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d",RemedyCount]];
     
-    ReOrderCount = [OilLists listInShopping:dbPathString ErrorMessage:&errorMsg];
+    //ReOrderCount = [OilLists listInShopping:dbPathString ErrorMessage:&errorMsg];
+    ReOrderCount = [OilLists listInShoppingByArray:myOilCollection ErrorMessage:&errorMsg];
     
     if (ReOrderCount > 0)
     {
