@@ -88,8 +88,9 @@
  */
 -(void) loadSettings
 {
-    BurnSoftDatabase *objDB = [BurnSoftDatabase new];
-    dbPathString = [objDB getDatabasePath:@MYDBNAME];
+    //BurnSoftDatabase *objDB = [BurnSoftDatabase new];
+    //dbPathString = [objDB getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     
     FormFunctions *objf = [FormFunctions new];
     [objf setBorderLabel:self.lblProblem];

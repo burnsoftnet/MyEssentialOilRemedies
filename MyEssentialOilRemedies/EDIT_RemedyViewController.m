@@ -170,8 +170,7 @@
  */
 -(void) loadSettings
 {
-    BurnSoftDatabase *objDB = [BurnSoftDatabase new];
-    dbPathString = [objDB getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     
     FormFunctions *objF = [FormFunctions new];
     [objF setBorderTextBox:self.txtRemedy];
@@ -179,7 +178,7 @@
     [objF setBorderTextBox:self.txtOilName];
     [objF setBordersTextView:self.txtDescription];
     
-    objDB = nil;
+    //objDB = nil;
     objF = nil;
 }
 

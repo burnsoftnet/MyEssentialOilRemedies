@@ -104,10 +104,11 @@
  */
 -(void) LoadSettings;
 {
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     [DatabaseManagement startiCloudSync];
-    myObj = nil;
+    //myObj = nil;
 }
 
 #pragma mark Load Version

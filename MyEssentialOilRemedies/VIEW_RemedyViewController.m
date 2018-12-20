@@ -110,15 +110,15 @@
  */
 -(void) loadSettings
 {
-    BurnSoftDatabase *objDB = [BurnSoftDatabase new];
-    dbPathString = [objDB getDatabasePath:@MYDBNAME];
+    //BurnSoftDatabase *objDB = [BurnSoftDatabase new];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     
     FormFunctions *objf = [FormFunctions new];
     [objf setBorderLabel:self.lblProblem];
     [objf setBordersTextView:self.lblDescription];
     [objf setBordersTextView:self.lblUses];
     
-    objDB = nil;
+    //objDB = nil;
     objf = nil;
 }
 

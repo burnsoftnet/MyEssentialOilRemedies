@@ -58,14 +58,16 @@
  */
 -(void) setupGlobalVars
 {
-    BurnSoftDatabase *myPath = [BurnSoftDatabase new];
-    dbPathString = [myPath getDatabasePath:@MYDBNAME];
+    //BurnSoftDatabase *myPath = [BurnSoftDatabase new];
+    //dbPathString = [myPath getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
+    
     FormFunctions *myFunctions = [FormFunctions new];
     
     [myFunctions doBuggermeMessage:dbPathString FromSubFunction:@"List_RePrderTableViewController.setupGlobalVars.DatabasePath"];
     myReOrderLists = [NSMutableArray new];
     
-    myPath = nil;
+    //myPath = nil;
     myFunctions = nil;
     
 }

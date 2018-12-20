@@ -21,7 +21,8 @@
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     FormFunctions *myObjFF = [FormFunctions new];
     NSString *errorMsg;
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     double dbVersion = [[myObj getCurrentDatabaseVersionfromTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&errorMsg] doubleValue];
 
     if ([@MYDBVERSION doubleValue] > dbVersion) {
@@ -59,7 +60,7 @@
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     FormFunctions *myObjFF = [FormFunctions new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     double newDBVersion = 0;
     NSString *msg;
     NSString *sqlstmt = [NSString new];
@@ -113,7 +114,7 @@
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     FormFunctions *myObjFF = [FormFunctions new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     double newDBVersion = 0;
     NSString *msg;
     NSString *sqlstmt = [NSString new];
@@ -156,7 +157,7 @@
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     FormFunctions *myObjFF = [FormFunctions new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     double newDBVersion = 0;
     NSString *msg;
     NSString *sqlstmt = [NSString new];
@@ -214,7 +215,7 @@
 {
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     FormFunctions *myObjFF = [FormFunctions new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     double newDBVersion = 0;
     NSString *msg;
     NSString *sqlstmt = [NSString new];

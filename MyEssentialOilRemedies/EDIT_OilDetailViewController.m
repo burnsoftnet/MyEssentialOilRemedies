@@ -151,8 +151,11 @@
  */
 -(void) loadSettings
 {
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
+    
     FormFunctions *myFunctions = [FormFunctions new];
     
     [myFunctions setBordersTextView:self.txtIngredients];

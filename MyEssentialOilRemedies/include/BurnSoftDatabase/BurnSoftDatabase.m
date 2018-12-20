@@ -197,7 +197,7 @@
 //USEDBBY: GENERAL
 -(void) restoreFactoryDB :(NSString *) DBNAME MessageHandler:(NSString **) msg
 {
-    NSString *myDBinDocsPath = [self getDatabasePath:DBNAME];
+    NSString *myDBinDocsPath = [BurnSoftDatabase getDatabasePath:DBNAME];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:myDBinDocsPath]){
         NSError *error;
@@ -217,7 +217,7 @@
 //USEDBY: GENERAL
 -(void)checkDB :(NSString *) DBNAME MessageHandler:(NSString **) msg
 {
-    NSString *dbPathString = [self getDatabasePath:DBNAME];
+    NSString *dbPathString = [BurnSoftDatabase getDatabasePath:DBNAME];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:dbPathString]) {
         *msg = [NSString stringWithFormat:@"Database is missing from Path! %@", dbPathString];

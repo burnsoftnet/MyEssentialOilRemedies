@@ -17,8 +17,7 @@
  */
 -(NSString *) setDataBasePath
 {
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    return [myObj getDatabasePath:@MYDBNAME];
+    return [BurnSoftDatabase getDatabasePath:@MYDBNAME];
 }
 
 #pragma mark Open File By Path for XML Importing

@@ -63,8 +63,9 @@
  */
 -(void) LoadSettings;
 {
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
 }
 
 #pragma mark Backup Database for iTunes

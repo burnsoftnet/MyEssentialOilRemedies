@@ -113,11 +113,10 @@
 #pragma mark Setup Global Variables
 -(void)setupGlobalVars
 {
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     myOilCollection = [NSMutableArray new];
     
-    myObj = nil;
+    //myObj = nil;
 }
 
 #pragma mark Load Table Data

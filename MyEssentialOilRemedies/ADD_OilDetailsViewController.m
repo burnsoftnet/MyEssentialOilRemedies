@@ -116,8 +116,7 @@
  */
 - (void)loadSettings
 {
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     FormFunctions *myFunctions = [FormFunctions new];
     [myFunctions setBordersTextView:self.txtSafetyNotes];
     [myFunctions setBordersTextView:self.txtIngredients];

@@ -125,11 +125,11 @@
     [mysettings setBorderTextBox:self.txtOilName];
     [mysettings setBordersTextView:self.txtUses];
     [self.myTableView reloadData];
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
-    
+    //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     mysettings = nil;
-    myObj = nil;
+    //myObj = nil;
 }
 
 #pragma mark Change Views

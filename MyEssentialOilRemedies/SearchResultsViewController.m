@@ -110,8 +110,10 @@
  */
 -(void) loadSettings
 {
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
 }
 
 #pragma mark Observe Value for Path
