@@ -16,5 +16,6 @@
 #pragma mark Check if DB needs upgrading
 
 -(void) checkDBVersionAgainstExpectedVersion;
++(void) checkDBVersionAgainstExpectedVersion;
 
 @end

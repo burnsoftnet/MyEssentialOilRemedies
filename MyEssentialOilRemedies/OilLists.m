@@ -253,7 +253,7 @@
 /*! @brief  Function that will return all the oils marked as instock form the datbase
     @remark USEDBY: list_oilstableviewcontroller
  */
--(int) getInStockCountByDatabase :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
+-(int) getInStockCountByDatabase :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg DEPRECATED_ATTRIBUTE
 {
     NSString *querySQL = [NSString stringWithFormat:@"select count(*) from view_eo_oil_list_all where INSTOCK=1 order by name COLLATE NOCASE ASC"];
     OilLists *myobj = [OilLists new];
@@ -299,6 +299,10 @@
     return [myobj getCountOfTableBySQL:querySQL DatabasePath:dbPath FromFunction:@"+listInStock" ErrorMessage:errorMsg];
 }
 
+#pragma mark Count all the items marked to reorder
+/*! @brief  Get a count of all the oils that are marked for order or re-order
+ @remark USEDBY: list_oilstableviewcontroller, list_reordertablevliewcontroller
+ */
  +(int) listInShoppingByArray:(NSMutableArray *) myList ErrorMessage:(NSString **) errorMsg
 {
     int iAns = 0;

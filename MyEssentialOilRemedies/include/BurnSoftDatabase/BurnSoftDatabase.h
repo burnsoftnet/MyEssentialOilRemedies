@@ -17,10 +17,12 @@
 -(NSString *) dbErrorsIDtoEnglish :(int)ret;
 //Pass the Database Name to find the Path of the database
 -(NSString *) getDatabasePath :(NSString *) DBNAME;
++(NSString *) getDatabasePath :(NSString *) DBNAME;
 //Pass the Database name to see if the database is in the path that we need it to be in
 -(void)checkDB :(NSString *) DBNAME MessageHandler:(NSString **) msg;
 //Pass the name of the database to see if we need to copy the database from the application directory to the documents directory
 -(void) copyDbIfNeeded :(NSString *) DBNAME MessageHandler:(NSString **) msg;
++(void) copyDbIfNeeded :(NSString *) DBNAME MessageHandler:(NSString **) msg;
 //Retore the Factory Database by deleting the database in the user docs and copying it back over.
 -(void) restoreFactoryDB :(NSString *) DBNAME MessageHandler:(NSString **) msg;
 //Pass a SQL statement, and the database path to execute a statement, if it passes ok, then it will return true

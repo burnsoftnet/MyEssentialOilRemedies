@@ -64,8 +64,9 @@
  */
 -(void)setupGlobalVars
 {
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
 }
 
 #pragma mark My Combine Results Array

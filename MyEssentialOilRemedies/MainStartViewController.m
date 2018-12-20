@@ -19,18 +19,21 @@
  */
 - (void)viewDidLoad {
     [super viewDidLoad];
-    BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    [myObj copyDbIfNeeded:@MYDBNAME MessageHandler:nil];
-    DBUpgrade *myDB = [DBUpgrade new];
-    [myDB checkDBVersionAgainstExpectedVersion];
+    //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+    //[myObj copyDbIfNeeded:@MYDBNAME MessageHandler:nil];
+    [BurnSoftDatabase copyDbIfNeeded:@MYDBNAME MessageHandler:nil];
+    
+    //DBUpgrade *myDB = [DBUpgrade new];
+    //[myDB checkDBVersionAgainstExpectedVersion];
+    [DBUpgrade checkDBVersionAgainstExpectedVersion];
     [DatabaseManagement startiCloudSync];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(checkInBox) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkInBox) userInfo:nil repeats:YES];
     ///NSLog(@"%@",${ISLITE})
-    myObj = nil;
-    myDB = nil;
+    //myObj = nil;
+    //myDB = nil;
 }
 
 

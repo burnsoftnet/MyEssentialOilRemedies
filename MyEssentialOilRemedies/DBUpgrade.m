@@ -45,6 +45,11 @@
     dbVersion = 0;
     
 }
++(void) checkDBVersionAgainstExpectedVersion
+{
+    DBUpgrade *obj = [DBUpgrade new];
+    [obj checkDBVersionAgainstExpectedVersion];
+}
 #pragma mark DB Upgrade Version 1.1
 /*! @brief  PRIVATE - Update Database to version 1.1
     @remark USEDBY: checkDBVersionAgainstExpectedVersion

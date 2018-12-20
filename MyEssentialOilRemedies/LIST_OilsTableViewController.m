@@ -134,15 +134,17 @@
  */
 -(void) setupGlobalVars
 {
-    BurnSoftDatabase *myPath = [BurnSoftDatabase new];
-    dbPathString = [myPath getDatabasePath:@MYDBNAME];
-    FormFunctions *myFunctions = [FormFunctions new];
+    //BurnSoftDatabase *myPath = [BurnSoftDatabase new];
+    //dbPathString = [myPath getDatabasePath:@MYDBNAME];
+    dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     
-    [myFunctions doBuggermeMessage:dbPathString FromSubFunction:@"LIST_OilsTableViewController.setupGlobalVars.DatabasePath"];
+    //FormFunctions *myFunctions = [FormFunctions new];
+    
+    [FormFunctions doBuggermeMessage:dbPathString FromSubFunction:@"LIST_OilsTableViewController.setupGlobalVars.DatabasePath"];
     myOilCollection = [NSMutableArray new];
     
-    myPath = nil;
-    myFunctions = nil;
+    //myPath = nil;
+    //myFunctions = nil;
 }
 
 #pragma mark Load Data

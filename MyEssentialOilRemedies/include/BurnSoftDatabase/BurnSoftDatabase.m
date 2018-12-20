@@ -134,10 +134,33 @@
     NSString *docPath = [path objectAtIndex:0];
     return [docPath stringByAppendingPathComponent:DBNAME];
 }
++(NSString *) getDatabasePath :(NSString *) DBNAME
+{
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [path objectAtIndex:0];
+    return [docPath stringByAppendingPathComponent:DBNAME];
+}
 #pragma mark Copy DB if Needed
 //NOTE: Pass the name of the database to see if we need to copy the database from the application directory to the documents directory
 //USEDBY: GENERAL & restoreFactoryDB
 -(void) copyDbIfNeeded :(NSString *) DBNAME MessageHandler:(NSString **) msg
+{
+    NSString *myDBinAppPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DBNAME];
+    NSString *myDBinDocsPath = [self getDatabasePath:DBNAME];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:myDBinDocsPath]) {
+        NSError *error;
+        BOOL success;
+        success = [fileManager copyItemAtPath:myDBinAppPath toPath:myDBinDocsPath error:&error];
+        if (!success) {
+            *msg = [NSString stringWithFormat:@"Error coping database: %@.",[error localizedDescription]];
+        }
+    }
+    
+    fileManager = nil;
+}
++(void) copyDbIfNeeded :(NSString *) DBNAME MessageHandler:(NSString **) msg
 {
     NSString *myDBinAppPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DBNAME];
     NSString *myDBinDocsPath = [self getDatabasePath:DBNAME];
