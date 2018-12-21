@@ -317,8 +317,9 @@
 }
 
 #pragma mark See if Data Exists
-//NOTE: Pass a SQL statement and the database path to see if any rows are returned from that statement, if there is something it will return true
-//USEDBY: GENERAL
+/*!
+    @brief Pass a SQL statement and the database path to see if any rows are returned from that statement, if there is something it will return true
+ */
 -(BOOL) dataExistsbyQuery :(NSString *) sql DatabasePath:(NSString *)dbPath MessageHandler:(NSString **) msg
 {
     sqlite3_stmt *statement;
@@ -358,8 +359,9 @@
     return bAns;
 }
 #pragma mark Get Data from Database
-//NOTE: Pass the Name/Value that you are looking for, the column name that it would be in, the Column that that Would Contain an ID that you want, the name of the table, and the database path to get the ID value,  Used to Look up ID of a value in the table to be referenced in your code.
-//USEDBY: GENERAL
+/*!
+    @brief Pass the Name/Value that you are looking for, the column name that it would be in, the Column that that Would Contain an ID that you want, the name of the table, and the database path to get the ID value,  Used to Look up ID of a value in the table to be referenced in your code.
+ */
 -(NSNumber *) getLastOneEntryIDbyName :(NSString *) name LookForColumnName:(NSString *) searchcolumn GetIDFomColumn:(NSString *) getfromcolumn InTable:(NSString *) tablename DatabasePath:(NSString *) dbPath MessageHandler:(NSString **) msg
 {
     NSNumber *iAns = 0;
@@ -388,8 +390,9 @@
     return iAns;
 }
 #pragma mark Get Current Database Version
-//NOTE: Get the current Database Version, usualy used for letting the application/user/tech support know if the two version match up
-//USEDBY: GENERAL
+/*!
+    @brief Get the current Database Version, usualy used for letting the application/user/tech support know if the two version match up
+ */
 -(NSString *) getCurrentDatabaseVersionfromTable:(NSString *) myTable DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **)errorMsg
 {
     NSString *sAns = @"0";
@@ -419,8 +422,9 @@
     return sAns;
 }
 #pragma mark Version Exists
-// This will check to see if a previouc version exists of the hotfix, if it exists it will skip updating the database.
-//USEDBY: DBUpgrade.m
+/*!
+    @brief This will check to see if a previouc version exists of the hotfix, if it exists it will skip updating the database.
+ */
 -(BOOL) VersionExists:(NSString *) myCurrentVersion VersionTable:(NSString *) myTable DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     BOOL bAns = NO;
@@ -448,6 +452,10 @@
     }
     return bAns;
 }
+#pragma mark Get Total Number of Rows in Table
+/*!
+    @brief Get the Total Number of Rosw in a Table
+ */
 -(int) getTotalNumberofRowsInTable:(NSString *) myTable DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg
 {
     int iAns = 0;
