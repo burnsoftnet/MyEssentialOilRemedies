@@ -135,20 +135,78 @@
     NSString *docPath = [path objectAtIndex:0];
     return [docPath stringByAppendingPathComponent:DBNAME];
 }
+
+#pragma mark Get The Database Path Only
+/*!
+    @brief Just return that path of the location where the database is going to be stored
+ */
++(NSString *) getDatabasePathOnly
+{
+    NSString *dbDirectory = [NSString stringWithFormat:@"/data/"];
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [path objectAtIndex:0];
+    NSString *dbPath = [docPath stringByAppendingString:dbDirectory];
+    return dbPath;
+}
+
+#pragma mark reset Database Directory
+/*!
+    @brief Delete the database directory and all the files in it, and recreate the directory empty
+ */
++(BOOL) resetDBDirectory
+{
+    BOOL bAns = NO;
+    BOOL isDir;
+    NSString *dbPath = [self getDatabasePathOnly];
+    NSFileManager *fileManager= [NSFileManager defaultManager];
+    
+    if ([fileManager removeItemAtPath:dbPath error:nil])
+    {
+        if(![fileManager fileExistsAtPath:dbPath isDirectory:&isDir])
+        {
+            bAns = [fileManager createDirectoryAtPath:dbPath withIntermediateDirectories:YES attributes:nil error:NULL];
+        }
+    }
+    
+    return bAns;
+}
+
+#pragma mark Get Database Path and File Name
 /*!
     @brief Pass the database Name to find the path of the database.
 */
 +(NSString *) getDatabasePath :(NSString *) DBNAME
 {
+    //NSString *dbDirectory = [NSString stringWithFormat:@"/db/"];
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [path objectAtIndex:0];
-    return [docPath stringByAppendingPathComponent:DBNAME];
+    //NSString *dbPath = [docPath stringByAppendingString:dbDirectory];
+    NSString *dbPath = [self getDatabasePathOnly];
+    NSLog(@"%@", dbPath);
+    BOOL isDir;
+    NSString *fullDBPath = [dbPath stringByAppendingPathComponent:DBNAME];
+    
+    NSFileManager *fileManager= [NSFileManager defaultManager];
+    if(![fileManager fileExistsAtPath:dbPath isDirectory:&isDir])
+    {
+        if([fileManager createDirectoryAtPath:dbPath withIntermediateDirectories:YES attributes:nil error:NULL])
+        {
+            NSString *oldPathString = [docPath stringByAppendingPathComponent:DBNAME];
+            if ([fileManager moveItemAtPath:oldPathString toPath:fullDBPath error:nil])
+            {
+                [fileManager removeItemAtPath:[docPath stringByAppendingPathComponent:@"MEO.db-shm"] error:nil];
+                [fileManager removeItemAtPath:[docPath stringByAppendingPathComponent:@"MEO.db-wal"] error:nil];
+            }
+        }
+    }
+    
+    return fullDBPath;
 }
 #pragma mark Copy DB if Needed
 /*!
  @brief Pass the name of the database to see if we need to copy the database from the application directory to the documents directory
  */
--(void) copyDbIfNeeded :(NSString *) DBNAME MessageHandler:(NSString **) msg  __attribute__((deprecated))
+-(void) copyDbIfNeeded :(NSString *) DBNAME MessageHandler:(NSString **) msg  __attribute__((deprecated("switching to +(NSString *) copyDbIfNeeded")))
 {
     NSString *myDBinAppPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DBNAME];
     NSString *myDBinDocsPath = [self getDatabasePath:DBNAME];
@@ -165,6 +223,8 @@
     
     fileManager = nil;
 }
+
+#pragma mark Copy the Database is needed
 /*!
     @brief Pass the name of the database to see if we need to copy the database from the application directory to the documents directory
  */
@@ -193,8 +253,9 @@
    
 }
 #pragma mark Restory Factory Database
-//NOTE: Retore the Factory Database by deleting the database in the user docs and copying it back over.
-//USEDBBY: GENERAL
+/*!
+    @brief Retore the Factory Database by deleting the database in the user docs and copying it back over.
+ */
 -(void) restoreFactoryDB :(NSString *) DBNAME MessageHandler:(NSString **) msg
 {
     NSString *myDBinDocsPath = [BurnSoftDatabase getDatabasePath:DBNAME];
@@ -213,8 +274,9 @@
     fileManager = nil;
 }
 #pragma mark Check Database
-//NOTE: Pass the Database name to see if the database is in the path that we need it to be in
-//USEDBY: GENERAL
+/*!
+    @brief Pass the Database name to see if the database is in the path that we need it to be in
+ */
 -(void)checkDB :(NSString *) DBNAME MessageHandler:(NSString **) msg
 {
     NSString *dbPathString = [BurnSoftDatabase getDatabasePath:DBNAME];
@@ -227,8 +289,9 @@
     fileManager = nil;
 }
 #pragma mark Execute Statements
-//NOTE: Pass a SQL statement, and the database path to execute a statement, if it passes ok, then it will return true
-//USEDBY: GENERAL
+/*!
+    @brief Pass a SQL statement, and the database path to execute a statement, if it passes ok, then it will return true
+ */
 -(BOOL) runQuery :(NSString *) mysql DatabasePath:(NSString *) DBPath MessageHandler:(NSString **) msg
 {
     char *error;

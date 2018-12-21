@@ -163,11 +163,12 @@
         NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:newExt];
         NSString *copyError = [NSString new];
         NSString *backupfile = [dbPathString stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:newExt];
-        NSString *backupfile1 = [dbPathString stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:@"db-shm"];
-        NSString *backupfile2 = [dbPathString stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:@"db-wal"];
+        //NSString *backupfile1 = [dbPathString stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:@"db-shm"];
+        //NSString *backupfile2 = [dbPathString stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:@"db-wal"];
         NSURL *URLnewDBName = [NSURL fileURLWithPath:newDBName];
         
         [self removeConflictVersionsiniCloudbyURL:URLnewDBName];
+        /*
         if (![BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError])
         {
             [NSException raise:@"Delete Error" format:@"Error deleting %@ database: %@",backupfile, deleteError];
@@ -180,7 +181,8 @@
         {
             [NSException raise:@"Delete Error" format:@"Error deleting %@ database: %@",backupfile, deleteError];
         }
-
+         */
+        [BurnSoftDatabase resetDBDirectory];
         bAns = [self performCopyFunctionsFromTarget:newDBName Destination:backupfile FinalDestination:dbPathString ErrorMessage:&copyError];
         if (!bAns){
             [NSException raise:@"Restore Error" format:@"Error restoring database: %@", copyError];
