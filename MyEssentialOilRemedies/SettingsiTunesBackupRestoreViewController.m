@@ -214,7 +214,8 @@
     FormFunctions * myObjFF = [FormFunctions new];
     
     UITableViewRowAction *RestoreAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Restore" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
-        if ([self DeleteFileByName:@MYDBNAME])
+        //if ([self DeleteFileByName:@MYDBNAME])
+        if ([BurnSoftDatabase resetDBDirectory])
         {
             [self RestoreDatabaseforiTunesbyFileName:cellTag];
         } else {
