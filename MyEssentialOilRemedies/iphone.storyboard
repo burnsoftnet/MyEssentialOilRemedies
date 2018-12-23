@@ -609,7 +609,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWI-NC-Upr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1616.8" y="784.85757121439292"/>
+            <point key="canvasLocation" x="1958" y="779"/>
         </scene>
         <!--View Remedy Details-->
         <scene sceneID="9zl-Uy-Y68">
@@ -776,7 +776,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CLh-7y-4Pf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4718" y="799"/>
+            <point key="canvasLocation" x="3697" y="791"/>
         </scene>
         <!--Search Database-->
         <scene sceneID="062-2s-9Gu">
@@ -2100,7 +2100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLu-Kd-aZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4035" y="1038"/>
+            <point key="canvasLocation" x="2862" y="1016"/>
         </scene>
         <!--Search Nav-->
         <scene sceneID="xqo-zA-Zqg">
