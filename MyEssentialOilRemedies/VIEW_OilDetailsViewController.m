@@ -322,7 +322,7 @@
 /*! @brief Actions to take when the close button is touched
  */
 - (IBAction)btnClose:(id)sender {
-#warning <#message#>
+#warning #66 View oil in Search not not closing when x is clicked
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
 
