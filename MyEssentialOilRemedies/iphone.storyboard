@@ -590,24 +590,6 @@
             <point key="canvasLocation" x="1616.8" y="784.85757121439292"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="JvO-wk-9Et">
-            <objects>
-                <viewController id="SXO-jE-KhG" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Uwv-pZ-Pax"/>
-                        <viewControllerLayoutGuide type="bottom" id="epD-oT-m75"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ii7-c0-maq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zfm-rc-DEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2334" y="784"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="vHI-wy-bIc">
             <objects>
                 <viewController id="bSp-N1-5Hl" sceneMemberID="viewController">
@@ -620,10 +602,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1E-mu-1rK">
-                                <rect key="frame" x="5" y="127" width="371" height="506"/>
+                                <rect key="frame" x="5" y="127" width="344" height="510"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rtd-rs-aRe">
-                                        <rect key="frame" x="8" y="20" width="348" height="475"/>
+                                        <rect key="frame" x="8" y="20" width="334" height="475"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
@@ -631,10 +613,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="Rtd-rs-aRe" secondAttribute="bottom" constant="3" id="4EO-f0-Dai"/>
-                                    <constraint firstItem="Rtd-rs-aRe" firstAttribute="top" secondItem="l1E-mu-1rK" secondAttribute="topMargin" constant="12" id="LhL-jV-hlR"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Rtd-rs-aRe" secondAttribute="trailing" constant="7" id="MXg-Xh-gzt"/>
-                                    <constraint firstItem="Rtd-rs-aRe" firstAttribute="leading" secondItem="l1E-mu-1rK" secondAttribute="leadingMargin" id="Z71-aK-ME6"/>
+                                    <constraint firstItem="Rtd-rs-aRe" firstAttribute="top" secondItem="l1E-mu-1rK" secondAttribute="topMargin" constant="12" id="Hsz-L2-kkm"/>
+                                    <constraint firstItem="Rtd-rs-aRe" firstAttribute="leading" secondItem="l1E-mu-1rK" secondAttribute="leadingMargin" constant="5" id="rja-nj-VUC"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Rtd-rs-aRe" secondAttribute="trailing" constant="5" id="vry-Qa-idN"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Rtd-rs-aRe" secondAttribute="bottom" constant="7" id="w6I-uy-h7N"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -643,7 +625,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HGb-zN-8Dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3093.5999999999999" y="780.35982008995506"/>
+            <point key="canvasLocation" x="2404" y="778.56071964017997"/>
         </scene>
         <!--View Remedy Details-->
         <scene sceneID="9zl-Uy-Y68">
