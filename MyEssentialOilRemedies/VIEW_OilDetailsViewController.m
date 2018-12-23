@@ -95,6 +95,7 @@
     [FormFunctions setBackGroundImage:self.viewContent];
     [FormFunctions setBackGroundImage:self.viewRelatedRemedies];
     [FormFunctions setBackGroundImage:self.RelatedRemediesTable];
+    [FormFunctions setBackGroundImage:self.SearchContentView];
 }
 
 #pragma mark Start Action Sheet
@@ -321,6 +322,7 @@
 /*! @brief Actions to take when the close button is touched
  */
 - (IBAction)btnClose:(id)sender {
+#warning <#message#>
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
 

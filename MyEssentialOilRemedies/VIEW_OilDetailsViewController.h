@@ -37,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet UIView *viewContent;
 @property (weak, nonatomic) IBOutlet UIView *viewRelatedRemedies;
 @property (weak, nonatomic) IBOutlet UITableView *RelatedRemediesTable;
+@property (weak, nonatomic) IBOutlet UIView *SearchContentView;
 
 
 

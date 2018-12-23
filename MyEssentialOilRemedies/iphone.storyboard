@@ -2312,6 +2312,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="950"/>
                     <connections>
+                        <outlet property="SearchContentView" destination="vsW-2F-Vxh" id="Lnv-yk-Eg1"/>
                         <outlet property="lblBotanicalName" destination="0lU-NX-gpi" id="cZY-JW-GTW"/>
                         <outlet property="lblColor" destination="W30-99-5BB" id="lGT-Sm-s1A"/>
                         <outlet property="lblCommonName" destination="sFm-rc-Hbd" id="CxZ-VM-uDy"/>
