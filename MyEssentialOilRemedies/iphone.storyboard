@@ -430,264 +430,84 @@
                         <viewControllerLayoutGuide type="bottom" id="xzB-3O-xYE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="d8a-t1-Jae">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="1151"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAH-B9-RL4">
-                                <rect key="frame" x="-20" y="0.0" width="440" height="1190"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ufb-EQ-g7s">
+                                <rect key="frame" x="0.0" y="63" width="400" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <barButtonItem title="Description" id="Nf6-7h-QlJ">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="tbDescription:" destination="PFe-pI-FH2" id="2ou-fX-jDT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Oils" id="UVl-nq-YBR">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="tbOils:" destination="PFe-pI-FH2" id="mTK-ci-WzE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Uses" id="Syc-SW-ADg">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="tbUses:" destination="PFe-pI-FH2" id="nyi-7Y-jdy"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Save" id="3j8-kX-jDp" userLabel="Save">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="tbSave:" destination="PFe-pI-FH2" id="EHI-mo-Cv9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kdK-gF-bqZ">
+                                <rect key="frame" x="2" y="112" width="371" height="506"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdK-gF-bqZ">
-                                        <rect key="frame" x="20" y="5" width="400" height="1199"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Problem:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGm-gj-2G3">
-                                                <rect key="frame" x="11" y="53" width="68.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1F-10-GYu">
-                                                <rect key="frame" x="8" y="86" width="92.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Ailment, Sickness, etc." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Kfd-jy-FRU">
-                                                <rect key="frame" x="87.5" y="52" width="281.5" height="22"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes"/>
-                                                <connections>
-                                                    <action selector="RemedyNameLostFocus:" destination="PFe-pI-FH2" eventType="editingDidEnd" id="Qpw-k8-sRN"/>
-                                                </connections>
-                                            </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMZ-ea-Bn1">
-                                                <rect key="frame" x="8" y="114.5" width="361" height="386"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="386" id="AfD-NR-cj9"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
-                                            </textView>
-                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TL-bg-Gvc">
-                                                <rect key="frame" x="0.0" y="-7" width="400" height="44"/>
-                                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <items>
-                                                    <barButtonItem title="Description" id="e5X-Wl-1cR">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbDescription:" destination="PFe-pI-FH2" id="d2p-zR-qkk"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                    <barButtonItem title="Oils" id="urx-PD-Bjs">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbOils:" destination="PFe-pI-FH2" id="CLw-sQ-zPx"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                    <barButtonItem title="Uses" id="2wX-hX-kPg">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbUses:" destination="PFe-pI-FH2" id="VrY-e3-Jhh"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                    <barButtonItem title="Save" id="pEP-AN-eHf" userLabel="Save">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbSave:" destination="PFe-pI-FH2" id="ydt-s9-XEX"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                </items>
-                                                <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </toolbar>
-                                        </subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Problem:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGm-gj-2G3">
+                                        <rect key="frame" x="8" y="23" width="68.5" height="20.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1F-10-GYu">
+                                        <rect key="frame" x="8" y="55" width="92.5" height="20.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Ailment, Sickness, etc." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Kfd-jy-FRU">
+                                        <rect key="frame" x="91" y="22" width="266" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes"/>
+                                        <connections>
+                                            <action selector="RemedyNameLostFocus:" destination="PFe-pI-FH2" eventType="editingDidEnd" id="Qpw-k8-sRN"/>
+                                        </connections>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cMZ-ea-Bn1">
+                                        <rect key="frame" x="5" y="87" width="350" height="399"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="Kfd-jy-FRU" firstAttribute="trailing" secondItem="cMZ-ea-Bn1" secondAttribute="trailing" id="0cB-aU-BDB"/>
-                                            <constraint firstAttribute="height" constant="1199" id="4gf-Rh-JF3"/>
-                                            <constraint firstAttribute="trailing" secondItem="2TL-bg-Gvc" secondAttribute="trailing" id="6cF-6N-eLy"/>
-                                            <constraint firstAttribute="trailing" secondItem="Kfd-jy-FRU" secondAttribute="trailing" constant="31" id="6vJ-TI-eWx"/>
-                                            <constraint firstItem="Kfd-jy-FRU" firstAttribute="top" secondItem="2TL-bg-Gvc" secondAttribute="bottom" constant="15" id="774-Za-d8T"/>
-                                            <constraint firstItem="j1F-10-GYu" firstAttribute="leading" secondItem="kdK-gF-bqZ" secondAttribute="leadingMargin" id="9vC-4i-REk"/>
-                                            <constraint firstItem="j1F-10-GYu" firstAttribute="leading" secondItem="cMZ-ea-Bn1" secondAttribute="leading" id="IAN-kf-PZE"/>
-                                            <constraint firstItem="GGm-gj-2G3" firstAttribute="leading" secondItem="kdK-gF-bqZ" secondAttribute="leading" constant="11" id="IYr-Pv-9rR"/>
-                                            <constraint firstItem="cMZ-ea-Bn1" firstAttribute="top" secondItem="j1F-10-GYu" secondAttribute="bottom" constant="8" symbolic="YES" id="ahv-at-8qH"/>
-                                            <constraint firstItem="Kfd-jy-FRU" firstAttribute="leading" secondItem="GGm-gj-2G3" secondAttribute="trailing" constant="8" symbolic="YES" id="bez-gH-Im6"/>
-                                            <constraint firstItem="j1F-10-GYu" firstAttribute="top" secondItem="Kfd-jy-FRU" secondAttribute="bottom" constant="12" id="etR-ZU-Ud1"/>
-                                            <constraint firstItem="2TL-bg-Gvc" firstAttribute="top" secondItem="kdK-gF-bqZ" secondAttribute="top" constant="-7" id="hBc-qS-Rwe"/>
-                                            <constraint firstItem="2TL-bg-Gvc" firstAttribute="leading" secondItem="kdK-gF-bqZ" secondAttribute="leading" id="q5c-SK-ubK"/>
-                                            <constraint firstItem="GGm-gj-2G3" firstAttribute="centerY" secondItem="Kfd-jy-FRU" secondAttribute="centerY" id="w88-2U-Tu2"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HYI-o5-Lxu">
-                                        <rect key="frame" x="20" y="5" width="400" height="1199"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oil Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nn4-fY-4dj">
-                                                <rect key="frame" x="8" y="69" width="74.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Oil Name on Bottle" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Mfa-sn-vyT">
-                                                <rect key="frame" x="95.5" y="68" width="271.5" height="22"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRf-ph-uKv">
-                                                <rect key="frame" x="159.5" y="98" width="81" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="81" id="9Q9-mX-oV9"/>
-                                                </constraints>
-                                                <size key="titleShadowOffset" width="1" height="1"/>
-                                                <state key="normal" title="Add">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnAddOil:" destination="PFe-pI-FH2" eventType="touchUpInside" id="Lnh-H4-q8r"/>
-                                                </connections>
-                                            </button>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ftK-5r-cr9">
-                                                <rect key="frame" x="8" y="136" width="359" height="448"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="448" id="LCh-Vg-c8J"/>
-                                                </constraints>
-                                            </tableView>
-                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWE-Xq-X6j">
-                                                <rect key="frame" x="0.0" y="-7" width="400" height="44"/>
-                                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <items>
-                                                    <barButtonItem title="Description" id="HoG-Ti-kWX">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbDescription:" destination="PFe-pI-FH2" id="EsM-oI-CwI"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                    <barButtonItem title="Oils" id="fMo-fK-a04">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbOils:" destination="PFe-pI-FH2" id="jLs-fE-Qc7"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                    <barButtonItem title="Uses" id="7Ji-4e-9X5">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbUses:" destination="PFe-pI-FH2" id="61o-5z-qfp"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                    <barButtonItem title="Save" id="h8l-wW-TvI" userLabel="Save">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbSave:" destination="PFe-pI-FH2" id="Qu1-Wm-cok"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                </items>
-                                                <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </toolbar>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="bRf-ph-uKv" firstAttribute="top" secondItem="Mfa-sn-vyT" secondAttribute="bottom" constant="8" symbolic="YES" id="2LY-7S-WjP"/>
-                                            <constraint firstItem="Mfa-sn-vyT" firstAttribute="trailing" secondItem="ftK-5r-cr9" secondAttribute="trailing" id="9w8-Ux-Hhl"/>
-                                            <constraint firstItem="Mfa-sn-vyT" firstAttribute="top" secondItem="pWE-Xq-X6j" secondAttribute="bottom" constant="31" id="DgP-0g-sYf"/>
-                                            <constraint firstItem="ftK-5r-cr9" firstAttribute="top" secondItem="bRf-ph-uKv" secondAttribute="bottom" constant="8" symbolic="YES" id="LAg-Tc-opG"/>
-                                            <constraint firstItem="pWE-Xq-X6j" firstAttribute="top" secondItem="HYI-o5-Lxu" secondAttribute="top" constant="-7" id="Uli-qv-GBe"/>
-                                            <constraint firstItem="Mfa-sn-vyT" firstAttribute="leading" secondItem="Nn4-fY-4dj" secondAttribute="trailing" constant="13" id="W36-b0-DMK"/>
-                                            <constraint firstAttribute="trailing" secondItem="Mfa-sn-vyT" secondAttribute="trailing" constant="33" id="Wbb-z9-xiM"/>
-                                            <constraint firstItem="pWE-Xq-X6j" firstAttribute="centerX" secondItem="bRf-ph-uKv" secondAttribute="centerX" id="Z9a-O1-wGl"/>
-                                            <constraint firstItem="Nn4-fY-4dj" firstAttribute="leading" secondItem="ftK-5r-cr9" secondAttribute="leading" id="hdh-J3-Glj"/>
-                                            <constraint firstItem="pWE-Xq-X6j" firstAttribute="leading" secondItem="HYI-o5-Lxu" secondAttribute="leading" id="heb-PP-5XI"/>
-                                            <constraint firstAttribute="trailing" secondItem="pWE-Xq-X6j" secondAttribute="trailing" id="jSs-Eg-Lkz"/>
-                                            <constraint firstItem="Nn4-fY-4dj" firstAttribute="centerY" secondItem="Mfa-sn-vyT" secondAttribute="centerY" id="k52-gZ-PlS"/>
-                                            <constraint firstItem="Nn4-fY-4dj" firstAttribute="leading" secondItem="HYI-o5-Lxu" secondAttribute="leadingMargin" id="lzV-dY-180"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1E-mu-1rK">
-                                        <rect key="frame" x="20" y="5" width="400" height="1199"/>
-                                        <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rtd-rs-aRe">
-                                                <rect key="frame" x="8" y="55" width="357" height="450"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="450" id="i7P-ir-b59"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
-                                            </textView>
-                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufb-EQ-g7s">
-                                                <rect key="frame" x="0.0" y="-11" width="400" height="44"/>
-                                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <items>
-                                                    <barButtonItem title="Description" id="Nf6-7h-QlJ">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbDescription:" destination="PFe-pI-FH2" id="2ou-fX-jDT"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                    <barButtonItem title="Oils" id="UVl-nq-YBR">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbOils:" destination="PFe-pI-FH2" id="mTK-ci-WzE"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                    <barButtonItem title="Uses" id="Syc-SW-ADg">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbUses:" destination="PFe-pI-FH2" id="nyi-7Y-jdy"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                    <barButtonItem title="Save" id="3j8-kX-jDp" userLabel="Save">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <action selector="tbSave:" destination="PFe-pI-FH2" id="EHI-mo-Cv9"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                </items>
-                                                <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </toolbar>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Rtd-rs-aRe" secondAttribute="trailing" constant="35" id="Gyv-ex-VkY"/>
-                                            <constraint firstItem="Ufb-EQ-g7s" firstAttribute="leading" secondItem="l1E-mu-1rK" secondAttribute="leading" id="H24-Qj-ODQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ufb-EQ-g7s" secondAttribute="trailing" id="P2C-5a-Sop"/>
-                                            <constraint firstItem="Ufb-EQ-g7s" firstAttribute="top" secondItem="l1E-mu-1rK" secondAttribute="top" constant="-11" id="Vs3-Dx-rZE"/>
-                                            <constraint firstItem="Rtd-rs-aRe" firstAttribute="top" secondItem="Ufb-EQ-g7s" secondAttribute="bottom" constant="22" id="nyA-2x-HY5"/>
-                                            <constraint firstItem="Rtd-rs-aRe" firstAttribute="leading" secondItem="l1E-mu-1rK" secondAttribute="leadingMargin" id="olC-e0-pCI"/>
-                                        </constraints>
-                                    </view>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
+                                    </textView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="l1E-mu-1rK" firstAttribute="leading" secondItem="kdK-gF-bqZ" secondAttribute="leading" id="5JX-t2-sf7"/>
-                                    <constraint firstItem="HYI-o5-Lxu" firstAttribute="leading" secondItem="kdK-gF-bqZ" secondAttribute="leading" id="5Pb-eO-OFi"/>
-                                    <constraint firstAttribute="bottom" secondItem="kdK-gF-bqZ" secondAttribute="bottom" constant="-32" id="81J-Rx-1sF"/>
-                                    <constraint firstItem="kdK-gF-bqZ" firstAttribute="trailing" secondItem="HYI-o5-Lxu" secondAttribute="trailing" id="DYI-Ik-tNL"/>
-                                    <constraint firstItem="kdK-gF-bqZ" firstAttribute="leading" secondItem="OAH-B9-RL4" secondAttribute="leading" constant="20" id="ODB-sc-Opp"/>
-                                    <constraint firstItem="HYI-o5-Lxu" firstAttribute="bottom" secondItem="kdK-gF-bqZ" secondAttribute="bottom" id="QF0-p6-u0b"/>
-                                    <constraint firstItem="kdK-gF-bqZ" firstAttribute="top" secondItem="OAH-B9-RL4" secondAttribute="top" constant="5" id="abU-xw-PJk"/>
-                                    <constraint firstItem="kdK-gF-bqZ" firstAttribute="top" secondItem="l1E-mu-1rK" secondAttribute="top" id="blI-Ic-KBE"/>
-                                    <constraint firstItem="HYI-o5-Lxu" firstAttribute="trailing" secondItem="l1E-mu-1rK" secondAttribute="trailing" id="eLY-Xj-Do2"/>
-                                    <constraint firstAttribute="trailing" secondItem="HYI-o5-Lxu" secondAttribute="trailing" constant="20" id="f3e-Et-2aL"/>
-                                    <constraint firstItem="l1E-mu-1rK" firstAttribute="top" secondItem="HYI-o5-Lxu" secondAttribute="top" id="gUE-gW-zgo"/>
-                                    <constraint firstItem="l1E-mu-1rK" firstAttribute="centerX" secondItem="OAH-B9-RL4" secondAttribute="centerX" id="nDG-jc-tFh"/>
-                                    <constraint firstItem="kdK-gF-bqZ" firstAttribute="bottom" secondItem="l1E-mu-1rK" secondAttribute="bottom" id="v0E-B8-l4b"/>
-                                </constraints>
-                            </scrollView>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="OAH-B9-RL4" firstAttribute="top" secondItem="d8a-t1-Jae" secondAttribute="top" id="Mr0-d5-9Bd"/>
-                            <constraint firstItem="OAH-B9-RL4" firstAttribute="centerX" secondItem="d8a-t1-Jae" secondAttribute="centerX" id="gHZ-5x-umZ"/>
-                            <constraint firstItem="OAH-B9-RL4" firstAttribute="leading" secondItem="d8a-t1-Jae" secondAttribute="leadingMargin" constant="-40" id="m1d-W8-G4Y"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="OAH-B9-RL4" secondAttribute="bottom" constant="-39" id="ywh-h1-hZr"/>
-                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="400" height="1200"/>
                     <connections>
                         <outlet property="RemedyDescription" destination="cMZ-ea-Bn1" id="6D8-cw-Y7l"/>
                         <outlet property="RemedyName" destination="Kfd-jy-FRU" id="t0T-mj-JYF"/>
@@ -701,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWI-NC-Upr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1605" y="1016"/>
+            <point key="canvasLocation" x="1616.8" y="784.85757121439292"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JvO-wk-9Et">
@@ -714,12 +534,60 @@
                     <view key="view" contentMode="scaleToFill" id="ii7-c0-maq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYI-o5-Lxu">
+                                <rect key="frame" x="2" y="112" width="371" height="506"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oil Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nn4-fY-4dj">
+                                        <rect key="frame" x="8" y="25" width="74.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Oil Name on Bottle" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Mfa-sn-vyT">
+                                        <rect key="frame" x="95" y="25" width="260" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes"/>
+                                    </textField>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ftK-5r-cr9">
+                                        <rect key="frame" x="12" y="110" width="347" height="376"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRf-ph-uKv">
+                                        <rect key="frame" x="145" y="61" width="30" height="30"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Add">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnAddOil:" destination="PFe-pI-FH2" eventType="touchUpInside" id="Lnh-H4-q8r"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="bRf-ph-uKv" firstAttribute="top" secondItem="Mfa-sn-vyT" secondAttribute="bottom" constant="14" id="BxV-7a-Z2M"/>
+                                    <constraint firstItem="Mfa-sn-vyT" firstAttribute="top" secondItem="HYI-o5-Lxu" secondAttribute="topMargin" constant="-3" id="ERU-NV-JjA"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="ftK-5r-cr9" secondAttribute="trailing" constant="-47" id="EXU-ig-MMT"/>
+                                    <constraint firstItem="Nn4-fY-4dj" firstAttribute="top" secondItem="HYI-o5-Lxu" secondAttribute="topMargin" constant="-3" id="IRu-12-WYa"/>
+                                    <constraint firstItem="ftK-5r-cr9" firstAttribute="leading" secondItem="HYI-o5-Lxu" secondAttribute="leadingMargin" constant="4" id="LjX-q7-4BH"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="ftK-5r-cr9" secondAttribute="bottom" constant="12" id="U8i-XJ-BQD"/>
+                                    <constraint firstItem="ftK-5r-cr9" firstAttribute="top" secondItem="bRf-ph-uKv" secondAttribute="bottom" constant="19" id="XJb-7q-5Cb"/>
+                                    <constraint firstItem="Mfa-sn-vyT" firstAttribute="leading" secondItem="Nn4-fY-4dj" secondAttribute="trailing" constant="12.5" id="XKs-dI-CSr"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="bRf-ph-uKv" secondAttribute="trailing" constant="137" id="afK-3k-dLf"/>
+                                    <constraint firstItem="bRf-ph-uKv" firstAttribute="leading" secondItem="HYI-o5-Lxu" secondAttribute="leadingMargin" constant="137" id="cw6-1m-9QV"/>
+                                    <constraint firstItem="Nn4-fY-4dj" firstAttribute="leading" secondItem="HYI-o5-Lxu" secondAttribute="leadingMargin" id="ecQ-vE-MC1"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Mfa-sn-vyT" secondAttribute="trailing" constant="-43" id="yfP-aP-Sdc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfm-rc-DEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2369" y="784"/>
+            <point key="canvasLocation" x="2368.8000000000002" y="783.95802098950526"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vHI-wy-bIc">
@@ -732,12 +600,32 @@
                     <view key="view" contentMode="scaleToFill" id="9gV-xG-BHx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1E-mu-1rK">
+                                <rect key="frame" x="5" y="127" width="371" height="506"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rtd-rs-aRe">
+                                        <rect key="frame" x="8" y="20" width="348" height="475"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Rtd-rs-aRe" secondAttribute="bottom" constant="3" id="4EO-f0-Dai"/>
+                                    <constraint firstItem="Rtd-rs-aRe" firstAttribute="top" secondItem="l1E-mu-1rK" secondAttribute="topMargin" constant="12" id="LhL-jV-hlR"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Rtd-rs-aRe" secondAttribute="trailing" constant="7" id="MXg-Xh-gzt"/>
+                                    <constraint firstItem="Rtd-rs-aRe" firstAttribute="leading" secondItem="l1E-mu-1rK" secondAttribute="leadingMargin" id="Z71-aK-ME6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HGb-zN-8Dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3094" y="781"/>
+            <point key="canvasLocation" x="3093.5999999999999" y="780.35982008995506"/>
         </scene>
         <!--View Remedy Details-->
         <scene sceneID="9zl-Uy-Y68">
@@ -2711,7 +2599,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FVx-dx-Rr4"/>
-        <segue reference="9Qq-SB-b9d"/>
+        <segue reference="tZI-XI-ca5"/>
         <segue reference="i3e-cA-Y4r"/>
         <segue reference="EWW-Fh-Ngj"/>
     </inferredMetricsTieBreakers>
