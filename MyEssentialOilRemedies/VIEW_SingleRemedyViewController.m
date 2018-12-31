@@ -184,6 +184,9 @@
  */
 - (IBAction)tbClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
+    UINavigationController *navController = self.navigationController;
+    [navController popViewControllerAnimated:NO];
+    [navController popViewControllerAnimated:YES];
 }
 
 #pragma mark Toolbar Oils Button
