@@ -322,8 +322,13 @@
 /*! @brief Actions to take when the close button is touched
  */
 - (IBAction)btnClose:(id)sender {
-#warning #66 View oil in Search not not closing when x is clicked
     [self dismissViewControllerAnimated:YES completion:Nil];
+    UIViewController *controller = self.presentedViewController;
+    [controller dismissViewControllerAnimated:YES completion:nil];
+    UINavigationController *navController = self.navigationController;
+    [navController popViewControllerAnimated:NO];
+    [navController popViewControllerAnimated:YES];
+    
 }
 
 #pragma mark Edit Button form Search
