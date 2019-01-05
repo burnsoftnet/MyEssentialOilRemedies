@@ -359,6 +359,7 @@
     if (USESECTIONS_OIL)
     {
         //TODO Have this pump into a section somehow for issue #63
+        //#63 This is where you need to work at
         NSString *sectionTitle = [myOilCollection objectAtIndex:indexPath.section];
         NSArray *sectionOils = [oilDictionary objectForKey:sectionTitle];
         displayCollection = [sectionOils objectAtIndex:indexPath.row];
