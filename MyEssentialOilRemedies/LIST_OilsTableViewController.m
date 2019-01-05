@@ -222,21 +222,70 @@
 
 -(void)setupDictionary
 {
-    oilDictionary = [NSMutableDictionary dictionary]; //related to issue #63
-    //NSString *errorMsg;
-    [oilDictionary removeAllObjects];
-    for (int x = 0; x < [oilSections count]; x++) {
+    @try {
+        oilDictionary = [NSMutableDictionary dictionary]; //related to issue #63
+        //NSString *errorMsg;
+        [oilDictionary removeAllObjects];
+        for (int x = 0; x < [oilSections count] - 1; x++) {
+            /*
+             MatchLists *displayMatcheClasses = [myMatchClasses objectAtIndex:x];
+             NSString *currentClassName = displayMatcheClasses.matchclass;
+             [DictionaryMatchClass setObject:[MatchLists getAllMatchListsByMatchDivision:currentClassName DatabasePath:dbPathString ErrorMessage:&errorMsg] forKey:currentClassName];
+             */
+            //OilLists *displayOilSections = [oilSections objectAtIndex:x];
+            //NSString *currentSectionName = displayOilSections.section;
+            NSString *currentSectionName = [oilSections objectAtIndex:x];
+            NSLog(@"%@", currentSectionName);
+            [oilDictionary setObject:[self getAllOilsFromArray:myOilCollection SectionLetter:currentSectionName ErrorMessage:nil] forKey:currentSectionName];
+            //[oilDictionary setObject:[OilLists ] forKey:<#(nonnull id<NSCopying>)#>]
+        }
         /*
-        MatchLists *displayMatcheClasses = [myMatchClasses objectAtIndex:x];
-        NSString *currentClassName = displayMatcheClasses.matchclass;
-        [DictionaryMatchClass setObject:[MatchLists getAllMatchListsByMatchDivision:currentClassName DatabasePath:dbPathString ErrorMessage:&errorMsg] forKey:currentClassName];
-         */
-        OilLists *displayOilSections = [oilSections objectAtIndex:x];
-        NSString *currentSectionName = displayOilSections.section;
-        NSLog(@"%@", currentSectionName);
-        //[oilDictionary setObject:[OilLists ] forKey:<#(nonnull id<NSCopying>)#>]
+         NSString *errorMsg;
+         [DictionaryMatchClass removeAllObjects];
+         for (int x = 0; x < [myMatchClasses count]; x++) {
+         MatchLists *displayMatcheClasses = [myMatchClasses objectAtIndex:x];
+         NSString *currentClassName = displayMatcheClasses.matchclass;
+         [DictionaryMatchClass setObject:[MatchLists getAllMatchListsByMatchDivision:currentClassName DatabasePath:dbPathString ErrorMessage:&errorMsg] forKey:currentClassName];
+         }*/
+        
+    } @catch (NSException *exception) {
+        NSLog(@"ERROR: %@",exception);
     }
-    
+}
+
+-(NSMutableArray *) getAllOilsFromArray:(NSMutableArray *) mylist SectionLetter:(NSString *) section ErrorMessage:(NSString **) errMsg
+{
+    NSMutableArray *myArray = [NSMutableArray new];
+    @try {
+        for (OilLists *j in mylist)
+        {
+            NSString *newObject = j.section;
+            if (newObject == section)
+            {
+                OilLists *myOils = [OilLists new];
+                [myOils setName:j.name];
+                [myOils setSection:j.section];
+                [myOils setOID:j.OID];
+                [myOils setRID:j.RID];
+                [myOils setMydescription:j.mydescription];
+                [myOils setIsBlend:j.isBlend];
+                [myOils setInStock:j.InStock];
+                //add Array information here
+                
+                [myArray addObject:myOils];
+            }
+            /*
+            if (![oilSections containsObject:newObject])
+            {
+                [oilSections addObject:newObject];
+            }*/
+        }
+        
+    } @catch (NSException *exception) {
+        //errMsg = [NSString stringWithFormat:@"%@", [exception reason]];
+        NSLog(@"ERROR: %@",exception);
+    }
+    return myArray;
 }
 
 #pragma mark Table set Edit Mode
@@ -264,7 +313,12 @@
 //Related to issue #63
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [oilSections objectAtIndex:section];
+    if (USESECTIONS_OIL)
+    {
+        return [oilSections objectAtIndex:section];
+    } else {
+        return nil;
+    }
 }
 
 
@@ -276,11 +330,18 @@
     //Related to issue #63
     //NOT COMPLETED
     // Return the number of rows in the section.
-    NSString *sectionTitle = [oilSections objectAtIndex:section];
-    NSLog(@"%@",sectionTitle);
-    //NSArray *sectionAnimals = [myOilCollection objectForKey:sectionTitle];
-    //return [sectionAnimals count];
-    return [myOilCollection count];
+    if (USESECTIONS_OIL)
+    {
+        NSString *sectionTitle = [oilSections objectAtIndex:section];
+        NSArray *sectionLetter = [oilDictionary objectForKey:sectionTitle];
+        NSLog(@"%@",sectionTitle);
+        return [sectionLetter count];
+    } else {
+        //NSArray *sectionAnimals = [myOilCollection objectForKey:sectionTitle];
+        //return [sectionAnimals count];
+        return [myOilCollection count];
+    }
+    
 }
 
 #pragma mark Table Set Cell Data
