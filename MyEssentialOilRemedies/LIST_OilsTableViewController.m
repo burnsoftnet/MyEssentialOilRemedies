@@ -176,7 +176,7 @@
                 [oilSections addObject:newObject];
             }
         }
-        NSLog(@"%@", oilSections);
+        //NSLog(@"%@", oilSections);
         [self setupDictionary];
     }
     
@@ -235,7 +235,7 @@
             //OilLists *displayOilSections = [oilSections objectAtIndex:x];
             //NSString *currentSectionName = displayOilSections.section;
             NSString *currentSectionName = [oilSections objectAtIndex:x];
-            NSLog(@"%@", currentSectionName);
+            //NSLog(@"%@", currentSectionName);
             [oilDictionary setObject:[self getAllOilsFromArray:myOilCollection SectionLetter:currentSectionName ErrorMessage:nil] forKey:currentSectionName];
             //[oilDictionary setObject:[OilLists ] forKey:<#(nonnull id<NSCopying>)#>]
         }
@@ -338,7 +338,7 @@
     {
         NSString *sectionTitle = [oilSections objectAtIndex:section];
         NSArray *sectionLetter = [oilDictionary objectForKey:sectionTitle];
-        NSLog(@"%@",sectionTitle);
+        //NSLog(@"%@",sectionTitle);
         return [sectionLetter count];
     } else {
         //NSArray *sectionAnimals = [myOilCollection objectForKey:sectionTitle];
