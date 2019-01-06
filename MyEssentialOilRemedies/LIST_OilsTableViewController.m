@@ -327,6 +327,11 @@
         cell.textLabel.text = displayCollection.name;
         cell.detailTextLabel.text = displayCollection.mydescription;
         cell.tag = displayCollection.OID;
+        tableView.backgroundColor = [UIColor brownColor];
+        //[FormFunctions setBackGroundImage:tableView.sectionIndexColor];
+        tableView.sectionIndexColor = [UIColor whiteColor];
+        //tableView.sectionIndexBackgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]];
+        tableView.sectionIndexBackgroundColor=[UIColor brownColor];
         
         NSString *instock = displayCollection.InStock;
         if ([instock intValue] == 1)
@@ -471,4 +476,33 @@
 {
     return index;
 }
+
+/*
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    //UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+    //[headerView setBackgroundColor:[UIColor redColor]];
+    //[FormFunctions setBackGroundImage: tableView];
+    //return headerView;
+    //TODO Need to Fix layout
+    
+     NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = CGRectMake(20, 6, 300, 30);
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor colorWithHue:(136.0/360.0)  // Slightly bluish green
+                                 saturation:1.0
+                                 brightness:0.60
+                                      alpha:1.0];
+    label.shadowColor = [UIColor whiteColor];
+    label.shadowOffset = CGSizeMake(0.0, 1.0);
+    label.font = [UIFont boldSystemFontOfSize:16];
+    label.text = sectionTitle;
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+    [view addSubview:label];
+    
+    return view;
+}
+*/
 @end
