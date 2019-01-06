@@ -327,11 +327,12 @@
         cell.textLabel.text = displayCollection.name;
         cell.detailTextLabel.text = displayCollection.mydescription;
         cell.tag = displayCollection.OID;
+        //Adjusts the color of the header
         tableView.backgroundColor = [UIColor brownColor];
-        //[FormFunctions setBackGroundImage:tableView.sectionIndexColor];
+
+        //Adjust the color of the Index bar
         tableView.sectionIndexColor = [UIColor whiteColor];
-        //tableView.sectionIndexBackgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]];
-        tableView.sectionIndexBackgroundColor=[UIColor brownColor];
+        tableView.sectionIndexBackgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"systemBrown.png"]];
         
         NSString *instock = displayCollection.InStock;
         if ([instock intValue] == 1)
