@@ -137,17 +137,10 @@
  */
 -(void) setupGlobalVars
 {
-    //BurnSoftDatabase *myPath = [BurnSoftDatabase new];
-    //dbPathString = [myPath getDatabasePath:@MYDBNAME];
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
-    
-    //FormFunctions *myFunctions = [FormFunctions new];
     
     [FormFunctions doBuggermeMessage:dbPathString FromSubFunction:@"LIST_OilsTableViewController.setupGlobalVars.DatabasePath"];
     myOilCollection = [NSMutableArray new];
-    
-    //myPath = nil;
-    //myFunctions = nil;
 }
 
 #pragma mark Load Data
@@ -180,18 +173,8 @@
         [self setupDictionary];
     }
     
-    //End issue #63
-    //NSLog(@"%@", oilSections);
-    
     [[self myTableView] reloadData];
-    /*
-    int i = 0;
-    for (OilLists *o in myOilCollection)
-    {
-        i += ([o.InStock isEqualToString:@"1"]?1:0);
-    }
-    inStockCount = [myObj getInStockCountByDatabase:dbPathString ErrorMessage:&errorMsg];
-    */
+
     inStockCount = [OilLists getInStockCountByArray:myOilCollection ErrorMessage:&errorMsg];
     
     if (inStockCount == 0) {
@@ -205,7 +188,6 @@
     
     [[self.tabBarController.tabBar.items objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d",RemedyCount]];
     
-    //ReOrderCount = [OilLists listInShopping:dbPathString ErrorMessage:&errorMsg];
     ReOrderCount = [OilLists listInShoppingByArray:myOilCollection ErrorMessage:&errorMsg];
     
     if (ReOrderCount > 0)
@@ -224,30 +206,13 @@
 {
     @try {
         oilDictionary = [NSMutableDictionary dictionary]; //related to issue #63
-        //NSString *errorMsg;
+
         [oilDictionary removeAllObjects];
-        for (int x = 0; x < [oilSections count] - 1; x++) {
-            /*
-             MatchLists *displayMatcheClasses = [myMatchClasses objectAtIndex:x];
-             NSString *currentClassName = displayMatcheClasses.matchclass;
-             [DictionaryMatchClass setObject:[MatchLists getAllMatchListsByMatchDivision:currentClassName DatabasePath:dbPathString ErrorMessage:&errorMsg] forKey:currentClassName];
-             */
-            //OilLists *displayOilSections = [oilSections objectAtIndex:x];
-            //NSString *currentSectionName = displayOilSections.section;
+
+        for (int x = 0; x < [oilSections count]; x++) {
             NSString *currentSectionName = [oilSections objectAtIndex:x];
-            //NSLog(@"%@", currentSectionName);
             [oilDictionary setObject:[self getAllOilsFromArray:myOilCollection SectionLetter:currentSectionName ErrorMessage:nil] forKey:currentSectionName];
-            //[oilDictionary setObject:[OilLists ] forKey:<#(nonnull id<NSCopying>)#>]
         }
-        /*
-         NSString *errorMsg;
-         [DictionaryMatchClass removeAllObjects];
-         for (int x = 0; x < [myMatchClasses count]; x++) {
-         MatchLists *displayMatcheClasses = [myMatchClasses objectAtIndex:x];
-         NSString *currentClassName = displayMatcheClasses.matchclass;
-         [DictionaryMatchClass setObject:[MatchLists getAllMatchListsByMatchDivision:currentClassName DatabasePath:dbPathString ErrorMessage:&errorMsg] forKey:currentClassName];
-         }*/
-        
     } @catch (NSException *exception) {
         NSLog(@"ERROR: %@",exception);
     }
@@ -274,15 +239,9 @@
                 
                 [myArray addObject:myOils];
             }
-            /*
-            if (![oilSections containsObject:newObject])
-            {
-                [oilSections addObject:newObject];
-            }*/
         }
         
     } @catch (NSException *exception) {
-        //errMsg = [NSString stringWithFormat:@"%@", [exception reason]];
         NSLog(@"ERROR: %@",exception);
     }
     return myArray;
@@ -331,18 +290,13 @@
  */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //Related to issue #63
-    //NOT COMPLETED
     // Return the number of rows in the section.
     if (USESECTIONS_OIL)
     {
         NSString *sectionTitle = [oilSections objectAtIndex:section];
         NSArray *sectionLetter = [oilDictionary objectForKey:sectionTitle];
-        //NSLog(@"%@",sectionTitle);
         return [sectionLetter count];
     } else {
-        //NSArray *sectionAnimals = [myOilCollection objectForKey:sectionTitle];
-        //return [sectionAnimals count];
         return [myOilCollection count];
     }
     
@@ -359,12 +313,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     cell.textLabel.font = [UIFont systemFontOfSize:16];
-    //OilLists *displayCollection = [OilLists new];
-    //NSArray *sectionOils = [NSArray new];
+
     if (USESECTIONS_OIL)
     {
-        //TODO Have this pump into a section somehow for issue #63
-        //#63 This is where you need to work at
         NSInteger indexSection = indexPath.section;
         NSInteger indexRow = indexPath.row;
         
@@ -382,7 +333,6 @@
         {
             cell.contentView.backgroundColor = [UIColor greenColor];
         } else {
-            //cell.contentView.backgroundColor = [UIColor whiteColor];
             [FormFunctions setBackGroundImage:cell.contentView];
         }
         NSString *isBlend = displayCollection.isBlend;
@@ -403,7 +353,6 @@
         {
             cell.contentView.backgroundColor = [UIColor greenColor];
         } else {
-            //cell.contentView.backgroundColor = [UIColor whiteColor];
             [FormFunctions setBackGroundImage:cell.contentView];
         }
         NSString *isBlend = displayCollection.isBlend;
@@ -478,8 +427,7 @@
         } else {
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while adding to shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }
-        //List_ReOrderTableViewController *objRefresh = [List_ReOrderTableViewController new];
-        //[objRefresh refreshData];
+
         [self reloadData];
     }];
     reOrderAction.backgroundColor = [UIColor darkGrayColor];
