@@ -311,6 +311,10 @@
 }
 
 //Related to issue #63
+#pragma mark Table Section Header for Index
+/*!
+    @brief Table Section Header used for the Index on the table.
+ */
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (USESECTIONS_OIL)
@@ -355,35 +359,59 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     cell.textLabel.font = [UIFont systemFontOfSize:16];
-    OilLists *displayCollection;
+    //OilLists *displayCollection = [OilLists new];
+    //NSArray *sectionOils = [NSArray new];
     if (USESECTIONS_OIL)
     {
         //TODO Have this pump into a section somehow for issue #63
         //#63 This is where you need to work at
-        NSString *sectionTitle = [myOilCollection objectAtIndex:indexPath.section];
+        NSInteger indexSection = indexPath.section;
+        NSInteger indexRow = indexPath.row;
+        
+        NSString *sectionTitle = [oilSections objectAtIndex:indexSection];
         NSArray *sectionOils = [oilDictionary objectForKey:sectionTitle];
-        displayCollection = [sectionOils objectAtIndex:indexPath.row];
+        
+        OilLists *displayCollection = [sectionOils objectAtIndex:indexRow];
+        
+        cell.textLabel.text = displayCollection.name;
+        cell.detailTextLabel.text = displayCollection.mydescription;
+        cell.tag = displayCollection.OID;
+        
+        NSString *instock = displayCollection.InStock;
+        if ([instock intValue] == 1)
+        {
+            cell.contentView.backgroundColor = [UIColor greenColor];
+        } else {
+            //cell.contentView.backgroundColor = [UIColor whiteColor];
+            [FormFunctions setBackGroundImage:cell.contentView];
+        }
+        NSString *isBlend = displayCollection.isBlend;
+        
+        if ([isBlend intValue] == 1)
+        {
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:19.0];
+        }
+        
     } else {
-        displayCollection = [myOilCollection objectAtIndex:indexPath.row];
-    }
-    
-    cell.textLabel.text = displayCollection.name;
-    cell.detailTextLabel.text = displayCollection.mydescription;
-    cell.tag = displayCollection.OID;
-
-    NSString *instock = displayCollection.InStock;
-    if ([instock intValue] == 1)
-    {
-        cell.contentView.backgroundColor = [UIColor greenColor];
-    } else {
-        //cell.contentView.backgroundColor = [UIColor whiteColor];
-        [FormFunctions setBackGroundImage:cell.contentView];
-    }
-    NSString *isBlend = displayCollection.isBlend;
-    
-    if ([isBlend intValue] == 1)
-    {
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:19.0];
+        OilLists *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
+        cell.textLabel.text = displayCollection.name;
+        cell.detailTextLabel.text = displayCollection.mydescription;
+        cell.tag = displayCollection.OID;
+        
+        NSString *instock = displayCollection.InStock;
+        if ([instock intValue] == 1)
+        {
+            cell.contentView.backgroundColor = [UIColor greenColor];
+        } else {
+            //cell.contentView.backgroundColor = [UIColor whiteColor];
+            [FormFunctions setBackGroundImage:cell.contentView];
+        }
+        NSString *isBlend = displayCollection.isBlend;
+        
+        if ([isBlend intValue] == 1)
+        {
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:19.0];
+        }
     }
     return cell;
 }
@@ -474,10 +502,10 @@
     [self performSegueWithIdentifier:@"NewOil" sender:self];
 }
 
+#pragma mark Side Index Display for the Table
 //Related to issue #63
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    //return @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
     if (USESECTIONS_OIL)
     {
         return oilSections;
@@ -487,13 +515,12 @@
     
 }
 //Related to issue #63
+#pragma mark Side Index Display when Clicked
 /*!
     @brief When the side bar is clicked on the letter
 */
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-    NSLog(@"%@", title);
-    //return [myOilCollection indexOfObjectIdenticalTo:title];
-    return [myOilCollection indexOfObject:title];
+    return index;
 }
 @end
