@@ -331,13 +331,13 @@
         tableView.backgroundColor = [UIColor brownColor];
 
         //Adjust the color of the Index bar
-        tableView.sectionIndexColor = [UIColor whiteColor];
-        tableView.sectionIndexBackgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"systemBrown.png"]];
+        tableView.sectionIndexColor = [FormFunctions setTextColor];
+        tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackground];
         
         NSString *instock = displayCollection.InStock;
         if ([instock intValue] == 1)
         {
-            cell.contentView.backgroundColor = [UIColor greenColor];
+            cell.contentView.backgroundColor = [FormFunctions setHighlightColor];
         } else {
             [FormFunctions setBackGroundImage:cell.contentView];
         }
@@ -357,7 +357,7 @@
         NSString *instock = displayCollection.InStock;
         if ([instock intValue] == 1)
         {
-            cell.contentView.backgroundColor = [UIColor greenColor];
+            cell.contentView.backgroundColor = [FormFunctions setHighlightColor];
         } else {
             [FormFunctions setBackGroundImage:cell.contentView];
         }

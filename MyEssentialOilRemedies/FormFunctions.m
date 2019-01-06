@@ -45,8 +45,29 @@
 +(void) setBackGroundImage:(UIView *) myview
 {
     //[[myview layer] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]]];
-    myview.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]];
+    myview.backgroundColor = [self setDefaultViewBackground];
 }
+
++(UIColor *) setHighlightColor
+{
+    return [UIColor greenColor];
+}
+
++(UIColor *) setTextColor
+{
+    return [UIColor whiteColor];
+}
+
++(UIColor *) setDefaultBackground
+{
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"systemBrown.png"]];
+}
+
++(UIColor *) setDefaultViewBackground
+{
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]];
+}
+
 #pragma mark Common Alert/Message Handling
 /*! @brief Send a Message box from the View controller that you are currently on. It's easier then copying this function all over the place
     @remark USEBD: GENERAL

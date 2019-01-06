@@ -20,6 +20,10 @@
 -(void) setBorderLabel :(UILabel *) myObj;
 #pragma mark Set BackGround
 +(void) setBackGroundImage:(UIView *) myview;
++(UIColor *) setHighlightColor;
++(UIColor *) setTextColor;
++(UIColor *) setDefaultBackground;
++(UIColor *) setDefaultViewBackground;
 
 #pragma mark Common Alert/Message Handling
 -(void)sendMessage:(NSString *) msg MyTitle:(NSString *) mytitle ViewController:(UIViewController *) MyViewController;
