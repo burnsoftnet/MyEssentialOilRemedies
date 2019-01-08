@@ -1788,6 +1788,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="1100"/>
                     <connections>
+                        <outlet property="ContentView" destination="fOh-6f-3Wz" id="CGN-hT-ubb"/>
                         <outlet property="swInStock" destination="InM-pe-SVt" id="3lc-Bn-iFs"/>
                         <outlet property="swIsBlend" destination="I85-5f-SXE" id="QuY-d0-Emo"/>
                         <outlet property="txtBotanicalName" destination="Fl1-fR-3xe" id="JdY-uq-Q2E"/>

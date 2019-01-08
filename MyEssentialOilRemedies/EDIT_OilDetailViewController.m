@@ -36,6 +36,9 @@
     //Create an Add Button in Nav Bat
     UIBarButtonItem *updateButton = [[UIBarButtonItem alloc]initWithTitle:@"Update" style:UIBarButtonItemStylePlain target:self action:@selector(updateOils)];
     self.navigationItem.rightBarButtonItem = updateButton;
+    
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage:self.ContentView];
 }
 
 #pragma mark Make Keyboard Dissapear
