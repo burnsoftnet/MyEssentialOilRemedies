@@ -215,7 +215,11 @@
                 }
                 iCol = 13;
                 
-                NSString *iBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
+                NSString *iBlend = @"0";
+                if (sqlite3_column_type(statement, iCol) != SQLITE_NULL){
+                        iBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
+                }
+                
                 if ([iBlend intValue] == 1){
                     [self.swIsBlend setOn:YES];
                 }
