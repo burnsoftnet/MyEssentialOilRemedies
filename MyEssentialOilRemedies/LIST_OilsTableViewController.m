@@ -388,18 +388,26 @@
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     FormFunctions *myFunctions = [FormFunctions new];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellTag = [NSString stringWithFormat:@"%ld",(long)cell.tag];
+    OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
+    int OID = [cellTag intValue];
+    //OilLists *a = [self->myOilCollection objectAtIndex:OID];
+    //NSString *OIDString = [NSString stringWithFormat:@"%d",OID];
+    NSString *OIDString = cellTag;
     
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){EDIT_OilDetailViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOils"];
-        OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
-        destViewController.OID = [NSString stringWithFormat:@"%d",a.OID];
+        //OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
+        //destViewController.OID = [NSString stringWithFormat:@"%d",a.OID];
+        destViewController.OID = OIDString;
         [self.navigationController pushViewController:destViewController animated:YES];
     }];
     editAction.backgroundColor = [UIColor blueColor];
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         //insert your deleteAction here
-        OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
+        //OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         NSString *Msg;
-        int OID = a.OID;
+        //int OID = a.OID;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
         NSString *sql = [NSString stringWithFormat:@"Delete from eo_oil_list_details where OID=%d",OID];
         if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
@@ -421,9 +429,9 @@
     }];
     deleteAction.backgroundColor = [UIColor redColor];
     UITableViewRowAction *reOrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Add to Shopping Cart" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
-        OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
+        //OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         NSString *Msg;
-        int OID = a.OID;
+        //int OID = a.OID;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
         NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=1 where OID=%d",OID];
         if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
