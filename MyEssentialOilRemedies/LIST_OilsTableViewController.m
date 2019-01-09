@@ -420,6 +420,7 @@
                 //[myFunctions sendMessage:[NSString stringWithFormat:@"%@ was deleted!",a.name] MyTitle:@"Delete" ViewController:self];
                 [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was deleted!",OilName] MyTitle:@"Delete" ViewController:self];
                 [self->myOilCollection removeObjectAtIndex:indexPath.row];
+                //This is where it is breaking.
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
             } else {
                 [myFunctions sendMessage:[NSString stringWithFormat:@"Error while deleting! %@",Msg] MyTitle:@"ERROR" ViewController:self];
