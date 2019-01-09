@@ -388,6 +388,7 @@
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     FormFunctions *myFunctions = [FormFunctions new];
+    OilLists *obj = [OilLists new];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellTag = [NSString stringWithFormat:@"%ld",(long)cell.tag];
     OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
@@ -395,6 +396,7 @@
     //OilLists *a = [self->myOilCollection objectAtIndex:OID];
     //NSString *OIDString = [NSString stringWithFormat:@"%d",OID];
     NSString *OIDString = cellTag;
+    NSString *OilName = [obj getOilNameByID:OID DatabasePath:dbPathString ErrorMessage:nil];
     
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){EDIT_OilDetailViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOils"];
         //OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
@@ -415,7 +417,8 @@
             sql = [NSString stringWithFormat:@"DELETE from eo_oil_list where ID=%d",OID];
             if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
             {
-                [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was deleted!",a.name] MyTitle:@"Delete" ViewController:self];
+                //[myFunctions sendMessage:[NSString stringWithFormat:@"%@ was deleted!",a.name] MyTitle:@"Delete" ViewController:self];
+                [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was deleted!",OilName] MyTitle:@"Delete" ViewController:self];
                 [self->myOilCollection removeObjectAtIndex:indexPath.row];
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
             } else {
@@ -437,7 +440,8 @@
         if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
         {
             [a updateStockStatus:@"0" OilID:[NSString stringWithFormat:@"%d",OID] DatabasePath:self->dbPathString ErrorMessage:&Msg];
-            [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was put in the shopping cart!",a.name] MyTitle:@"Order" ViewController:self];
+            //[myFunctions sendMessage:[NSString stringWithFormat:@"%@ was put in the shopping cart!",a.name] MyTitle:@"Order" ViewController:self];
+            [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was put in the shopping cart!",OilName] MyTitle:@"Order" ViewController:self];
         } else {
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while adding to shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }

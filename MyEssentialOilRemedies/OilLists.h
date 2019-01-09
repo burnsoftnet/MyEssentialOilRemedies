@@ -46,6 +46,7 @@
 #pragma mark "Oil Exists By Name
 -(BOOL) oilExistsByName:(NSString *) oilname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 
+-(NSString *) getOilNameByID:(int) oid DatabasePath:dbPathString ErrorMessage:(NSString *_Nullable*) errorMsg;
 #pragma mark Get InStock Count from Database
 -(int) getInStockCountByDatabase :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
 +(int) getInStockCountByArray:(NSMutableArray *) myList ErrorMessage:(NSString **) errorMsg;

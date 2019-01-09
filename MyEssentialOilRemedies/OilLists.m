@@ -406,6 +406,36 @@
     return  nAns;
 }
 
+#pragma mark Get Oil Name By OID
+/*!
+    @breif Get the Oil Name from the database based on the OID
+ */
+-(NSString *) getOilNameByID:(int) oid DatabasePath:dbPathString ErrorMessage:(NSString *_Nullable*) errorMsg
+{
+    NSString *sAns=@"";
+    sqlite3_stmt *statement;
+    NSString *querySQL = [NSString stringWithFormat:@"SELECT name FROM eo_oil_list where id=%d", oid];
+    //NSString *name = @"";
+    if (sqlite3_open([dbPathString  UTF8String],&OilDB) == SQLITE_OK) {
+        int ret = sqlite3_prepare_v2(OilDB,[querySQL UTF8String],-1,&statement,NULL);
+        if (ret == SQLITE_OK) {
+            while (sqlite3_step(statement)==SQLITE_ROW) {
+                int iCol=0;
+                
+                if ( sqlite3_column_type(statement, iCol) != SQLITE_NULL )
+                {
+                    sAns = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
+                }
+            }
+            sqlite3_close(OilDB);
+        } else {
+            *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for returnOilListsBySQLStatement . '%s'", sqlite3_errmsg(OilDB)];
+        }
+    }
+   
+    return sAns;
+}
+
 #pragma mark Insert Oil Details
 /*! @brief Insert the Oil Details if sucessful then it will return true, else false if there was a problem with the insert
 */
