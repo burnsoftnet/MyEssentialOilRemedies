@@ -391,7 +391,7 @@
     OilLists *obj = [OilLists new];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellTag = [NSString stringWithFormat:@"%ld",(long)cell.tag];
-    OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
+    //OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
     int OID = [cellTag intValue];
     //OilLists *a = [self->myOilCollection objectAtIndex:OID];
     //NSString *OIDString = [NSString stringWithFormat:@"%d",OID];
@@ -407,7 +407,7 @@
     editAction.backgroundColor = [UIColor blueColor];
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         //insert your deleteAction here
-        //OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
+        OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         NSString *Msg;
         //int OID = a.OID;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
@@ -421,7 +421,8 @@
                 [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was deleted!",OilName] MyTitle:@"Delete" ViewController:self];
                 [self->myOilCollection removeObjectAtIndex:indexPath.row];
                 //This is where it is breaking.
-                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
+                //[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
+                [self reloadData];
             } else {
                 [myFunctions sendMessage:[NSString stringWithFormat:@"Error while deleting! %@",Msg] MyTitle:@"ERROR" ViewController:self];
             }
@@ -433,7 +434,7 @@
     }];
     deleteAction.backgroundColor = [UIColor redColor];
     UITableViewRowAction *reOrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Add to Shopping Cart" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
-        //OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
+        OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         NSString *Msg;
         //int OID = a.OID;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
