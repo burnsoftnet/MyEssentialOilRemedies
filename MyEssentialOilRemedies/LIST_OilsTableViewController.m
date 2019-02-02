@@ -407,7 +407,7 @@
     editAction.backgroundColor = [UIColor blueColor];
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         //insert your deleteAction here
-        OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
+        //OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         NSString *Msg;
         //int OID = a.OID;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
