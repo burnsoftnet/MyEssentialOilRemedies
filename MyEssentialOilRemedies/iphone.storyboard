@@ -1075,9 +1075,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bs-zc-KIf">
-                                                <rect key="frame" x="26" y="324" width="317" height="30"/>
+                                                <rect key="frame" x="26" y="324" width="309" height="30"/>
                                                 <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Use iTunes File Shareing for Backup &amp; Restore"/>
+                                                <state key="normal" title="Use iTunes File Sharing for Backup &amp; Restore"/>
                                                 <connections>
                                                     <segue destination="1uJ-FY-zor" kind="show" id="kI5-Ur-Tio"/>
                                                 </connections>
