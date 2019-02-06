@@ -18,7 +18,7 @@ typedef void (^InitCallbackBlock)(void);
 /*!
     @brief Backup Database Extensions that will be stored in the cloud
  */
-static NSString *BACKUPEXTENSION = @"sqlite";
+static NSString *BACKUPEXTENSION = @"zip";
 /*!
  @brief Database Extensions that will be stored locally
  */
