@@ -105,8 +105,10 @@
     NSString *sAns = [NSString new];
     NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     NSString *cloudURL = [baseURL path];
+    NSString *cloudDocPath = [NSString stringWithFormat:@"%@/Documents", cloudURL];
+    sAns = [NSString stringWithFormat:@"%@/%@",cloudDocPath,[DBNAME stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:newExt]];
     //#75  When the database is deleted, it will also delet eht eDocuments directory, which is why this error is occuring.  you need to either write to the main directory or check to see if the directory exists, if not, then create it.
-    sAns = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:newExt]];
+    //sAns = [NSString stringWithFormat:@"%@/Documents/%@",cloudURL,[DBNAME stringByReplacingOccurrencesOfString:DATABASEEXTENSION withString:newExt]];
     return sAns;
 }
 

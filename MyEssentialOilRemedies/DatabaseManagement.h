@@ -12,6 +12,8 @@
 #import "BurnSoftGeneral.h"
 #import "FormFunctions.h"
 #import "BurnSoftDatabase.h"
+#import "BurnSoftFileSystem.h"
+
 
 typedef void (^InitCallbackBlock)(void);
 

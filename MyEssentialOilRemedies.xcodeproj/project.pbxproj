@@ -134,6 +134,7 @@
 		A56787D62127A20E008168C2 /* cart-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1620E84328009F4845 /* cart-plus@2x.png */; };
 		A56787D72127A211008168C2 /* cart-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1920E84329009F4845 /* cart-plus.png */; };
 		A56787D82127A379008168C2 /* List_ReOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A515BA0220E7FF2F009F4845 /* List_ReOrderTableViewController.m */; };
+		A56C9DD7220C91100003600F /* BurnSoftFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C9DD6220C91100003600F /* BurnSoftFileSystem.m */; };
 		A56D7ACF21E2AB28008615EE /* systemBrown.png in Resources */ = {isa = PBXBuildFile; fileRef = A56D7ACE21E2AB28008615EE /* systemBrown.png */; };
 		A56D7AD021E2AB28008615EE /* systemBrown.png in Resources */ = {isa = PBXBuildFile; fileRef = A56D7ACE21E2AB28008615EE /* systemBrown.png */; };
 		A56D7F7E1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */; };
@@ -265,6 +266,8 @@
 		A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20.png"; sourceTree = "<group>"; };
 		A5652D8B1E3E5F290029EB7A /* Icon-notification-20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20@2x.png"; sourceTree = "<group>"; };
 		A5652D8C1E3E5F290029EB7A /* Icon-notification-20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20@3x.png"; sourceTree = "<group>"; };
+		A56C9DD5220C91100003600F /* BurnSoftFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftFileSystem.h; sourceTree = "<group>"; };
+		A56C9DD6220C91100003600F /* BurnSoftFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftFileSystem.m; sourceTree = "<group>"; };
 		A56D7ACE21E2AB28008615EE /* systemBrown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = systemBrown.png; sourceTree = "<group>"; };
 		A56D7F7C1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsiTunesBackupRestoreViewController.h; sourceTree = "<group>"; };
 		A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsiTunesBackupRestoreViewController.m; sourceTree = "<group>"; };
@@ -472,6 +475,8 @@
 		A505B06F1D09A7B400800310 /* BurnSoftGeneral */ = {
 			isa = PBXGroup;
 			children = (
+				A56C9DD5220C91100003600F /* BurnSoftFileSystem.h */,
+				A56C9DD6220C91100003600F /* BurnSoftFileSystem.m */,
 				A52043F21D86F9DB001AFD40 /* BurnSoftGeneral.h */,
 				A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */,
 				A52043F41D86F9DB001AFD40 /* BurnSoftMath.h */,
@@ -897,6 +902,7 @@
 				A505B0391D09A76900800310 /* AppDelegate.m in Sources */,
 				A5F605231D1C45CD0059BF27 /* MYSettings.m in Sources */,
 				A5B02CF11D8846A30004334B /* PopUpOilViewController.m in Sources */,
+				A56C9DD7220C91100003600F /* BurnSoftFileSystem.m in Sources */,
 				A542B39C1EB40E9100CDA83F /* Parser.m in Sources */,
 				A5BDC4241E1715E600A98652 /* DBUpgrade.m in Sources */,
 				A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */,
