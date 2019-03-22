@@ -76,6 +76,7 @@
  */
 -(void) loadFileListings
 {
+    //TODO: Code Clean up once verified
     NSArray *filePathsArray = [NSArray new];
     NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     NSString *documentsDirectory = [baseURL path];
@@ -102,6 +103,7 @@
  */
 -(NSString *) getiCloudDatabaseBackupByDBName:(NSString *) DBNAME replaceExtentionTo:(NSString *) newExt
 {
+    //TODO: Code Clean up once verified
     NSString *sAns = [NSString new];
     NSURL *baseURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     NSString *cloudURL = [baseURL path];
@@ -133,7 +135,7 @@
 -(BOOL) backupDatabaseToiCloudByDBName:(NSString *) DBNAME LocalDatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg
 {
     BOOL bAns = NO;
-    
+    //TODO: Code Clean up once verified
     @try {
         NSString *deleteError = [NSString new];
         NSString *copyError = [NSString new];
@@ -163,6 +165,7 @@
 {
     BOOL bAns = NO;
     @try {
+        //TODO: Code Clean up once verified
         NSString *newExt = BACKUPEXTENSION;
         NSString *deleteError = [NSString new];
         NSString *newDBName = [self getiCloudDatabaseBackupByDBName:DBNAME replaceExtentionTo:newExt];

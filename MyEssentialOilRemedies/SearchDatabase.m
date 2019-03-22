@@ -53,6 +53,7 @@
  */
 -(NSMutableArray *) searchAllOilsListSimple :(NSString *) dbPath ErrorMessage: (NSString **) errorMsg;
 {
+    //TODO: Code Clean up once verified
 //#warning #22 This is where you can add to the results table
     oilCollection = [NSMutableArray new];
     sqlite3_stmt *statement;
