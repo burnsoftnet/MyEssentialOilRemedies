@@ -13,29 +13,29 @@
 
 @interface OilLists : NSObject
 @property (assign) int OID;
-@property (nonatomic,strong) NSString *InStock;
-@property (nonatomic,strong) NSString *isBlend;
-@property (nonatomic,strong) NSString *name;
-@property (nonatomic,strong) NSString *mydescription;
-@property (nonatomic,strong) NSString *DetailsID;
-@property (nonatomic,strong) NSString *BotanicalName;
-@property (nonatomic,strong) NSString *Ingredients;
-@property (nonatomic,strong) NSString *SafetyNotes;
-@property (nonatomic,strong) NSString *Color;
-@property (nonatomic,strong) NSString *Viscosity;
-@property (nonatomic,strong) NSString *CommonName;
-@property (nonatomic,strong) NSString *RemedyName;
-@property (nonatomic,strong) NSString *IsReOrder;
-@property (nonatomic,strong) NSString *Vendor;
-@property (nonatomic,strong) NSString *VendorWebSite;
+@property (nonatomic,strong) NSString * _Nullable InStock;
+@property (nonatomic,strong) NSString * _Nullable isBlend;
+@property (nonatomic,strong) NSString * _Nullable name;
+@property (nonatomic,strong) NSString * _Nullable mydescription;
+@property (nonatomic,strong) NSString * _Nullable DetailsID;
+@property (nonatomic,strong) NSString * _Nullable BotanicalName;
+@property (nonatomic,strong) NSString * _Nullable Ingredients;
+@property (nonatomic,strong) NSString * _Nullable SafetyNotes;
+@property (nonatomic,strong) NSString * _Nullable Color;
+@property (nonatomic,strong) NSString * _Nullable Viscosity;
+@property (nonatomic,strong) NSString * _Nullable CommonName;
+@property (nonatomic,strong) NSString * _Nullable RemedyName;
+@property (nonatomic,strong) NSString * _Nullable IsReOrder;
+@property (nonatomic,strong) NSString * _Nullable Vendor;
+@property (nonatomic,strong) NSString * _Nullable VendorWebSite;
 @property (assign) int RID;
-@property (nonatomic,strong) NSString *section;
+@property (nonatomic,strong) NSString * _Nullable section;
 
 #pragma mark Get List of Oils
--(NSMutableArray *) getAllOilsList :(NSString *) dbPath : (NSString **) errorMsg;
+-(NSMutableArray *_Nullable) getAllOilsList :(NSString *_Nonnull) dbPath : (NSString *_Nullable*) errorMsg;
 
 #pragma mark Delete Oil
--(void) deleteOil :(NSString * ) name :(NSString *) oid :(NSString *) dbPath :(NSString **) msg;
+-(void) deleteOil :(NSString * _Nullable ) name :(NSString *_Nonnull) oid :(NSString *_Nonnull) dbPath :(NSString *_Nullable*) msg;
 
 #pragma mark Update Stock Status
 -(void) updateStockStatus :(NSString *) newValue OilID:(NSString *) myOID DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
