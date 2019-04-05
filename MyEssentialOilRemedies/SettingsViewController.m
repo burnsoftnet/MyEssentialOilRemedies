@@ -22,7 +22,8 @@
     DatabaseManagement *myObjDM = [DatabaseManagement new];
     FormFunctions *myObjFF = [FormFunctions new];
     NSString *msg = [NSString new];
-
+    [BurnSoftDatabase updateDatabaseForiCloudBackup:dbPathString MessageHandler:&msg];
+    
     BOOL success = [myObjDM backupDatabaseToiCloudByDBName:@MYDBNAME LocalDatabasePath:dbPathString ErrorMessage:&msg];
     if (success){
         msg = [NSString stringWithFormat:@"Databae Backup was successful!"];

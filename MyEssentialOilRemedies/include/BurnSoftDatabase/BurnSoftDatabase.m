@@ -180,6 +180,20 @@
     }
     return bAns;
 }
+#pragma mark update The Database Table before ann I cloud backup
+/*!
+    @brief This will add and delete a table to change the date modifed ont he file, since adding data doesn't really chnage the date.
+ */
++(BOOL) updateDatabaseForiCloudBackup:(NSString *) DBPath MessageHandler:(NSString **) msg
+{
+    BOOL bAns= NO;
+        BurnSoftDatabase *obj = [BurnSoftDatabase new];
+    NSString *delTable =@"DROP TABLE IF EXISTS TEMPUPDATE;";
+    [obj runQuery:delTable DatabasePath:DBPath MessageHandler:msg];
+    NSString *sqlstmt=@"CREATE TABLE IF NOT EXISTS TEMPUPDATE (id INTEGER PRIMARY KEY);";
+    bAns = [obj runQuery:sqlstmt DatabasePath:DBPath MessageHandler:msg];
+    return bAns;
+}
 
 #pragma mark See if Data Exists
 /*!
