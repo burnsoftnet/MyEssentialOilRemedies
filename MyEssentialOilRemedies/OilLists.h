@@ -32,43 +32,43 @@
 @property (nonatomic,strong) NSString * _Nullable section;
 
 #pragma mark Get List of Oils
--(NSMutableArray *_Nullable) getAllOilsList :(NSString *_Nonnull) dbPath : (NSString *_Nullable*) errorMsg;
+-(NSMutableArray *_Nullable) getAllOilsList :(NSString *_Nonnull) dbPath : (NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Delete Oil
--(void) deleteOil :(NSString * _Nullable ) name :(NSString *_Nonnull) oid :(NSString *_Nonnull) dbPath :(NSString *_Nullable*) msg;
+-(void) deleteOil :(NSString * _Nullable ) name :(NSString *_Nonnull) oid :(NSString *_Nonnull) dbPath :(NSString *_Nullable*_Nullable) msg;
 
 #pragma mark Update Stock Status
--(void) updateStockStatus :(NSString *) newValue OilID:(NSString *) myOID DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
+-(void) updateStockStatus :(NSString *_Nonnull) newValue OilID:(NSString *_Nonnull) myOID DatabasePath:(NSString *_Nullable) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Get Remedies that Contain Oil
--(NSMutableArray *) getRemediesRelatedToOilID :(NSString *) oilID DatabasePath: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
+-(NSMutableArray *_Nullable) getRemediesRelatedToOilID :(NSString *_Nonnull) oilID DatabasePath:(NSString *_Nonnull) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark "Oil Exists By Name
--(BOOL) oilExistsByName:(NSString *) oilname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
+-(BOOL) oilExistsByName:(NSString *_Nullable) oilname DatabasePath:(NSString *_Nonnull) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
--(NSString *) getOilNameByID:(int) oid DatabasePath:dbPathString ErrorMessage:(NSString *_Nullable*) errorMsg;
+-(NSString *_Nullable) getOilNameByID:(int) oid DatabasePath:dbPathString ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 #pragma mark Get InStock Count from Database
--(int) getInStockCountByDatabase :(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
-+(int) getInStockCountByArray:(NSMutableArray *) myList ErrorMessage:(NSString **) errorMsg;
+-(int) getInStockCountByDatabase :(NSString *_Nonnull) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
++(int) getInStockCountByArray:(NSMutableArray *_Nonnull) myList ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark List In Stock
-+(int) listInStock:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
-+(int) listInShoppingByArray:(NSMutableArray *) myList ErrorMessage:(NSString **) errorMsg;
++(int) listInStock:(NSString *_Nonnull) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
++(int) listInShoppingByArray:(NSMutableArray *_Nonnull) myList ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Get Oil ID by Name
-+(NSNumber *) getOilIDByName:(NSString *) name InStock:(int) iStock DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **) msg;
++(NSNumber *_Nullable) getOilIDByName:(NSString *_Nonnull) name InStock:(int) iStock DatabasePath:(NSString *_Nullable) dbPathString ErrorMessage:(NSString *_Nullable*_Nullable) msg;
 
 #pragma mark Insert Oil Details
-+(BOOL) insertOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website Blended:(NSString *) isBlend DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg;
++(BOOL) insertOilDetailsByOID:(NSNumber *_Nonnull) MYOID Description:(NSString *_Nullable) description BotanicalName:(NSString *_Nullable) BotName Ingredients:(NSString *_Nullable) ingredients SafetyNotes:(NSString *_Nullable) safetyNotes Color:(NSString *_Nullable) color Viscosity:(NSString *_Nullable) viscosity CommonName:(NSString *_Nullable) commonName Vendor:(NSString *_Nullable) vendor WebSite:(NSString *_Nullable) website Blended:(NSString *_Nullable) isBlend DatabasePath:(NSString *_Nullable) dbPathString ErrorMessage:(NSString *_Nullable*_Nullable) msg;
 
 #pragma mark Update Oil Details
-+(BOOL) updateOilDetailsByOID:(NSNumber *) MYOID Description:(NSString *) description BotanicalName:(NSString *) BotName Ingredients:(NSString *) ingredients SafetyNotes:(NSString *) safetyNotes Color:(NSString *) color Viscosity:(NSString *) viscosity CommonName:(NSString *) commonName Vendor:(NSString *) vendor WebSite:(NSString *) website IsBlend:(NSString *) isblend DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString *_Nullable*) msg;
++(BOOL) updateOilDetailsByOID:(NSNumber *_Nullable) MYOID Description:(NSString *_Nullable) description BotanicalName:(NSString *_Nullable) BotName Ingredients:(NSString *_Nullable) ingredients SafetyNotes:(NSString *_Nullable) safetyNotes Color:(NSString *_Nullable) color Viscosity:(NSString *_Nullable) viscosity CommonName:(NSString *_Nullable) commonName Vendor:(NSString *_Nullable) vendor WebSite:(NSString *_Nullable) website IsBlend:(NSString *_Nullable) isblend DatabasePath:(NSString *_Nullable) dbPathString ErrorMessage:(NSString *_Nullable*_Nullable) msg;
 #pragma mark Get Oils for Re-Order
-- (NSMutableArray *) getOilsForReOrder: (NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
+- (NSMutableArray *_Nullable) getOilsForReOrder: (NSString *_Nullable) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Count all the items marked to reorder
-+(int) listInShopping:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
++(int) listInShopping:(NSString *_Nullable) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark UPdate Blend Status
-+(void) updateBlendStatusWithNewValue:(NSString *) newValue OilID:(NSString *) myOID DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
++(void) updateBlendStatusWithNewValue:(NSString *_Nullable) newValue OilID:(NSString *_Nullable) myOID DatabasePath:(NSString *_Nullable) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 @end
