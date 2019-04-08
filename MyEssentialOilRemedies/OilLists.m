@@ -31,11 +31,12 @@
             while (sqlite3_step(statement)==SQLITE_ROW) {
                 bAns = YES;
             }
+            sqlite3_finalize(statement);
             sqlite3_close(OilDB);
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for oilExistsByName . '%s'", sqlite3_errmsg(OilDB)];
         }
-        sqlite3_finalize(statement);
+        //sqlite3_finalize(statement);
     }
     return  bAns;
 }
@@ -65,11 +66,12 @@
                 
                 [remedyCollection addObject:myCollection];
             }
+            sqlite3_finalize(statement);
             sqlite3_close(OilDB);
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error occured while creating select statement for  getRemediesRelatedtoOilID . '%s'", sqlite3_errmsg(OilDB)];
         }
-        sqlite3_finalize(statement);
+        //sqlite3_finalize(statement);
     }
     return remedyCollection;
 }
@@ -231,6 +233,7 @@
                 
                 [oilCollection addObject:myCollection];
             }
+            sqlite3_finalize(statement);
             sqlite3_close(OilDB);
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for returnOilListsBySQLStatement . '%s'", sqlite3_errmsg(OilDB)];
@@ -330,6 +333,7 @@
             while (sqlite3_step(statement)==SQLITE_ROW) {
                 iAns = [[[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,0)] intValue];
             }
+            sqlite3_finalize(statement);
             sqlite3_close(OilDB);
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for '%@'. '%s'",fromFunction, sqlite3_errmsg(OilDB)];
@@ -427,6 +431,7 @@
                     sAns = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,iCol)];
                 }
             }
+            sqlite3_finalize(statement);
             sqlite3_close(OilDB);
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for returnOilListsBySQLStatement . '%s'", sqlite3_errmsg(OilDB)];

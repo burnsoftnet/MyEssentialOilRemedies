@@ -232,7 +232,7 @@
         MYDB = nil;
     } else {
         *msg = [NSString stringWithFormat:@"Error while attempting to connection! %s",sqlite3_errmsg(MYDB)];
-        sqlite3_finalize(statement);
+        //sqlite3_finalize(statement);
         sqlite3_close(MYDB);
         bAns= NO;
     }
