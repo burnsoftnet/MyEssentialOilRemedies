@@ -262,7 +262,7 @@
             MYDB = nil;
         } else {
             *msg = [NSString stringWithFormat:@"Error while executing statement! %s", sqlite3_errmsg(MYDB)];
-            sqlite3_finalize(statement);
+            //sqlite3_finalize(statement);
             sqlite3_close(MYDB);
         }
         //sqlite3_finalize(statement);
