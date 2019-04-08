@@ -319,13 +319,15 @@
             {
                 bAns = YES;
             }
+            sqlite3_finalize(statement);
             sqlite3_close(MYDB);
             MYDB = nil;
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error while executing statement! %s",sqlite3_errmsg(MYDB)];
+            sqlite3_finalize(statement);
             sqlite3_close(MYDB);
         }
-        sqlite3_finalize(statement);
+        //sqlite3_finalize(statement);
     }else {
         *errorMsg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
     }
@@ -360,5 +362,18 @@
         *errorMsg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
     }
     return iAns;
+}
+#pragma mark Turn Off Journaling in SQLite Database
+/*!
+    @breif Turn off Journaling in the SQLLite Database
+ */
+ 
++(BOOL) TurnOffJournaling:(NSString *) dbPath ErrorMessage:(NSString *_Nullable*) errMsg
+{
+    BOOL bAns = NO;
+    NSString *sqlstmt=@"PRAGMA journal_mode=OFF;";
+    BurnSoftDatabase *obj = [BurnSoftDatabase new];
+    bAns = [obj runQuery:sqlstmt DatabasePath:dbPath MessageHandler:errMsg];
+    return bAns;
 }
 @end
