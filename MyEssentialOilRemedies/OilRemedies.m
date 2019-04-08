@@ -32,11 +32,12 @@
             while (sqlite3_step(statement)==SQLITE_ROW) {
                 bAns = YES;
             }
+            sqlite3_finalize(statement);
             sqlite3_close(OilDB);
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for RemedyExistsByName . '%s'", sqlite3_errmsg(OilDB)];
         }
-        sqlite3_finalize(statement);
+        //sqlite3_finalize(statement);
     }
     return  bAns;
 }
@@ -76,9 +77,10 @@
                 [myCollection setName:name];
                 [oilRemedyCollection addObject:myCollection];
             }
+            sqlite3_finalize(statement);
             sqlite3_close(OilDB);
         }
-        sqlite3_finalize(statement);
+        //sqlite3_finalize(statement);
         OilDB = nil;
     }
     return oilRemedyCollection;
@@ -102,9 +104,10 @@
                 [EditOilsInRemedy addObject:name];
                 
             }
+            sqlite3_finalize(statement);
             sqlite3_close(OilDB);
         }
-        sqlite3_finalize(statement);
+        //sqlite3_finalize(statement);
         OilDB = nil;
     }
     return EditOilsInRemedy;
@@ -137,11 +140,12 @@
                 
                 [remedyCollection addObject:myCollection];
             }
+            sqlite3_finalize(statement);
             sqlite3_close(OilDB);
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error whie creating select statement for getAllRemedies . '%s'", sqlite3_errmsg(OilDB)];
         }
-        sqlite3_finalize(statement);
+        //sqlite3_finalize(statement);
     }
     return  remedyCollection;
 }
