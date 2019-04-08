@@ -230,19 +230,19 @@
         msg = [NSString stringWithFormat:@"DEBUG: Start DBVersion Upgrade to version %.01f", newDBVersion];
         [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
         
-        //sqlstmt=@"PRAGMA journal_mode=OFF;";
-        //[myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
-        [BurnSoftDatabase TurnOffJournaling:dbPathString ErrorMessage:&msg];
-        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
-        
-        //Update Database to current Version
-        sqlstmt=[NSString stringWithFormat:@"INSERT INTO DB_Version (version) VALUES('%.01f')", newDBVersion];
-        [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
-        [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
-        
-        // Send to doBuggermeMessage if enabled that the database was upgraded
-        msg = [NSString stringWithFormat:@"DEBUG: End DBVersion Upgrade to version %.01f", newDBVersion];
-        [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+        if (![BurnSoftDatabase TurnOffJournaling:dbPathString ErrorMessage:&msg])
+        {
+            //Update Database to current Version
+            sqlstmt=[NSString stringWithFormat:@"INSERT INTO DB_Version (version) VALUES('%.01f')", newDBVersion];
+            [myObj runQuery:sqlstmt DatabasePath:dbPathString MessageHandler:&msg];
+            [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+            
+            // Send to doBuggermeMessage if enabled that the database was upgraded
+            msg = [NSString stringWithFormat:@"DEBUG: End DBVersion Upgrade to version %.01f", newDBVersion];
+            [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
+        } else {
+            [myObjFF checkForErrorLogOnly:msg MyTitle:[NSString stringWithFormat:@"DB Version %.01f",newDBVersion]];
+        }
     } else {
         msg = [NSString stringWithFormat:@"DEBUG: Database has already had %.01f patch applied!",newDBVersion];
         [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
