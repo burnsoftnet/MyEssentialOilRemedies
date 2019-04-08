@@ -226,11 +226,13 @@
             *msg = [NSString stringWithFormat:@"Error in statement! %s", sqlite3_errmsg(MYDB)];
             bAns=NO;
         }
-        sqlite3_close(MYDB);
         sqlite3_finalize(statement);
+        sqlite3_close(MYDB);
+        //sqlite3_finalize(statement);
         MYDB = nil;
     } else {
         *msg = [NSString stringWithFormat:@"Error while attempting to connection! %s",sqlite3_errmsg(MYDB)];
+        sqlite3_finalize(statement);
         sqlite3_close(MYDB);
         bAns= NO;
     }
@@ -255,13 +257,15 @@
             {
                 iAns = [NSNumber numberWithInt:sqlite3_column_int(statement, 0)];
             }
+            sqlite3_finalize(statement);
             sqlite3_close(MYDB);
             MYDB = nil;
         } else {
             *msg = [NSString stringWithFormat:@"Error while executing statement! %s", sqlite3_errmsg(MYDB)];
-                    sqlite3_close(MYDB);
+            sqlite3_finalize(statement);
+            sqlite3_close(MYDB);
         }
-        sqlite3_finalize(statement);
+        //sqlite3_finalize(statement);
     } else {
         *msg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
     }
@@ -287,13 +291,15 @@
             {
                 sAns = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement,0)];
             }
+            sqlite3_finalize(statement);
             sqlite3_close(MYDB);
             MYDB = nil;
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error while executing statement! %s",sqlite3_errmsg(MYDB)];
+            sqlite3_finalize(statement);
             sqlite3_close(MYDB);
         }
-        sqlite3_finalize(statement);
+        //sqlite3_finalize(statement);
     } else {
         *errorMsg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
     }
@@ -351,13 +357,15 @@
             {
                 iAns = sqlite3_column_int(statement, 0);
             }
+            sqlite3_finalize(statement);
             sqlite3_close(MYDB);
             MYDB = nil;
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error while executing statement! %s",sqlite3_errmsg(MYDB)];
+            sqlite3_finalize(statement);
             sqlite3_close(MYDB);
         }
-        sqlite3_finalize(statement);
+        //sqlite3_finalize(statement);
     } else {
         *errorMsg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
     }
