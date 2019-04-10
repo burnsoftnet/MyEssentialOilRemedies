@@ -376,7 +376,7 @@
     @breif Turn off Journaling in the SQLLite Database
  */
  
-+(BOOL) TurnOffJournaling:(NSString *) dbPath ErrorMessage:(NSString *_Nullable*) errMsg
++(BOOL) TurnOffJournaling:(NSString *) dbPath ErrorMessage:(NSString **) errMsg
 {
     BOOL bAns = NO;
     NSString *sqlstmt=@"PRAGMA journal_mode=OFF;";

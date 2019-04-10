@@ -48,6 +48,7 @@
     */
     if ([@MYDBVERSION doubleValue] > dbVersion) {
         [myObjFF doBuggermeMessage:@"DEBUG: DBVersion is less than expected!!!" FromSubFunction:@"DBUpgrade"];
+
         if (dbVersion == 1.1) {
             [self dbupgrade11];
         } else if (dbVersion == 1.2) {
@@ -56,12 +57,13 @@
             [self dbupgrade13];
             [self dbupgrade14];
             //Version 1.2 was released to production any upgrade after this will just need to be the latest dbupgrade.
-        } else if (dbVersion <= 1.3 && dbVersion > 1.2 ){
+        } else if (dbVersion < 1.3 && dbVersion >= 1.2 ){
             [self dbupgrade13];
             [self dbupgrade14];
-        } else if (dbVersion <= 1.4 && dbVersion > 1.3 ){
-            [self dbupgrade14];
+        } else if (dbVersion < 1.4 && dbVersion >= 1.3 ){
+         [self dbupgrade14];
         }
+
     } else {
         [myObjFF doBuggermeMessage:@"DEBUG: DBVersion is equal to or greater than expected." FromSubFunction:@"DBUpgrade"];
     }
@@ -249,8 +251,8 @@
         // Send to doBuggermeMessage if enabled, that the database upgrade is begining
         msg = [NSString stringWithFormat:@"DEBUG: Start DBVersion Upgrade to version %.01f", newDBVersion];
         [myObjFF doBuggermeMessage:msg FromSubFunction:@"DBUpgrade"];
-        
-        if (![BurnSoftDatabase TurnOffJournaling:dbPathString ErrorMessage:&msg])
+        msg=@"";
+        if ([BurnSoftDatabase TurnOffJournaling:dbPathString ErrorMessage:&msg])
         {
             //Update Database to current Version
             sqlstmt=[NSString stringWithFormat:@"INSERT INTO DB_Version (version) VALUES('%.01f')", newDBVersion];
