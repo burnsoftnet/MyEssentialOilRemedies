@@ -38,9 +38,9 @@
         } else if ([@MYDBVERSION doubleValue] <= 1.3 && [@MYDBVERSION doubleValue] > 1.2 ){
             [self dbupgrade13];
             [self dbupgrade14];
-        } else if ([@MYDBVERSION doubleValue] <= 1.4 && [@MYDBVERSION doubleValue] > 1.3 ){
-            [self dbupgrade14];
-        }
+        }// else if ([@MYDBVERSION doubleValue] <= 1.4 && [@MYDBVERSION doubleValue] > 1.3 ){
+         //   [self dbupgrade14];
+       // }
     } else {
         [myObjFF doBuggermeMessage:@"DEBUG: DBVersion is equal to or greater than expected." FromSubFunction:@"DBUpgrade"];
     }
