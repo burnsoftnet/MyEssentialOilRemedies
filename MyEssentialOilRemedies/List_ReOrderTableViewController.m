@@ -58,16 +58,12 @@
  */
 -(void) setupGlobalVars
 {
-    //BurnSoftDatabase *myPath = [BurnSoftDatabase new];
-    //dbPathString = [myPath getDatabasePath:@MYDBNAME];
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     
     FormFunctions *myFunctions = [FormFunctions new];
     
     [myFunctions doBuggermeMessage:dbPathString FromSubFunction:@"List_RePrderTableViewController.setupGlobalVars.DatabasePath"];
     myReOrderLists = [NSMutableArray new];
-    
-    //myPath = nil;
     myFunctions = nil;
     
 }
@@ -156,9 +152,9 @@
 
 #pragma mark Table View Can Edit Row
 /*! @brief  Override to support conditional editing of the table view.
+ Return NO if you do not want the specified item to be editable.
  */
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 

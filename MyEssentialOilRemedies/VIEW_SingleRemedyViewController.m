@@ -88,8 +88,6 @@
  */
 -(void) loadSettings
 {
-    //BurnSoftDatabase *objDB = [BurnSoftDatabase new];
-    //dbPathString = [objDB getDatabasePath:@MYDBNAME];
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     
     FormFunctions *objf = [FormFunctions new];
@@ -311,7 +309,6 @@
     {
         cell.contentView.backgroundColor = [UIColor greenColor];
     } else {
-        //cell.contentView.backgroundColor = [UIColor whiteColor];
         [FormFunctions setBackGroundImage:cell.contentView];
     }
     

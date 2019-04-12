@@ -29,10 +29,10 @@
 
 #pragma mark Form Memory Error
 /*! @brief When the form gets a memeory error
+ Dispose of any resources that can be recreated.
  */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark Close Button
@@ -47,8 +47,6 @@
  */
 -(void) loadSettings
 {
-    //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     FormFunctions *myFunctions = [FormFunctions new];
     

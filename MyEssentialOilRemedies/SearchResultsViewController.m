@@ -110,9 +110,6 @@
  */
 -(void) loadSettings
 {
-    //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
-    
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
 }
 

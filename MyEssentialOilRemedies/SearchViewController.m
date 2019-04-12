@@ -49,7 +49,6 @@
  */
 -(void) reloadData {
     [self setupGlobalVars];
-    //[self loadData];
 }
 
 #pragma mark Did Recieve Memory Warning
@@ -64,8 +63,6 @@
  */
 -(void)setupGlobalVars
 {
-    //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
 }
 
