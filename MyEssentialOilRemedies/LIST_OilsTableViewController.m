@@ -156,7 +156,7 @@
     NSString *errorMsg = [NSString new];
     myOilCollection = [myObj getAllOilsList:dbPathString :&errorMsg];
     [myFunctions checkForError:errorMsg MyTitle:@"LoadData:" ViewController:self];
-    //Related to issue #63
+
     if (USESECTIONS_OIL)
     {
         oilSections = [NSMutableArray new];
@@ -169,7 +169,6 @@
                 [oilSections addObject:newObject];
             }
         }
-        //NSLog(@"%@", oilSections);
         [self setupDictionary];
     }
     
@@ -235,7 +234,6 @@
                 [myOils setMydescription:j.mydescription];
                 [myOils setIsBlend:j.isBlend];
                 [myOils setInStock:j.InStock];
-                //add Array information here
                 
                 [myArray addObject:myOils];
             }
@@ -259,8 +257,6 @@
 /*! @brief set the sections in the table
  */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //Related to issue #63
-    //return 1;
     if (USESECTIONS_OIL)
     {
         return [oilSections count];
@@ -391,25 +387,19 @@
     OilLists *obj = [OilLists new];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellTag = [NSString stringWithFormat:@"%ld",(long)cell.tag];
-    //OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
     int OID = [cellTag intValue];
-    //OilLists *a = [self->myOilCollection objectAtIndex:OID];
-    //NSString *OIDString = [NSString stringWithFormat:@"%d",OID];
     NSString *OIDString = cellTag;
     NSString *OilName = [obj getOilNameByID:OID DatabasePath:dbPathString ErrorMessage:nil];
     
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){EDIT_OilDetailViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOils"];
-        //OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
-        //destViewController.OID = [NSString stringWithFormat:@"%d",a.OID];
+
         destViewController.OID = OIDString;
         [self.navigationController pushViewController:destViewController animated:YES];
     }];
     editAction.backgroundColor = [UIColor blueColor];
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
-        //insert your deleteAction here
-        //OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
+
         NSString *Msg;
-        //int OID = a.OID;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
         NSString *sql = [NSString stringWithFormat:@"Delete from eo_oil_list_details where OID=%d",OID];
         if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
@@ -417,11 +407,8 @@
             sql = [NSString stringWithFormat:@"DELETE from eo_oil_list where ID=%d",OID];
             if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
             {
-                //[myFunctions sendMessage:[NSString stringWithFormat:@"%@ was deleted!",a.name] MyTitle:@"Delete" ViewController:self];
                 [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was deleted!",OilName] MyTitle:@"Delete" ViewController:self];
                 [self->myOilCollection removeObjectAtIndex:indexPath.row];
-                //This is where it is breaking.
-                //[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
                 [self reloadData];
             } else {
                 [myFunctions sendMessage:[NSString stringWithFormat:@"Error while deleting! %@",Msg] MyTitle:@"ERROR" ViewController:self];
@@ -436,13 +423,11 @@
     UITableViewRowAction *reOrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Add to Shopping Cart" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         NSString *Msg;
-        //int OID = a.OID;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
         NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=1 where OID=%d",OID];
         if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
         {
             [a updateStockStatus:@"0" OilID:[NSString stringWithFormat:@"%d",OID] DatabasePath:self->dbPathString ErrorMessage:&Msg];
-            //[myFunctions sendMessage:[NSString stringWithFormat:@"%@ was put in the shopping cart!",a.name] MyTitle:@"Order" ViewController:self];
             [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was put in the shopping cart!",OilName] MyTitle:@"Order" ViewController:self];
         } else {
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while adding to shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
@@ -492,32 +477,4 @@
     return index;
 }
 
-/*
-- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    //UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
-    //[headerView setBackgroundColor:[UIColor redColor]];
-    //[FormFunctions setBackGroundImage: tableView];
-    //return headerView;
-    //TODO Need to Fix layout
-    
-     NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
-    UILabel *label = [[UILabel alloc] init];
-    label.frame = CGRectMake(20, 6, 300, 30);
-    label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor colorWithHue:(136.0/360.0)  // Slightly bluish green
-                                 saturation:1.0
-                                 brightness:0.60
-                                      alpha:1.0];
-    label.shadowColor = [UIColor whiteColor];
-    label.shadowOffset = CGSizeMake(0.0, 1.0);
-    label.font = [UIFont boldSystemFontOfSize:16];
-    label.text = sectionTitle;
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
-    [view addSubview:label];
-    
-    return view;
-}
-*/
 @end

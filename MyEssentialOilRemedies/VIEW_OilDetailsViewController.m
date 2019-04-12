@@ -250,11 +250,7 @@
                 if (sqlite3_column_type(statement, iCol) != SQLITE_NULL)
                 {
                     iBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
-                }
-                //#54 Attempt to comp for already null value
-                //NSString *iBlend = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, iCol)];
-                
-                
+                }   
                 if ([iBlend intValue] == 1){
                     [self.swIsBlend setOn:YES];
                 }
