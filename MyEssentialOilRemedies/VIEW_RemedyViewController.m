@@ -33,7 +33,6 @@
     NavArray = [[NSArray alloc] initWithObjects:actionButton, nil];
     self.navigationItem.rightBarButtonItems = NavArray;
     
-    //[FormFunctions setBackGroundImage:self.view];
     [FormFunctions setBackGroundImage:self.viewOils];
     [FormFunctions setBackGroundImage:self.viewUses];
     [FormFunctions setBackGroundImage:self.myTableView];
@@ -110,15 +109,13 @@
  */
 -(void) loadSettings
 {
-    //BurnSoftDatabase *objDB = [BurnSoftDatabase new];
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     
     FormFunctions *objf = [FormFunctions new];
     [objf setBorderLabel:self.lblProblem];
     [objf setBordersTextView:self.lblDescription];
     [objf setBordersTextView:self.lblUses];
-    
-    //objDB = nil;
+
     objf = nil;
 }
 
@@ -311,7 +308,6 @@
     {
         cell.contentView.backgroundColor = [UIColor greenColor];
     } else {
-        //cell.contentView.backgroundColor = [UIColor whiteColor];
         [FormFunctions setBackGroundImage:cell.contentView];
     }
         

@@ -319,7 +319,8 @@
     pathArray = nil;
     return fileExtension;
 }
-
+/*!
+ */
 +(void) clearDocumentInBox
 {
     BurnSoftGeneral *myObj = [BurnSoftGeneral new];

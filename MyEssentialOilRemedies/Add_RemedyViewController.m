@@ -35,7 +35,7 @@
     
     [FormFunctions setBackGroundImage:self.view];
     [FormFunctions setBackGroundImage:self.viewOils];
-    //[FormFunctions setBackGroundImage:self.viewLoaded];
+
     [FormFunctions setBackGroundImage:self.viewUses];
     [FormFunctions setBackGroundImage:self.myTableView];
     [FormFunctions setBackGroundImage:self.viewDescription];
@@ -125,11 +125,9 @@
     [mysettings setBorderTextBox:self.txtOilName];
     [mysettings setBordersTextView:self.txtUses];
     [self.myTableView reloadData];
-    //BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
+
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     mysettings = nil;
-    //myObj = nil;
 }
 
 #pragma mark Change Views
@@ -185,7 +183,6 @@
 /*! @brief Actions to take when the Tool Bar Uses button is clicked
  */
 - (IBAction)tbUses:(id)sender {
-    //[self runToView:@"AddRemedy_Uses_ViewController"];
     [self changeCurrentViewTo:3];
 }
 

@@ -115,8 +115,6 @@
 {
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     myOilCollection = [NSMutableArray new];
-    
-    //myObj = nil;
 }
 
 #pragma mark Load Table Data
@@ -132,7 +130,7 @@
     [[self myTableView] reloadData];
     
     int InStockCount = [OilLists listInStock:dbPathString ErrorMessage:&errorMsg];
-    //int InStockCount = [OilLists listInStock]
+
     OilCount = [myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];
 
     if (InStockCount == 0) {
