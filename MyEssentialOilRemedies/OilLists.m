@@ -36,7 +36,6 @@
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for oilExistsByName . '%s'", sqlite3_errmsg(OilDB)];
         }
-        //sqlite3_finalize(statement);
     }
     return  bAns;
 }
@@ -71,7 +70,6 @@
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error occured while creating select statement for  getRemediesRelatedtoOilID . '%s'", sqlite3_errmsg(OilDB)];
         }
-        //sqlite3_finalize(statement);
     }
     return remedyCollection;
 }
@@ -473,7 +471,6 @@
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
     int iblend=[isblend intValue];
     
-    //#warning #45 Check to see if you can use this in the Edit Oil Details Section
     NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set description='%@',BotanicalName='%@',Ingredients='%@',SafetyNotes='%@',Color='%@',Viscosity='%@',CommonName='%@',vendor='%@',vendor_site='%@',isBlend=%i where OID=%@",[myObjG FCString:description],[myObjG FCString:BotName],[myObjG FCString:ingredients],[myObjG FCString:safetyNotes],[myObjG FCString:color],[myObjG FCString:viscosity],[myObjG FCString:commonName],[myObjG FCString:vendor],[myObjG FCString:website],iblend, MYOID];
     
     if ([myObjDB runQuery:sql DatabasePath:dbPathString MessageHandler:&errMsg]) {

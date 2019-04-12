@@ -21,10 +21,9 @@
     BurnSoftDatabase *myObj = [BurnSoftDatabase new];
     FormFunctions *myObjFF = [FormFunctions new];
     NSString *errorMsg;
-    //dbPathString = [myObj getDatabasePath:@MYDBNAME];
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     double dbVersion = [[myObj getCurrentDatabaseVersionfromTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&errorMsg] doubleValue];
-
+#warning TODO: #73 Once Verified that the upgrade works, Delete the Code Below
     /*
     if ([@MYDBVERSION doubleValue] > dbVersion) {
         [myObjFF doBuggermeMessage:@"DEBUG: DBVersion is less than expected!!!" FromSubFunction:@"DBUpgrade"];
@@ -56,6 +55,7 @@
             [self dbupgrade12];
             [self dbupgrade13];
             [self dbupgrade14];
+            #warning TODO: #73 Once Verified that the upgrade works, Delete the Code Below
             //Version 1.2 was released to production any upgrade after this will just need to be the latest dbupgrade.
         } else if (dbVersion < 1.3 && dbVersion >= 1.2 ){
             [self dbupgrade13];

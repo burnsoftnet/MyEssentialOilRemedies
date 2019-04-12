@@ -37,7 +37,6 @@
         } else {
             *errorMsg = [NSString stringWithFormat:@"Error while creating select statement for RemedyExistsByName . '%s'", sqlite3_errmsg(OilDB)];
         }
-        //sqlite3_finalize(statement);
     }
     return  bAns;
 }
@@ -80,7 +79,6 @@
             sqlite3_finalize(statement);
             sqlite3_close(OilDB);
         }
-        //sqlite3_finalize(statement);
         OilDB = nil;
     }
     return oilRemedyCollection;
@@ -107,7 +105,6 @@
             sqlite3_finalize(statement);
             sqlite3_close(OilDB);
         }
-        //sqlite3_finalize(statement);
         OilDB = nil;
     }
     return EditOilsInRemedy;

@@ -44,7 +44,6 @@
 
 +(void) setBackGroundImage:(UIView *) myview
 {
-    //[[myview layer] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]]];
     myview.backgroundColor = [self setDefaultViewBackground];
 }
 
@@ -74,7 +73,6 @@
  */
 -(void)sendMessage:(NSString *) msg MyTitle:(NSString *) mytitle ViewController:(UIViewController *) MyViewController
 {
-    //Send MessageBox Alert message to screen
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:mytitle message:msg preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * Action) {}];
     [alert addAction:defaultAction];
@@ -87,7 +85,6 @@
 */
 +(void)sendMessage:(NSString *) msg MyTitle:(NSString *) mytitle ViewController:(UIViewController *) MyViewController
 {
-    //Send MessageBox Alert message to screen
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:mytitle message:msg preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * Action) {}];
     [alert addAction:defaultAction];
