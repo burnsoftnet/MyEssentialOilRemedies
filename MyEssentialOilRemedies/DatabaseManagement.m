@@ -193,7 +193,7 @@
         [self BugMe:[NSString stringWithFormat:@"Target 1 Value: %@", target1] FromSub:@"performCopyFunctionsFromTarget"];
         [self BugMe:[NSString stringWithFormat:@"Target 2 Value: %@", target2] FromSub:@"performCopyFunctionsFromTarget"];
         [self BugMe:[NSString stringWithFormat:@"Target 3 Value: %@", target3] FromSub:@"performCopyFunctionsFromTarget"];
-        
+#warning TODO: #77 BUG - When the path doesn't exist from the iCloud Sysnc, this function craps out.
         if ([BurnSoftGeneral copyFileFrom:target1 To:target2 ErrorMessage:&copyError]) {
             if (![BurnSoftGeneral copyFileFrom:target2 To:target3 ErrorMessage:&copyError]) {
                 [NSException raise:@"Copy Error" format:@"Error coping the database %@", copyError];
