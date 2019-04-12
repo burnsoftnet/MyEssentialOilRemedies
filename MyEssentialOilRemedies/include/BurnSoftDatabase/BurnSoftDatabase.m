@@ -63,10 +63,8 @@
 */
 +(NSString *) getDatabasePath :(NSString *) DBNAME
 {
-    //NSString *dbDirectory = [NSString stringWithFormat:@"/db/"];
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [path objectAtIndex:0];
-    //NSString *dbPath = [docPath stringByAppendingString:dbDirectory];
     NSString *dbPath = [self getDatabasePathOnly];
     NSLog(@"%@", dbPath);
     BOOL isDir;
@@ -104,11 +102,7 @@
         if (![fileManager fileExistsAtPath:myDBinDocsPath]) {
             NSError *error;
             BOOL success = [fileManager copyItemAtPath:myDBinAppPath toPath:myDBinDocsPath error:&error];
-            //success = [fileManager copyItemAtPath:myDBinAppPath toPath:myDBinDocsPath error:&error];
             if (!success) [NSException raise:@"Copy Error" format:@"Error coping database: %@.",[error localizedDescription]];
-                //{
-                //*msg = [NSString stringWithFormat:@"Error coping database: %@.",[error localizedDescription]];
-            //}
         }
         
         fileManager = nil;
@@ -163,7 +157,6 @@
     BOOL bAns=NO;
     if (sqlite3_open([DBPath UTF8String], &MYDB) == SQLITE_OK) {
         if (sqlite3_exec(MYDB, [mysql UTF8String], NULL, NULL, &error) == SQLITE_OK) {
-            //*msg = @"";
             sqlite3_close(MYDB);
             MYDB = nil;
             bAns = YES;
@@ -228,11 +221,9 @@
         }
         sqlite3_finalize(statement);
         sqlite3_close(MYDB);
-        //sqlite3_finalize(statement);
         MYDB = nil;
     } else {
         *msg = [NSString stringWithFormat:@"Error while attempting to connection! %s",sqlite3_errmsg(MYDB)];
-        //sqlite3_finalize(statement);
         sqlite3_close(MYDB);
         bAns= NO;
     }
@@ -262,10 +253,8 @@
             MYDB = nil;
         } else {
             *msg = [NSString stringWithFormat:@"Error while executing statement! %s", sqlite3_errmsg(MYDB)];
-            //sqlite3_finalize(statement);
             sqlite3_close(MYDB);
         }
-        //sqlite3_finalize(statement);
     } else {
         *msg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
     }
@@ -299,7 +288,6 @@
             sqlite3_finalize(statement);
             sqlite3_close(MYDB);
         }
-        //sqlite3_finalize(statement);
     } else {
         *errorMsg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
     }
@@ -333,7 +321,6 @@
             sqlite3_finalize(statement);
             sqlite3_close(MYDB);
         }
-        //sqlite3_finalize(statement);
     }else {
         *errorMsg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
     }
@@ -365,7 +352,6 @@
             sqlite3_finalize(statement);
             sqlite3_close(MYDB);
         }
-        //sqlite3_finalize(statement);
     } else {
         *errorMsg = [NSString stringWithFormat:@"Error occured while attempting to connect to database! %s", sqlite3_errmsg(MYDB)];
     }

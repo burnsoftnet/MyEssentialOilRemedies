@@ -149,7 +149,9 @@
 }
 
 #pragma mark CopyFile
-// Simplify the copy and replace method with overwriteoption
+/*!
+ @brief:Simplify the copy and replace method with overwriteoption
+ */
 +(BOOL) copyFileFromFilePath:(NSString *) fromPath ToNewPath:(NSString *) toPath ErrorMessage:(NSString **) msg
 {
     
@@ -193,7 +195,9 @@
     return bAns;
 }
 #pragma mark CopyFile 2
-// Simplify the copy and replace method with overwriteoption
+/*!
+ @brief:Simplify the copy and replace method with overwriteoption
+ */
 +(BOOL) copyFileFrom:(NSString *) sFrom To:(NSString *) sTo ErrorMessage:(NSString **) errorMessage
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -235,7 +239,9 @@
     return bAns;
 }
 #pragma mark Delete File byPath
-// Pass the path and file to delete that file
+/*!
+ @brief:Pass the path and file to delete that file
+ */
 +(BOOL)DeleteFileByPath:(NSString *) sPath ErrorMessage:(NSString **) msg
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -257,6 +263,10 @@
     
     return success;
 }
+#pragma mark Delete File By Path
+/*!
+ @brief: Delete file from the path
+ */
 -(BOOL)DeleteFileByPath:(NSString *) sPath ErrorMessage:(NSString **) msg
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -275,6 +285,10 @@
     
     return success;
 }
+#pragma mark Create Directory if not Exists
+/*!
+ @brief: Create a directory if it doesn't already exists
+ */
 -(BOOL)createDirectoryIfNotExists:(NSString *) sPath ErrorMessage:(NSString **) errMsg
 {
     BOOL bAns = NO;
@@ -295,6 +309,7 @@
     
     return bAns;
 }
+#pragma mark Convert Bool to String
 /*! @brief  Convert the boolen to a string yes or No
     @return yes or no as string
  */
@@ -319,7 +334,9 @@
     pathArray = nil;
     return fileExtension;
 }
+ #pragma mark Clea Document InBox
 /*!
+ @brief: Clear up Document InBox, don't want an old version of the drop to keep from getting a newer version.
  */
 +(void) clearDocumentInBox
 {
@@ -342,7 +359,10 @@
     paths = nil;
     dirFiles = nil;
 }
-
+#pragma mark New Files Found
+/*!
+ @brief: Start processing new files that was found in the inbox, normally occurs on an airdrop
+ */
 +(BOOL) newFilesfoundProcessing
 {
     BOOL bAns = NO;
@@ -361,6 +381,7 @@
     
     return bAns;
 }
+#pragma mark Convert NSNumber to string
 /*! @brief  Convert a string to NSNumber
  */
 +(NSNumber *) convertToNSNumberByString:(NSString *) sValue
