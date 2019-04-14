@@ -200,40 +200,45 @@
  */
 +(BOOL) copyFileFrom:(NSString *) sFrom To:(NSString *) sTo ErrorMessage:(NSString **) errorMessage
 {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *deleteError = [NSString new];
-    NSError *error;
     BOOL bAns = NO;
-    BOOL FileExistsInTo = [fileManager fileExistsAtPath:sTo];
-    BOOL FileExistsInFrom = [fileManager fileExistsAtPath:sFrom];
-    BOOL FileClearedInDestination = NO;
-    
-    if (FileExistsInTo && FileExistsInFrom)
-    {
-        FileClearedInDestination = [self DeleteFileByPath:sTo ErrorMessage:&deleteError];
-    } else if (!FileExistsInFrom && FileExistsInTo) {
-        FileClearedInDestination = YES;
-    } else if (FileExistsInFrom && !FileExistsInTo) {
-        //added this with the error getting from a new backup check
-        FileClearedInDestination = YES;
-    } else if (!FileExistsInFrom && !FileExistsInTo) {
-        FileClearedInDestination = NO;
-        *errorMessage = @"File doesn't exist in source or destination!";
-    }
-    
-    if (FileClearedInDestination)
-    {
-        if (![fileManager copyItemAtPath:sFrom toPath:sTo error:&error])
+    @try {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *deleteError = [NSString new];
+        NSError *error;
+        
+        BOOL FileExistsInTo = [fileManager fileExistsAtPath:sTo];
+        BOOL FileExistsInFrom = [fileManager fileExistsAtPath:sFrom];
+        BOOL FileClearedInDestination = NO;
+        
+        if (FileExistsInTo && FileExistsInFrom)
         {
-            *errorMessage = [NSString stringWithFormat:@"Error copying file: %@",[error localizedDescription]];
+            FileClearedInDestination = [self DeleteFileByPath:sTo ErrorMessage:&deleteError];
+        } else if (!FileExistsInFrom && FileExistsInTo) {
+            FileClearedInDestination = YES;
+        } else if (FileExistsInFrom && !FileExistsInTo) {
+            //added this with the error getting from a new backup check
+            FileClearedInDestination = YES;
+        } else if (!FileExistsInFrom && !FileExistsInTo) {
+            FileClearedInDestination = NO;
+            *errorMessage = @"File doesn't exist in source or destination!";
+        }
+        
+        if (FileClearedInDestination)
+        {
+            if (![fileManager copyItemAtPath:sFrom toPath:sTo error:&error])
+            {
+                *errorMessage = [NSString stringWithFormat:@"Error copying file: %@",[error localizedDescription]];
+            } else {
+                *errorMessage = [NSString stringWithFormat:@"Backup Successful!"];
+                bAns = YES;
+            }
         } else {
-            *errorMessage = [NSString stringWithFormat:@"Backup Successful!"];
-            bAns = YES;
+            if ([*errorMessage isEqualToString:@""]) {
+                *errorMessage = [NSString stringWithFormat:@"Delete Error: %@",deleteError];
+            }
         }
-    } else {
-        if ([*errorMessage isEqualToString:@""]) {
-            *errorMessage = [NSString stringWithFormat:@"Delete Error: %@",deleteError];
-        }
+    } @catch (NSException *exception) {
+        *errorMessage = [NSString stringWithFormat:@"%@",[exception reason]];
     }
     
     return bAns;
