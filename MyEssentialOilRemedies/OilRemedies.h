@@ -15,14 +15,15 @@
 @property (assign) int OID;     //Oil ID
 @property (assign) int RID;     //Remedy ID
 @property (assign) int ORID;    //Oil to Remedy ID
+@property (nonatomic, strong) NSString * _Nullable section;
 
-@property (nonatomic,strong) NSString *name;            //Name of Remedy
-@property (nonatomic,strong) NSString *myDescription;   //Remedy Description
-@property (nonatomic,strong) NSString *myUses;          //Remedy Uses
+@property (nonatomic,strong) NSString * _Nullable name;            //Name of Remedy
+@property (nonatomic,strong) NSString * _Nullable myDescription;   //Remedy Description
+@property (nonatomic,strong) NSString * _Nullable myUses;          //Remedy Uses
 
-@property (nonatomic,strong) NSString *oilName;         //Oil Name
-@property (nonatomic,strong) NSString *oilDeescription; //Oilk Description
-@property (nonatomic,strong) NSString *oilInStock;      //Do i Have this oil in Stock?
+@property (nonatomic,strong) NSString * _Nullable oilName;         //Oil Name
+@property (nonatomic,strong) NSString * _Nullable oilDeescription; //Oilk Description
+@property (nonatomic,strong) NSString * _Nullable oilInStock;      //Do i Have this oil in Stock?
 
 #pragma mark Remedy Exists By Name
 -(BOOL) RemedyExistsByName:(NSString *) oilname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
