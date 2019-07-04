@@ -31,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    inStockCount = 0;
+    ReOrderCount = 0;
     [self setupGlobalVars];
     [[self myTableView]setDelegate:self];
     [[self myTableView]setDataSource:self];
@@ -160,7 +162,12 @@
         [[self.tabBarController.tabBar.items objectAtIndex:0] setBadgeValue:[NSString stringWithFormat:@"%i/%d",InStockCount,OilCount]];
 
     }
-    
+    ReOrderCount = [OilLists listInShopping:dbPathString ErrorMessage:&errorMsg];
+    if (ReOrderCount > 0){
+        [[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:[NSString stringWithFormat:@"%d",ReOrderCount]];
+    } else {
+        [[self.tabBarController.tabBar.items objectAtIndex:2] setBadgeValue:nil];
+    }
     RemedyCount = (int)[myRemedyCollection count];
     
     [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[myRemedyCollection count]];
