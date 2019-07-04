@@ -177,7 +177,7 @@
         remedyDictonary = [NSMutableDictionary dictionary];
         [remedyDictonary removeAllObjects];
         
-        for (int x = 0; x < [remedyDictonary count]; x++)
+        for (int x = 0; x < [remedySections count]; x++)
         {
             NSString *currentSectionName = [remedySections objectAtIndex:x];
             [remedyDictonary setObject:[self getAllRemediesFromArray:myOilCollection SectionLetter:currentSectionName ErrorMessage:nil] forKey:currentSectionName];
