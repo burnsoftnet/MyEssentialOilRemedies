@@ -53,8 +53,6 @@
  */
 -(NSMutableArray *) searchAllOilsListSimple :(NSString *) dbPath ErrorMessage: (NSString **) errorMsg;
 {
-#warning TODO: Code Clean up once verified
-//#warning #22 This is where you can add to the results table
     oilCollection = [NSMutableArray new];
     sqlite3_stmt *statement;
     if (sqlite3_open([dbPath UTF8String],&OilDB) == SQLITE_OK) {
@@ -64,22 +62,6 @@
         if (ret == SQLITE_OK) {
             while (sqlite3_step(statement)==SQLITE_ROW) {
                 NSString *name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,0)];
-                //#22 Attempt to add description
-                /*
-                NSString *oid = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement,3)];
-                NSString *description = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,1)];
-                
-                SearchDatabase *myOilCollection = [SearchDatabase new];
-                [myOilCollection setSearchID:[oid intValue]];
-                [myOilCollection setSearchName:name];
-                [myOilCollection setSearchDescription:description];
-                [myOilCollection setSearchType:@"oil"];
-                //OilLists *myOilCollection = [OilLists new];
-                //[myOilCollection setName:name];
-                //[myOilCollection setMydescription:description];
-                
-                [oilCollection addObject:myOilCollection];
-                 */
                 [oilCollection addObject:name];
             }
             sqlite3_close(OilDB);
@@ -105,16 +87,6 @@
         if (ret == SQLITE_OK){
             while (sqlite3_step(statement)==SQLITE_ROW) {
                 NSString *name = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,1)];
-                //#22 Attempt to add description
-                /*
-                NSString *description = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
-                
-                SearchDatabase *myRems = [SearchDatabase new];
-                [myRems setSearchName:name];
-                [myRems setSearchDescription:description];
-                [myRems setSearchType:@"remedy"];
-                [remedyCollection addObject:myRems];
-                */
                 [remedyCollection addObject:name];
             }
             sqlite3_close(OilDB);
