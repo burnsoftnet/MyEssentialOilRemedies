@@ -43,16 +43,20 @@
 #pragma mark Get Remedies that Contain Oil
 -(NSMutableArray *_Nullable) getRemediesRelatedToOilID :(NSString *_Nonnull) oilID DatabasePath:(NSString *_Nonnull) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
-#pragma mark "Oil Exists By Name
+#pragma mark Oil Exists By Name
 -(BOOL) oilExistsByName:(NSString *_Nullable) oilname DatabasePath:(NSString *_Nonnull) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
+#pragma mark Get Oil Name by ID
 -(NSString *_Nullable) getOilNameByID:(int) oid DatabasePath:dbPathString ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
+
 #pragma mark Get InStock Count from Database
 -(int) getInStockCountByDatabase :(NSString *_Nonnull) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 +(int) getInStockCountByArray:(NSMutableArray *_Nonnull) myList ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark List In Stock
 +(int) listInStock:(NSString *_Nonnull) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
+
+#pragma mark List Things to Order Array
 +(int) listInShoppingByArray:(NSMutableArray *_Nonnull) myList ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Get Oil ID by Name
