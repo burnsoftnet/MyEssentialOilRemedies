@@ -228,14 +228,36 @@
  */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    if (USESECTIONS_REMEDIES)
+    {
+        return [remedySections count];
+    } else {
+        return 1;
+    }
+}
+
+-(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (USESECTIONS_REMEDIES)
+    {
+        return [remedySections objectAtIndex:section];
+    }else {
+        return nil;
+    }
 }
 #pragma mark Table Number of Rows in Section
 /*! @brief Count of all the rows
  */
 -(NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [myOilCollection count];
+    if (USESECTIONS_REMEDIES)
+    {
+        NSString *sectionTitle = [remedySections objectAtIndex:section];
+        NSArray *sectionLetter = [remedyDictonary objectForKey:sectionTitle];
+        return [sectionLetter count];
+    } else {
+        return [myOilCollection count];
+    }
 }
 #pragma mark Populate Table
 /*! @brief  populate the table with data from the array
