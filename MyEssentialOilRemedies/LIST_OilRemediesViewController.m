@@ -19,7 +19,7 @@
     int OilCount; //Added for Lite Version tracking
     int inStockCount;
     int ReOrderCount;
-    NSMutableDictionary *remeyDictionary;
+    NSMutableDictionary *remedyDictonary;
 }
 @end
 
@@ -140,7 +140,12 @@
         for (OilRemedies *j in myOilCollection)
         {
             NSString *newObject = j.section;
+            if (![remedySections containsObject:newObject])
+            {
+                [remedySections addObject:newObject];
+            }
         }
+        [self setupDictionary];
     }
     
     [[self myTableView] reloadData];
@@ -164,6 +169,45 @@
     myObjDB = nil;
     myObj = nil;
     
+}
+
+-(void)setupDictionary
+{
+    @try {
+        remedyDictonary = [NSMutableDictionary dictionary];
+        [remedyDictonary removeAllObjects];
+        
+        for (int x = 0; x < [remedyDictonary count]; x++)
+        {
+            NSString *currentSectionName = [remedySections objectAtIndex:x];
+            [remedyDictonary setObject:[self getAllRemediesFromArray:myOilCollection SectionLetter:currentSectionName ErrorMessage:nil] forKey:currentSectionName];
+        }
+        
+    } @catch (NSException *exception) {
+        NSLog(@"ERROR: %@",exception);
+    }
+}
+
+-(NSMutableArray *) getAllRemediesFromArray:(NSMutableArray *) mylist SectionLetter:(NSString *) section ErrorMessage:(NSString **) errMsg
+{
+    NSMutableArray *myArray = [NSMutableArray new];
+    @try {
+        for (OilRemedies *j in mylist)
+        {
+            NSString *newObject = j.section;
+            if (newObject ==section)
+            {
+                OilRemedies *myRemedy = [OilRemedies new];
+                [myRemedy setName:j.name];
+                [myRemedy setOID:j.OID];
+                [myRemedy setRID:j.RID];
+                [myArray addObject:myRemedy];
+            }
+        }
+    } @catch (NSException *exception){
+        NSLog(@"ERROR: %@",exception);
+    }
+    return myArray;
 }
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
