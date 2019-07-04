@@ -23,28 +23,7 @@
     NSString *errorMsg;
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     double dbVersion = [[myObj getCurrentDatabaseVersionfromTable:@"DB_Version" DatabasePath:dbPathString ErrorMessage:&errorMsg] doubleValue];
-#warning TODO: #73 Once Verified that the upgrade works, Delete the Code Below
-    /*
-    if ([@MYDBVERSION doubleValue] > dbVersion) {
-        [myObjFF doBuggermeMessage:@"DEBUG: DBVersion is less than expected!!!" FromSubFunction:@"DBUpgrade"];
-        if ([@MYDBVERSION doubleValue] == 1.1) {
-            [self dbupgrade11];
-        } else if ([@MYDBVERSION doubleValue] == 1.2) {
-            [self dbupgrade11];
-            [self dbupgrade12];
-            [self dbupgrade13];
-            [self dbupgrade14];
-            //Version 1.2 was released to production any upgrade after this will just need to be the latest dbupgrade.
-        } else if ([@MYDBVERSION doubleValue] <= 1.3 && [@MYDBVERSION doubleValue] > 1.2 ){
-            [self dbupgrade13];
-            [self dbupgrade14];
-        } else if ([@MYDBVERSION doubleValue] <= 1.4 && [@MYDBVERSION doubleValue] > 1.3 ){
-            [self dbupgrade14];
-        }
-    } else {
-        [myObjFF doBuggermeMessage:@"DEBUG: DBVersion is equal to or greater than expected." FromSubFunction:@"DBUpgrade"];
-    }
-    */
+
     if ([@MYDBVERSION doubleValue] > dbVersion) {
         [myObjFF doBuggermeMessage:@"DEBUG: DBVersion is less than expected!!!" FromSubFunction:@"DBUpgrade"];
 
@@ -55,8 +34,6 @@
             [self dbupgrade12];
             [self dbupgrade13];
             [self dbupgrade14];
-            #warning TODO: #73 Once Verified that the upgrade works, Delete the Code Below
-            //Version 1.2 was released to production any upgrade after this will just need to be the latest dbupgrade.
         } else if (dbVersion < 1.3 && dbVersion >= 1.2 ){
             [self dbupgrade13];
             [self dbupgrade14];
