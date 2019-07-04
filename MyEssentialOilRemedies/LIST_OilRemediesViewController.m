@@ -12,7 +12,7 @@
 @interface LIST_OilRemediesViewController ()
 {
     NSString *dbPathString;
-    NSMutableArray *myOilCollection;
+    NSMutableArray *myRemedyCollection;
     NSString *SelectedCellID;
     NSMutableArray *remedySections; //related to issue #79
     int RemedyCount; //Added for Lite Version tracking
@@ -118,18 +118,18 @@
 -(void)setupGlobalVars
 {
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
-    myOilCollection = [NSMutableArray new];
+    myRemedyCollection = [NSMutableArray new];
 }
 
 #pragma mark Load Table Data
 -(void)LoadTableData
 {
-    [myOilCollection removeAllObjects];
+    [myRemedyCollection removeAllObjects];
     FormFunctions *myFunctions = [FormFunctions new];
     BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
     NSString *errorMsg = [NSString new];
     OilRemedies *myObj = [OilRemedies new];
-    myOilCollection = [myObj getAllRemedies:dbPathString :&errorMsg];
+    myRemedyCollection = [myObj getAllRemedies:dbPathString :&errorMsg];
     [myFunctions checkForError:errorMsg MyTitle:@"LoadData" ViewController:self];
     
     //related to issue #79
@@ -137,7 +137,7 @@
     {
         remedySections = [NSMutableArray new];
         
-        for (OilRemedies *j in myOilCollection)
+        for (OilRemedies *j in myRemedyCollection)
         {
             NSString *newObject = j.section;
             if (![remedySections containsObject:newObject])
@@ -161,9 +161,9 @@
 
     }
     
-    RemedyCount = (int)[myOilCollection count];
+    RemedyCount = (int)[myRemedyCollection count];
     
-    [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[myOilCollection count]];
+    [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[myRemedyCollection count]];
     
     myFunctions = nil;
     myObjDB = nil;
@@ -180,7 +180,7 @@
         for (int x = 0; x < [remedySections count]; x++)
         {
             NSString *currentSectionName = [remedySections objectAtIndex:x];
-            [remedyDictonary setObject:[self getAllRemediesFromArray:myOilCollection SectionLetter:currentSectionName ErrorMessage:nil] forKey:currentSectionName];
+            [remedyDictonary setObject:[self getAllRemediesFromArray:myRemedyCollection SectionLetter:currentSectionName ErrorMessage:nil] forKey:currentSectionName];
         }
         
     } @catch (NSException *exception) {
@@ -256,7 +256,7 @@
         NSArray *sectionLetter = [remedyDictonary objectForKey:sectionTitle];
         return [sectionLetter count];
     } else {
-        return [myOilCollection count];
+        return [myRemedyCollection count];
     }
 }
 #pragma mark Populate Table
@@ -290,7 +290,7 @@
         tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackground];
         
     } else {
-        OilRemedies *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
+        OilRemedies *displayCollection = [myRemedyCollection objectAtIndex:indexPath.row];
         cell.textLabel.text = displayCollection.name;
         cell.tag = displayCollection.RID;
     }
@@ -315,7 +315,7 @@
 {
     UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){EDIT_RemedyViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditRemedy_Description_ViewController"];
         
-        OilRemedies *a = [self->myOilCollection objectAtIndex:indexPath.row];
+        OilRemedies *a = [self->myRemedyCollection objectAtIndex:indexPath.row];
         destViewController.RID = [NSString stringWithFormat:@"%d",a.RID];
         [self.navigationController pushViewController:destViewController animated:YES];
     }];
@@ -323,14 +323,14 @@
     
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
     {
-        OilRemedies *a = [self->myOilCollection objectAtIndex:indexPath.row];
+        OilRemedies *a = [self->myRemedyCollection objectAtIndex:indexPath.row];
         OilRemedies *obj = [OilRemedies new];
         FormFunctions *objF = [FormFunctions new];
         NSString *Msg;
         if ([obj deleteRemedyByID:[NSString stringWithFormat:@"%d",a.RID] DatabasePath:self->dbPathString MessageHandler:&Msg])
         {
             [objF sendMessage:[NSString stringWithFormat:@"%@ was deleted!",a.name] MyTitle:@"Delete" ViewController:self];
-            [self->myOilCollection removeObjectAtIndex:indexPath.row];
+            [self->myRemedyCollection removeObjectAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
         } else {
             [objF sendMessage:[NSString stringWithFormat:@"Error while deleting! %@",Msg] MyTitle:@"ERROR" ViewController:self];
