@@ -270,9 +270,31 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     [FormFunctions setBackGroundImage:cell.contentView];
-    OilRemedies *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
-    cell.textLabel.text = displayCollection.name;
-    cell.tag = displayCollection.RID;
+    
+    if (USESECTIONS_REMEDIES)
+    {
+        NSInteger indexSection = indexPath.section;
+        NSInteger indexRow = indexPath.row;
+        
+        NSString *sectionTitle =[remedySections objectAtIndex:indexSection];
+        NSArray *sectionRemedy = [remedyDictonary objectForKey:sectionTitle];
+        
+        OilRemedies *displayCollection = [sectionRemedy objectAtIndex:indexRow];
+        cell.textLabel.text = displayCollection.name;
+        cell.tag = displayCollection.RID;
+        
+        tableView.backgroundColor = [UIColor brownColor];
+        
+        //Adjust the color of the Index bar
+        tableView.sectionIndexColor = [FormFunctions setTextColor];
+        tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackground];
+        
+    } else {
+        OilRemedies *displayCollection = [myOilCollection objectAtIndex:indexPath.row];
+        cell.textLabel.text = displayCollection.name;
+        cell.tag = displayCollection.RID;
+    }
+    
     return cell;
 }
 
@@ -318,5 +340,24 @@
     deleteAction.backgroundColor = [UIColor redColor];
     return  @[deleteAction,editAction];
 }
+#pragma mark Side Index Display for the Table
+//Related to issue #79
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    if (USESECTIONS_REMEDIES)
+    {
+        return remedySections;
+    } else {
+        return nil;
+    }
+}
 
+#pragma mark Side Index Display when Clicked
+/*!
+ @brief When the side bar is clicked on the letter
+ */
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    return index;
+}
 @end
