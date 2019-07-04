@@ -26,29 +26,29 @@
 @property (nonatomic,strong) NSString * _Nullable oilInStock;      //Do i Have this oil in Stock?
 
 #pragma mark Remedy Exists By Name
--(BOOL) RemedyExistsByName:(NSString *) oilname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
+-(BOOL) RemedyExistsByName:(NSString *_Nullable) oilname DatabasePath:(NSString *_Nullable) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 #pragma mark Get all Oils for Remedy
--(NSMutableArray *) getAllOilfForremedyByRID:(NSString *) RID DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **)errorMsg;
+-(NSMutableArray *_Nullable) getAllOilfForremedyByRID:(NSString *_Nullable) RID DatabasePath:(NSString *_Nullable) dbPathString ErrorMessage:(NSString *_Nullable*_Nullable)errorMsg;
 
 #pragma mark Get all Oils for Remedy Name Only
--(NSMutableArray *) getAllOilfForremedyByRIDNameOnly:(NSString *) RID DatabasePath:(NSString *) dbPathString ErrorMessage:(NSString **)errorMsg;
+-(NSMutableArray *_Nullable) getAllOilfForremedyByRIDNameOnly:(NSString *_Nullable) RID DatabasePath:(NSString *_Nullable) dbPathString ErrorMessage:(NSString *_Nullable*_Nullable)errorMsg;
 
 #pragma mark Get a List of all Remedies Name Only
--(NSMutableArray *) getAllRemedies :(NSString *) dbPathString : (NSString **) errorMsg;
+-(NSMutableArray *_Nullable) getAllRemedies :(NSString *_Nullable) dbPathString : (NSString *_Nullable*_Nullable) errorMsg;
 
--(BOOL) oilNameExists:(NSString *) lookforoilname DatabasePath:(NSString *)dbPathString ERRORMESSAGE:(NSString **)errorMsg;
+-(BOOL) oilNameExists:(NSString *_Nullable) lookforoilname DatabasePath:(NSString *_Nullable)dbPathString ERRORMESSAGE:(NSString *_Nullable*_Nullable)errorMsg;
 
 #pragma mark Add Oil to Database
--(NSString *)AddOilName :(NSString *) myoilname DatabasePath:(NSString *)dbPathString ERRORMESSAGE:(NSString **) errorMsg;
+-(NSString *_Nullable)AddOilName :(NSString *_Nullable) myoilname DatabasePath:(NSString *_Nullable)dbPathString ERRORMESSAGE:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Add Oil to remedy Oil List
--(void) addOilToremedyOilList:(NSString *) oilID RID:(NSString *) RemedyID DatabasePath:(NSString *) dbPathString ERRORMESSAGE:(NSString **) errorMsg;
+-(void) addOilToremedyOilList:(NSString *_Nullable) oilID RID:(NSString *_Nullable) RemedyID DatabasePath:(NSString *_Nullable) dbPathString ERRORMESSAGE:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Add Remedy to Database
--(NSString *)AddRemedyDetailsByName:(NSString *) RemedyName Description:(NSString *) myDescription Uses:(NSString *) myUses DatabasePath:(NSString *) dbPathString ERRORMESSAGE:(NSString **) errorMsg;
+-(NSString *_Nullable)AddRemedyDetailsByName:(NSString *_Nullable) RemedyName Description:(NSString *_Nullable) myDescription Uses:(NSString *_Nullable) myUses DatabasePath:(NSString *_Nullable) dbPathString ERRORMESSAGE:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Delete Remedy
--(BOOL) deleteRemedyByID:(NSString *)RID DatabasePath:(NSString *) dbPathString MessageHandler:(NSString **) errorMsg;
+-(BOOL) deleteRemedyByID:(NSString *_Nullable)RID DatabasePath:(NSString *_Nullable) dbPathString MessageHandler:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Delete Related Links of Oils by Remedy ID
 -(BOOL) ClearOilsPerRemedyByRID:(NSString *) RID DatabasePath:(NSString *) dbPathString MessageHandler:(NSString **) errorMsg;
