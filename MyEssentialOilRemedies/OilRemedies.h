@@ -51,15 +51,15 @@
 -(BOOL) deleteRemedyByID:(NSString *_Nullable)RID DatabasePath:(NSString *_Nullable) dbPathString MessageHandler:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Delete Related Links of Oils by Remedy ID
--(BOOL) ClearOilsPerRemedyByRID:(NSString *) RID DatabasePath:(NSString *) dbPathString MessageHandler:(NSString **) errorMsg;
+-(BOOL) ClearOilsPerRemedyByRID:(NSString *_Nullable) RID DatabasePath:(NSString *_Nullable) dbPathString MessageHandler:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Update Remedy Details by RID
--(BOOL) updateRemedyDetailsByRID:(NSString *) RID Name:(NSString *) RemedyName Description:(NSString *) myDescription Uses:(NSString *) myUses DatabasePath:(NSString *) dbPathString ERRORMESSAGE:(NSString **) errorMsg;
+-(BOOL) updateRemedyDetailsByRID:(NSString *_Nullable) RID Name:(NSString *_Nullable) RemedyName Description:(NSString *_Nullable) myDescription Uses:(NSString *_Nullable) myUses DatabasePath:(NSString *_Nullable) dbPathString ERRORMESSAGE:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Get Remedy ID By Name
-+(NSNumber *) getRemedyIDByName:(NSString *) Remedyname DatabasePath:(NSString *) dbPath ErrorMessage:(NSString **) errorMsg;
++(NSNumber *_Nullable) getRemedyIDByName:(NSString *_Nullable) Remedyname DatabasePath:(NSString *_Nullable) dbPath ErrorMessage:(NSString *_Nullable*_Nullable) errorMsg;
 
 #pragma mark Add Oils to Remedy
--(void) addOilsToRemedyByRemedyID:(NSString *) RID OilsArray:(NSArray *) oilList DatabasePath:(NSString *) dbpath ErrorMessage:(NSString **) ErrMsg;
+-(void) addOilsToRemedyByRemedyID:(NSString *_Nullable) RID OilsArray:(NSArray *_Nullable) oilList DatabasePath:(NSString *_Nullable) dbpath ErrorMessage:(NSString *_Nullable*_Nullable) ErrMsg;
 
 @end
