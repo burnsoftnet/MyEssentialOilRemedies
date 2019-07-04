@@ -128,12 +128,13 @@
                 NSString *name = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,1)];
                 NSString *description = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,2)];
                 NSString *uses = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement,3)];
-                
+                NSString *section = section = [name substringToIndex:1];
                 OilRemedies *myCollection = [OilRemedies new];
                 [myCollection setName:name];
                 [myCollection setRID:[rid intValue]];
                 [myCollection setMyDescription:description];
                 [myCollection setMyUses:uses];
+                [myCollection setSection:section];
                 
                 [remedyCollection addObject:myCollection];
             }
