@@ -1824,11 +1824,11 @@
                         <viewControllerLayoutGuide type="bottom" id="3PA-5e-RF6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QAu-aQ-m5Y">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="1151"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="6h6-Do-rKi">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="1200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="1151"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zCj-0x-TkE">
                                         <rect key="frame" x="0.0" y="5" width="400" height="1199"/>
@@ -2592,9 +2592,9 @@
         <image name="search.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FVx-dx-Rr4"/>
-        <segue reference="tZI-XI-ca5"/>
+        <segue reference="QYv-jo-sTt"/>
+        <segue reference="9Qq-SB-b9d"/>
         <segue reference="i3e-cA-Y4r"/>
-        <segue reference="EWW-Fh-Ngj"/>
+        <segue reference="tE5-8K-Pn9"/>
     </inferredMetricsTieBreakers>
 </document>
