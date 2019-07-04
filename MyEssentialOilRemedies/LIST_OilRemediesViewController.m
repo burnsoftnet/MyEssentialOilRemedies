@@ -14,8 +14,12 @@
     NSString *dbPathString;
     NSMutableArray *myOilCollection;
     NSString *SelectedCellID;
+    NSMutableArray *remedySections; //related to issue #79
     int RemedyCount; //Added for Lite Version tracking
     int OilCount; //Added for Lite Version tracking
+    int inStockCount;
+    int ReOrderCount;
+    NSMutableDictionary *remeyDictionary;
 }
 @end
 
@@ -127,6 +131,18 @@
     OilRemedies *myObj = [OilRemedies new];
     myOilCollection = [myObj getAllRemedies:dbPathString :&errorMsg];
     [myFunctions checkForError:errorMsg MyTitle:@"LoadData" ViewController:self];
+    
+    //related to issue #79
+    if (USESECTIONS_REMEDIES)
+    {
+        remedySections = [NSMutableArray new];
+        
+        for (OilRemedies *j in myOilCollection)
+        {
+            NSString *newObject = j.section;
+        }
+    }
+    
     [[self myTableView] reloadData];
     
     int InStockCount = [OilLists listInStock:dbPathString ErrorMessage:&errorMsg];
