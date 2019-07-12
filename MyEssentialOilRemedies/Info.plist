@@ -9,6 +9,8 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 			<key>CFBundleTypeIconFiles</key>
 			<array>
 				<string>Icon-Small</string>
@@ -21,6 +23,8 @@
 			</array>
 		</dict>
 		<dict>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 			<key>CFBundleTypeIconFiles</key>
 			<array>
 				<string>Icon-Small</string>
@@ -33,6 +37,8 @@
 			</array>
 		</dict>
 		<dict>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 			<key>CFBundleTypeIconFiles</key>
 			<array>
 				<string>Icon-Small</string>
