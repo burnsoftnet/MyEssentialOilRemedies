@@ -41,27 +41,37 @@
     [[myObj layer] setBorderWidth:2.3];
     [[myObj layer] setCornerRadius:2];
 }
-
+#pragma mark Set background Image in view
+/*! @brief  Set the background of a view with a image
+ */
 +(void) setBackGroundImage:(UIView *) myview
 {
     myview.backgroundColor = [self setDefaultViewBackground];
 }
-
+#pragma mark Set Highlite colot
+/*! @brief  Set the color of the highlight that you want to use
+ */
 +(UIColor *) setHighlightColor
 {
     return [UIColor greenColor];
 }
-
+#pragma mark Set Text Color
+/*! @brief  Set the color of what you want the text to be
+ */
 +(UIColor *) setTextColor
 {
     return [UIColor whiteColor];
 }
-
+#pragma mark Set Default Background
+/*! @brief  Use the following Imange as the background image
+ */
 +(UIColor *) setDefaultBackground
 {
     return [UIColor colorWithPatternImage:[UIImage imageNamed:@"systemBrown.png"]];
 }
-
+#pragma mark Set Default View Background
+/*! @brief  Use the following Image as the default background image
+ */
 +(UIColor *) setDefaultViewBackground
 {
     return [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]];
