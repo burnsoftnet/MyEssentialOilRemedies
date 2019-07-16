@@ -180,7 +180,7 @@
     }
     return bAns;
 }
-
+#pragma mark Perform Copy Function from Target
 /*!
     @brief PRIVATE - Perform the copy functions for the iCloud copy, This will copy the database to the same location with a different extenstion then copy the new file name over to the iCloud Path.
     @return YES if no errors occured, NO if an error was thrown.

@@ -46,7 +46,9 @@
     [super viewWillAppear:animated];
     [self reloadData];
 }
-
+#pragma mark  Refresh Data
+/*! @brief  Refresh the data  in the table from the database, reload from the database and refresh the table with the new data
+ */
 - (void) refreshData
 {
     [self.myTableView reloadData];

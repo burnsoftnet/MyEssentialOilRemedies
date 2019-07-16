@@ -49,6 +49,10 @@
     dbVersion = 0;
     
 }
+#pragma mark Check the Database Version
+/*! @brief  Check to see if the Database version is the one that we are expecting.
+            This is the static version og the checkDBVersionAgainstExpectedVersion method.
+ */
 +(void) checkDBVersionAgainstExpectedVersion
 {
     DBUpgrade *obj = [DBUpgrade new];
