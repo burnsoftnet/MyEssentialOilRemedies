@@ -200,7 +200,10 @@
     myFunctions = nil;
     
 }
-
+#pragma mark Setup Dictionary
+/*!
+ @brief  Sets up the Dictionary to sort the database information into sections to be used in the table grouping display
+ */
 -(void)setupDictionary
 {
     @try {
