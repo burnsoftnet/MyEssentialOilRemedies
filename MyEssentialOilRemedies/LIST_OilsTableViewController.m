@@ -219,7 +219,14 @@
         NSLog(@"ERROR: %@",exception);
     }
 }
-
+#pragma mark Get All Oils From Array
+/*!
+ @brief  Combines the section letter into the oil list array
+ @param Oil List from database that was loaded into a NSMutableArray
+ @param Section Letters that we are targeting
+ @param Error Message if any errors occur
+ @return returns NSMutableArray of oil details from the database also the section that they are in
+ */
 -(NSMutableArray *) getAllOilsFromArray:(NSMutableArray *) mylist SectionLetter:(NSString *) section ErrorMessage:(NSString **) errMsg
 {
     NSMutableArray *myArray = [NSMutableArray new];
