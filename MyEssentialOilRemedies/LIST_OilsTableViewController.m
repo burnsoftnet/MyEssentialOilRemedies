@@ -466,7 +466,8 @@
 }
 
 #pragma mark Side Index Display for the Table
-//Related to issue #63
+/*! @brief  Section index titles for table views
+ */
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     if (USESECTIONS_OIL)

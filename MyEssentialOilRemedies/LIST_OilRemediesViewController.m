@@ -47,6 +47,7 @@
     //Set TableView to delete mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
 }
+#pragma mark Add Navigation Button
 /*! @brief  When the Add button on the navigation is clicked
  */
 -(void) addNavButton
@@ -177,7 +178,10 @@
     myObj = nil;
     
 }
-
+#pragma mark Setup Dictionary
+/*!
+ @brief  Setup the remedy dictionary for sections
+ */
 -(void)setupDictionary
 {
     @try {
@@ -195,6 +199,14 @@
     }
 }
 
+#pragma mark Get All Remedies From Array
+/*!
+ @brief  Combines the section letter into the remedies list array
+ @param Remedy List from database that was loaded into a NSMutableArray
+ @param Section Letters that we are targeting
+ @param Error Message if any errors occur
+ @return returns NSMutableArray of Remedy details from the database also the section that they are in
+ */
 -(NSMutableArray *) getAllRemediesFromArray:(NSMutableArray *) mylist SectionLetter:(NSString *) section ErrorMessage:(NSString **) errMsg
 {
     NSMutableArray *myArray = [NSMutableArray new];
@@ -242,7 +254,10 @@
         return 1;
     }
 }
-
+#pragma mark Table Header
+/*!
+ @brief  Setup the table Header information
+ */
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (USESECTIONS_REMEDIES)
@@ -348,7 +363,9 @@
     return  @[deleteAction,editAction];
 }
 #pragma mark Side Index Display for the Table
-//Related to issue #79
+/*!
+ @brief Section index titles for Table View
+ */
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     if (USESECTIONS_REMEDIES)
