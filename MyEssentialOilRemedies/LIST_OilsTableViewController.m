@@ -335,11 +335,12 @@
         cell.detailTextLabel.text = displayCollection.mydescription;
         cell.tag = displayCollection.OID;
         //Adjusts the color of the header
-        tableView.backgroundColor = [UIColor brownColor];
+        tableView.backgroundColor = [FormFunctions setDefaultBackgroundColor];
 
         //Adjust the color of the Index bar
         tableView.sectionIndexColor = [FormFunctions setTextColor];
-        tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackground];
+        tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackgroundColor];
+        //tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackground];
         
         NSString *instock = displayCollection.InStock;
         if ([instock intValue] == 1)

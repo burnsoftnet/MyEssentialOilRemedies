@@ -9,6 +9,7 @@
 #import "FormFunctions.h"
 
 @implementation FormFunctions
+
 #pragma mark Textbox View Layouts
 /*! @brief Creates a border around a Textview
     @remark USEBD: GENERAL
@@ -48,7 +49,7 @@
 {
     myview.backgroundColor = [self setDefaultViewBackground];
 }
-#pragma mark Set Highlite colot
+#pragma mark Set Highlite color
 /*! @brief  Set the color of the highlight that you want to use
  */
 +(UIColor *) setHighlightColor
@@ -63,8 +64,15 @@
     return [UIColor whiteColor];
 }
 #pragma mark Set Default Background
-/*! @brief  Use the following Imange as the background image
+/*! @brief  Use the following color as the background color
  */
++(UIColor *) setDefaultBackgroundColor
+{
+    return [UIColor brownColor];
+    //return [UIColor colorNamed:@"CustomColor"];
+}
+/*! @brief  Use the following Imange as the background image
+*/
 +(UIColor *) setDefaultBackground
 {
     return [UIColor colorWithPatternImage:[UIImage imageNamed:@"systemBrown.png"]];

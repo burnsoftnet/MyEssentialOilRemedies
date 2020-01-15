@@ -22,6 +22,7 @@
 +(void) setBackGroundImage:(UIView *) myview;
 +(UIColor *) setHighlightColor;
 +(UIColor *) setTextColor;
++(UIColor *) setDefaultBackgroundColor;
 +(UIColor *) setDefaultBackground;
 +(UIColor *) setDefaultViewBackground;
 
