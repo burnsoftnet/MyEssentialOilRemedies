@@ -86,7 +86,7 @@
 - (IBAction)btnAddOil:(id)sender {
     NSString *newOil = self.txtOilName.text;
     
-    if (ISLITE)
+    if ([MYSettings IsLiteVersion])
     {
         BurnSoftDatabase *myObjDB = [BurnSoftDatabase new];
         int OilCount = [myObjDB getTotalNumberofRowsInTable:@"eo_oil_list" DatabasePath:dbPathString ErrorMessage:nil];

@@ -53,7 +53,7 @@
 -(void) addNavButton
 {
     //Create an Add Button in Nav Bat
-    if (ISLITE)
+    if ([MYSettings IsLiteVersion])
     {
         if (RemedyCount <= ((int)LITE_LIMIT -1))
         {
