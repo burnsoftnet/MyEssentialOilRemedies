@@ -68,8 +68,8 @@
  */
 +(UIColor *) setDefaultBackgroundColor
 {
-    return [UIColor brownColor];
-    //return [UIColor colorNamed:@"CustomColor"];
+    //return [UIColor brownColor];
+    return [UIColor colorNamed:@"CustomColor"];
 }
 /*! @brief  Use the following Imange as the background image
 */
