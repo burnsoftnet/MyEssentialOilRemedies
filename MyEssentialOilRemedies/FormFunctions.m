@@ -84,6 +84,27 @@
 {
     return [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]];
 }
+/*!
+ @brief Set the color of the edit button
+ */
++(UIColor *) setEditColor
+{
+    return [UIColor systemBlueColor];
+}
+/*!
+@brief Set the color of the delete button
+*/
++(UIColor *) setDeleteColor
+{
+    return [UIColor systemRedColor];
+}
+/*!
+@brief Set the color of the Cart button
+*/
++(UIColor *) setCartColor
+{
+    return [UIColor systemGrayColor];
+}
 
 #pragma mark Common Alert/Message Handling
 /*! @brief Send a Message box from the View controller that you are currently on. It's easier then copying this function all over the place

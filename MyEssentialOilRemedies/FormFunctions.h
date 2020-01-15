@@ -25,6 +25,9 @@
 +(UIColor *) setDefaultBackgroundColor;
 +(UIColor *) setDefaultBackground;
 +(UIColor *) setDefaultViewBackground;
++(UIColor *) setEditColor;
++(UIColor *) setDeleteColor;
++(UIColor *) setCartColor;
 
 #pragma mark Common Alert/Message Handling
 -(void)sendMessage:(NSString *) msg MyTitle:(NSString *) mytitle ViewController:(UIViewController *) MyViewController;

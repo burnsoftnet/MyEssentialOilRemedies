@@ -408,7 +408,7 @@
         destViewController.OID = OIDString;
         [self.navigationController pushViewController:destViewController animated:YES];
     }];
-    editAction.backgroundColor = [UIColor blueColor];
+    editAction.backgroundColor = [FormFunctions setEditColor];
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
 
         NSString *Msg;
@@ -431,7 +431,7 @@
         [self reloadData];
 
     }];
-    deleteAction.backgroundColor = [UIColor redColor];
+    deleteAction.backgroundColor = [FormFunctions setDeleteColor];
     UITableViewRowAction *reOrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Add to Shopping Cart" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
         OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
         NSString *Msg;
@@ -447,7 +447,7 @@
 
         [self reloadData];
     }];
-    reOrderAction.backgroundColor = [UIColor darkGrayColor];
+    reOrderAction.backgroundColor = [FormFunctions setCartColor];
     return  @[deleteAction,editAction,reOrderAction];
 }
 
