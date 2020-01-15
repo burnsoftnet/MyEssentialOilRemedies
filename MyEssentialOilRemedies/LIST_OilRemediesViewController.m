@@ -305,7 +305,8 @@
         cell.textLabel.text = displayCollection.name;
         cell.tag = displayCollection.RID;
         
-        tableView.backgroundColor = [UIColor brownColor];
+        //tableView.backgroundColor = [UIColor brownColor];
+        tableView.backgroundColor = [FormFunctions setDefaultBackgroundColor];
         
         //Adjust the color of the Index bar
         tableView.sectionIndexColor = [FormFunctions setTextColor];
