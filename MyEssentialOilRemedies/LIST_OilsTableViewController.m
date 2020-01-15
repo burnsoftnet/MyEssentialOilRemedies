@@ -52,7 +52,8 @@
 -(void) addNavButton
 {
     //Create an Add Button in Nav Bat
-    if (ISLITE)
+    //if (ISLITE)
+    if ([MYSettings IsLiteVersion])
     {
         if (OilCount <= ((int)LITE_LIMIT -1 ))
         {

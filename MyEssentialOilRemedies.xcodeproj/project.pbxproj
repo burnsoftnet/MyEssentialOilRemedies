@@ -37,6 +37,7 @@
 		A50AF6F91E401C2A00CC4754 /* DatabaseManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */; };
 		A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */; };
 		A50CF95B1D75C2E10037C7CD /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = A50CF95A1D75C2E10037C7CD /* gear.png */; };
+		A515554923CF5EA900DDCC95 /* BurnSoftFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C9DD6220C91100003600F /* BurnSoftFileSystem.m */; };
 		A515BA0320E7FF2F009F4845 /* List_ReOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A515BA0220E7FF2F009F4845 /* List_ReOrderTableViewController.m */; };
 		A515BA1A20E8432A009F4845 /* cart-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1620E84328009F4845 /* cart-plus@2x.png */; };
 		A515BA1B20E8432A009F4845 /* TBB_cart-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1720E84329009F4845 /* TBB_cart-plus.png */; };
@@ -927,6 +928,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A515554923CF5EA900DDCC95 /* BurnSoftFileSystem.m in Sources */,
 				A51FBC221F5CBCF2001214B6 /* VIEW_SingleRemedyViewController.m in Sources */,
 				A51FBC231F5CBCF2001214B6 /* EDIT_OilDetailViewController.m in Sources */,
 				A51FBC241F5CBCF2001214B6 /* SettingsiTunesBackupRestoreViewController.m in Sources */,
