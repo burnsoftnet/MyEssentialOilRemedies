@@ -337,13 +337,14 @@
         //Adjusts the color of the header
         tableView.backgroundColor = [FormFunctions setDefaultBackgroundColor];
 
-        //Adjust the color of the Index bar
+        //Adjust the color of the Index bar, which is the side bar incase you forget
         
         tableView.sectionIndexColor = [FormFunctions setTextColor];
-        tableView.sectionIndexTrackingBackgroundColor = [FormFunctions setDefaultBackground];
+        tableView.sectionIndexTrackingBackgroundColor = [FormFunctions setDefaultBackgroundColor];
         tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackground];
-        //tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackground];
         
+        
+        //Toggle Text Highlight for oils that are in stock
         NSString *instock = displayCollection.InStock;
         if ([instock intValue] == 1)
         {
@@ -351,6 +352,8 @@
         } else {
             [FormFunctions setBackGroundImage:cell.contentView];
         }
+        
+        //Toggle Bold Test for Items that are Blends
         NSString *isBlend = displayCollection.isBlend;
         
         if ([isBlend intValue] == 1)
