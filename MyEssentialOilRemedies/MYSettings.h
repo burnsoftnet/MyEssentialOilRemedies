@@ -10,12 +10,14 @@
 
 #define MYDBNAME "MEO.db"       //Database Name
 #define MYDBVERSION 1.4         //Expected Database Version for the current version of this app
-//#define FULL "My Essential Oil Remedies"
-//#define LITE "My Essential Oil Remedies Lite"
+#define FULLVERSIONNAME "My Essential Oil Remedies"
 
+#ifndef NDEBUG
 static BOOL BUGGERME = YES;
-//#warning TODO: ON RELEASE COMPILE LITE AND REGULAR VERSION
-//static BOOL ISLITE = NO;
+#else
+static BOOL BUGGERME = NO;
+#endif
+
 static BOOL USESECTIONS_OIL = YES;
 static BOOL USESECTIONS_REMEDIES = YES;
 static int LITE_LIMIT = 15;
