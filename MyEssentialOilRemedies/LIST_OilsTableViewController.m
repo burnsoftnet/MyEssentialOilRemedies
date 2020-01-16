@@ -503,11 +503,11 @@
  */
 -(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, [FormFunctions setTableHeaderHeight])];
     [headerView setBackgroundColor:[FormFunctions setDefaultBackground]];
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 18)];
-    [label setFont:[UIFont boldSystemFontOfSize:18]];
-    //[label setBackgroundColor:[UIColor systemGrayColor]];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, [FormFunctions setHeaderTextHeight])];
+    [label setFont:[FormFunctions setHeaderTextFontSize]];
+    
     NSString *string = [oilSections objectAtIndex:section];
     [label setText:string];
     [headerView addSubview:label];

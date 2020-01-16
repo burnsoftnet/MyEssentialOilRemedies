@@ -63,6 +63,34 @@
 {
     return [UIColor whiteColor];
 }
+#pragma mark Set header Text Font Size
+/*!
+ @brief  Set the UI Font for the Table Header as System Bold with the set size
+ @return return 18
+ */
++(UIFont *) setHeaderTextFontSize
+{
+    return [UIFont boldSystemFontOfSize:18];
+}
+#pragma mark Set Header Text Height
+/*!
+ @brief  Returns the expected size of the Table Header's max text height
+ @return return 18
+ */
++(int) setHeaderTextHeight
+{
+    return 18;
+}
+#pragma mark Set Table Header Height
+/*!
+ @brief  Set the height of the table header
+ @return return 30
+ */
++(int) setTableHeaderHeight
+{
+    return 30;
+}
+
 #pragma mark Set Default Background
 /*! @brief  Use the following color as the background color
  */

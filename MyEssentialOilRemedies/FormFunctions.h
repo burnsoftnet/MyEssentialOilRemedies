@@ -22,6 +22,9 @@
 +(void) setBackGroundImage:(UIView *) myview;
 +(UIColor *) setHighlightColor;
 +(UIColor *) setTextColor;
++(UIFont *) setHeaderTextFontSize;
++(int) setHeaderTextHeight;
++(int) setTableHeaderHeight;
 +(UIColor *) setDefaultBackgroundColor;
 +(UIColor *) setDefaultBackground;
 +(UIColor *) setDefaultViewBackground;
