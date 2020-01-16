@@ -341,7 +341,7 @@
         
         tableView.sectionIndexColor = [FormFunctions setTextColor];
         tableView.sectionIndexTrackingBackgroundColor = [FormFunctions setDefaultBackground];
-        tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackgroundColor];
+        tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackground];
         //tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackground];
         
         NSString *instock = displayCollection.InStock;
