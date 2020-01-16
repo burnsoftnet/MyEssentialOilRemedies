@@ -201,7 +201,8 @@
                 bAns = YES;
             }
         } else {
-            @throw copyError;
+            //@throw copyError;
+            [NSException raise:copyError format:@"%@",copyError];
         }
     } @catch (NSException *exception) {
         *errMsg = [NSString stringWithFormat:@"%@",[exception reason]];

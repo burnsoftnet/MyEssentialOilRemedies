@@ -44,19 +44,23 @@
     [DatabaseManagement startiCloudSync];
     DatabaseManagement *myObjDM = [DatabaseManagement new];
     FormFunctions *myObjFF = [FormFunctions new];
-    NSString *msg = [NSString new];
-    BOOL success =[myObjDM restoreDatabaseFromiCloudByDBName:@MYDBNAME LocalDatabasePath:dbPathString ErrorMessage:&msg];
-    if (success){
-        DBUpgrade *myDB = [DBUpgrade new];
-        [myDB checkDBVersionAgainstExpectedVersion];
-        msg = [NSString stringWithFormat:@"Databae Restore was successful!"];
-        [myObjFF sendMessage:msg MyTitle:@"Success!" ViewController:self];
-    } else {
-        [myObjFF sendMessage:msg MyTitle:@"ERROR!" ViewController:self];
+    @try {
+        NSString *msg = [NSString new];
+        BOOL success =[myObjDM restoreDatabaseFromiCloudByDBName:@MYDBNAME LocalDatabasePath:dbPathString ErrorMessage:&msg];
+        if (success){
+            DBUpgrade *myDB = [DBUpgrade new];
+            [myDB checkDBVersionAgainstExpectedVersion];
+            msg = [NSString stringWithFormat:@"Databae Restore was successful!"];
+            [myObjFF sendMessage:msg MyTitle:@"Success!" ViewController:self];
+        } else {
+            [myObjFF sendMessage:msg MyTitle:@"ERROR!" ViewController:self];
+        }
+    } @catch (NSException *exception) {
+        NSLog(@"%@",exception);
+    } @finally {
+        myObjDM = nil;
+        myObjFF = nil;
     }
-    
-    myObjDM = nil;
-    myObjFF = nil;
 }
 #pragma mark View will Disappear
 /*! @brief Handle when the form is no longer active
