@@ -338,7 +338,9 @@
         tableView.backgroundColor = [FormFunctions setDefaultBackgroundColor];
 
         //Adjust the color of the Index bar
+        
         tableView.sectionIndexColor = [FormFunctions setTextColor];
+        tableView.sectionIndexTrackingBackgroundColor = [FormFunctions setDefaultBackground];
         tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackgroundColor];
         //tableView.sectionIndexBackgroundColor = [FormFunctions setDefaultBackground];
         

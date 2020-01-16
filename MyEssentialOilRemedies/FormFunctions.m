@@ -68,7 +68,22 @@
  */
 +(UIColor *) setDefaultBackgroundColor
 {
-    //return [UIColor brownColor];
+//  @TODO - When you change the target OS to 13, this might be useable.
+//    UIColor *dynamicColor = [UIColor colorWithDynamicProvider:^UIColor *(UITraitCollection *traitCollection) {
+//        BOOL isDarkMode = traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark;
+//        BOOL isHighContrast = traitCollection.accessibilityContrast == UIAccessibilityContrastHigh;
+//
+//        if (isDarkMode && !isHighContrast) {
+//            return [UIColor colorNamed:@"CustomColor"];;
+//        } else if (isDarkMode && isHighContrast) {
+//            return [UIColor colorNamed:@"CustomColor"];;
+//        } else if (!isDarkMode && isHighContrast) {
+//            return [UIColor colorNamed:@"CustomColor"];;
+//        } else {
+//            return [UIColor colorNamed:@"CustomColor"];;
+//        }
+//    }];
+//    return dynamicColor;
     return [UIColor colorNamed:@"CustomColor"];
 }
 /*! @brief  Use the following Imange as the background image
