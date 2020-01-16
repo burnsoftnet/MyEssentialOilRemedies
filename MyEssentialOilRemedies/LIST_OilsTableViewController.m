@@ -508,8 +508,8 @@
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, [FormFunctions setHeaderTextHeight])];
     [label setFont:[FormFunctions setHeaderTextFontSize]];
     
-    NSString *string = [oilSections objectAtIndex:section];
-    [label setText:string];
+    NSString *labelText = [NSString stringWithFormat:@"     %@",[oilSections objectAtIndex:section]];
+    [label setText:labelText];
     [headerView addSubview:label];
     return headerView;
 }
