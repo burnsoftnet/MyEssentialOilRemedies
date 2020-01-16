@@ -495,4 +495,23 @@
     return index;
 }
 
+#pragma mark Table View For Header in Section
+/*!
+ @discussion This is the section that you will need to update for the Dark and light mode, or just use the cusomt coloring and keep it all the same
+ @brief  This is the section that you want to change for the color and font size and or color of the index for the table view
+ @return return UIView for the table header
+ */
+-(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 30)];
+    [headerView setBackgroundColor:[FormFunctions setDefaultBackground]];
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 18)];
+    [label setFont:[UIFont boldSystemFontOfSize:18]];
+    //[label setBackgroundColor:[UIColor systemGrayColor]];
+    NSString *string = [oilSections objectAtIndex:section];
+    [label setText:string];
+    [headerView addSubview:label];
+    return headerView;
+}
+
 @end
