@@ -165,8 +165,14 @@
         NSURL *URLnewDBName = [NSURL fileURLWithPath:newDBName];
         
         [self removeConflictVersionsiniCloudbyURL:URLnewDBName];
-
-        [BurnSoftDatabase resetDBDirectory];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        BOOL BackupFileExists = [fileManager fileExistsAtPath:newDBName]; //[NSFileManager fileExistsAtPath:newDBName];
+        if (BackupFileExists)
+        {
+            [BurnSoftDatabase resetDBDirectory];
+        } else {
+            [NSException raise:@"The iCloud Backup does not Exist!" format:@"The iCloud Backup does not Exist!"];
+        }
         bAns = [self performCopyFunctionsFromTarget:newDBName Destination:backupfile FinalDestination:dbPathString ErrorMessage:&copyError];
         if (!bAns){
             [NSException raise:@"Restore Error" format:@"Error restoring database: %@", copyError];
