@@ -111,6 +111,14 @@
 {
     dbPathString = [BurnSoftDatabase getDatabasePath:@MYDBNAME];
     [DatabaseManagement startiCloudSync];
+    [FormFunctions setBorderButton: _btnClearOils];
+    [FormFunctions setBorderButton: _btnClearRemedies];
+    [FormFunctions setBorderButton: _btnRestoreFactory];
+    [FormFunctions setBorderButton: _btnBackuptoiCloud];
+    [FormFunctions setBorderButton: _btnRestoreFromiCloud];
+    [FormFunctions setBorderButton: _btnDoiTunesBackup];
+    
+    //[FormFunctions setBorderButton:];
 }
 
 #pragma mark Load Version

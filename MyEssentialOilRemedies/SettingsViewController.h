@@ -15,6 +15,14 @@
 #import "DBUpgrade.h"
 
 @interface SettingsViewController : UIViewController <UIAlertViewDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *btnClearOils;
+@property (weak, nonatomic) IBOutlet UIButton *btnClearRemedies;
+@property (weak, nonatomic) IBOutlet UIButton *btnRestoreFactory;
+@property (weak, nonatomic) IBOutlet UIButton *btnBackuptoiCloud;
+@property (weak, nonatomic) IBOutlet UIButton *btnRestoreFromiCloud;
+@property (weak, nonatomic) IBOutlet UIButton *btnDoiTunesBackup;
+
+
 - (IBAction)btnClearOils:(id)sender;
 - (IBAction)btnClearRemedies:(id)sender;
 - (IBAction)btnRestoreFactory:(id)sender;

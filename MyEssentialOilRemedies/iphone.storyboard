@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qHe-fy-O4K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qHe-fy-O4K">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1015,9 +1015,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TY-Om-n5q">
-                                                <rect key="frame" x="245.5" y="85.5" width="36" height="30"/>
+                                                <rect key="frame" x="245.5" y="85.5" width="76" height="30"/>
                                                 <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Clear">
+                                                <state key="normal" title="     Clear     ">
                                                     <color key="titleColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -1046,17 +1046,17 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4G-A6-q5q">
-                                                <rect key="frame" x="237" y="254.5" width="53" height="30"/>
+                                                <rect key="frame" x="237" y="254.5" width="93" height="30"/>
                                                 <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Restore"/>
+                                                <state key="normal" title="     Restore     "/>
                                                 <connections>
                                                     <action selector="btnRestoreFactory:" destination="VZV-bY-lJ7" eventType="touchUpInside" id="rRh-FN-KTh"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4B-Ga-WIf">
-                                                <rect key="frame" x="245.5" y="51.5" width="36" height="30"/>
+                                                <rect key="frame" x="245.5" y="51.5" width="76" height="30"/>
                                                 <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Clear">
+                                                <state key="normal" title="     Clear     ">
                                                     <color key="titleColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -1073,27 +1073,18 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bs-zc-KIf">
-                                                <rect key="frame" x="26" y="324" width="309" height="30"/>
+                                                <rect key="frame" x="26" y="324" width="333" height="30"/>
                                                 <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Use iTunes File Sharing for Backup &amp; Restore"/>
+                                                <state key="normal" title="   Use iTunes File Sharing for Backup &amp; Restore   "/>
                                                 <connections>
                                                     <segue destination="1uJ-FY-zor" kind="show" id="kI5-Ur-Tio"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awY-G7-76w">
-                                                <rect key="frame" x="25" y="373" width="117" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Backup to iCloud"/>
-                                                <connections>
-                                                    <action selector="btnBackuptoiCloud:" destination="VZV-bY-lJ7" eventType="touchUpInside" id="fqt-r8-6ck"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8e-Vb-u8O">
-                                                <rect key="frame" x="207" y="375" width="137" height="30"/>
+                                                <rect key="frame" x="195" y="375" width="161" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Restore from iCloud"/>
+                                                <state key="normal" title="   Restore from iCloud   "/>
                                                 <connections>
                                                     <action selector="btnRestoreFromiCloud:" destination="VZV-bY-lJ7" eventType="touchUpInside" id="HMn-LF-Srk"/>
                                                 </connections>
@@ -1114,6 +1105,15 @@
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awY-G7-76w">
+                                                <rect key="frame" x="29" y="372" width="141" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="   Backup to iCloud   "/>
+                                                <connections>
+                                                    <action selector="btnBackuptoiCloud:" destination="VZV-bY-lJ7" eventType="touchUpInside" id="fqt-r8-6ck"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1176,6 +1176,12 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="gear.png" id="FpA-xF-MVG"/>
                     <navigationItem key="navigationItem" title="Settings" id="ceE-nf-3Nt"/>
                     <connections>
+                        <outlet property="btnBackuptoiCloud" destination="awY-G7-76w" id="hCG-Gd-WWh"/>
+                        <outlet property="btnClearOils" destination="K4B-Ga-WIf" id="L4p-y4-iLy"/>
+                        <outlet property="btnClearRemedies" destination="6TY-Om-n5q" id="ETO-N3-AV5"/>
+                        <outlet property="btnDoiTunesBackup" destination="1bs-zc-KIf" id="KYI-8y-bFJ"/>
+                        <outlet property="btnRestoreFactory" destination="K4G-A6-q5q" id="Wah-St-hdz"/>
+                        <outlet property="btnRestoreFromiCloud" destination="r8e-Vb-u8O" id="LiC-va-1tM"/>
                         <outlet property="lblAppVersion" destination="wuY-6m-duX" id="adD-DB-qEq"/>
                         <outlet property="lblDBVersion" destination="FA0-KK-9hV" id="XVj-Qm-mCx"/>
                         <outlet property="viewMain" destination="L9f-nE-Vie" id="L0d-hB-yP8"/>

@@ -38,9 +38,25 @@
  */
 -(void) setBorderLabel :(UILabel *) myObj
 {
-    [[myObj layer] setBorderColor:[[UIColor grayColor] CGColor]];
+    [[myObj layer] setBorderColor:[[UIColor systemGrayColor] CGColor]];
     [[myObj layer] setBorderWidth:2.3];
     [[myObj layer] setCornerRadius:2];
+}
+#pragma mark Button Border
+/*!
+ @brief:Breates a border around the label
+ */
++(void) setBorderButton :(UIButton *) myObj
+{
+    //CGFloat spacing = 10; // the amount of spacing to appear between image and title
+    [[myObj layer] setBorderColor:[[UIColor systemGrayColor] CGColor]];
+    [[myObj layer] setBorderWidth:2.3];
+    [[myObj layer] setCornerRadius:10];
+    [[myObj layer] setAllowsEdgeAntialiasing:YES];
+   // [[myObj layer] centerButtonAndImageWithSpacing:10];
+    
+    myObj.clipsToBounds = YES;
+    //[[myObj layer] setStyle:UIButtonTypeRoundedRect];
 }
 #pragma mark Set background Image in view
 /*! @brief  Set the background of a view with a image

@@ -20,6 +20,7 @@
 -(void) setBorderLabel :(UILabel *) myObj;
 #pragma mark Set BackGround
 +(void) setBackGroundImage:(UIView *) myview;
++(void) setBorderButton :(UIButton *) myObj;
 +(UIColor *) setHighlightColor;
 +(UIColor *) setTextColor;
 +(UIFont *) setHeaderTextFontSize;
