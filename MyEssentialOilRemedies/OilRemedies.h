@@ -10,6 +10,7 @@
 #import <sqlite3.h>
 #import "BurnSoftDatabase.h"
 #import "BurnSoftGeneral.h"
+#import "FormFunctions.h"
 
 @interface OilRemedies : NSObject
 @property (assign) int OID;     //Oil ID
