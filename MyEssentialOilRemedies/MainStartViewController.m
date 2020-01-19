@@ -19,15 +19,18 @@
  */
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BurnSoftDatabase copyDbIfNeeded:@MYDBNAME MessageHandler:nil];
+    @try {
+        [BurnSoftDatabase copyDbIfNeeded:@MYDBNAME MessageHandler:nil];
 
-    [DBUpgrade checkDBVersionAgainstExpectedVersion];
-    [DatabaseManagement startiCloudSync];
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(checkInBox) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkInBox) userInfo:nil repeats:YES];
-
+        [DBUpgrade checkDBVersionAgainstExpectedVersion];
+        [DatabaseManagement startiCloudSync];
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(checkInBox) name:UIApplicationDidBecomeActiveNotification object:nil];
+        
+        [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkInBox) userInfo:nil repeats:YES];
+    } @catch (NSException *exception) {
+        [FormFunctions LogExceptionErrorfromLocation:@"MainStartViewController.viewDidLoad" ErrorMessage:exception];
+    }
 }
 
 
@@ -44,8 +47,12 @@
  */
 -(void) checkInBox
 {
-    if ([BurnSoftGeneral newFilesfoundProcessing]){
-        [AirDropHandler processAllInBoxFilesFromViewController:self];
+    @try {
+        if ([BurnSoftGeneral newFilesfoundProcessing]){
+            [AirDropHandler processAllInBoxFilesFromViewController:self];
+        }
+    } @catch (NSException *exception) {
+        [FormFunctions LogExceptionErrorfromLocation:@"MainStartViewController.checkInBox" ErrorMessage:exception];
     }
 }
 

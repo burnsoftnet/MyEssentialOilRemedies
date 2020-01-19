@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "MainStartViewController.h"
 #import "LIST_OilsTableViewController.h"
+#import "MYSettings.h"
 
 //extern BOOL *const BUGGERME;
 

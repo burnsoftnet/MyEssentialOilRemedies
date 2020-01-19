@@ -371,19 +371,23 @@
 +(BOOL) newFilesfoundProcessing
 {
     BOOL bAns = NO;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    documentsDirectory = [documentsDirectory stringByAppendingString:@"/Inbox/"];
-    
-    NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
-    if([dirFiles count] > 0 ) {
-        bAns = YES;
+    @try {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        documentsDirectory = [documentsDirectory stringByAppendingString:@"/Inbox/"];
+        
+        NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
+        if([dirFiles count] > 0 ) {
+            bAns = YES;
+        }
+        
+        paths = nil;
+        documentsDirectory = nil;
+        dirFiles = nil;
+    } @catch (NSException *exception) {
+        NSString *errMsg = [exception reason];
+        NSLog(@"%@",errMsg);
     }
-    
-    paths = nil;
-    documentsDirectory = nil;
-    dirFiles = nil;
-    
     return bAns;
 }
 #pragma mark Convert NSNumber to string
