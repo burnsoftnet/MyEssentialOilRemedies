@@ -290,4 +290,16 @@
 #endif
 }
 #pragma mark
+
+#pragma mark
+/*!
+ @brief  General Method on catching and displaying errors
+ @param location - the location of the function that it came from
+ @param ex - the exception that occured
+ @return return void
+ */
++(void)LogExceptionErrorfromLocation:(NSString *) location ErrorMessage:(NSException *) ex
+{
+    NSLog(@"Exception Error from %@  - %@", location, ex);
+}
 @end

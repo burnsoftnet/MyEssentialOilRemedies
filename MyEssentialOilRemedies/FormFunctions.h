@@ -51,4 +51,5 @@
 
 #pragma mark NSLog Debug Message
 +(void)doBuggermeMessage :(NSString *) msg FromSubFunction:(NSString *) fromlocation;
++(void)LogExceptionErrorfromLocation:(NSString *) location ErrorMessage:(NSException *) ex;
 @end
