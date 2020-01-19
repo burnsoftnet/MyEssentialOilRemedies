@@ -21,7 +21,7 @@
 +(void) OpenFilebyPath:(NSString *) filePath ViewController:(UIViewController *) viewController;
 
 #pragma mark Process Inbox Files
-+(void) processInBoxFilesFromViewController:(UIViewController *) viewController;
++(void) processInBoxFilesFromViewController:(UIViewController *) viewController __attribute__((deprecated("Nothing using this")));
 
 #pragma mark Process Inbox All Files
 +(void) processAllInBoxFilesFromViewController:(UIViewController *) viewController;

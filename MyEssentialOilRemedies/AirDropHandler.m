@@ -95,9 +95,8 @@
             [alert addAction:noButton];
             
             [viewController presentViewController:alert animated:YES completion:nil];
-        }
-        
-        if (parser.isREMEDY) {
+        } else if (parser.isREMEDY)
+        {
             OilRemedies *myObj = [OilRemedies new];
             BOOL REMEDY_EXISTS = [myObj RemedyExistsByName:parser.Remedy_Name DatabasePath:dbpath ErrorMessage:nil];
             
@@ -149,7 +148,6 @@
             [viewController presentViewController:alert animated:YES completion:nil];
         }
     } @catch (NSException *exception) {
-        //NSLog(@"%@",exception);
         [FormFunctions LogExceptionErrorfromLocation:@"AirDropHandler.OpenFilebyPath" ErrorMessage:exception];
     }
 }
@@ -157,10 +155,10 @@
 #pragma mark Process Inbox Files
 /*! @brief This will look through the document/inbox files and start processing the files based on the name.
  */
-+(void) processInBoxFilesFromViewController:(UIViewController *) viewController
++(void) processInBoxFilesFromViewController:(UIViewController *) viewController __attribute__((deprecated("Nothing using this")))
 {
     @try {
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         documentsDirectory = [documentsDirectory stringByAppendingString:@"/Inbox/"];
 
@@ -180,7 +178,6 @@
         paths = nil;
         fileManager = nil;
     } @catch (NSException *exception) {
-        //NSLog(@"%@", exception);
         [FormFunctions LogExceptionErrorfromLocation:@"AirDropHandler.processInBoxFilesFromViewController" ErrorMessage:exception];
     }
 }
@@ -192,33 +189,43 @@
 {
     @try {
         NSArray *filePathsArray = [NSArray new];
+        NSArray *fileRemedyPathsArray = [NSArray new];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         documentsDirectory = [documentsDirectory stringByAppendingString:@"/Inbox/"];
         NSArray *dirFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:nil];
-        filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.meo'"]];
-        NSString *oilFile = [NSString new];
         
-        for (int x = 0; x < [dirFiles count]; x++) {
-            oilFile = [documentsDirectory stringByAppendingString:dirFiles[x]];;
-            [self OpenFilebyPath:oilFile ViewController:viewController];
+        if ([dirFiles count])
+        {
+            filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.meo'"]];
+            NSString *oilFile = [NSString new];
+            
+            if ([filePathsArray count] > 0)
+            {
+                for (int x = 0; x < [dirFiles count]; x++) {
+                    oilFile = [documentsDirectory stringByAppendingString:dirFiles[x]];;
+                    [self OpenFilebyPath:oilFile ViewController:viewController];
+                }
+            }
+            
+            
+            NSString *remedyFile = [NSString new];
+            fileRemedyPathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.meor'"]];
+            
+            if ([fileRemedyPathsArray count])
+            {
+                for (int x = 0; x < [dirFiles count]; x++) {
+                    remedyFile= [documentsDirectory stringByAppendingString:dirFiles[x]];;
+                    [self OpenFilebyPath:remedyFile ViewController:viewController];
+                }
+            }
         }
-        
-        NSString *remedyFile = [NSString new];
-        filePathsArray = [dirFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.meor'"]];
-        
-        for (int x = 0; x < [dirFiles count]; x++) {
-            remedyFile= [documentsDirectory stringByAppendingString:dirFiles[x]];;
-            [self OpenFilebyPath:remedyFile ViewController:viewController];
-        }
-        
         paths = nil;
         filePathsArray = nil;
+        fileRemedyPathsArray = nil;
         dirFiles = nil;
     } @catch (NSException *exception) {
-        //NSLog(@"%@",exception);
         [FormFunctions LogExceptionErrorfromLocation:@"AirDropHandler.processAllInBoxFilesFromViewController" ErrorMessage:exception];
-        //[FormFunctions LogExceptionErrorfromLocation:@"" ErrorMessage:exception];
     }
     
 }
