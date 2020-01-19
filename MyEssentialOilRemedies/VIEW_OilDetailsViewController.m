@@ -385,4 +385,9 @@
     SelectedCellID = cellTag;
     [self performSegueWithIdentifier:@"segueViewRemedyFromOils" sender:self];
 }
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+
+    return UIModalPresentationNone;
+}
 @end

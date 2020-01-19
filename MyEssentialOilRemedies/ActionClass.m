@@ -45,6 +45,16 @@
     }
 
 }
+#pragma mark
+/*!
+ @brief  Adaptive presentation Style for Presenting on a controller
+ @param controller - Presentation Controller
+ @return return UI Modal Presentation Style
+ */
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+
+    return UIModalPresentationNone;
+}
 
 #pragma mark Append to the Output of an Existing String
 /*! @brief A quick and easy way to format the output information, also if it needs to be changed then a majority

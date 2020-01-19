@@ -17,7 +17,7 @@
 #import "AirDropHandler.h"
 
 
-@interface VIEW_OilDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate>
+@interface VIEW_OilDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate,UIPopoverPresentationControllerDelegate>
 
 @property (strong, nonatomic) NSString *OID;
 @property (strong, nonatomic) NSString *RID;
