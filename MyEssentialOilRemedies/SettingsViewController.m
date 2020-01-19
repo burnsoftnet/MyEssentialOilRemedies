@@ -56,7 +56,7 @@
             [myObjFF sendMessage:msg MyTitle:@"ERROR!" ViewController:self];
         }
     } @catch (NSException *exception) {
-        NSLog(@"%@",exception);
+        [FormFunctions LogExceptionErrorfromLocation:@"SettingsViewController.btnRestoreFromiCloud" ErrorMessage:exception];
     } @finally {
         myObjDM = nil;
         myObjFF = nil;

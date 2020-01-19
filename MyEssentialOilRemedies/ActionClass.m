@@ -19,27 +19,31 @@
 +(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects eMailSubject:(NSString *) emailSubject
 {
     
-    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:ActionObjects applicationActivities:nil];
-    [controller setValue:emailSubject forKey:@"subject"];
-    
-    //. On iPad, you must present the view controller in a popover. On iPhone and iPod touch, you must present it modally.
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        //iPhone, present activity view controller as is.
-        [MyViewController presentViewController:controller animated:YES completion:^{}];
-    }
-    else
-    {
-        //iPad, present the view controller inside a popover.
-        MyViewController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionRight;
-        MyViewController.popoverPresentationController.sourceView = MyViewController.view;
+    @try {
+        UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:ActionObjects applicationActivities:nil];
+        [controller setValue:emailSubject forKey:@"subject"];
+        
+        //. On iPad, you must present the view controller in a popover. On iPhone and iPod touch, you must present it modally.
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+            //iPhone, present activity view controller as is.
+            [MyViewController presentViewController:controller animated:YES completion:^{}];
+        }
+        else
+        {
+            //iPad, present the view controller inside a popover.
+            MyViewController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionRight;
+            MyViewController.popoverPresentationController.sourceView = MyViewController.view;
 
-        [MyViewController presentViewController:controller animated:YES completion:^{}];
-        UIPopoverPresentationController *popController = [controller popoverPresentationController];
-        popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
-        controller.popoverPresentationController.sourceView = MyViewController.view;
+            [MyViewController presentViewController:controller animated:YES completion:^{}];
+            UIPopoverPresentationController *popController = [controller popoverPresentationController];
+            popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+            controller.popoverPresentationController.sourceView = MyViewController.view;
+        }
+    } @catch (NSException *exception) {
+        [FormFunctions LogExceptionErrorfromLocation:@"ActionClass.sendToActionSheetViewController" ErrorMessage:exception];
     }
-  
+
 }
 
 #pragma mark Append to the Output of an Existing String
@@ -56,13 +60,17 @@
  */
 +(NSString *) writeOilDetailsToFileToSendByName:(NSString *) sOutPut
 {
-    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docPath = [path objectAtIndex:0];
-    NSString *sAns = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
-    [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    
-    path = nil;
-    
+    NSString *sAns = [NSString new];
+    @try {
+        NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *docPath = [path objectAtIndex:0];
+        sAns = [docPath stringByAppendingPathComponent:@"OilDetails.meo"];
+        [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        
+        path = nil;
+    } @catch (NSException *exception) {
+        [FormFunctions LogExceptionErrorfromLocation:@"ActionClass.writeOilDetailsToFileToSendByName" ErrorMessage:exception];
+    }
     return sAns;
 }
 
@@ -71,14 +79,18 @@
  */
 +(NSString *) writeOilDetailsToFileToSendOutput:(NSString *) sOutPut WithName:(NSString *) OilName
 {
-    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docPath = [path objectAtIndex:0];
-    NSString *sAns = [docPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.meo",OilName]];
-    
-    [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    
-    path = nil;
-    
+    NSString *sAns = [NSString new];
+    @try {
+        NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *docPath = [path objectAtIndex:0];
+        sAns = [docPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.meo",OilName]];
+        
+        [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        
+        path = nil;
+    } @catch (NSException *exception) {
+        [FormFunctions LogExceptionErrorfromLocation:@"ActionClass.writeOilDetailsToFileToSendOutput" ErrorMessage:exception];
+    }
     return sAns;
 }
 
@@ -87,14 +99,19 @@
  */
 +(NSString *) writeRemedyDetailsToFileToSendByName:(NSString *) sOutPut
 {
-    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docPath = [path objectAtIndex:0];
-    NSString *sAns = [docPath stringByAppendingPathComponent:@"RemedyDetails.meor"];
+    NSString *sAns = [NSString new];
     
-    [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    
-    path = nil;
-    
+    @try {
+        NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *docPath = [path objectAtIndex:0];
+        sAns = [docPath stringByAppendingPathComponent:@"RemedyDetails.meor"];
+        
+        [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        
+        path = nil;
+    } @catch (NSException *exception) {
+        [FormFunctions LogExceptionErrorfromLocation:@"ActionClass.writeRemedyDetailsToFileToSendByName" ErrorMessage:exception];
+    }
     return sAns;
 }
 
@@ -103,14 +120,18 @@
  */
 +(NSString *) writeRemedyDetailsToFileToSendOutput:(NSString *) sOutPut WithName:(NSString *) RemedyName
 {
-    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docPath = [path objectAtIndex:0];
-    NSString *sAns = [docPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.meor",RemedyName]];
-    
-    [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    
-    path = nil;
-    
+    NSString *sAns = [NSString new];
+    @try {
+        NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *docPath = [path objectAtIndex:0];
+        sAns = [docPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.meor",RemedyName]];
+        
+        [sOutPut writeToFile:sAns atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        
+        path = nil;
+    } @catch (NSException *exception) {
+        [FormFunctions LogExceptionErrorfromLocation:@"ActionClass.writeRemedyDetailsToFileToSendOutput" ErrorMessage:exception];
+    }
     return sAns;
 }
 #pragma mark Format Oil Details to one String
@@ -121,18 +142,22 @@
 {
     
     NSString *sOutput = [NSString new];
-    sOutput = [NSString stringWithFormat:@"Oil Name: %@\n",OilName];
-    sOutput = [self appendToOuput:sOutput forField:@"Common Name" Value:commonName];
-    sOutput = [self appendToOuput:sOutput forField:@"Botanical Name" Value:botName];
-    sOutput = [self appendToOuput:sOutput forField:@"Ingredients" Value:ingredients];
-    sOutput = [self appendToOuput:sOutput forField:@"Safety Notes" Value:safetyNotes];
-    sOutput = [self appendToOuput:sOutput forField:@"Color" Value:color];
-    sOutput = [self appendToOuput:sOutput forField:@"Viscosity" Value:viscosity];
-    sOutput = [self appendToOuput:sOutput forField:@"In-Stock" Value:instock];
-    sOutput = [self appendToOuput:sOutput forField:@"Vendor" Value:vendor];
-    sOutput = [self appendToOuput:sOutput forField:@"WebSite" Value:website];
-    sOutput = [self appendToOuput:sOutput forField:@"Description" Value:description];
-    sOutput = [self appendToOuput:sOutput forField:@"Is-Blend" Value:isblend];
+    @try {
+        sOutput = [NSString stringWithFormat:@"Oil Name: %@\n",OilName];
+        sOutput = [self appendToOuput:sOutput forField:@"Common Name" Value:commonName];
+        sOutput = [self appendToOuput:sOutput forField:@"Botanical Name" Value:botName];
+        sOutput = [self appendToOuput:sOutput forField:@"Ingredients" Value:ingredients];
+        sOutput = [self appendToOuput:sOutput forField:@"Safety Notes" Value:safetyNotes];
+        sOutput = [self appendToOuput:sOutput forField:@"Color" Value:color];
+        sOutput = [self appendToOuput:sOutput forField:@"Viscosity" Value:viscosity];
+        sOutput = [self appendToOuput:sOutput forField:@"In-Stock" Value:instock];
+        sOutput = [self appendToOuput:sOutput forField:@"Vendor" Value:vendor];
+        sOutput = [self appendToOuput:sOutput forField:@"WebSite" Value:website];
+        sOutput = [self appendToOuput:sOutput forField:@"Description" Value:description];
+        sOutput = [self appendToOuput:sOutput forField:@"Is-Blend" Value:isblend];
+    } @catch (NSException *exception) {
+        [FormFunctions LogExceptionErrorfromLocation:@"ActionClass.OilDetailsToStringByName" ErrorMessage:exception];
+    }
     return sOutput;
 }
 
@@ -142,15 +167,17 @@
 +(NSString *) RemedyDetailsToStringByName:(NSString *) remedyName Description:(NSString *) description OilsArray:(NSString *) oilsArray HowToUse:(NSString *) howTouse
 {
     NSString *sOutPut = [NSString new];
-    
-    sOutPut = [NSString stringWithFormat:@"Remedy Name: %@\n", remedyName];
-    sOutPut = [self appendToOuput:sOutPut forField:@"Description" Value:description];
-    sOutPut = [self appendToOuput:sOutPut forField:@"\nOils" Value:@"\n"];
+    @try {
+        sOutPut = [NSString stringWithFormat:@"Remedy Name: %@\n", remedyName];
+        sOutPut = [self appendToOuput:sOutPut forField:@"Description" Value:description];
+        sOutPut = [self appendToOuput:sOutPut forField:@"\nOils" Value:@"\n"];
 
-    sOutPut = [sOutPut stringByAppendingString:oilsArray];
-    
-    sOutPut = [self appendToOuput:sOutPut forField:@"\n\nHow To Use" Value:howTouse];
-
+        sOutPut = [sOutPut stringByAppendingString:oilsArray];
+        
+        sOutPut = [self appendToOuput:sOutPut forField:@"\n\nHow To Use" Value:howTouse];
+    } @catch (NSException *exception) {
+        [FormFunctions LogExceptionErrorfromLocation:@"ActionClass.RemedyDetailsToStringByName" ErrorMessage:exception];
+    }
     return sOutPut;
 }
 

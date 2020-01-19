@@ -300,6 +300,6 @@
  */
 +(void)LogExceptionErrorfromLocation:(NSString *) location ErrorMessage:(NSException *) ex
 {
-    NSLog(@"Exception Error from %@  - %@", location, ex);
+    NSLog(@"Exception Error from %@  - %@", location, [ex reason]);
 }
 @end

@@ -275,6 +275,7 @@
         }
     } @catch (NSException *exception) {
         *errorMsg = [NSString stringWithFormat:@"%@",[exception reason]];
+        [FormFunctions LogExceptionErrorfromLocation:@"OiLists.getInStockCountByArray" ErrorMessage:exception];
     }
     return iAns;
 }
@@ -314,6 +315,7 @@
         }
     } @catch (NSException *exception) {
         *errorMsg = [NSString stringWithFormat:@"%@",[exception reason]];
+        [FormFunctions LogExceptionErrorfromLocation:@"OiLists.listInShoppingByArray" ErrorMessage:exception];
     }
     return iAns;
 }

@@ -229,7 +229,7 @@
         }
         @catch (NSException *e)
         {
-            NSLog(@"%@", e.reason);
+            [FormFunctions LogExceptionErrorfromLocation:@"SearchViewController.updateSearchResultsForSearchController" ErrorMessage:e];
         }
     }
     

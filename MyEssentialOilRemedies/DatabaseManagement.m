@@ -145,6 +145,7 @@
         [BurnSoftGeneral DeleteFileByPath:backupfile ErrorMessage:&deleteError];
     } @catch (NSException *exception) {
        *msg = [NSString stringWithFormat:@"%@",[exception reason]];
+        [FormFunctions LogExceptionErrorfromLocation:@"DatabaseManagement.backupDatabaseToiCloudByDBName" ErrorMessage:exception];
     }
     return bAns;
 }
@@ -183,6 +184,7 @@
         }
     } @catch (NSException *exception) {
         *msg = [NSString stringWithFormat:@"%@",[exception reason]];
+        [FormFunctions LogExceptionErrorfromLocation:@"DatabaseManagement.restoreDatabaseFromiCloudByDBName" ErrorMessage:exception];
     }
     return bAns;
 }
@@ -212,6 +214,7 @@
         }
     } @catch (NSException *exception) {
         *errMsg = [NSString stringWithFormat:@"%@",[exception reason]];
+        [FormFunctions LogExceptionErrorfromLocation:@"DatabaseManagement.performCopyFunctionsFromTarget" ErrorMessage:exception];
     }
     return bAns;
 }
@@ -235,6 +238,7 @@
         objFM = nil;
     } @catch (NSException *exception) {
         NSLog(@"ERROR - %@",[NSString stringWithFormat:@"%@",[exception reason]]);
+        [FormFunctions LogExceptionErrorfromLocation:@"DatabaseManagement.startiCloudSync" ErrorMessage:exception];
     }
 }
 @end

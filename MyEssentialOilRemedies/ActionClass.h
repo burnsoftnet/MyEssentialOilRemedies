@@ -11,6 +11,7 @@
 #import <sqlite3.h>
 #import "BurnSoftDatabase.h"
 #import "BurnSoftGeneral.h"
+#import "FormFunctions.h"
 
 @interface ActionClass : UIViewController <UIActionSheetDelegate,NSXMLParserDelegate>
 
