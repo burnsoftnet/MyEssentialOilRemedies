@@ -16,9 +16,8 @@
 #pragma mark Create an Action Sheet for iPhone and iPad to send data to another device
 /*! @brief  Create an Action Sheet to send data to another apple device using the action sheets
  */
-+(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects eMailSubject:(NSString *) emailSubject
++(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects eMailSubject:(NSString *) emailSubject __attribute__((deprecated("Action Replaced with sinular function but additional parameter")));
 {
-#warning #111 Possible section to fix ipad action
     @try {
         UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:ActionObjects applicationActivities:nil];
         [controller setValue:emailSubject forKey:@"subject"];
@@ -35,10 +34,47 @@
             MyViewController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionRight;
             MyViewController.popoverPresentationController.sourceView = MyViewController.view;
 
-            [MyViewController presentViewController:controller animated:YES completion:^{}];
+            //[MyViewController presentViewController:controller animated:YES completion:^{}];
             UIPopoverPresentationController *popController = [controller popoverPresentationController];
             popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
             controller.popoverPresentationController.sourceView = MyViewController.view;
+            [MyViewController presentViewController:controller animated:YES completion:^{}];
+            
+        }
+    } @catch (NSException *exception) {
+        [FormFunctions LogExceptionErrorfromLocation:@"ActionClass.sendToActionSheetViewController" ErrorMessage:exception];
+    }
+
+}
+
+#pragma mark Create an Action Sheet for iPhone and iPad to send data to another device
+/*! @brief  Create an Action Sheet to send data to another apple device using the action sheets
+ */
++(void) sendToActionSheetViewController:(UIViewController *) MyViewController ActionSheetObjects:(NSArray *) ActionObjects eMailSubject:(NSString *) emailSubject ActionButton:(UIBarButtonItem *) actionButton
+{
+    @try {
+        UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:ActionObjects applicationActivities:nil];
+        [controller setValue:emailSubject forKey:@"subject"];
+        
+        //. On iPad, you must present the view controller in a popover. On iPhone and iPod touch, you must present it modally.
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+            //iPhone, present activity view controller as is.
+            [MyViewController presentViewController:controller animated:YES completion:^{}];
+        }
+        else
+        {
+            //iPad, present the view controller inside a popover.
+            MyViewController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionRight;
+            MyViewController.popoverPresentationController.sourceView = MyViewController.view;
+
+            //[MyViewController presentViewController:controller animated:YES completion:^{}];
+            UIPopoverPresentationController *popController = [controller popoverPresentationController];
+            popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+            controller.popoverPresentationController.sourceView = MyViewController.view;
+            controller.popoverPresentationController.sourceRect = actionButton.accessibilityFrame;
+            [MyViewController presentViewController:controller animated:YES completion:^{}];
+            
         }
     } @catch (NSException *exception) {
         [FormFunctions LogExceptionErrorfromLocation:@"ActionClass.sendToActionSheetViewController" ErrorMessage:exception];
