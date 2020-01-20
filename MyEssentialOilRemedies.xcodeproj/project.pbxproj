@@ -1091,7 +1091,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = Universal;
 				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = MF94VYSKL4;
 				INFOPLIST_FILE = MyEssentialOilRemedies/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1112,7 +1112,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = Universal;
 				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = MF94VYSKL4;
 				INFOPLIST_FILE = MyEssentialOilRemedies/Info.plist;
@@ -1134,7 +1134,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = UniversalLite;
 				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = MF94VYSKL4;
 				INFOPLIST_FILE = "MyEssentialOilRemedies/My Essential Oil Remedies Lite.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1155,7 +1155,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = UniversalLite;
 				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = MF94VYSKL4;
 				INFOPLIST_FILE = "MyEssentialOilRemedies/My Essential Oil Remedies Lite.plist";
