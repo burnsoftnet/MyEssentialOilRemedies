@@ -15,6 +15,7 @@
     NSMutableArray *myOilCollection;
     NSString *SelectedCellID;
     int currView;
+    UIBarButtonItem *actionButton;
 }
 
 #pragma mark On Form Load
@@ -28,7 +29,7 @@
     [self loadSettings];
     [self loadData];
     
-    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(startAction)];
+    actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(startAction)];
     NSArray *NavArray = [NSArray new];
     NavArray = [[NSArray alloc] initWithObjects:actionButton, nil];
     self.navigationItem.rightBarButtonItems = NavArray;
@@ -70,7 +71,7 @@
 
     NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText];
     
-    [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Remedy for: %@",self.lblProblem.text]];
+    [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Remedy for: %@",self.lblProblem.text] ActionButton:actionButton];
     
     myOils = nil;
 }

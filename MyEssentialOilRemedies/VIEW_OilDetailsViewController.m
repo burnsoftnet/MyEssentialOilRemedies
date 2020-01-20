@@ -22,6 +22,7 @@
     int currView;
     NSMutableArray *myRelatedRemedies;
     NSString *SelectedCellID;
+    UIBarButtonItem *actionButton;
 }
 
 
@@ -79,10 +80,11 @@
     [self LoadRelatedRemedies];
     [[self RelatedRemediesTable]setDelegate:self];
     [[self RelatedRemediesTable]setDataSource:self];
-   
+    
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editOils)];
     
-    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(startAction)];
+//    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(startAction)];
+    actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(startAction)];
     NSArray *NavArray = [NSArray new];
     NavArray = [[NSArray alloc] initWithObjects:actionButton,editButton, nil];
     self.navigationItem.rightBarButtonItems = NavArray;
@@ -112,8 +114,7 @@
     NSString *outPutFile = [ActionClass writeOilDetailsToFileToSendByName:XMLText];
 
     NSArray *ActionObjects = @[[NSURL fileURLWithPath:outPutFile],rawText];
-    
-    [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Details for: %@",self.lblName.text]];
+    [ActionClass sendToActionSheetViewController:self ActionSheetObjects:ActionObjects eMailSubject:[NSString stringWithFormat:@"Oil Details for: %@",self.lblName.text] ActionButton:actionButton];
 }
 
 #pragma mark Change Views
