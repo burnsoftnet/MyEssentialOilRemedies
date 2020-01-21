@@ -138,9 +138,10 @@
     [[cell textLabel]setText:currentValue];
     return cell;
 }
-
 #pragma mark Prepare for Segue
 /*! @brief Actions to take before switching to the next window
+    @discussion This is the section that is activated when you search for something and then click on the results.
+                if you scroll through the list without searching and click on something, it uses something else.
  */
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -148,9 +149,22 @@
         VIEW_OilDetailsViewController *destViewController = (VIEW_OilDetailsViewController *)segue.destinationViewController;
         destViewController.OID = SelectedCellID;
     } else if ([segue.identifier isEqualToString:@"segueViewRemedyFromSearch"]){
+#warning #114  Not displaying in iOS 12 @ iOS 13 iPad
         VIEW_RemedyViewController *destViewController = (VIEW_RemedyViewController *)segue.destinationViewController;
         destViewController.RID = SelectedCellID;
+        
+        UIViewController *dvc = segue.destinationViewController;
+        UIPopoverPresentationController *controller = dvc.popoverPresentationController;
+        if (controller) {
+            controller.delegate = self;
+        }
     }
 
 }
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+
+    return UIModalPresentationNone;
+}
+
 @end
