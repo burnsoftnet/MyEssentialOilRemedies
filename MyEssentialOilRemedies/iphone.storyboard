@@ -1827,11 +1827,11 @@
                         <viewControllerLayoutGuide type="bottom" id="3PA-5e-RF6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QAu-aQ-m5Y">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="1151"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="1180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="6h6-Do-rKi">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="1151"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="1180"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zCj-0x-TkE">
                                         <rect key="frame" x="0.0" y="5" width="400" height="1199"/>
@@ -2097,6 +2097,7 @@
                             <constraint firstAttribute="bottom" secondItem="6h6-Do-rKi" secondAttribute="bottom" id="vvi-8l-H3U"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7db-e3-pp1"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="1200"/>
                     <connections>
@@ -2386,45 +2387,100 @@
                                             <constraint firstItem="Aut-Fj-6Yg" firstAttribute="leading" secondItem="IWA-zl-aO7" secondAttribute="leading" id="iKq-vX-uvr"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8rt-pB-YdB" userLabel="View Description">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rt-pB-YdB" userLabel="View Description">
                                         <rect key="frame" x="20" y="20" width="400" height="800"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Problem:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TI1-BS-1k9">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Problem:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TI1-BS-1k9">
                                                 <rect key="frame" x="20" y="78" width="69" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLa-70-U6b">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLa-70-U6b">
                                                 <rect key="frame" x="20" y="116" width="93" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aee-QO-DCG">
-                                                <rect key="frame" x="124" y="78" width="248" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aee-QO-DCG">
+                                                <rect key="frame" x="124" y="78" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="drO-d4-Rz3">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="drO-d4-Rz3">
                                                 <rect key="frame" x="20" y="145" width="354" height="450"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="450" id="Xc7-lH-6Pm"/>
+                                                </constraints>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tz2-e5-o9j">
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
+                                                <items>
+                                                    <barButtonItem title="Description" id="63R-NK-3qf">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbDescription:" destination="LWC-eD-2yp" id="LXZ-E2-aBN"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Oils" width="50" id="AAy-vd-lch">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbOils:" destination="LWC-eD-2yp" id="i9a-qR-5eI"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Uses" id="6a2-os-qXV">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbUses:" destination="LWC-eD-2yp" id="kND-EM-Vty"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Edit" id="NJ7-YI-uEY">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbSave:" destination="OiB-G1-D7m" id="wte-hV-Qbn"/>
+                                                            <segue destination="mYW-fm-K7V" kind="show" identifier="segueEditRemedyFromSearch" id="FVx-dx-Rr4"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem width="55.5" style="plain" systemItem="fixedSpace" id="As1-CP-9Tr"/>
+                                                    <barButtonItem title="Close" id="Lul-qV-92f">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbClose:" destination="LWC-eD-2yp" id="2I3-0A-6Of"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                                <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </toolbar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Tz2-e5-o9j" firstAttribute="top" secondItem="8rt-pB-YdB" secondAttribute="top" id="3ab-LD-bci"/>
+                                            <constraint firstItem="LLa-70-U6b" firstAttribute="top" secondItem="TI1-BS-1k9" secondAttribute="bottom" constant="17" id="B6h-6M-DLO"/>
+                                            <constraint firstItem="Tz2-e5-o9j" firstAttribute="leading" secondItem="8rt-pB-YdB" secondAttribute="leading" id="BWe-gC-FD6"/>
+                                            <constraint firstItem="TI1-BS-1k9" firstAttribute="leading" secondItem="LLa-70-U6b" secondAttribute="leading" id="Bpj-if-D88"/>
+                                            <constraint firstItem="drO-d4-Rz3" firstAttribute="top" secondItem="LLa-70-U6b" secondAttribute="bottom" constant="8" id="Ddw-bM-CUo"/>
+                                            <constraint firstItem="TI1-BS-1k9" firstAttribute="leading" secondItem="drO-d4-Rz3" secondAttribute="leading" id="IMO-zf-MTB"/>
+                                            <constraint firstItem="TI1-BS-1k9" firstAttribute="top" secondItem="Tz2-e5-o9j" secondAttribute="bottom" constant="34" id="To0-PI-6Y0"/>
+                                            <constraint firstItem="aee-QO-DCG" firstAttribute="leading" secondItem="TI1-BS-1k9" secondAttribute="trailing" constant="35" id="UOM-Kb-iOZ"/>
+                                            <constraint firstItem="TI1-BS-1k9" firstAttribute="baseline" secondItem="aee-QO-DCG" secondAttribute="baseline" id="YCd-VH-lJD"/>
+                                            <constraint firstAttribute="trailing" secondItem="drO-d4-Rz3" secondAttribute="trailing" constant="26" id="fIx-qM-gm2"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tz2-e5-o9j" secondAttribute="trailing" id="gTl-px-ryu"/>
+                                            <constraint firstItem="TI1-BS-1k9" firstAttribute="leading" secondItem="8rt-pB-YdB" secondAttribute="leading" constant="20" id="ibo-wd-Q0K"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8rt-pB-YdB" secondAttribute="bottom" id="08t-qg-Fp6"/>
+                                    <constraint firstItem="IWA-zl-aO7" firstAttribute="top" secondItem="8rt-pB-YdB" secondAttribute="top" id="1Cp-Jf-P1t"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="trailing" secondItem="oBG-Xk-X7Z" secondAttribute="trailing" id="3Wa-W2-otp"/>
+                                    <constraint firstItem="IWA-zl-aO7" firstAttribute="trailing" secondItem="8rt-pB-YdB" secondAttribute="trailing" id="4KI-UU-t9Y"/>
+                                    <constraint firstItem="IWA-zl-aO7" firstAttribute="leading" secondItem="8rt-pB-YdB" secondAttribute="leading" id="EH7-sJ-jp3"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="leading" secondItem="byh-cP-uwo" secondAttribute="leading" constant="20" id="Pzg-NP-gNT"/>
                                     <constraint firstItem="oBG-Xk-X7Z" firstAttribute="leading" secondItem="IWA-zl-aO7" secondAttribute="leading" id="S2m-Ze-tG3"/>
                                     <constraint firstItem="oBG-Xk-X7Z" firstAttribute="bottom" secondItem="IWA-zl-aO7" secondAttribute="bottom" id="dCc-VN-nFP"/>
@@ -2436,54 +2492,12 @@
                                     <constraint firstAttribute="trailing" secondItem="oBG-Xk-X7Z" secondAttribute="trailing" constant="20" id="rI6-o5-ULx"/>
                                 </constraints>
                             </scrollView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tz2-e5-o9j">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
-                                <items>
-                                    <barButtonItem title="Description" id="63R-NK-3qf">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="tbDescription:" destination="LWC-eD-2yp" id="LXZ-E2-aBN"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Oils" width="50" id="AAy-vd-lch">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="tbOils:" destination="LWC-eD-2yp" id="i9a-qR-5eI"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Uses" id="6a2-os-qXV">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="tbUses:" destination="LWC-eD-2yp" id="kND-EM-Vty"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Edit" id="NJ7-YI-uEY">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="tbSave:" destination="OiB-G1-D7m" id="wte-hV-Qbn"/>
-                                            <segue destination="mYW-fm-K7V" kind="show" identifier="segueEditRemedyFromSearch" id="FVx-dx-Rr4"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="55.5" style="plain" systemItem="fixedSpace" id="As1-CP-9Tr"/>
-                                    <barButtonItem title="Close" id="Lul-qV-92f">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="tbClose:" destination="LWC-eD-2yp" id="2I3-0A-6Of"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="byh-cP-uwo" firstAttribute="top" secondItem="5Se-Br-xyE" secondAttribute="topMargin" constant="-20" id="DVM-RC-EKw"/>
-                            <constraint firstItem="byh-cP-uwo" firstAttribute="centerX" secondItem="Tz2-e5-o9j" secondAttribute="centerX" id="PPP-lQ-1EM"/>
-                            <constraint firstItem="Tz2-e5-o9j" firstAttribute="leading" secondItem="5Se-Br-xyE" secondAttribute="leading" id="TBA-Wc-skh"/>
-                            <constraint firstAttribute="trailing" secondItem="Tz2-e5-o9j" secondAttribute="trailing" id="VFo-0C-iZp"/>
                             <constraint firstItem="byh-cP-uwo" firstAttribute="centerY" secondItem="5Se-Br-xyE" secondAttribute="centerY" id="bTt-ge-YoC"/>
-                            <constraint firstItem="Tz2-e5-o9j" firstAttribute="top" secondItem="g89-ST-Cu7" secondAttribute="bottom" id="ssK-bh-alS"/>
+                            <constraint firstItem="byh-cP-uwo" firstAttribute="centerX" secondItem="5Se-Br-xyE" secondAttribute="centerX" id="hEq-Xw-xro"/>
                             <constraint firstItem="byh-cP-uwo" firstAttribute="leading" secondItem="5Se-Br-xyE" secondAttribute="leadingMargin" constant="-40" id="z7c-zH-8PH"/>
                         </constraints>
                     </view>
@@ -2595,7 +2609,7 @@
         <image name="search.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QYv-jo-sTt"/>
+        <segue reference="FVx-dx-Rr4"/>
         <segue reference="tZI-XI-ca5"/>
         <segue reference="i3e-cA-Y4r"/>
         <segue reference="tE5-8K-Pn9"/>

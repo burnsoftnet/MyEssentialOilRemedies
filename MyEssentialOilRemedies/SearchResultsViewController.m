@@ -156,7 +156,7 @@
         UIViewController *dvc = segue.destinationViewController;
         UIPopoverPresentationController *controller = dvc.popoverPresentationController;
         if (controller) {
-            controller.delegate = self;
+            controller.delegate = [self presentationController ];
         }
     }
 
