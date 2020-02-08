@@ -2385,6 +2385,44 @@
                                             <constraint firstItem="Aut-Fj-6Yg" firstAttribute="leading" secondItem="IWA-zl-aO7" secondAttribute="leading" id="iKq-vX-uvr"/>
                                         </constraints>
                                     </view>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFW-Lg-xJc">
+                                        <rect key="frame" x="20" y="17" width="400" height="44"/>
+                                        <items>
+                                            <barButtonItem title="Description" id="Upb-J6-EN8">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="tbDescription:" destination="LWC-eD-2yp" id="hHr-em-CcL"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Oils" width="50" id="R4p-bq-7tD">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="tbOils:" destination="LWC-eD-2yp" id="yle-Lh-qRB"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Uses" id="v3b-Ms-ADE">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="tbUses:" destination="LWC-eD-2yp" id="vbf-9i-jwt"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Edit" id="Eve-6i-Pja">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="tbSave:" destination="OiB-G1-D7m" id="Cod-a8-s8f"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem width="55.5" style="plain" systemItem="fixedSpace" id="sIW-DL-ED2"/>
+                                            <barButtonItem title="Close" id="P6m-Ci-elg">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="tbClose:" destination="LWC-eD-2yp" id="PDn-av-jnK"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </toolbar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rt-pB-YdB" userLabel="View Description">
                                         <rect key="frame" x="20" y="20" width="400" height="800"/>
                                         <subviews>
@@ -2406,16 +2444,6 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="drO-d4-Rz3">
-                                                <rect key="frame" x="20" y="145" width="354" height="450"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="450" id="Xc7-lH-6Pm"/>
-                                                </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tz2-e5-o9j">
                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
                                                 <items>
@@ -2455,6 +2483,16 @@
                                                 <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </toolbar>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="drO-d4-Rz3">
+                                                <rect key="frame" x="24" y="123" width="354" height="450"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="450" id="Xc7-lH-6Pm"/>
+                                                </constraints>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -2478,6 +2516,7 @@
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="top" secondItem="8rt-pB-YdB" secondAttribute="top" id="1Cp-Jf-P1t"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="trailing" secondItem="oBG-Xk-X7Z" secondAttribute="trailing" id="3Wa-W2-otp"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="trailing" secondItem="8rt-pB-YdB" secondAttribute="trailing" id="4KI-UU-t9Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="kFW-Lg-xJc" secondAttribute="trailing" constant="20" id="4l5-di-esJ"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="leading" secondItem="8rt-pB-YdB" secondAttribute="leading" id="EH7-sJ-jp3"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="leading" secondItem="byh-cP-uwo" secondAttribute="leading" constant="20" id="Pzg-NP-gNT"/>
                                     <constraint firstItem="oBG-Xk-X7Z" firstAttribute="leading" secondItem="IWA-zl-aO7" secondAttribute="leading" id="S2m-Ze-tG3"/>
@@ -2488,6 +2527,8 @@
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="centerY" secondItem="byh-cP-uwo" secondAttribute="centerY" id="mjH-6N-EzW"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="top" secondItem="oBG-Xk-X7Z" secondAttribute="top" id="mq5-Rs-VIY"/>
                                     <constraint firstAttribute="trailing" secondItem="oBG-Xk-X7Z" secondAttribute="trailing" constant="20" id="rI6-o5-ULx"/>
+                                    <constraint firstItem="kFW-Lg-xJc" firstAttribute="top" secondItem="byh-cP-uwo" secondAttribute="top" constant="17" id="vHR-jw-Uvz"/>
+                                    <constraint firstItem="kFW-Lg-xJc" firstAttribute="leading" secondItem="byh-cP-uwo" secondAttribute="leading" constant="20" id="xch-28-Ake"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
