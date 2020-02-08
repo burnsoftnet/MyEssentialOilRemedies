@@ -40,10 +40,14 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    if ([BurnSoftGeneral newFilesfoundProcessing]){
-        LIST_OilsTableViewController *oilController = [LIST_OilsTableViewController new];
-        [AirDropHandler processAllInBoxFilesFromViewController:oilController];
-        oilController = nil;
+    @try {
+         if ([BurnSoftGeneral newFilesfoundProcessing]){
+               LIST_OilsTableViewController *oilController = [LIST_OilsTableViewController new];
+               [AirDropHandler processAllInBoxFilesFromViewController:oilController];
+               oilController = nil;
+           }
+    } @catch (NSException *exception) {
+        NSLog(@"%@",exception);
     }
 }
 
@@ -140,6 +144,7 @@
     }
 }
 
+#pragma mark - application
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
     return YES;
 }

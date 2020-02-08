@@ -842,9 +842,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="LWC-eD-2yp" kind="popoverPresentation" identifier="segueViewRemedyFromSearch" popoverAnchorView="Nax-LM-UxF" id="dD2-6i-bND">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
+                        <segue destination="LWC-eD-2yp" kind="presentation" identifier="segueViewRemedyFromSearch" id="dD2-6i-bND"/>
                         <segue destination="eh9-mG-bCG" kind="show" identifier="segueViewOilFromSearch" id="OGv-12-62f"/>
                     </connections>
                 </tableViewController>

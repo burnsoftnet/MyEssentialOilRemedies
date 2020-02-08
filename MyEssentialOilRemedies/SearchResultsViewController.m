@@ -154,12 +154,15 @@
         destViewController.RID = SelectedCellID;
 
         UIViewController *dvc = segue.destinationViewController;
-        
+
         if (@available(iOS 13.0, *)) {
-            [dvc setModalPresentationStyle: UIModalPresentationFullScreen];
+            [dvc setModalPresentationStyle: UIModalPresentationAutomatic];
+            //[self.navigationController pushViewController:dvc animated:YES];
+            [self.navigationController pushViewController:dvc animated:YES];
+            //[self presentViewController:dvc animated:YES completion:nil];
         } else {
             UIPopoverPresentationController *controller = dvc.popoverPresentationController;
-            
+
                     if (controller) {
                         controller.delegate = nil;
                     }
@@ -168,9 +171,9 @@
 
 }
 
-//- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
-//
-//    return UIModalPresentationNone;
-//}
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+
+    return UIModalPresentationNone;
+}
 
 @end
