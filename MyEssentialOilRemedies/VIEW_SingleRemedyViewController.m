@@ -261,7 +261,7 @@
         PopUpOilSearchViewController *popup = segue.destinationViewController;
         popup.myOilName = SelectedCellID;
         [self setPresentationStyleForSelfController:self presentingController:popup];
-    } else if ([segue.identifier isEqualToString:@"segueEditRemedyFromSearch"]){
+    } else if ([segue.identifier isEqualToString:@"segueEditRemedyFromSearch"] || [segue.identifier isEqualToString:@"segueEditRemedyFromSearch2"] || [segue.identifier isEqualToString:@"segueEditRemedyFromSearch3"]){
         EDIT_RemedyViewController *editMe = segue.destinationViewController;
         editMe.RID=self.RID;
         [self setPresentationStyleForSelfController:self presentingController:editMe];

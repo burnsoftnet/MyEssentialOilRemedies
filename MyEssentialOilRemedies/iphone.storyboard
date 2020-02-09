@@ -2358,6 +2358,45 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oBG-Xk-X7Z" userLabel="View Uses">
                                         <rect key="frame" x="20" y="20" width="400" height="780"/>
                                         <subviews>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uh8-Ey-dha">
+                                                <rect key="frame" x="0.0" y="4" width="400" height="44"/>
+                                                <items>
+                                                    <barButtonItem title="Description" id="6Lp-an-0ZQ">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbDescription:" destination="LWC-eD-2yp" id="3sF-uJ-sLW"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Oils" width="50" id="cnt-2k-KsY">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbOils:" destination="LWC-eD-2yp" id="sKs-rk-ivY"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Uses" id="c0H-rL-Jiw">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbUses:" destination="LWC-eD-2yp" id="zei-HJ-GeM"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Edit" id="GUA-Ch-YeB">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbEdit:" destination="LWC-eD-2yp" id="0zq-h4-Qxp"/>
+                                                            <segue destination="mYW-fm-K7V" kind="show" identifier="segueEditRemedyFromSearch3" id="Adz-j5-60i"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem width="55.5" style="plain" systemItem="fixedSpace" id="TJ8-YZ-bNE"/>
+                                                    <barButtonItem title="Close" id="QdY-jJ-V5B">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbClose:" destination="LWC-eD-2yp" id="UuB-eQ-g7P"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                                <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </toolbar>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0To-Lb-MWJ">
                                                 <rect key="frame" x="12" y="84" width="375" height="631"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2368,6 +2407,14 @@
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Uh8-Ey-dha" firstAttribute="top" secondItem="oBG-Xk-X7Z" secondAttribute="top" constant="4" id="P1D-rc-Mdn"/>
+                                            <constraint firstAttribute="trailing" secondItem="Uh8-Ey-dha" secondAttribute="trailing" id="PUp-dn-297"/>
+                                            <constraint firstItem="Uh8-Ey-dha" firstAttribute="leading" secondItem="oBG-Xk-X7Z" secondAttribute="leading" id="c2c-Tg-WjS"/>
+                                            <constraint firstItem="Uh8-Ey-dha" firstAttribute="leading" secondItem="oBG-Xk-X7Z" secondAttribute="leading" id="hKt-5J-k8p"/>
+                                            <constraint firstItem="Uh8-Ey-dha" firstAttribute="top" secondItem="oBG-Xk-X7Z" secondAttribute="top" constant="4" id="oOw-qN-4NA"/>
+                                            <constraint firstAttribute="trailing" secondItem="Uh8-Ey-dha" secondAttribute="trailing" id="zX0-tU-Q44"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWA-zl-aO7" userLabel="View Oils">
                                         <rect key="frame" x="20" y="20" width="400" height="780"/>
@@ -2376,53 +2423,57 @@
                                                 <rect key="frame" x="0.0" y="64" width="400" height="716"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableView>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6w-n0-A13">
+                                                <rect key="frame" x="0.0" y="4" width="400" height="44"/>
+                                                <items>
+                                                    <barButtonItem title="Description" id="st4-h1-UuG">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbDescription:" destination="LWC-eD-2yp" id="KGb-B0-TQt"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Oils" width="50" id="2KI-ns-4WQ">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbOils:" destination="LWC-eD-2yp" id="jwj-Fc-16N"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Uses" id="Mci-nC-JOr">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbUses:" destination="LWC-eD-2yp" id="StE-1w-xbj"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem title="Edit" id="IPo-pU-8hn">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbEdit:" destination="LWC-eD-2yp" id="W3o-ST-C2k"/>
+                                                            <segue destination="mYW-fm-K7V" kind="show" identifier="segueEditRemedyFromSearch2" id="eoR-0W-1cd"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                    <barButtonItem width="55.5" style="plain" systemItem="fixedSpace" id="YoF-dP-hoF"/>
+                                                    <barButtonItem title="Close" id="Pcb-Br-H3z">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="tbClose:" destination="LWC-eD-2yp" id="czy-ml-ut7"/>
+                                                        </connections>
+                                                    </barButtonItem>
+                                                </items>
+                                                <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </toolbar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Aut-Fj-6Yg" secondAttribute="bottom" id="4r1-jq-JHP"/>
                                             <constraint firstAttribute="trailing" secondItem="Aut-Fj-6Yg" secondAttribute="trailing" id="AJd-5l-Cm2"/>
                                             <constraint firstItem="Aut-Fj-6Yg" firstAttribute="top" secondItem="IWA-zl-aO7" secondAttribute="top" constant="64" id="cb9-Qk-nNC"/>
+                                            <constraint firstItem="s6w-n0-A13" firstAttribute="leading" secondItem="IWA-zl-aO7" secondAttribute="leading" id="fLe-aU-PHV"/>
                                             <constraint firstItem="Aut-Fj-6Yg" firstAttribute="leading" secondItem="IWA-zl-aO7" secondAttribute="leading" id="iKq-vX-uvr"/>
+                                            <constraint firstItem="s6w-n0-A13" firstAttribute="top" secondItem="IWA-zl-aO7" secondAttribute="top" constant="4" id="kFE-LN-xPm"/>
+                                            <constraint firstAttribute="trailing" secondItem="s6w-n0-A13" secondAttribute="trailing" id="sgK-6Z-abf"/>
                                         </constraints>
                                     </view>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFW-Lg-xJc">
-                                        <rect key="frame" x="20" y="17" width="400" height="44"/>
-                                        <items>
-                                            <barButtonItem title="Description" id="Upb-J6-EN8">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="tbDescription:" destination="LWC-eD-2yp" id="hHr-em-CcL"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Oils" width="50" id="R4p-bq-7tD">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="tbOils:" destination="LWC-eD-2yp" id="yle-Lh-qRB"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Uses" id="v3b-Ms-ADE">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="tbUses:" destination="LWC-eD-2yp" id="vbf-9i-jwt"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Edit" id="Eve-6i-Pja">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="tbEdit:" destination="LWC-eD-2yp" id="zV5-nX-ugG"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem width="55.5" style="plain" systemItem="fixedSpace" id="sIW-DL-ED2"/>
-                                            <barButtonItem title="Close" id="P6m-Ci-elg">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="tbClose:" destination="LWC-eD-2yp" id="PDn-av-jnK"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </items>
-                                        <color key="tintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="barTintColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </toolbar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8rt-pB-YdB" userLabel="View Description">
                                         <rect key="frame" x="20" y="20" width="400" height="800"/>
                                         <subviews>
@@ -2516,7 +2567,6 @@
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="top" secondItem="8rt-pB-YdB" secondAttribute="top" id="1Cp-Jf-P1t"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="trailing" secondItem="oBG-Xk-X7Z" secondAttribute="trailing" id="3Wa-W2-otp"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="trailing" secondItem="8rt-pB-YdB" secondAttribute="trailing" id="4KI-UU-t9Y"/>
-                                    <constraint firstAttribute="trailing" secondItem="kFW-Lg-xJc" secondAttribute="trailing" constant="20" id="4l5-di-esJ"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="leading" secondItem="8rt-pB-YdB" secondAttribute="leading" id="EH7-sJ-jp3"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="leading" secondItem="byh-cP-uwo" secondAttribute="leading" constant="20" id="Pzg-NP-gNT"/>
                                     <constraint firstItem="oBG-Xk-X7Z" firstAttribute="leading" secondItem="IWA-zl-aO7" secondAttribute="leading" id="S2m-Ze-tG3"/>
@@ -2527,8 +2577,6 @@
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="centerY" secondItem="byh-cP-uwo" secondAttribute="centerY" id="mjH-6N-EzW"/>
                                     <constraint firstItem="IWA-zl-aO7" firstAttribute="top" secondItem="oBG-Xk-X7Z" secondAttribute="top" id="mq5-Rs-VIY"/>
                                     <constraint firstAttribute="trailing" secondItem="oBG-Xk-X7Z" secondAttribute="trailing" constant="20" id="rI6-o5-ULx"/>
-                                    <constraint firstItem="kFW-Lg-xJc" firstAttribute="top" secondItem="byh-cP-uwo" secondAttribute="top" constant="17" id="vHR-jw-Uvz"/>
-                                    <constraint firstItem="kFW-Lg-xJc" firstAttribute="leading" secondItem="byh-cP-uwo" secondAttribute="leading" constant="20" id="xch-28-Ake"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -2648,7 +2696,7 @@
         <image name="search.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FVx-dx-Rr4"/>
+        <segue reference="Adz-j5-60i"/>
         <segue reference="tZI-XI-ca5"/>
         <segue reference="i3e-cA-Y4r"/>
         <segue reference="tE5-8K-Pn9"/>
