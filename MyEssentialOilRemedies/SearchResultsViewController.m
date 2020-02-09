@@ -149,7 +149,6 @@
         VIEW_OilDetailsViewController *destViewController = (VIEW_OilDetailsViewController *)segue.destinationViewController;
         destViewController.OID = SelectedCellID;
     } else if ([segue.identifier isEqualToString:@"segueViewRemedyFromSearch"]){
-#warning #114  Not displaying in iOS 13 iPad
         VIEW_RemedyViewController *destViewController = (VIEW_RemedyViewController *)segue.destinationViewController;
         destViewController.RID = SelectedCellID;
 
@@ -157,9 +156,7 @@
 
         if (@available(iOS 13.0, *)) {
             [dvc setModalPresentationStyle: UIModalPresentationAutomatic];
-            //[self.navigationController pushViewController:dvc animated:YES];
             [self.navigationController pushViewController:dvc animated:YES];
-            //[self presentViewController:dvc animated:YES completion:nil];
         } else {
             UIPopoverPresentationController *controller = dvc.popoverPresentationController;
 
