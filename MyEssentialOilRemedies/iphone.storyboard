@@ -2409,7 +2409,7 @@
                                             <barButtonItem title="Edit" id="Eve-6i-Pja">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
-                                                    <action selector="tbSave:" destination="OiB-G1-D7m" id="Cod-a8-s8f"/>
+                                                    <action selector="tbEdit:" destination="LWC-eD-2yp" id="zV5-nX-ugG"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem width="55.5" style="plain" systemItem="fixedSpace" id="sIW-DL-ED2"/>
@@ -2468,7 +2468,7 @@
                                                     <barButtonItem title="Edit" id="NJ7-YI-uEY">
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <connections>
-                                                            <action selector="tbSave:" destination="OiB-G1-D7m" id="wte-hV-Qbn"/>
+                                                            <action selector="tbEdit:" destination="LWC-eD-2yp" id="lxo-fx-ROk"/>
                                                             <segue destination="mYW-fm-K7V" kind="show" identifier="segueEditRemedyFromSearch" id="FVx-dx-Rr4"/>
                                                         </connections>
                                                     </barButtonItem>

@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *lblUses;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tbSave;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *tbEdit;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tbClose;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
@@ -39,6 +40,7 @@
 - (IBAction)tbOils:(id)sender;
 - (IBAction)tbUses:(id)sender;
 - (IBAction)tbSave:(id)sender;
+- (IBAction)tbEdit:(id)sender;
 - (IBAction)tbDescription:(id)sender;
 - (IBAction)tbClose:(id)sender;
 

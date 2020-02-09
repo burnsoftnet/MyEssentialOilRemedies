@@ -169,6 +169,18 @@
 - (IBAction)tbSave:(id)sender {
     //[self runToView:@"EditRemedy_Description_ViewController"];
 }
+#pragma mark Send to edit remediy window
+#pragma mark
+/*!
+ @discussion <#description#>
+ @brief  Use the segue to
+ */
+- (IBAction)tbEdit:(id)sender
+{
+    VIEW_SingleRemedyViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"segueEditRemedyFromSearch"];
+    controller.RID = SelectedCellID;
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 #pragma mark Toolbar Description Button
 /*! @brief Switch to the Descriptions view
