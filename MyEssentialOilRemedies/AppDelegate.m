@@ -20,6 +20,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //Parser *parser = [[Parser alloc] init];
+    // Add this if you only want to change Selected Image color
+    // and/or selected image text
+    if (@available(iOS 13.0, *)) {
+        [[UITabBar appearance] setTintColor:[UIColor systemGray6Color]];
+    }else {
+        [[UITabBar appearance] setTintColor:[UIColor darkGrayColor]];
+    }
+    
+    [[UITabBar appearance] setUnselectedItemTintColor:[UIColor blackColor]];
+    
+    // Add this code to change StateNormal text Color,
+       [UITabBarItem.appearance setTitleTextAttributes:
+       @{NSForegroundColorAttributeName : [UIColor blackColor]}
+       forState:UIControlStateNormal];
+
+       // then if StateSelected should be different, you should add this code
+//       [UITabBarItem.appearance setTitleTextAttributes:
+//       @{NSForegroundColorAttributeName : [UIColor purpleColor]}
+//       forState:UIControlStateSelected];
+
     return YES;
 }
 

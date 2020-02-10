@@ -87,7 +87,7 @@
         <scene sceneID="C5O-x6-Iex">
             <objects>
                 <navigationController storyboardIdentifier="OilNavController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yov-bx-CFe" userLabel="Oil Nav Controller" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Oils" image="TBB_oils.png" id="dpg-nn-flY"/>
+                    <tabBarItem key="tabBarItem" title="Oils" image="TB_erlenmeyerFlask_selected.png" selectedImage="TB_erlenmeyerFlask_selected.png" id="dpg-nn-flY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="3Y1-mJ-2vj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2688,16 +2688,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TBB_oils.png" width="30" height="30"/>
         <image name="TBB_remedies.png" width="30" height="30"/>
+        <image name="TB_erlenmeyerFlask_selected.png" width="25" height="25"/>
         <image name="cart-plus.png" width="30" height="40"/>
         <image name="close-icon.png" width="256" height="256"/>
         <image name="gear.png" width="30" height="30"/>
         <image name="search.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Adz-j5-60i"/>
-        <segue reference="tZI-XI-ca5"/>
+        <segue reference="eoR-0W-1cd"/>
+        <segue reference="9Qq-SB-b9d"/>
         <segue reference="i3e-cA-Y4r"/>
         <segue reference="tE5-8K-Pn9"/>
     </inferredMetricsTieBreakers>
