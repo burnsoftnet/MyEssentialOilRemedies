@@ -160,12 +160,17 @@
     return YES;
 }
 
-#pragma mark Table Edit actions
-/*! @brief actions to take when a row has been selected for editing.
- */
--(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-    UITableViewRowAction *OrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Oil is Now In Stock." handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+-(id)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self getRowActions:tableView indexPath:indexPath];
+}
+//-(id)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return [self getRowActions:tableView indexPath:indexPath];
+//}
+#pragma warning "THIS SECTION IS BREAKING"
+-(id)getRowActions:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    UIContextualAction *DoOrderAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive
+      title:@"Oil is Now In Stock."
+    handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         FormFunctions *myFunctions = [FormFunctions new];
         OilLists *a = [self->myReOrderLists objectAtIndex:indexPath.row];
         NSString *Msg;
@@ -185,10 +190,15 @@
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while removing from shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }
         [self reloadData];
+        completionHandler(YES);
     }];
-    OrderAction.backgroundColor = [UIColor darkGrayColor];
+    
+    
+    UISwipeActionsConfiguration *OrderAction = [UISwipeActionsConfiguration configurationWithActions:@[DoOrderAction]];
+    DoOrderAction.backgroundColor = [UIColor darkGrayColor];
+    OrderAction.performsFirstActionWithFullSwipe = NO;
 
-    UITableViewRowAction *DeleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Remove from Cart" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+    UIContextualAction *DoDeleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"Remove from Cart" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         FormFunctions *myFunctions = [FormFunctions new];
         OilLists *a = [self->myReOrderLists objectAtIndex:indexPath.row];
         NSString *Msg;
@@ -202,10 +212,74 @@
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while removing from shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }
         [self reloadData];
+        completionHandler(YES);
     }];
-    DeleteAction.backgroundColor = [UIColor redColor];
+    
+    DoDeleteAction.backgroundColor = [UIColor redColor];
+    UISwipeActionsConfiguration *DeleteAction = [UISwipeActionsConfiguration configurationWithActions:@[DoDeleteAction]];
+    DeleteAction.performsFirstActionWithFullSwipe = NO;
     return  @[DeleteAction,OrderAction];
 }
+
+#pragma mark Table Edit actions
+/*! @brief actions to take when a row has been selected for editing.
+ */
+//-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+//{
+//#pragma warning "This section is uptodate but the function called isn't"
+//    //TODO The Section Below has been updated, but it seems that the function itself is depreciated
+//    UIContextualAction *DoOrderAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive
+//      title:@"Oil is Now In Stock."
+//    handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+//        FormFunctions *myFunctions = [FormFunctions new];
+//        OilLists *a = [self->myReOrderLists objectAtIndex:indexPath.row];
+//        NSString *Msg;
+//        BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+//        int OID = a.OID;
+//        NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=0 where OID=%d",OID];
+//        if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
+//        {
+//            sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=0 where OID=%d",OID];
+//            if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
+//            {
+//                [a updateStockStatus:@"1" OilID:[NSString stringWithFormat:@"%d",OID] DatabasePath:self->dbPathString ErrorMessage:&Msg];
+//                
+//                [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was removed from shopping cart and marked as In Stock!",a.name] MyTitle:@"Order" ViewController:self];
+//            }
+//        } else {
+//            [myFunctions sendMessage:[NSString stringWithFormat:@"Error while removing from shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
+//        }
+//        [self reloadData];
+//        completionHandler(YES);
+//    }];
+//    
+//    
+//    UISwipeActionsConfiguration *OrderAction = [UISwipeActionsConfiguration configurationWithActions:@[DoOrderAction]];
+//    DoOrderAction.backgroundColor = [UIColor darkGrayColor];
+//    OrderAction.performsFirstActionWithFullSwipe = NO;
+//
+//    UIContextualAction *DoDeleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"Remove from Cart" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+//        FormFunctions *myFunctions = [FormFunctions new];
+//        OilLists *a = [self->myReOrderLists objectAtIndex:indexPath.row];
+//        NSString *Msg;
+//        BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+//        int OID = a.OID;
+//        NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=0 where OID=%d",OID];
+//        if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
+//        {
+//            [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was removed from shopping cart!",a.name] MyTitle:@"Order" ViewController:self];
+//        } else {
+//            [myFunctions sendMessage:[NSString stringWithFormat:@"Error while removing from shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
+//        }
+//        [self reloadData];
+//        completionHandler(YES);
+//    }];
+//    
+//    DoDeleteAction.backgroundColor = [UIColor redColor];
+//    UISwipeActionsConfiguration *DeleteAction = [UISwipeActionsConfiguration configurationWithActions:@[DoDeleteAction]];
+//    DeleteAction.performsFirstActionWithFullSwipe = NO;
+//    return  @[DeleteAction,OrderAction];
+//}
 
 #pragma mark Table Row Selected
 /*! @brief actions to take when a row has been selected.
