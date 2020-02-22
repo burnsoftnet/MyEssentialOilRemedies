@@ -395,10 +395,24 @@
     [self performSegueWithIdentifier:@"OilSelected" sender:self];
 }
 
-#pragma mark Table Edit actions
-/*! @brief actions to take when a row has been selected for editing.
+#pragma mark New Table Handlers on Swipe
+/*!
+ @discussion This is the new section that is used in iOS 13 or greater to get rid of the warnings.
+ @brief  trailing swipe action configuration for table row
+ @return return UISwipeActionsConfiguration
  */
--(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+-(id)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self getRowActions:tableView indexPath:indexPath];
+}
+
+#pragma mark Get Ro Actions
+/*!
+ @brief  Contains the action to perform when you swipe on the table
+ @param indexPath of table
+ @return return UISwipeActionConfiguration
+ @remark This is the new section that is used in iOS 13 or greater to get rid of the warnings.
+ */
+-(id)getRowActions:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
 {
     FormFunctions *myFunctions = [FormFunctions new];
     OilLists *obj = [OilLists new];
@@ -407,15 +421,35 @@
     int OID = [cellTag intValue];
     NSString *OIDString = cellTag;
     NSString *OilName = [obj getOilNameByID:OID DatabasePath:dbPathString ErrorMessage:nil];
-    
-    UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){EDIT_OilDetailViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOils"];
+     
+    UIContextualAction *editAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"Edit" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+        EDIT_OilDetailViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOils"];
 
         destViewController.OID = OIDString;
         [self.navigationController pushViewController:destViewController animated:YES];
     }];
+    
     editAction.backgroundColor = [FormFunctions setEditColor];
-    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+    
+    UIContextualAction *reOrderAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"Add to Shopping Cart" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+        OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
+        NSString *Msg;
+        BurnSoftDatabase *myObj = [BurnSoftDatabase new];
+        NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=1 where OID=%d",OID];
+        if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
+        {
+            [a updateStockStatus:@"0" OilID:[NSString stringWithFormat:@"%d",OID] DatabasePath:self->dbPathString ErrorMessage:&Msg];
+            [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was put in the shopping cart!",OilName] MyTitle:@"Order" ViewController:self];
+        } else {
+            [myFunctions sendMessage:[NSString stringWithFormat:@"Error while adding to shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
+        }
 
+        [self reloadData];
+    }];
+    
+    reOrderAction.backgroundColor = [FormFunctions setCartColor];
+    
+    UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"Delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         NSString *Msg;
         BurnSoftDatabase *myObj = [BurnSoftDatabase new];
         NSString *sql = [NSString stringWithFormat:@"Delete from eo_oil_list_details where OID=%d",OID];
@@ -434,26 +468,13 @@
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while deleting! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }
         [self reloadData];
-
     }];
+    
     deleteAction.backgroundColor = [FormFunctions setDeleteColor];
-    UITableViewRowAction *reOrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Add to Shopping Cart" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
-        OilLists *a = [self->myOilCollection objectAtIndex:indexPath.row];
-        NSString *Msg;
-        BurnSoftDatabase *myObj = [BurnSoftDatabase new];
-        NSString *sql = [NSString stringWithFormat:@"UPDATE eo_oil_list_details set reorder=1 where OID=%d",OID];
-        if ([myObj runQuery:sql DatabasePath:self->dbPathString MessageHandler:&Msg])
-        {
-            [a updateStockStatus:@"0" OilID:[NSString stringWithFormat:@"%d",OID] DatabasePath:self->dbPathString ErrorMessage:&Msg];
-            [myFunctions sendMessage:[NSString stringWithFormat:@"%@ was put in the shopping cart!",OilName] MyTitle:@"Order" ViewController:self];
-        } else {
-            [myFunctions sendMessage:[NSString stringWithFormat:@"Error while adding to shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
-        }
-
-        [self reloadData];
-    }];
-    reOrderAction.backgroundColor = [FormFunctions setCartColor];
-    return  @[deleteAction,editAction,reOrderAction];
+    
+    UISwipeActionsConfiguration *swipeActions = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction,editAction,reOrderAction]];
+       swipeActions.performsFirstActionWithFullSwipe = NO;
+       return swipeActions;
 }
 
 #pragma mark Prepare for Segue
