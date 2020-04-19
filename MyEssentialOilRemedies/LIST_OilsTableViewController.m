@@ -405,7 +405,8 @@
     return [self getRowActions:tableView indexPath:indexPath];
 }
 
-#pragma mark Get Ro Actions
+
+#pragma mark Get Row Actions
 /*!
  @brief  Contains the action to perform when you swipe on the table
  @param indexPath of table
