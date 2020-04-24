@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qHe-fy-O4K">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1825,11 +1824,11 @@
                         <viewControllerLayoutGuide type="bottom" id="3PA-5e-RF6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QAu-aQ-m5Y">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="1180"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="1151"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="6h6-Do-rKi">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="1180"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="1151"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zCj-0x-TkE">
                                         <rect key="frame" x="0.0" y="5" width="400" height="1199"/>
@@ -2696,7 +2695,7 @@
         <image name="search.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eoR-0W-1cd"/>
+        <segue reference="QYv-jo-sTt"/>
         <segue reference="9Qq-SB-b9d"/>
         <segue reference="i3e-cA-Y4r"/>
         <segue reference="tE5-8K-Pn9"/>
