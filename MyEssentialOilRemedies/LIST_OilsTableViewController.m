@@ -42,15 +42,15 @@
     
     //Set Tableview to Delete Mode when you swipe left
     self.tableView.allowsSelectionDuringEditing = NO;
-//    [FormFunctions setBackGroundImage:self.view];
-//    [FormFunctions setBackGroundImage: self.myTableView];
+    [FormFunctions setBackGroundImage:self.view];
+    [FormFunctions setBackGroundImage: self.myTableView];
 //    UIGraphicsBeginImageContext(self.view.frame.size);
 //    [[UIImage imageNamed:@"Background2.png"] drawInRect:self.view.bounds];
 //    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 //    UIGraphicsEndImageContext();
-    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed: @"Background2.png"]];
-    self.view.backgroundColor = background;
-    self.myTableView.backgroundColor = background;
+//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed: @"Background2.png"]];
+//    self.view.backgroundColor = background;
+//    self.myTableView.backgroundColor = background;
 }
 
 #pragma mark Add Navigation Button

@@ -142,7 +142,8 @@
  */
 +(UIColor *) setDefaultViewBackground
 {
-    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed: @"Background2.png"]];
+    return background;
     //return nil;
 }
 
