@@ -188,6 +188,7 @@
 		A5CED4E61D26932000090560 /* EDIT_OilDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */; };
 		A5D255891D8B167500977619 /* close-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D255881D8B167500977619 /* close-icon.png */; };
 		A5DFC44C2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */; };
+		A5DFC4572596898600610116 /* RunViewingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DFC4562596898600610116 /* RunViewingTests.m */; };
 		A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */; };
 		A5E15F3F1D1862D30047055D /* ADD_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3E1D1862D30047055D /* ADD_OilDetailsViewController.m */; };
 		A5E28E841D0B500700052005 /* TBB_remedies.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E821D0B500700052005 /* TBB_remedies.png */; };
@@ -351,6 +352,7 @@
 		A5DFC4492596892400610116 /* iOS My Essential Oil Remedies UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS My Essential Oil Remedies UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_My_Essential_Oil_Remedies_UITests.m; sourceTree = "<group>"; };
 		A5DFC44D2596892400610116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5DFC4562596898600610116 /* RunViewingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunViewingTests.m; sourceTree = "<group>"; };
 		A5E15F3A1D1862B40047055D /* VIEW_OilDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_OilDetailsViewController.h; sourceTree = "<group>"; };
 		A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_OilDetailsViewController.m; sourceTree = "<group>"; };
 		A5E15F3D1D1862D30047055D /* ADD_OilDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADD_OilDetailsViewController.h; sourceTree = "<group>"; };
@@ -607,6 +609,7 @@
 		A5DFC44A2596892400610116 /* iOS My Essential Oil Remedies UITests */ = {
 			isa = PBXGroup;
 			children = (
+				A5DFC4562596898600610116 /* RunViewingTests.m */,
 				A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */,
 				A5DFC44D2596892400610116 /* Info.plist */,
 			);
@@ -1059,6 +1062,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5DFC44C2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m in Sources */,
+				A5DFC4572596898600610116 /* RunViewingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
