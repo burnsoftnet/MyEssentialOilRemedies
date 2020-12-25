@@ -57,5 +57,29 @@
 }
 
 - (void)testViewRemedies {
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *tabBar = app.tabBars[@"Tab Bar"];
+    [tabBar.buttons[@"Remedies"] tap];
+    
+    XCUIElementQuery *tablesQuery = app.tables;
+    [tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[@"Detox"]/*[[".cells.staticTexts[@\"Detox\"]",".staticTexts[@\"Detox\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
+    
+    XCUIElement *toolbar = app.toolbars[@"Toolbar"];
+    XCUIElement *oilsButton = toolbar.buttons[@"Oils"];
+    [oilsButton tap];
+    
+    XCUIElement *usesButton = toolbar.buttons[@"Uses"];
+    [usesButton tap];
+    
+    XCUIElement *closeButton = toolbar.buttons[@"Close"];
+    [closeButton tap];
+    [tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[@"Allergy Migraines"]/*[[".cells.staticTexts[@\"Allergy Migraines\"]",".staticTexts[@\"Allergy Migraines\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
+    [toolbar.buttons[@"Description"] tap];
+    [oilsButton tap];
+    [usesButton tap];
+    [closeButton tap];
+    [tabBar.buttons[@"Oils"] tap];
+    
 }
 @end
