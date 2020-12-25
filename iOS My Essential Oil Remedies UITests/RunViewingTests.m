@@ -99,4 +99,19 @@
     [tabBar.buttons[@"Oils"] tap];
     
 }
+
+- (void)testViewSettings {
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *tabBar = app.tabBars[@"Tab Bar"];
+    [tabBar.buttons[@"Settings"] tap];
+    
+    XCUIElementQuery *elementsQuery = app.scrollViews.otherElements;
+    [elementsQuery/*@START_MENU_TOKEN@*/.staticTexts[@"   Use iTunes File Sharing for Backup & Restore   "]/*[[".buttons[@\"   Use iTunes File Sharing for Backup & Restore   \"].staticTexts[@\"   Use iTunes File Sharing for Backup & Restore   \"]",".staticTexts[@\"   Use iTunes File Sharing for Backup & Restore   \"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
+    [app.navigationBars[@"Settings Nav Controller"].buttons[@"Settings"] tap];
+    /*@START_MENU_TOKEN@*/[elementsQuery.staticTexts[@"1.2.15"] pressForDuration:0.9];/*[["elementsQuery.staticTexts[@\"1.2.15\"]","["," tap];"," pressForDuration:0.9];"],[[[-1,0,1]],[[1,3],[1,2]]],[0,0]]@END_MENU_TOKEN@*/
+    /*@START_MENU_TOKEN@*/[elementsQuery.staticTexts[@"1.4"] pressForDuration:0.6];/*[["elementsQuery.staticTexts[@\"1.4\"]","["," tap];"," pressForDuration:0.6];"],[[[-1,0,1]],[[1,3],[1,2]]],[0,0]]@END_MENU_TOKEN@*/
+    [tabBar.buttons[@"Oils"] tap];
+    
+}
 @end
