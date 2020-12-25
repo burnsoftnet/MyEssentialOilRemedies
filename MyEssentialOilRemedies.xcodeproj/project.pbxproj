@@ -187,6 +187,7 @@
 		A5C41FE81D94271700973340 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C41FE71D94271700973340 /* SearchResultsViewController.m */; };
 		A5CED4E61D26932000090560 /* EDIT_OilDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */; };
 		A5D255891D8B167500977619 /* close-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D255881D8B167500977619 /* close-icon.png */; };
+		A5DFC44C2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */; };
 		A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */; };
 		A5E15F3F1D1862D30047055D /* ADD_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3E1D1862D30047055D /* ADD_OilDetailsViewController.m */; };
 		A5E28E841D0B500700052005 /* TBB_remedies.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E821D0B500700052005 /* TBB_remedies.png */; };
@@ -209,6 +210,16 @@
 		A5F605231D1C45CD0059BF27 /* MYSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F605221D1C45CD0059BF27 /* MYSettings.m */; };
 		A5F605261D1C65340059BF27 /* MainStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F605251D1C65340059BF27 /* MainStartViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5DFC44E2596892400610116 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A505B0291D09A76900800310 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A505B0301D09A76900800310;
+			remoteInfo = "My Essential Oil Remedies";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A5033F261E3D3DEF00D22B7D /* iPad_Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-72.png"; sourceTree = "<group>"; };
@@ -337,6 +348,9 @@
 		A5CED4E41D26932000090560 /* EDIT_OilDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDIT_OilDetailViewController.h; sourceTree = "<group>"; };
 		A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDIT_OilDetailViewController.m; sourceTree = "<group>"; };
 		A5D255881D8B167500977619 /* close-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-icon.png"; sourceTree = "<group>"; };
+		A5DFC4492596892400610116 /* iOS My Essential Oil Remedies UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS My Essential Oil Remedies UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_My_Essential_Oil_Remedies_UITests.m; sourceTree = "<group>"; };
+		A5DFC44D2596892400610116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5E15F3A1D1862B40047055D /* VIEW_OilDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_OilDetailsViewController.h; sourceTree = "<group>"; };
 		A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_OilDetailsViewController.m; sourceTree = "<group>"; };
 		A5E15F3D1D1862D30047055D /* ADD_OilDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADD_OilDetailsViewController.h; sourceTree = "<group>"; };
@@ -385,6 +399,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5DFC4462596892400610116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -394,6 +415,7 @@
 				A5A8093A25968720001DB0F5 /* iOSTestPlan.xctestplan */,
 				A5C159511E3C13FC00F9864B /* My Essential Oil Remedies.entitlements */,
 				A505B0331D09A76900800310 /* MyEssentialOilRemedies */,
+				A5DFC44A2596892400610116 /* iOS My Essential Oil Remedies UITests */,
 				A505B0321D09A76900800310 /* Products */,
 				A5C159521E3C153C00F9864B /* Frameworks */,
 			);
@@ -404,6 +426,7 @@
 			children = (
 				A505B0311D09A76900800310 /* My Essential Oil Remedies.app */,
 				A51FBC771F5CBCF2001214B6 /* My Essential Oil Remedies Lite.app */,
+				A5DFC4492596892400610116 /* iOS My Essential Oil Remedies UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -581,6 +604,15 @@
 			path = BurnSoftDatabase;
 			sourceTree = "<group>";
 		};
+		A5DFC44A2596892400610116 /* iOS My Essential Oil Remedies UITests */ = {
+			isa = PBXGroup;
+			children = (
+				A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */,
+				A5DFC44D2596892400610116 /* Info.plist */,
+			);
+			path = "iOS My Essential Oil Remedies UITests";
+			sourceTree = "<group>";
+		};
 		A5E28E7D1D0B4FCE00052005 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +742,24 @@
 			productReference = A51FBC771F5CBCF2001214B6 /* My Essential Oil Remedies Lite.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A5DFC4482596892400610116 /* iOS My Essential Oil Remedies UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5DFC4522596892400610116 /* Build configuration list for PBXNativeTarget "iOS My Essential Oil Remedies UITests" */;
+			buildPhases = (
+				A5DFC4452596892400610116 /* Sources */,
+				A5DFC4462596892400610116 /* Frameworks */,
+				A5DFC4472596892400610116 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5DFC44F2596892400610116 /* PBXTargetDependency */,
+			);
+			name = "iOS My Essential Oil Remedies UITests";
+			productName = "iOS My Essential Oil Remedies UITests";
+			productReference = A5DFC4492596892400610116 /* iOS My Essential Oil Remedies UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -742,6 +792,12 @@
 							};
 						};
 					};
+					A5DFC4482596892400610116 = {
+						CreatedOnToolsVersion = 12.3;
+						DevelopmentTeam = MF94VYSKL4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A505B0301D09A76900800310;
+					};
 				};
 			};
 			buildConfigurationList = A505B02C1D09A76900800310 /* Build configuration list for PBXProject "MyEssentialOilRemedies" */;
@@ -759,6 +815,7 @@
 			targets = (
 				A505B0301D09A76900800310 /* My Essential Oil Remedies */,
 				A51FBC201F5CBCF2001214B6 /* My Essential Oil Remedies Lite */,
+				A5DFC4482596892400610116 /* iOS My Essential Oil Remedies UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -907,6 +964,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5DFC4472596892400610116 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -990,7 +1054,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5DFC4452596892400610116 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5DFC44C2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A5DFC44F2596892400610116 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A505B0301D09A76900800310 /* My Essential Oil Remedies */;
+			targetProxy = A5DFC44E2596892400610116 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A505B0451D09A76900800310 /* LaunchScreen.storyboard */ = {
@@ -1207,6 +1287,52 @@
 			};
 			name = Release;
 		};
+		A5DFC4502596892400610116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MF94VYSKL4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "iOS My Essential Oil Remedies UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.burnsoft.iOS-My-Essential-Oil-Remedies-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "My Essential Oil Remedies";
+			};
+			name = Debug;
+		};
+		A5DFC4512596892400610116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MF94VYSKL4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "iOS My Essential Oil Remedies UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.burnsoft.iOS-My-Essential-Oil-Remedies-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "My Essential Oil Remedies";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1233,6 +1359,15 @@
 			buildConfigurations = (
 				A51FBC751F5CBCF2001214B6 /* Debug */,
 				A51FBC761F5CBCF2001214B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5DFC4522596892400610116 /* Build configuration list for PBXNativeTarget "iOS My Essential Oil Remedies UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5DFC4502596892400610116 /* Debug */,
+				A5DFC4512596892400610116 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
