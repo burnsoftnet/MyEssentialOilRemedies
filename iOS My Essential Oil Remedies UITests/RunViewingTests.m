@@ -82,4 +82,21 @@
     [tabBar.buttons[@"Oils"] tap];
     
 }
+
+- (void)testViewShopping {
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *tabBar = app.tabBars[@"Tab Bar"];
+    [tabBar.buttons[@"Shopping"] tap];
+    
+    XCUIElementQuery *tablesQuery = app.tables;
+    [[tablesQuery.cells containingType:XCUIElementTypeStaticText identifier:@"Lemon"].element tap];
+    
+    XCUIElement *shoppingCartButton = app.navigationBars[@"View Oil Details"].buttons[@"Shopping Cart"];
+    [shoppingCartButton tap];
+    [[tablesQuery.cells containingType:XCUIElementTypeStaticText identifier:@"Orange"].element tap];
+    [shoppingCartButton tap];
+    [tabBar.buttons[@"Oils"] tap];
+    
+}
 @end
