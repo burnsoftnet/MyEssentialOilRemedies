@@ -318,6 +318,7 @@
 		A5A149DE1F5CE57A007B3371 /* lite_Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon@2x.png"; sourceTree = "<group>"; };
 		A5A149DF1F5CE57A007B3371 /* lite_iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lite_iTunesArtwork.png; sourceTree = "<group>"; };
 		A5A149E01F5CE57A007B3371 /* lite_iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		A5A8093A25968720001DB0F5 /* iOSTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iOSTestPlan.xctestplan; sourceTree = "<group>"; };
 		A5AA21A61D52377200B42F4A /* Add_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Add_RemedyViewController.h; sourceTree = "<group>"; };
 		A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Add_RemedyViewController.m; sourceTree = "<group>"; };
 		A5AA21A91D52379300B42F4A /* VIEW_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_RemedyViewController.h; sourceTree = "<group>"; };
@@ -390,6 +391,7 @@
 		A505B0281D09A76900800310 = {
 			isa = PBXGroup;
 			children = (
+				A5A8093A25968720001DB0F5 /* iOSTestPlan.xctestplan */,
 				A5C159511E3C13FC00F9864B /* My Essential Oil Remedies.entitlements */,
 				A505B0331D09A76900800310 /* MyEssentialOilRemedies */,
 				A505B0321D09A76900800310 /* Products */,
