@@ -60,35 +60,12 @@
     XCUIElementQuery *elementsQuery = scrollViewsQuery.otherElements;
     [elementsQuery.textFields[@"Name on Bottle"] tap];
     
-    [General sendTextToKeyBoard:app2 :oilName];
+    [General sendTextToKeyBoard:app :oilName];
     
-//    XCUIElement *nKey = app2/*@START_MENU_TOKEN@*/.keys[@"N"]/*[[".keyboards.keys[@\"N\"]",".keys[@\"N\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
-//    [nKey tap];
-//    [nKey tap];
-//
-//    XCUIElement *aKey = app2/*@START_MENU_TOKEN@*/.keys[@"a"]/*[[".keyboards.keys[@\"a\"]",".keys[@\"a\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
-//    [aKey tap];
-//    [aKey tap];
-//
-//    XCUIElement *mKey = app2/*@START_MENU_TOKEN@*/.keys[@"m"]/*[[".keyboards.keys[@\"m\"]",".keys[@\"m\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
-//    [mKey tap];
-//    [mKey tap];
-//
-//    XCUIElement *eKey = app2/*@START_MENU_TOKEN@*/.keys[@"e"]/*[[".keyboards.keys[@\"e\"]",".keys[@\"e\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
-//    [eKey tap];
-//    [eKey tap];
     [elementsQuery.textFields[@"Also Known As"] tap];
-    [General sendTextToKeyBoard:app2 :commonName];
+    [General sendTextToKeyBoard:app :commonName];
     
-//    XCUIElement *cKey = app2/*@START_MENU_TOKEN@*/.keys[@"C"]/*[[".keyboards.keys[@\"C\"]",".keys[@\"C\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
-//    [cKey tap];
-//    [cKey tap];
-//
-//    XCUIElement *oKey = app2/*@START_MENU_TOKEN@*/.keys[@"o"]/*[[".keyboards.keys[@\"o\"]",".keys[@\"o\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
-//    [oKey tap];
-//    [oKey tap];
-//    [mKey tap];
-//    [mKey tap];
+
     [elementsQuery.textFields[@"Formal Scientific Name"] tap];
     [General sendTextToKeyBoard:app2 :botName];
 //    XCUIElement *bKey = app2/*@START_MENU_TOKEN@*/.keys[@"B"]/*[[".keyboards.keys[@\"B\"]",".keys[@\"B\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
