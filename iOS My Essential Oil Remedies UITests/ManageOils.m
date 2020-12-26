@@ -15,8 +15,8 @@
 
 @implementation ManageOils
 {
-    NSString *remedyName;
-    NSString *remedyIngrediants;
+    NSString *oilName;
+    NSString *oilIngrediants;
     NSString *Description;
     NSString *website;
     NSString *commonName;
@@ -29,12 +29,12 @@
     
     // In UI tests it is usually best to stop immediately when a failure occurs.
     self.continueAfterFailure = NO;
-    remedyName=@"Rosemary v2";
-    remedyIngrediants=@"Rosemary (Rosmarinus officinalis) leaf oil.  Rosemary Oil is extracted from the flowering rosemary tops using the steam distillation method";
+    oilName=@"Rosemary v2";
+    oilIngrediants=@"Rosemary (Rosmarinus officinalis) leaf oil.  Rosemary Oil is extracted from the flowering rosemary tops using the steam distillation method";
     safe=@"yeah it's safe";
     Description=@"Rosemary is a familiar herb with a strong woodsy scent that can promote feelings of clarity. Used in shampoos to enhance the color of dark hair, counters split ends, and reduces static charge. Great in massage oils and in the bath. Said to aid the memory.Blends well with clary sage pine, oregano, basil, geranium, tea tree, cinnamon, eucalyptus, thyme, peppermint, grapefruit, black pepper, bergamot, mandarin, frankincense, lemon, cedarwood, and lavender.  Aids with skin conditions such as acne, eczema, varicose veins, greasy skin, oily skin, dry skin, and insect bites.  Highly regarded for assisting with memory.  Cosmetically other than the use in skin care products it is commonly used in hair care products such as shampoos, conditioners, hair treatments, used to increase hair growth naturally as well.  Relieves symptoms of the common cold including, headache, fatigue, exhaustion, diarrhea, constipation, cough, whooping cough, and overall body discomfort.  Because it is a natural anti-inflammatory it may be used to treat rheumatism, arthritis, muscle pain, joint pain, and sore muscles.";
     website=@"http://www.burnsoft.net";
-    commonName=remedyName;
+    commonName=oilName;
     botName=@"Rosmarinus officinalis";
     vendor=@"BurnSoft";
     
@@ -48,7 +48,7 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
-- (void)testAddRemedy {
+- (void)testAddOil {
     
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
@@ -60,7 +60,7 @@
     XCUIElementQuery *elementsQuery = scrollViewsQuery.otherElements;
     [elementsQuery.textFields[@"Name on Bottle"] tap];
     
-    [General sendTextToKeyBoard:app2 :remedyName];
+    [General sendTextToKeyBoard:app2 :oilName];
     
 //    XCUIElement *nKey = app2/*@START_MENU_TOKEN@*/.keys[@"N"]/*[[".keyboards.keys[@\"N\"]",".keys[@\"N\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
 //    [nKey tap];
@@ -103,7 +103,7 @@
 //
     XCUIElementQuery *nameOnBottleElementsQuery = [scrollViewsQuery.otherElements containingType:XCUIElementTypeTextField identifier:@"Name on Bottle"];
     [[[nameOnBottleElementsQuery childrenMatchingType:XCUIElementTypeTextView] elementBoundByIndex:0] tap];
-    [General sendTextToKeyBoard:app2 :remedyIngrediants];
+    [General sendTextToKeyBoard:app2 :oilIngrediants];
 //    XCUIElement *iKey = app2/*@START_MENU_TOKEN@*/.keys[@"I"]/*[[".keyboards.keys[@\"I\"]",".keys[@\"I\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
 //    [iKey tap];
 //    [iKey tap];
