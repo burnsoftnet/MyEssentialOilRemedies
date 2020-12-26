@@ -48,6 +48,22 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
+- (void)testAddOilJunk {
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    [app.navigationBars[@"Oils"].buttons[@"Add"] tap];
+    [app.scrollViews.otherElements.textFields[@"Name on Bottle"] tap];
+    
+    XCUIElement *moreKey = app.keys[@"more"];
+    [moreKey tap];
+    [moreKey tap];
+    
+    XCUIElement *key = app/*@START_MENU_TOKEN@*/.keys[@"4"]/*[[".keyboards.keys[@\"4\"]",".keys[@\"4\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
+    [key tap];
+    [key tap];
+    [app/*@START_MENU_TOKEN@*/.keys[@"5"]/*[[".keyboards.keys[@\"5\"]",".keys[@\"5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
+
+}
 - (void)testAddOil {
     
     

@@ -19,6 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
  @param value - the string that you want to take apart to send to keyboard
  */
 +(void)sendTextToKeyBoard:(XCUIApplication *) app :(NSString *) value;
+
+#pragma mark Is Numeric
+/*! @brief This will return true if the value is a number, false if it isn't
+*/
++(BOOL) isNumeric :(NSString *) sValue;
+
 @end
 
 NS_ASSUME_NONNULL_END
