@@ -24,6 +24,7 @@
     [value getCharacters:buffer range:NSMakeRange(0, len)];
 
     NSLog(@"getCharacters:range: with unichar buffer");
+    BOOL wasNumeric = NO;
     for(int i = 0; i < len; i++) {
         NSString *newValue = [NSString stringWithFormat:@"%C", buffer[i]];
 
@@ -32,9 +33,37 @@
             if ([newValue isEqual:@" "])
             {
                 newValue = @"space";
+            }else if ([General isNumeric:newValue])
+            {
+                wasNumeric = YES;
+                [app.keys[@"more"] tap];
             }
             [app.keys[newValue] tap];
+            if (wasNumeric)
+            {
+                [app.keys[@"more"] tap];
+                wasNumeric = NO;
+            }
         }
     }
+}
+
+#pragma mark Is Numeric
+/*! @brief This will return true if the value is a number, false if it isn't
+*/
++(BOOL) isNumeric :(NSString *) sValue
+{
+    static BOOL bAns = NO;
+    NSScanner *scanner = [NSScanner scannerWithString:sValue];
+    if ([sValue length] != 0)
+    {
+        if ([scanner scanInteger:NULL] && [scanner isAtEnd])
+        {
+            bAns = YES;
+        }
+    } else {
+        bAns = YES;
+    }
+    return bAns;
 }
 @end

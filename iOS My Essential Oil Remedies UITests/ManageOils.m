@@ -29,7 +29,7 @@
     
     // In UI tests it is usually best to stop immediately when a failure occurs.
     self.continueAfterFailure = NO;
-    oilName=@"Rosemary v2";
+    oilName=@"Rosemary V2";
     oilIngrediants=@"Rosemary (Rosmarinus officinalis) leaf oil.  Rosemary Oil is extracted from the flowering rosemary tops using the steam distillation method";
     safe=@"yeah it's safe";
     Description=@"Rosemary is a familiar herb with a strong woodsy scent that can promote feelings of clarity. Used in shampoos to enhance the color of dark hair, counters split ends, and reduces static charge. Great in massage oils and in the bath. Said to aid the memory.Blends well with clary sage pine, oregano, basil, geranium, tea tree, cinnamon, eucalyptus, thyme, peppermint, grapefruit, black pepper, bergamot, mandarin, frankincense, lemon, cedarwood, and lavender.  Aids with skin conditions such as acne, eczema, varicose veins, greasy skin, oily skin, dry skin, and insect bites.  Highly regarded for assisting with memory.  Cosmetically other than the use in skin care products it is commonly used in hair care products such as shampoos, conditioners, hair treatments, used to increase hair growth naturally as well.  Relieves symptoms of the common cold including, headache, fatigue, exhaustion, diarrhea, constipation, cough, whooping cough, and overall body discomfort.  Because it is a natural anti-inflammatory it may be used to treat rheumatism, arthritis, muscle pain, joint pain, and sore muscles.";
@@ -50,18 +50,20 @@
 
 - (void)testAddOilJunk {
     
+    
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app.navigationBars[@"Oils"].buttons[@"Add"] tap];
     [app.scrollViews.otherElements.textFields[@"Name on Bottle"] tap];
     
-    XCUIElement *moreKey = app.keys[@"more"];
+    XCUIElement *moreKey = app/*@START_MENU_TOKEN@*/.keys[@"more"]/*[[".keyboards",".keys[@\"numbers\"]",".keys[@\"more\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/;
     [moreKey tap];
     [moreKey tap];
     
-    XCUIElement *key = app/*@START_MENU_TOKEN@*/.keys[@"4"]/*[[".keyboards.keys[@\"4\"]",".keys[@\"4\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
+    XCUIElement *key = app/*@START_MENU_TOKEN@*/.keys[@"2"]/*[[".keyboards.keys[@\"2\"]",".keys[@\"2\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/;
     [key tap];
     [key tap];
-    [app/*@START_MENU_TOKEN@*/.keys[@"5"]/*[[".keyboards.keys[@\"5\"]",".keys[@\"5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
+    [app/*@START_MENU_TOKEN@*/.keys[@"more"]/*[[".keyboards",".keys[@\"letters\"]",".keys[@\"more\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/ tap];
+    
 
 }
 - (void)testAddOil {
