@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "General.h"
 
 @interface ManageOils : XCTestCase
 
