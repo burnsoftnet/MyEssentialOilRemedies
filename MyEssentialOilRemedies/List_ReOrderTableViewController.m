@@ -159,13 +159,28 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-
-#pragma mark Table Edit actions
-/*! @brief actions to take when a row has been selected for editing.
+#pragma mark New Table Handlers on Swipe
+/*!
+ @discussion This is the new section that is used in iOS 13 or greater to get rid of the warnings.
+ @brief  trailing swipe action configuration for table row
+ @return return UISwipeActionsConfiguration
  */
--(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-    UITableViewRowAction *OrderAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Oil is Now In Stock." handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+-(id)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self getRowActions:tableView indexPath:indexPath];
+}
+
+#pragma mark Get Ro Actions
+/*!
+ @brief  Contains the action to perform when you swipe on the table
+ @param indexPath of table
+ @return return UISwipeActionConfiguration
+ @remark This is the new section that is used in iOS 13 or greater to get rid of the warnings.
+ */
+-(id)getRowActions:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    
+    UIContextualAction *DoOrderAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive
+      title:@"Oil is Now In Stock."
+    handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         FormFunctions *myFunctions = [FormFunctions new];
         OilLists *a = [self->myReOrderLists objectAtIndex:indexPath.row];
         NSString *Msg;
@@ -185,10 +200,13 @@
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while removing from shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }
         [self reloadData];
+        completionHandler(YES);
     }];
-    OrderAction.backgroundColor = [UIColor darkGrayColor];
+    
+      DoOrderAction.backgroundColor = [UIColor darkGrayColor];
 
-    UITableViewRowAction *DeleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Remove from Cart" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+
+    UIContextualAction *DoDeleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"Remove from Cart" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         FormFunctions *myFunctions = [FormFunctions new];
         OilLists *a = [self->myReOrderLists objectAtIndex:indexPath.row];
         NSString *Msg;
@@ -202,9 +220,14 @@
             [myFunctions sendMessage:[NSString stringWithFormat:@"Error while removing from shopping cart! %@",Msg] MyTitle:@"ERROR" ViewController:self];
         }
         [self reloadData];
+        completionHandler(YES);
     }];
-    DeleteAction.backgroundColor = [UIColor redColor];
-    return  @[DeleteAction,OrderAction];
+    
+    DoDeleteAction.backgroundColor = [UIColor redColor];
+
+    UISwipeActionsConfiguration *swipeActions = [UISwipeActionsConfiguration configurationWithActions:@[DoOrderAction, DoDeleteAction]];
+    swipeActions.performsFirstActionWithFullSwipe = NO;
+    return swipeActions;
 }
 
 #pragma mark Table Row Selected

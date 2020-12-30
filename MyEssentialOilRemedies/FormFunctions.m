@@ -64,6 +64,7 @@
 +(void) setBackGroundImage:(UIView *) myview
 {
     myview.backgroundColor = [self setDefaultViewBackground];
+    myview.autoresizingMask = YES;
 }
 #pragma mark Set Highlite color
 /*! @brief  Set the color of the highlight that you want to use
@@ -141,8 +142,21 @@
  */
 +(UIColor *) setDefaultViewBackground
 {
-    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed: @"Background2.png"]];
+    return background;
+    //return nil;
 }
+
++(UIColor *) setDefaultViewBackground2:(UIView *) myview
+{
+    
+    
+    //[image]
+    //return [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2.png"]];
+    return nil;
+}
+
+
 /*!
  @brief Set the color of the edit button
  */

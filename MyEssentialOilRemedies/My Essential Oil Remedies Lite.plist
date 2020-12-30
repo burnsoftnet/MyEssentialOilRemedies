@@ -73,6 +73,8 @@
 	<false/>
 	<key>LITE_LIMIT</key>
 	<integer>15</integer>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.reference</string>
 	<key>LSHandlerRank</key>
 	<string>Default</string>
 	<key>LSRequiresIPhoneOS</key>

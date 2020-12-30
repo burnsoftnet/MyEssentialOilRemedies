@@ -331,38 +331,58 @@
     [self performSegueWithIdentifier:@"segueViewRemedy" sender:self];
 }
 
-#pragma mark Table Edit Action was selected
-/*! @brief When the row is swiped to the left to give options to edit or delete, etc.
+#pragma mark New Table Handlers on Swipe
+/*!
+ @discussion This is the new section that is used in iOS 13 or greater to get rid of the warnings.
+ @brief  trailing swipe action configuration for table row
+ @return return UISwipeActionsConfiguration
  */
--(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-    UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){EDIT_RemedyViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditRemedy_Description_ViewController"];
+-(id)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self getRowActions:tableView indexPath:indexPath];
+}
+
+#pragma mark Get Ro Actions
+/*!
+ @brief  Contains the action to perform when you swipe on the table
+ @param indexPath of table
+ @return return UISwipeActionConfiguration
+ @remark This is the new section that is used in iOS 13 or greater to get rid of the warnings.
+ */
+-(id)getRowActions:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    
+    UIContextualAction *editAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"Edit" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+        EDIT_RemedyViewController *destViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditRemedy_Description_ViewController"];
         
         OilRemedies *a = [self->myRemedyCollection objectAtIndex:indexPath.row];
         destViewController.RID = [NSString stringWithFormat:@"%d",a.RID];
         [self.navigationController pushViewController:destViewController animated:YES];
     }];
+    
     editAction.backgroundColor = [UIColor blueColor];
     
-    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
-    {
-        OilRemedies *a = [self->myRemedyCollection objectAtIndex:indexPath.row];
-        OilRemedies *obj = [OilRemedies new];
-        FormFunctions *objF = [FormFunctions new];
-        NSString *Msg;
-        if ([obj deleteRemedyByID:[NSString stringWithFormat:@"%d",a.RID] DatabasePath:self->dbPathString MessageHandler:&Msg])
-        {
-            [objF sendMessage:[NSString stringWithFormat:@"%@ was deleted!",a.name] MyTitle:@"Delete" ViewController:self];
-            [self->myRemedyCollection removeObjectAtIndex:indexPath.row];
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
-        } else {
-            [objF sendMessage:[NSString stringWithFormat:@"Error while deleting! %@",Msg] MyTitle:@"ERROR" ViewController:self];
-        }
-        [self reloadCrap];
-    }];
-    deleteAction.backgroundColor = [UIColor redColor];
-    return  @[deleteAction,editAction];
+     UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"Delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+         OilRemedies *a = [self->myRemedyCollection objectAtIndex:indexPath.row];
+         OilRemedies *obj = [OilRemedies new];
+         FormFunctions *objF = [FormFunctions new];
+         NSString *Msg;
+         if ([obj deleteRemedyByID:[NSString stringWithFormat:@"%d",a.RID] DatabasePath:self->dbPathString MessageHandler:&Msg])
+         {
+             [objF sendMessage:[NSString stringWithFormat:@"%@ was deleted!",a.name] MyTitle:@"Delete" ViewController:self];
+             [self->myRemedyCollection removeObjectAtIndex:indexPath.row];
+             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
+         } else {
+             [objF sendMessage:[NSString stringWithFormat:@"Error while deleting! %@",Msg] MyTitle:@"ERROR" ViewController:self];
+         }
+         [self reloadCrap];
+     }];
+     
+     deleteAction.backgroundColor = [FormFunctions setDeleteColor];
+     
+     UISwipeActionsConfiguration *swipeActions = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction, editAction]];
+        swipeActions.performsFirstActionWithFullSwipe = NO;
+        return swipeActions;
 }
+
 #pragma mark Side Index Display for the Table
 /*!
  @brief Section index titles for Table View

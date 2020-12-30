@@ -202,16 +202,64 @@
     //Currently does nothing, but is required by the UITableView
 }
 
-#pragma mark Table Edit actions
-/*! @brief actions to take when a row has been selected for editing.
+//#pragma mark Table Edit actions
+///*! @brief actions to take when a row has been selected for editing.
+// */
+//-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+//{
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    NSString *cellTag = [NSString stringWithFormat:@"%@",cell.textLabel.text];
+//    FormFunctions * myObjFF = [FormFunctions new];
+//
+//    UITableViewRowAction *RestoreAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Restore" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+//        if ([BurnSoftDatabase resetDBDirectory])
+//        {
+//            [self RestoreDatabaseforiTunesbyFileName:cellTag];
+//        } else {
+//            [myObjFF sendMessage:@"Unable to delete Main Database before copy" MyTitle:@"Restore Error" ViewController:self];
+//        }
+//        [self reloadData];
+//    }];
+//    RestoreAction.backgroundColor = [UIColor blueColor];
+//    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+//        if ([self DeleteFileByName:cellTag])
+//        {
+//            [myObjFF sendMessage:[NSString stringWithFormat:@"%@ backup file was deleted!",cellTag] MyTitle:@"Backup Deleted" ViewController:self];
+//            [self.myTableView reloadData];
+//        } else {
+//            [myObjFF sendMessage:[NSString stringWithFormat:@"Unable to delete backup file: %@!",cellTag] MyTitle:@"Backup Deleted Error" ViewController:self];
+//        }
+//        [self reloadData];
+//    }];
+//    deleteAction.backgroundColor = [UIColor redColor];
+//    return  @[deleteAction,RestoreAction];
+//}
+
+#pragma mark New Table Handlers on Swipe
+/*!
+ @discussion This is the new section that is used in iOS 13 or greater to get rid of the warnings.
+ @brief  trailing swipe action configuration for table row
+ @return return UISwipeActionsConfiguration
  */
--(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+-(id)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self getRowActions:tableView indexPath:indexPath];
+}
+
+#pragma mark Get Ro Actions
+/*!
+ @brief  Contains the action to perform when you swipe on the table
+ @param indexPath of table
+ @return return UISwipeActionConfiguration
+ @remark This is the new section that is used in iOS 13 or greater to get rid of the warnings.
+ */
+-(id)getRowActions:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellTag = [NSString stringWithFormat:@"%@",cell.textLabel.text];
     FormFunctions * myObjFF = [FormFunctions new];
     
-    UITableViewRowAction *RestoreAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Restore" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+
+    UIContextualAction *restoreAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"Restore" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         if ([BurnSoftDatabase resetDBDirectory])
         {
             [self RestoreDatabaseforiTunesbyFileName:cellTag];
@@ -220,8 +268,10 @@
         }
         [self reloadData];
     }];
-    RestoreAction.backgroundColor = [UIColor blueColor];
-    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+
+    restoreAction.backgroundColor = [UIColor blueColor];
+    
+    UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"Delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         if ([self DeleteFileByName:cellTag])
         {
             [myObjFF sendMessage:[NSString stringWithFormat:@"%@ backup file was deleted!",cellTag] MyTitle:@"Backup Deleted" ViewController:self];
@@ -231,7 +281,12 @@
         }
         [self reloadData];
     }];
+    
     deleteAction.backgroundColor = [UIColor redColor];
-    return  @[deleteAction,RestoreAction];
+    
+    UISwipeActionsConfiguration *swipeActions = [UISwipeActionsConfiguration configurationWithActions:@[deleteAction,restoreAction]];
+       swipeActions.performsFirstActionWithFullSwipe = NO;
+       return swipeActions;
 }
+
 @end

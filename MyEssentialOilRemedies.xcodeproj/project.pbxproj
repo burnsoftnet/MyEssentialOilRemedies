@@ -181,12 +181,17 @@
 		A5AA21A81D52377200B42F4A /* Add_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */; };
 		A5AA21AB1D52379300B42F4A /* VIEW_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AA1D52379300B42F4A /* VIEW_RemedyViewController.m */; };
 		A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */; };
+		A5AF5CCC2597B406007AE8F7 /* ManageOils.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AF5CCB2597B406007AE8F7 /* ManageOils.m */; };
 		A5B02CF11D8846A30004334B /* PopUpOilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B02CF01D8846A30004334B /* PopUpOilViewController.m */; };
 		A5BDC4241E1715E600A98652 /* DBUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BDC4231E1715E600A98652 /* DBUpgrade.m */; };
 		A5C26B551D37BDB000476766 /* iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C26B541D37BDB000476766 /* iphone.storyboard */; };
 		A5C41FE81D94271700973340 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C41FE71D94271700973340 /* SearchResultsViewController.m */; };
 		A5CED4E61D26932000090560 /* EDIT_OilDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */; };
 		A5D255891D8B167500977619 /* close-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D255881D8B167500977619 /* close-icon.png */; };
+		A5DFC44C2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */; };
+		A5DFC4572596898600610116 /* RunViewingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DFC4562596898600610116 /* RunViewingTests.m */; };
+		A5DFC45D2596B02000610116 /* General.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DFC45C2596B02000610116 /* General.m */; };
+		A5DFC4682596B11A00610116 /* ManageRemedies.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DFC4672596B11A00610116 /* ManageRemedies.m */; };
 		A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */; };
 		A5E15F3F1D1862D30047055D /* ADD_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3E1D1862D30047055D /* ADD_OilDetailsViewController.m */; };
 		A5E28E841D0B500700052005 /* TBB_remedies.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E821D0B500700052005 /* TBB_remedies.png */; };
@@ -209,6 +214,16 @@
 		A5F605231D1C45CD0059BF27 /* MYSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F605221D1C45CD0059BF27 /* MYSettings.m */; };
 		A5F605261D1C65340059BF27 /* MainStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F605251D1C65340059BF27 /* MainStartViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5DFC44E2596892400610116 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A505B0291D09A76900800310 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A505B0301D09A76900800310;
+			remoteInfo = "My Essential Oil Remedies";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A5033F261E3D3DEF00D22B7D /* iPad_Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-72.png"; sourceTree = "<group>"; };
@@ -318,12 +333,14 @@
 		A5A149DE1F5CE57A007B3371 /* lite_Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon@2x.png"; sourceTree = "<group>"; };
 		A5A149DF1F5CE57A007B3371 /* lite_iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lite_iTunesArtwork.png; sourceTree = "<group>"; };
 		A5A149E01F5CE57A007B3371 /* lite_iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		A5A8093A25968720001DB0F5 /* iOSTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iOSTestPlan.xctestplan; sourceTree = "<group>"; };
 		A5AA21A61D52377200B42F4A /* Add_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Add_RemedyViewController.h; sourceTree = "<group>"; };
 		A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Add_RemedyViewController.m; sourceTree = "<group>"; };
 		A5AA21A91D52379300B42F4A /* VIEW_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_RemedyViewController.h; sourceTree = "<group>"; };
 		A5AA21AA1D52379300B42F4A /* VIEW_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_RemedyViewController.m; sourceTree = "<group>"; };
 		A5AA21AC1D5237B800B42F4A /* EDIT_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDIT_RemedyViewController.h; sourceTree = "<group>"; };
 		A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDIT_RemedyViewController.m; sourceTree = "<group>"; };
+		A5AF5CCB2597B406007AE8F7 /* ManageOils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManageOils.m; sourceTree = "<group>"; };
 		A5B02CEF1D8846A30004334B /* PopUpOilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpOilViewController.h; sourceTree = "<group>"; };
 		A5B02CF01D8846A30004334B /* PopUpOilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpOilViewController.m; sourceTree = "<group>"; };
 		A5BDC4221E1715E600A98652 /* DBUpgrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUpgrade.h; sourceTree = "<group>"; };
@@ -336,6 +353,13 @@
 		A5CED4E41D26932000090560 /* EDIT_OilDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDIT_OilDetailViewController.h; sourceTree = "<group>"; };
 		A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDIT_OilDetailViewController.m; sourceTree = "<group>"; };
 		A5D255881D8B167500977619 /* close-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-icon.png"; sourceTree = "<group>"; };
+		A5DFC4492596892400610116 /* iOS My Essential Oil Remedies UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS My Essential Oil Remedies UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_My_Essential_Oil_Remedies_UITests.m; sourceTree = "<group>"; };
+		A5DFC44D2596892400610116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5DFC4562596898600610116 /* RunViewingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunViewingTests.m; sourceTree = "<group>"; };
+		A5DFC45B2596B02000610116 /* General.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = General.h; sourceTree = "<group>"; };
+		A5DFC45C2596B02000610116 /* General.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = General.m; sourceTree = "<group>"; };
+		A5DFC4672596B11A00610116 /* ManageRemedies.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManageRemedies.m; sourceTree = "<group>"; };
 		A5E15F3A1D1862B40047055D /* VIEW_OilDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_OilDetailsViewController.h; sourceTree = "<group>"; };
 		A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_OilDetailsViewController.m; sourceTree = "<group>"; };
 		A5E15F3D1D1862D30047055D /* ADD_OilDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADD_OilDetailsViewController.h; sourceTree = "<group>"; };
@@ -384,14 +408,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5DFC4462596892400610116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A505B0281D09A76900800310 = {
 			isa = PBXGroup;
 			children = (
+				A5A8093A25968720001DB0F5 /* iOSTestPlan.xctestplan */,
 				A5C159511E3C13FC00F9864B /* My Essential Oil Remedies.entitlements */,
 				A505B0331D09A76900800310 /* MyEssentialOilRemedies */,
+				A5DFC44A2596892400610116 /* iOS My Essential Oil Remedies UITests */,
 				A505B0321D09A76900800310 /* Products */,
 				A5C159521E3C153C00F9864B /* Frameworks */,
 			);
@@ -402,6 +435,7 @@
 			children = (
 				A505B0311D09A76900800310 /* My Essential Oil Remedies.app */,
 				A51FBC771F5CBCF2001214B6 /* My Essential Oil Remedies Lite.app */,
+				A5DFC4492596892400610116 /* iOS My Essential Oil Remedies UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -579,6 +613,20 @@
 			path = BurnSoftDatabase;
 			sourceTree = "<group>";
 		};
+		A5DFC44A2596892400610116 /* iOS My Essential Oil Remedies UITests */ = {
+			isa = PBXGroup;
+			children = (
+				A5AF5CCB2597B406007AE8F7 /* ManageOils.m */,
+				A5DFC4672596B11A00610116 /* ManageRemedies.m */,
+				A5DFC4562596898600610116 /* RunViewingTests.m */,
+				A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */,
+				A5DFC44D2596892400610116 /* Info.plist */,
+				A5DFC45B2596B02000610116 /* General.h */,
+				A5DFC45C2596B02000610116 /* General.m */,
+			);
+			path = "iOS My Essential Oil Remedies UITests";
+			sourceTree = "<group>";
+		};
 		A5E28E7D1D0B4FCE00052005 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,13 +756,31 @@
 			productReference = A51FBC771F5CBCF2001214B6 /* My Essential Oil Remedies Lite.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A5DFC4482596892400610116 /* iOS My Essential Oil Remedies UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5DFC4522596892400610116 /* Build configuration list for PBXNativeTarget "iOS My Essential Oil Remedies UITests" */;
+			buildPhases = (
+				A5DFC4452596892400610116 /* Sources */,
+				A5DFC4462596892400610116 /* Frameworks */,
+				A5DFC4472596892400610116 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5DFC44F2596892400610116 /* PBXTargetDependency */,
+			);
+			name = "iOS My Essential Oil Remedies UITests";
+			productName = "iOS My Essential Oil Remedies UITests";
+			productReference = A5DFC4492596892400610116 /* iOS My Essential Oil Remedies UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A505B0291D09A76900800310 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = burnsoft;
 				TargetAttributes = {
 					A505B0301D09A76900800310 = {
@@ -740,6 +806,12 @@
 							};
 						};
 					};
+					A5DFC4482596892400610116 = {
+						CreatedOnToolsVersion = 12.3;
+						DevelopmentTeam = MF94VYSKL4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A505B0301D09A76900800310;
+					};
 				};
 			};
 			buildConfigurationList = A505B02C1D09A76900800310 /* Build configuration list for PBXProject "MyEssentialOilRemedies" */;
@@ -757,6 +829,7 @@
 			targets = (
 				A505B0301D09A76900800310 /* My Essential Oil Remedies */,
 				A51FBC201F5CBCF2001214B6 /* My Essential Oil Remedies Lite */,
+				A5DFC4482596892400610116 /* iOS My Essential Oil Remedies UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -905,6 +978,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5DFC4472596892400610116 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -988,7 +1068,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5DFC4452596892400610116 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5AF5CCC2597B406007AE8F7 /* ManageOils.m in Sources */,
+				A5DFC44C2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m in Sources */,
+				A5DFC4572596898600610116 /* RunViewingTests.m in Sources */,
+				A5DFC4682596B11A00610116 /* ManageRemedies.m in Sources */,
+				A5DFC45D2596B02000610116 /* General.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A5DFC44F2596892400610116 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A505B0301D09A76900800310 /* My Essential Oil Remedies */;
+			targetProxy = A5DFC44E2596892400610116 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A505B0451D09A76900800310 /* LaunchScreen.storyboard */ = {
@@ -1026,6 +1126,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1051,7 +1152,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1082,6 +1183,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1101,7 +1203,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1116,9 +1218,10 @@
 				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 15;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
 				DEVELOPMENT_TEAM = MF94VYSKL4;
 				INFOPLIST_FILE = MyEssentialOilRemedies/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1126,6 +1229,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemedies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1138,9 +1242,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 15;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
 				DEVELOPMENT_TEAM = MF94VYSKL4;
 				INFOPLIST_FILE = MyEssentialOilRemedies/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1148,6 +1253,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemedies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1159,9 +1265,10 @@
 				CODE_SIGN_ENTITLEMENTS = "My Essential Oil Remedies.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 15;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
 				DEVELOPMENT_TEAM = MF94VYSKL4;
 				INFOPLIST_FILE = "MyEssentialOilRemedies/My Essential Oil Remedies Lite.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1169,6 +1276,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1181,9 +1289,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 15;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
 				DEVELOPMENT_TEAM = MF94VYSKL4;
 				INFOPLIST_FILE = "MyEssentialOilRemedies/My Essential Oil Remedies Lite.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1191,7 +1300,54 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A5DFC4502596892400610116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MF94VYSKL4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "iOS My Essential Oil Remedies UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.burnsoft.iOS-My-Essential-Oil-Remedies-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "My Essential Oil Remedies";
+			};
+			name = Debug;
+		};
+		A5DFC4512596892400610116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MF94VYSKL4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "iOS My Essential Oil Remedies UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.burnsoft.iOS-My-Essential-Oil-Remedies-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "My Essential Oil Remedies";
 			};
 			name = Release;
 		};
@@ -1221,6 +1377,15 @@
 			buildConfigurations = (
 				A51FBC751F5CBCF2001214B6 /* Debug */,
 				A51FBC761F5CBCF2001214B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5DFC4522596892400610116 /* Build configuration list for PBXNativeTarget "iOS My Essential Oil Remedies UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5DFC4502596892400610116 /* Debug */,
+				A5DFC4512596892400610116 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
