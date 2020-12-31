@@ -226,7 +226,7 @@
 - (IBAction)tbSave:(id)sender {
     NSString *RID;
     NSString *errorMsg;
-    NSString *myRN = self.RemedyName.text;
+    NSString *myRN = [self.RemedyName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];;
     NSString *myRD = self.RemedyDescription.text;
     NSString *myU = self.txtUses.text;
     BOOL MissingRemedyName = [myRN isEqualToString:@""];
