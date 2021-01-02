@@ -198,7 +198,7 @@
     NSString *OID;
     for (id obj in self.myOils)
     {
-        oilName = obj;
+        oilName = [obj stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         OID = [objDB AddOilName:oilName DatabasePath:dbPathString ERRORMESSAGE:&errorMsg];
         [objFF doBuggermeMessage:[NSString stringWithFormat:@"Add New OID=%@",OID] FromSubFunction:@"Add_RemedyViewController.addOilstoRemedy"];
         
