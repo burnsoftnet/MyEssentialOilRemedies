@@ -6,7 +6,19 @@
 //  Copyright © 2016 burnsoft. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#include "TargetConditionals.h"
+#if TARGET_OS_OSX
+  // Put CPU-independent macOS code here.
+  #if TARGET_CPU_ARM64
+    // Put 64-bit Apple silicon macOS code here.
+  #elif TARGET_CPU_X86_64
+    // Put 64-bit Intel macOS code here.
+  #endif
+#elif TARGET_OS_MACCATALYST
+   // Put Mac Catalyst-specific code here.
+#elif TARGET_OS_IOS
+    #import <UIKit/UIKit.h>
+#endif
 #import "MYSettings.h"
 #import "OilRemedies.h"
 #import <sqlite3.h>

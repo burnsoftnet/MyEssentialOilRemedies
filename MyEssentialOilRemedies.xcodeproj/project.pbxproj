@@ -1229,6 +1229,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemedies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1253,6 +1254,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemedies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
