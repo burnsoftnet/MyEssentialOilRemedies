@@ -12,6 +12,7 @@ The My Essential Oil Remedies iOS application was created to help store your ess
 ## Apple Store Links
 
 [My Essential Oil Remedies](https://apps.apple.com/us/app/my-essential-oil-remedies/id1188303079?ls=1)
+
 [My Essential Oil Remedies Lite](https://apps.apple.com/us/app/my-essential-oil-remedies-lite/id1278749011)
 
 ## Reload Log
