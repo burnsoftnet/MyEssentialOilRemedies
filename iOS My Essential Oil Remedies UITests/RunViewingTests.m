@@ -14,6 +14,9 @@
 
 @implementation RunViewingTests
 
+/*!
+ @brief  Unit test to setup variables or anything else requied for this test to run
+  */
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
     
@@ -25,11 +28,16 @@
 
     // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
 }
-
+/*!
+ @brief  Unit test clean up any information and what not
+  */
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
-
+#pragma mark
+/*!
+ @brief  Unit test to View the oil section.  this will run the iOS app and navigate to the oild section and select the rosemary oil to view the details of
+  */
 - (void)testViewOils {
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
@@ -39,15 +47,15 @@
     
     XCUIElementQuery *scrollViewsQuery = app.scrollViews;
     XCUIElement *toolbarElement = [scrollViewsQuery.otherElements containingType:XCUIElementTypeToolbar identifier:@"Toolbar"].element;
-    [toolbarElement swipeUp];
-    [toolbarElement swipeUp];
+    [toolbarElement tap];
+    [toolbarElement tap];
     
     XCUIElementQuery *elementsQuery = scrollViewsQuery.otherElements;
 //    [elementsQuery.textViews.textViews[@"Used in shampoos to enhance the color of dark hair, counters split ends, and reduces static charge. Great in massage oils and in the bath. Said to aid the memory."] swipeUp];
     [[[[scrollViewsQuery.otherElements containingType:XCUIElementTypeToolbar identifier:@"Toolbar"] childrenMatchingType:XCUIElementTypeTextView] elementBoundByIndex:2] tap];
     [toolbarElement tap];
-    [toolbarElement swipeDown];
-    [toolbarElement swipeDown];
+    [toolbarElement tap];
+    [toolbarElement tap];
     
     XCUIElement *toolbar = elementsQuery.toolbars[@"Toolbar"];
     [toolbar.buttons[@"Related Remedies"] tap];
@@ -55,7 +63,9 @@
     [app.navigationBars[@"View Oil Details"].buttons[@"Oils"] tap];
     
 }
-
+/*!
+ @brief  Unit test to View the remedy section.  this will run the iOS app and navigate to the remedy section and select the detox remedy to view the details of
+  */
 - (void)testViewRemedies {
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
@@ -82,7 +92,9 @@
     [tabBar.buttons[@"Oils"] tap];
     
 }
-
+/*!
+ @brief  Unit test to View the shopping section.  this will run the iOS app and navigate to the oild section and select the shopping section to view the details of the shopping list
+  */
 - (void)testViewShopping {
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
@@ -99,7 +111,9 @@
     [tabBar.buttons[@"Oils"] tap];
     
 }
-
+/*!
+ @brief  Unit test to View the settings section.  this will run the iOS app and navigate to the settings section
+  */
 - (void)testViewSettings {
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
