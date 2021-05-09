@@ -17,6 +17,10 @@ The My Essential Oil Remedies iOS application was created to help store your ess
 
 ## Reload Log
 
+### v1.2.16
+- Updated to be released on Mac OS
+- FIXED - Remedy Title allows blank, If left blank it will break the app and a restore will have to be done to fix the issue.
+- Also updated application to work with the newer version of Xcode.
 ### v1.2
 
 - BUG FIX - iCloud backup and Restore was not propagating out to other devices.
