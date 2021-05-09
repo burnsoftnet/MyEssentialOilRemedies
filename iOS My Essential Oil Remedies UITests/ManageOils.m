@@ -12,7 +12,9 @@
 @interface ManageOils : XCTestCase
 
 @end
-
+/*!
+ @brief  The unit test to manage the oil section, add edit, delete, etc
+  */
 @implementation ManageOils
 {
     NSString *oilName;
@@ -47,7 +49,9 @@
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
-
+/*!
+ @brief  Unit test to add a junk test oil to the oil section.  this will run the iOS app and navigate to the oild section and add an oil to the list
+  */
 - (void)testAddOilJunk {
     
     
@@ -66,6 +70,10 @@
     
 
 }
+
+/*!
+ @brief  Unit test to add a oil to the oil section.  this will run the iOS app and navigate to the oild section and add an oil to the list
+  */
 - (void)testAddOil {
     
     

@@ -12,7 +12,9 @@
 @interface ManageRemedies : XCTestCase
 
 @end
-
+/*!
+ @brief  Unit test tmanage the remedy section, add, edit delete, etc
+  */
 @implementation ManageRemedies
 {
     NSString *remedyName;
@@ -24,6 +26,9 @@
     NSString *vendor;
     NSString *safe;
 }
+/*!
+ @brief  Unit test function to setup settings of local vars, or any other functions needed to run before the test
+  */
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
     
@@ -43,11 +48,15 @@
     
     // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
 }
-
+/*!
+ @brief  unit test tear down of any thing you setup
+  */
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
-
+/*!
+ @brief  Unit test to add a rememdy to the database
+  */
 - (void)testAddRemedy {
     
     
