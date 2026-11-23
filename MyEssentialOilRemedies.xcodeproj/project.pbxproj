@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,33 +21,53 @@
 		A5033F3F1E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F311E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40.png */; };
 		A5033F401E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F321E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@2x.png */; };
 		A5033F411E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5033F331E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png */; };
-		A505B0361D09A76900800310 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0351D09A76900800310 /* main.m */; };
-		A505B0391D09A76900800310 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0381D09A76900800310 /* AppDelegate.m */; };
 		A505B0441D09A76900800310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A505B0431D09A76900800310 /* Assets.xcassets */; };
 		A505B0471D09A76900800310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A505B0451D09A76900800310 /* LaunchScreen.storyboard */; };
-		A505B0781D09A7F700800310 /* OilRemedies.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0771D09A7F700800310 /* OilRemedies.m */; };
 		A505B07A1D09A82600800310 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A505B0791D09A82600800310 /* libsqlite3.0.tbd */; };
-		A505B07D1D09AB5E00800310 /* LIST_OilRemediesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B07C1D09AB5E00800310 /* LIST_OilRemediesViewController.m */; };
-		A505B0801D09DD9600800310 /* OilLists.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B07F1D09DD9600800310 /* OilLists.m */; };
-		A505B0831D09ED3F00800310 /* LIST_OilsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505B0821D09ED3F00800310 /* LIST_OilsTableViewController.m */; };
 		A509C2FB21AAF2C700E0BF04 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = A509C2FA21AAF2C700E0BF04 /* Background.png */; };
 		A509C2FE21AAF76400E0BF04 /* Background2.png in Resources */ = {isa = PBXBuildFile; fileRef = A509C2FD21AAF76400E0BF04 /* Background2.png */; };
-		A50AF6F91E401C2A00CC4754 /* DatabaseManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */; };
-		A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */; };
 		A50CF95B1D75C2E10037C7CD /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = A50CF95A1D75C2E10037C7CD /* gear.png */; };
-		A515BA0320E7FF2F009F4845 /* List_ReOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A515BA0220E7FF2F009F4845 /* List_ReOrderTableViewController.m */; };
 		A515BA1A20E8432A009F4845 /* cart-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1620E84328009F4845 /* cart-plus@2x.png */; };
 		A515BA1B20E8432A009F4845 /* TBB_cart-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1720E84329009F4845 /* TBB_cart-plus.png */; };
 		A515BA1C20E8432A009F4845 /* TBB_cart-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1820E84329009F4845 /* TBB_cart-plus@2x.png */; };
 		A515BA1D20E8432A009F4845 /* cart-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = A515BA1920E84329009F4845 /* cart-plus.png */; };
 		A51FBC7A1F5CC00C001214B6 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51FBC791F5CC00C001214B6 /* CloudKit.framework */; };
-		A52043F11D86F995001AFD40 /* BurnSoftDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */; };
-		A52043F61D86F9DB001AFD40 /* BurnSoftGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */; };
-		A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */ = {isa = PBXBuildFile; fileRef = A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */; };
-		A53A25861E946A35006C4B8F /* ActionClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A53A25851E946A35006C4B8F /* ActionClass.m */; };
-		A542B39C1EB40E9100CDA83F /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = A542B39B1EB40E9100CDA83F /* Parser.m */; };
+		A52FC46030B4D0160097D79D /* BurnSoftDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC45F30B4D0160097D79D /* BurnSoftDatabase.swift */; };
+		A52FC46230B4D0240097D79D /* BurnSoftGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC46130B4D0240097D79D /* BurnSoftGeneral.swift */; };
+		A52FC46430B4D0280097D79D /* MYSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC46330B4D0280097D79D /* MYSettings.swift */; };
+		A52FC46630B4D03D0097D79D /* FormFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC46530B4D03D0097D79D /* FormFunctions.swift */; };
+		A52FC46830B4D0530097D79D /* OilLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC46730B4D0530097D79D /* OilLists.swift */; };
+		A52FC46A30B4D06E0097D79D /* OilRemedies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC46930B4D06E0097D79D /* OilRemedies.swift */; };
+		A52FC46C30B4D0840097D79D /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC46B30B4D0840097D79D /* Parser.swift */; };
+		A52FC46E30B4D08C0097D79D /* SearchDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC46D30B4D08C0097D79D /* SearchDatabase.swift */; };
+		A52FC47030B4D09E0097D79D /* DBUpgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC46F30B4D09E0097D79D /* DBUpgrade.swift */; };
+		A52FC47230B4D0B30097D79D /* DatabaseManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC47130B4D0B30097D79D /* DatabaseManagement.swift */; };
+		A52FC47430B4D0C30097D79D /* ActionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC47330B4D0C30097D79D /* ActionClass.swift */; };
+		A52FC47630B4D0D00097D79D /* AirDropHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC47530B4D0D00097D79D /* AirDropHandler.swift */; };
+		A52FC47830B4D0E60097D79D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC47730B4D0E60097D79D /* AppDelegate.swift */; };
+		A52FC47A30B4D0EE0097D79D /* MainStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC47930B4D0EE0097D79D /* MainStartViewController.swift */; };
+		A52FC47C30B4D1110097D79D /* LIST_OilsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC47B30B4D1110097D79D /* LIST_OilsTableViewController.swift */; };
+		A52FC47E30B4D1330097D79D /* VIEW_OilDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC47D30B4D1330097D79D /* VIEW_OilDetailsViewController.swift */; };
+		A52FC48030B4D1510097D79D /* ADD_OilDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC47F30B4D1510097D79D /* ADD_OilDetailsViewController.swift */; };
+		A52FC48230B4D1610097D79D /* EDIT_OilDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC48130B4D1610097D79D /* EDIT_OilDetailViewController.swift */; };
+		A52FC48430B4D16F0097D79D /* List_ReOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC48330B4D16F0097D79D /* List_ReOrderTableViewController.swift */; };
+		A52FC48630B4D1780097D79D /* PopUpOilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC48530B4D1780097D79D /* PopUpOilViewController.swift */; };
+		A52FC48830B4D1950097D79D /* LIST_OilRemediesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC48730B4D1950097D79D /* LIST_OilRemediesViewController.swift */; };
+		A52FC48A30B4D1A80097D79D /* VIEW_RemedyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC48930B4D1A80097D79D /* VIEW_RemedyViewController.swift */; };
+		A52FC48C30B4D1C30097D79D /* Add_RemedyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC48B30B4D1C30097D79D /* Add_RemedyViewController.swift */; };
+		A52FC48E30B4D1D60097D79D /* EDIT_RemedyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC48D30B4D1D60097D79D /* EDIT_RemedyViewController.swift */; };
+		A52FC49030B4D1E90097D79D /* VIEW_SingleRemedyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC48F30B4D1E90097D79D /* VIEW_SingleRemedyViewController.swift */; };
+		A52FC49230B4D1FE0097D79D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC49130B4D1FE0097D79D /* SearchViewController.swift */; };
+		A52FC49430B4D2080097D79D /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC49330B4D2080097D79D /* SearchResultsViewController.swift */; };
+		A52FC49630B4D2170097D79D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC49530B4D2170097D79D /* SettingsViewController.swift */; };
+		A52FC49830B4D2260097D79D /* SettingsiTunesBackupRestoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC49730B4D2260097D79D /* SettingsiTunesBackupRestoreViewController.swift */; };
+		A52FC4B130B4D3460097D79D /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC4B030B4D3460097D79D /* General.swift */; };
+		A52FC4B330B4D3520097D79D /* ManageOils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC4B230B4D3520097D79D /* ManageOils.swift */; };
+		A52FC4B530B4D35E0097D79D /* ManageRemedies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC4B430B4D35E0097D79D /* ManageRemedies.swift */; };
+		A52FC4B730B4D3680097D79D /* RunViewingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC4B630B4D3680097D79D /* RunViewingTests.swift */; };
+		A52FC4B930B4D36A0097D79D /* iOS_My_Essential_Oil_Remedies_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC4B830B4D36A0097D79D /* iOS_My_Essential_Oil_Remedies_UITests.swift */; };
+		A52FC4BB30B4D40C0097D79D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC4BA30B4D40C0097D79D /* SceneDelegate.swift */; };
 		A54B57951E665A3300EFF9BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54B57941E665A3300EFF9BA /* Foundation.framework */; };
-		A55062021DD0D865001CF00C /* VIEW_SingleRemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */; };
 		A5652D8D1E3E5F290029EB7A /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D881E3E5F290029EB7A /* Icon-57.png */; };
 		A5652D8E1E3E5F290029EB7A /* Icon-57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D891E3E5F290029EB7A /* Icon-57@2x.png */; };
 		A5652D8F1E3E5F290029EB7A /* Icon-notification-20.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */; };
@@ -59,32 +79,11 @@
 		A56BD7AF23F1A9D300DF1029 /* TB_erlenmeyerFlask_notSelected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A56BD7A623F1A9D300DF1029 /* TB_erlenmeyerFlask_notSelected@3x.png */; };
 		A56BD7B123F1A9D300DF1029 /* TB_erlenmeyerFlask_notSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = A56BD7A723F1A9D300DF1029 /* TB_erlenmeyerFlask_notSelected.png */; };
 		A56BD7B323F1A9D300DF1029 /* TB_erlenmeyerFlask_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A56BD7A823F1A9D300DF1029 /* TB_erlenmeyerFlask_selected@3x.png */; };
-		A56C9DD7220C91100003600F /* BurnSoftFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A56C9DD6220C91100003600F /* BurnSoftFileSystem.m */; };
 		A56D7ACF21E2AB28008615EE /* systemBrown.png in Resources */ = {isa = PBXBuildFile; fileRef = A56D7ACE21E2AB28008615EE /* systemBrown.png */; };
-		A56D7F7E1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */; };
-		A573E1431EB7712000C11C71 /* AirDropHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A573E1421EB7712000C11C71 /* AirDropHandler.m */; };
-		A57BF9DA1D6C96EC005D3113 /* FormFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A57BF9D91D6C96EC005D3113 /* FormFunctions.m */; };
 		A57CB7C41D805F7700380B23 /* MEO.db in Resources */ = {isa = PBXBuildFile; fileRef = A5C4C2231D7F44710073CB2A /* MEO.db */; };
 		A5841ECD1D8D9C9000DCDC98 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = A5841ECC1D8D9C9000DCDC98 /* search.png */; };
-		A5841ED21D8D9FDC00DCDC98 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5841ED11D8D9FDC00DCDC98 /* SearchViewController.m */; };
-		A594288F1E19B88100D059BE /* PopUpOilSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */; };
-		A59C1FB21D95949000A4E337 /* SearchDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A59C1FB11D95949000A4E337 /* SearchDatabase.m */; };
-		A5AA21A81D52377200B42F4A /* Add_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */; };
-		A5AA21AB1D52379300B42F4A /* VIEW_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AA1D52379300B42F4A /* VIEW_RemedyViewController.m */; };
-		A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */; };
-		A5AF5CCC2597B406007AE8F7 /* ManageOils.m in Sources */ = {isa = PBXBuildFile; fileRef = A5AF5CCB2597B406007AE8F7 /* ManageOils.m */; };
-		A5B02CF11D8846A30004334B /* PopUpOilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B02CF01D8846A30004334B /* PopUpOilViewController.m */; };
-		A5BDC4241E1715E600A98652 /* DBUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BDC4231E1715E600A98652 /* DBUpgrade.m */; };
 		A5C26B551D37BDB000476766 /* iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C26B541D37BDB000476766 /* iphone.storyboard */; };
-		A5C41FE81D94271700973340 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C41FE71D94271700973340 /* SearchResultsViewController.m */; };
-		A5CED4E61D26932000090560 /* EDIT_OilDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */; };
 		A5D255891D8B167500977619 /* close-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A5D255881D8B167500977619 /* close-icon.png */; };
-		A5DFC44C2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */; };
-		A5DFC4572596898600610116 /* RunViewingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DFC4562596898600610116 /* RunViewingTests.m */; };
-		A5DFC45D2596B02000610116 /* General.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DFC45C2596B02000610116 /* General.m */; };
-		A5DFC4682596B11A00610116 /* ManageRemedies.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DFC4672596B11A00610116 /* ManageRemedies.m */; };
-		A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */; };
-		A5E15F3F1D1862D30047055D /* ADD_OilDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E15F3E1D1862D30047055D /* ADD_OilDetailsViewController.m */; };
 		A5E28E841D0B500700052005 /* TBB_remedies.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E821D0B500700052005 /* TBB_remedies.png */; };
 		A5E28E851D0B500700052005 /* TBB_remedies@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E831D0B500700052005 /* TBB_remedies@2x.png */; };
 		A5E28E951D0B515300052005 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E861D0B515300052005 /* Icon-60.png */; };
@@ -102,8 +101,6 @@
 		A5E28EA11D0B515300052005 /* Icon-Spotlight-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E921D0B515300052005 /* Icon-Spotlight-40@3x.png */; };
 		A5E28EA21D0B515300052005 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E931D0B515300052005 /* iTunesArtwork */; };
 		A5E28EA31D0B515300052005 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = A5E28E941D0B515300052005 /* iTunesArtwork@2x */; };
-		A5F605231D1C45CD0059BF27 /* MYSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F605221D1C45CD0059BF27 /* MYSettings.m */; };
-		A5F605261D1C65340059BF27 /* MainStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F605251D1C65340059BF27 /* MainStartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,49 +129,56 @@
 		A5033F321E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-Spotlight-40@2x.png"; sourceTree = "<group>"; };
 		A5033F331E3D3DEF00D22B7D /* iPad_Icon-Spotlight-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_Icon-Spotlight-40@3x.png"; sourceTree = "<group>"; };
 		A505B0311D09A76900800310 /* My Essential Oil Remedies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Essential Oil Remedies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A505B0351D09A76900800310 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A505B0371D09A76900800310 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A505B0381D09A76900800310 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A505B0431D09A76900800310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A505B0461D09A76900800310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A505B0481D09A76900800310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A505B0761D09A7F700800310 /* OilRemedies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OilRemedies.h; sourceTree = "<group>"; };
-		A505B0771D09A7F700800310 /* OilRemedies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OilRemedies.m; sourceTree = "<group>"; };
 		A505B0791D09A82600800310 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		A505B07B1D09AB5E00800310 /* LIST_OilRemediesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIST_OilRemediesViewController.h; sourceTree = "<group>"; };
-		A505B07C1D09AB5E00800310 /* LIST_OilRemediesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIST_OilRemediesViewController.m; sourceTree = "<group>"; };
-		A505B07E1D09DD9600800310 /* OilLists.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OilLists.h; sourceTree = "<group>"; };
-		A505B07F1D09DD9600800310 /* OilLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OilLists.m; sourceTree = "<group>"; };
-		A505B0811D09ED3F00800310 /* LIST_OilsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIST_OilsTableViewController.h; sourceTree = "<group>"; };
-		A505B0821D09ED3F00800310 /* LIST_OilsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIST_OilsTableViewController.m; sourceTree = "<group>"; };
 		A509C2FA21AAF2C700E0BF04 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		A509C2FD21AAF76400E0BF04 /* Background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background2.png; sourceTree = "<group>"; };
-		A50AF6F71E401C2A00CC4754 /* DatabaseManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManagement.h; sourceTree = "<group>"; };
-		A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManagement.m; sourceTree = "<group>"; };
-		A50CF9571D75BB4A0037C7CD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A50CF95A1D75C2E10037C7CD /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		A515554A23D0E69400DDCC95 /* My Essential Oil Remedies Lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "My Essential Oil Remedies Lite.plist"; sourceTree = "<group>"; };
-		A515BA0120E7FF2F009F4845 /* List_ReOrderTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = List_ReOrderTableViewController.h; sourceTree = "<group>"; };
-		A515BA0220E7FF2F009F4845 /* List_ReOrderTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = List_ReOrderTableViewController.m; sourceTree = "<group>"; };
 		A515BA1620E84328009F4845 /* cart-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart-plus@2x.png"; sourceTree = "<group>"; };
 		A515BA1720E84329009F4845 /* TBB_cart-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TBB_cart-plus.png"; sourceTree = "<group>"; };
 		A515BA1820E84329009F4845 /* TBB_cart-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TBB_cart-plus@2x.png"; sourceTree = "<group>"; };
 		A515BA1920E84329009F4845 /* cart-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cart-plus.png"; sourceTree = "<group>"; };
 		A51FBC791F5CC00C001214B6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		A52043EF1D86F995001AFD40 /* BurnSoftDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftDatabase.h; sourceTree = "<group>"; };
-		A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftDatabase.m; sourceTree = "<group>"; };
-		A52043F21D86F9DB001AFD40 /* BurnSoftGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftGeneral.h; sourceTree = "<group>"; };
-		A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftGeneral.m; sourceTree = "<group>"; };
-		A52043F41D86F9DB001AFD40 /* BurnSoftMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftMath.h; sourceTree = "<group>"; };
-		A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftMath.m; sourceTree = "<group>"; };
-		A53A25841E946A35006C4B8F /* ActionClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionClass.h; sourceTree = "<group>"; };
-		A53A25851E946A35006C4B8F /* ActionClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionClass.m; sourceTree = "<group>"; };
-		A542B39A1EB40E9100CDA83F /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
-		A542B39B1EB40E9100CDA83F /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		A52FC45F30B4D0160097D79D /* BurnSoftDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurnSoftDatabase.swift; sourceTree = "<group>"; };
+		A52FC46130B4D0240097D79D /* BurnSoftGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurnSoftGeneral.swift; sourceTree = "<group>"; };
+		A52FC46330B4D0280097D79D /* MYSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYSettings.swift; sourceTree = "<group>"; };
+		A52FC46530B4D03D0097D79D /* FormFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFunctions.swift; sourceTree = "<group>"; };
+		A52FC46730B4D0530097D79D /* OilLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OilLists.swift; sourceTree = "<group>"; };
+		A52FC46930B4D06E0097D79D /* OilRemedies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OilRemedies.swift; sourceTree = "<group>"; };
+		A52FC46B30B4D0840097D79D /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		A52FC46D30B4D08C0097D79D /* SearchDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDatabase.swift; sourceTree = "<group>"; };
+		A52FC46F30B4D09E0097D79D /* DBUpgrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUpgrade.swift; sourceTree = "<group>"; };
+		A52FC47130B4D0B30097D79D /* DatabaseManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManagement.swift; sourceTree = "<group>"; };
+		A52FC47330B4D0C30097D79D /* ActionClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionClass.swift; sourceTree = "<group>"; };
+		A52FC47530B4D0D00097D79D /* AirDropHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDropHandler.swift; sourceTree = "<group>"; };
+		A52FC47730B4D0E60097D79D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A52FC47930B4D0EE0097D79D /* MainStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStartViewController.swift; sourceTree = "<group>"; };
+		A52FC47B30B4D1110097D79D /* LIST_OilsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIST_OilsTableViewController.swift; sourceTree = "<group>"; };
+		A52FC47D30B4D1330097D79D /* VIEW_OilDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIEW_OilDetailsViewController.swift; sourceTree = "<group>"; };
+		A52FC47F30B4D1510097D79D /* ADD_OilDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADD_OilDetailsViewController.swift; sourceTree = "<group>"; };
+		A52FC48130B4D1610097D79D /* EDIT_OilDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDIT_OilDetailViewController.swift; sourceTree = "<group>"; };
+		A52FC48330B4D16F0097D79D /* List_ReOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List_ReOrderTableViewController.swift; sourceTree = "<group>"; };
+		A52FC48530B4D1780097D79D /* PopUpOilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpOilViewController.swift; sourceTree = "<group>"; };
+		A52FC48730B4D1950097D79D /* LIST_OilRemediesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIST_OilRemediesViewController.swift; sourceTree = "<group>"; };
+		A52FC48930B4D1A80097D79D /* VIEW_RemedyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIEW_RemedyViewController.swift; sourceTree = "<group>"; };
+		A52FC48B30B4D1C30097D79D /* Add_RemedyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add_RemedyViewController.swift; sourceTree = "<group>"; };
+		A52FC48D30B4D1D60097D79D /* EDIT_RemedyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDIT_RemedyViewController.swift; sourceTree = "<group>"; };
+		A52FC48F30B4D1E90097D79D /* VIEW_SingleRemedyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIEW_SingleRemedyViewController.swift; sourceTree = "<group>"; };
+		A52FC49130B4D1FE0097D79D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A52FC49330B4D2080097D79D /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		A52FC49530B4D2170097D79D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A52FC49730B4D2260097D79D /* SettingsiTunesBackupRestoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsiTunesBackupRestoreViewController.swift; sourceTree = "<group>"; };
+		A52FC49D30B4D2EF0097D79D /* MyEssentialOilRemediesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyEssentialOilRemediesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52FC4B030B4D3460097D79D /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
+		A52FC4B230B4D3520097D79D /* ManageOils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageOils.swift; sourceTree = "<group>"; };
+		A52FC4B430B4D35E0097D79D /* ManageRemedies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageRemedies.swift; sourceTree = "<group>"; };
+		A52FC4B630B4D3680097D79D /* RunViewingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewingTests.swift; sourceTree = "<group>"; };
+		A52FC4B830B4D36A0097D79D /* iOS_My_Essential_Oil_Remedies_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_My_Essential_Oil_Remedies_UITests.swift; sourceTree = "<group>"; };
+		A52FC4BA30B4D40C0097D79D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A54B57941E665A3300EFF9BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		A55062001DD0D865001CF00C /* VIEW_SingleRemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_SingleRemedyViewController.h; sourceTree = "<group>"; };
-		A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_SingleRemedyViewController.m; sourceTree = "<group>"; };
 		A5652D881E3E5F290029EB7A /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
 		A5652D891E3E5F290029EB7A /* Icon-57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57@2x.png"; sourceTree = "<group>"; };
 		A5652D8A1E3E5F290029EB7A /* Icon-notification-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-notification-20.png"; sourceTree = "<group>"; };
@@ -186,22 +190,8 @@
 		A56BD7A623F1A9D300DF1029 /* TB_erlenmeyerFlask_notSelected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TB_erlenmeyerFlask_notSelected@3x.png"; sourceTree = "<group>"; };
 		A56BD7A723F1A9D300DF1029 /* TB_erlenmeyerFlask_notSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TB_erlenmeyerFlask_notSelected.png; sourceTree = "<group>"; };
 		A56BD7A823F1A9D300DF1029 /* TB_erlenmeyerFlask_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TB_erlenmeyerFlask_selected@3x.png"; sourceTree = "<group>"; };
-		A56C9DD5220C91100003600F /* BurnSoftFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurnSoftFileSystem.h; sourceTree = "<group>"; };
-		A56C9DD6220C91100003600F /* BurnSoftFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurnSoftFileSystem.m; sourceTree = "<group>"; };
 		A56D7ACE21E2AB28008615EE /* systemBrown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = systemBrown.png; sourceTree = "<group>"; };
-		A56D7F7C1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsiTunesBackupRestoreViewController.h; sourceTree = "<group>"; };
-		A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsiTunesBackupRestoreViewController.m; sourceTree = "<group>"; };
-		A573E1411EB7712000C11C71 /* AirDropHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirDropHandler.h; sourceTree = "<group>"; };
-		A573E1421EB7712000C11C71 /* AirDropHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirDropHandler.m; sourceTree = "<group>"; };
-		A57BF9D81D6C96EC005D3113 /* FormFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFunctions.h; sourceTree = "<group>"; };
-		A57BF9D91D6C96EC005D3113 /* FormFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFunctions.m; sourceTree = "<group>"; };
 		A5841ECC1D8D9C9000DCDC98 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
-		A5841ED01D8D9FDC00DCDC98 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		A5841ED11D8D9FDC00DCDC98 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		A594288D1E19B88100D059BE /* PopUpOilSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpOilSearchViewController.h; sourceTree = "<group>"; };
-		A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpOilSearchViewController.m; sourceTree = "<group>"; };
-		A59C1FB01D95949000A4E337 /* SearchDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDatabase.h; sourceTree = "<group>"; };
-		A59C1FB11D95949000A4E337 /* SearchDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDatabase.m; sourceTree = "<group>"; };
 		A5A149CC1F5CE57A007B3371 /* lite_Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-60.png"; sourceTree = "<group>"; };
 		A5A149CD1F5CE57A007B3371 /* lite_Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-60@2x.png"; sourceTree = "<group>"; };
 		A5A149CE1F5CE57A007B3371 /* lite_Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_Icon-60@3x.png"; sourceTree = "<group>"; };
@@ -224,36 +214,12 @@
 		A5A149DF1F5CE57A007B3371 /* lite_iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lite_iTunesArtwork.png; sourceTree = "<group>"; };
 		A5A149E01F5CE57A007B3371 /* lite_iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lite_iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		A5A8093A25968720001DB0F5 /* iOSTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = iOSTestPlan.xctestplan; sourceTree = "<group>"; };
-		A5AA21A61D52377200B42F4A /* Add_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Add_RemedyViewController.h; sourceTree = "<group>"; };
-		A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Add_RemedyViewController.m; sourceTree = "<group>"; };
-		A5AA21A91D52379300B42F4A /* VIEW_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_RemedyViewController.h; sourceTree = "<group>"; };
-		A5AA21AA1D52379300B42F4A /* VIEW_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_RemedyViewController.m; sourceTree = "<group>"; };
-		A5AA21AC1D5237B800B42F4A /* EDIT_RemedyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDIT_RemedyViewController.h; sourceTree = "<group>"; };
-		A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDIT_RemedyViewController.m; sourceTree = "<group>"; };
-		A5AF5CCB2597B406007AE8F7 /* ManageOils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManageOils.m; sourceTree = "<group>"; };
-		A5B02CEF1D8846A30004334B /* PopUpOilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpOilViewController.h; sourceTree = "<group>"; };
-		A5B02CF01D8846A30004334B /* PopUpOilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpOilViewController.m; sourceTree = "<group>"; };
-		A5BDC4221E1715E600A98652 /* DBUpgrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUpgrade.h; sourceTree = "<group>"; };
-		A5BDC4231E1715E600A98652 /* DBUpgrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUpgrade.m; sourceTree = "<group>"; };
 		A5C159511E3C13FC00F9864B /* My Essential Oil Remedies.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "My Essential Oil Remedies.entitlements"; sourceTree = "<group>"; };
 		A5C26B541D37BDB000476766 /* iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iphone.storyboard; sourceTree = "<group>"; };
-		A5C41FE61D94271700973340 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
-		A5C41FE71D94271700973340 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
 		A5C4C2231D7F44710073CB2A /* MEO.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = MEO.db; sourceTree = "<group>"; };
-		A5CED4E41D26932000090560 /* EDIT_OilDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDIT_OilDetailViewController.h; sourceTree = "<group>"; };
-		A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDIT_OilDetailViewController.m; sourceTree = "<group>"; };
 		A5D255881D8B167500977619 /* close-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-icon.png"; sourceTree = "<group>"; };
 		A5DFC4492596892400610116 /* iOS My Essential Oil Remedies UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS My Essential Oil Remedies UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_My_Essential_Oil_Remedies_UITests.m; sourceTree = "<group>"; };
 		A5DFC44D2596892400610116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5DFC4562596898600610116 /* RunViewingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunViewingTests.m; sourceTree = "<group>"; };
-		A5DFC45B2596B02000610116 /* General.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = General.h; sourceTree = "<group>"; };
-		A5DFC45C2596B02000610116 /* General.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = General.m; sourceTree = "<group>"; };
-		A5DFC4672596B11A00610116 /* ManageRemedies.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManageRemedies.m; sourceTree = "<group>"; };
-		A5E15F3A1D1862B40047055D /* VIEW_OilDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEW_OilDetailsViewController.h; sourceTree = "<group>"; };
-		A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEW_OilDetailsViewController.m; sourceTree = "<group>"; };
-		A5E15F3D1D1862D30047055D /* ADD_OilDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADD_OilDetailsViewController.h; sourceTree = "<group>"; };
-		A5E15F3E1D1862D30047055D /* ADD_OilDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADD_OilDetailsViewController.m; sourceTree = "<group>"; };
 		A5E28E821D0B500700052005 /* TBB_remedies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TBB_remedies.png; sourceTree = "<group>"; };
 		A5E28E831D0B500700052005 /* TBB_remedies@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TBB_remedies@2x.png"; sourceTree = "<group>"; };
 		A5E28E861D0B515300052005 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
@@ -271,11 +237,11 @@
 		A5E28E921D0B515300052005 /* Icon-Spotlight-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight-40@3x.png"; sourceTree = "<group>"; };
 		A5E28E931D0B515300052005 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		A5E28E941D0B515300052005 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
-		A5F605211D1C45CD0059BF27 /* MYSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSettings.h; sourceTree = "<group>"; };
-		A5F605221D1C45CD0059BF27 /* MYSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSettings.m; sourceTree = "<group>"; };
-		A5F605241D1C65340059BF27 /* MainStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStartViewController.h; sourceTree = "<group>"; };
-		A5F605251D1C65340059BF27 /* MainStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A52FC49E30B4D2EF0097D79D /* MyEssentialOilRemediesTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MyEssentialOilRemediesTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A505B02E1D09A76900800310 /* Frameworks */ = {
@@ -285,6 +251,13 @@
 				A51FBC7A1F5CC00C001214B6 /* CloudKit.framework in Frameworks */,
 				A54B57951E665A3300EFF9BA /* Foundation.framework in Frameworks */,
 				A505B07A1D09A82600800310 /* libsqlite3.0.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52FC49A30B4D2EF0097D79D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +278,7 @@
 				A5C159511E3C13FC00F9864B /* My Essential Oil Remedies.entitlements */,
 				A505B0331D09A76900800310 /* MyEssentialOilRemedies */,
 				A5DFC44A2596892400610116 /* iOS My Essential Oil Remedies UITests */,
+				A52FC49E30B4D2EF0097D79D /* MyEssentialOilRemediesTests */,
 				A505B0321D09A76900800310 /* Products */,
 				A5C159521E3C153C00F9864B /* Frameworks */,
 			);
@@ -315,6 +289,7 @@
 			children = (
 				A505B0311D09A76900800310 /* My Essential Oil Remedies.app */,
 				A5DFC4492596892400610116 /* iOS My Essential Oil Remedies UITests.xctest */,
+				A52FC49D30B4D2EF0097D79D /* MyEssentialOilRemediesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,13 +301,13 @@
 				A5E28E7D1D0B4FCE00052005 /* images */,
 				A505B06B1D09A79500800310 /* Classes */,
 				A505B06A1D09A77900800310 /* Form Classes */,
-				A505B0371D09A76900800310 /* AppDelegate.h */,
-				A505B0381D09A76900800310 /* AppDelegate.m */,
 				A505B0431D09A76900800310 /* Assets.xcassets */,
 				A505B0451D09A76900800310 /* LaunchScreen.storyboard */,
 				A505B0481D09A76900800310 /* Info.plist */,
 				A505B0341D09A76900800310 /* Supporting Files */,
 				A5C26B541D37BDB000476766 /* iphone.storyboard */,
+				A52FC47730B4D0E60097D79D /* AppDelegate.swift */,
+				A52FC4BA30B4D40C0097D79D /* SceneDelegate.swift */,
 			);
 			path = MyEssentialOilRemedies;
 			sourceTree = "<group>";
@@ -343,7 +318,6 @@
 				A5C4C2231D7F44710073CB2A /* MEO.db */,
 				A505B0791D09A82600800310 /* libsqlite3.0.tbd */,
 				A505B06E1D09A7B400800310 /* include */,
-				A505B0351D09A76900800310 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -356,8 +330,7 @@
 				A5841ECE1D8D9CAA00DCDC98 /* Settings */,
 				A5F605281D1C6FAB0059BF27 /* Oils */,
 				A5F605271D1C6F930059BF27 /* OilRemedies */,
-				A5F605241D1C65340059BF27 /* MainStartViewController.h */,
-				A5F605251D1C65340059BF27 /* MainStartViewController.m */,
+				A52FC47930B4D0EE0097D79D /* MainStartViewController.swift */,
 			);
 			name = "Form Classes";
 			sourceTree = "<group>";
@@ -365,26 +338,16 @@
 		A505B06B1D09A79500800310 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A505B0761D09A7F700800310 /* OilRemedies.h */,
-				A505B0771D09A7F700800310 /* OilRemedies.m */,
-				A505B07E1D09DD9600800310 /* OilLists.h */,
-				A505B07F1D09DD9600800310 /* OilLists.m */,
-				A5F605211D1C45CD0059BF27 /* MYSettings.h */,
-				A5F605221D1C45CD0059BF27 /* MYSettings.m */,
-				A57BF9D81D6C96EC005D3113 /* FormFunctions.h */,
-				A57BF9D91D6C96EC005D3113 /* FormFunctions.m */,
-				A59C1FB01D95949000A4E337 /* SearchDatabase.h */,
-				A59C1FB11D95949000A4E337 /* SearchDatabase.m */,
-				A5BDC4221E1715E600A98652 /* DBUpgrade.h */,
-				A5BDC4231E1715E600A98652 /* DBUpgrade.m */,
-				A50AF6F71E401C2A00CC4754 /* DatabaseManagement.h */,
-				A50AF6F81E401C2A00CC4754 /* DatabaseManagement.m */,
-				A53A25841E946A35006C4B8F /* ActionClass.h */,
-				A53A25851E946A35006C4B8F /* ActionClass.m */,
-				A542B39A1EB40E9100CDA83F /* Parser.h */,
-				A542B39B1EB40E9100CDA83F /* Parser.m */,
-				A573E1411EB7712000C11C71 /* AirDropHandler.h */,
-				A573E1421EB7712000C11C71 /* AirDropHandler.m */,
+				A52FC46330B4D0280097D79D /* MYSettings.swift */,
+				A52FC46530B4D03D0097D79D /* FormFunctions.swift */,
+				A52FC46730B4D0530097D79D /* OilLists.swift */,
+				A52FC46930B4D06E0097D79D /* OilRemedies.swift */,
+				A52FC46B30B4D0840097D79D /* Parser.swift */,
+				A52FC46D30B4D08C0097D79D /* SearchDatabase.swift */,
+				A52FC46F30B4D09E0097D79D /* DBUpgrade.swift */,
+				A52FC47130B4D0B30097D79D /* DatabaseManagement.swift */,
+				A52FC47330B4D0C30097D79D /* ActionClass.swift */,
+				A52FC47530B4D0D00097D79D /* AirDropHandler.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -401,12 +364,7 @@
 		A505B06F1D09A7B400800310 /* BurnSoftGeneral */ = {
 			isa = PBXGroup;
 			children = (
-				A56C9DD5220C91100003600F /* BurnSoftFileSystem.h */,
-				A56C9DD6220C91100003600F /* BurnSoftFileSystem.m */,
-				A52043F21D86F9DB001AFD40 /* BurnSoftGeneral.h */,
-				A52043F31D86F9DB001AFD40 /* BurnSoftGeneral.m */,
-				A52043F41D86F9DB001AFD40 /* BurnSoftMath.h */,
-				A52043F51D86F9DB001AFD40 /* BurnSoftMath.m */,
+				A52FC46130B4D0240097D79D /* BurnSoftGeneral.swift */,
 			);
 			path = BurnSoftGeneral;
 			sourceTree = "<group>";
@@ -414,8 +372,7 @@
 		A515BA0020E7FED9009F4845 /* ReOrder */ = {
 			isa = PBXGroup;
 			children = (
-				A515BA0120E7FF2F009F4845 /* List_ReOrderTableViewController.h */,
-				A515BA0220E7FF2F009F4845 /* List_ReOrderTableViewController.m */,
+				A52FC48330B4D16F0097D79D /* List_ReOrderTableViewController.swift */,
 			);
 			name = ReOrder;
 			sourceTree = "<group>";
@@ -423,10 +380,8 @@
 		A5841ECE1D8D9CAA00DCDC98 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				A50CF9571D75BB4A0037C7CD /* SettingsViewController.h */,
-				A50CF9581D75BB4A0037C7CD /* SettingsViewController.m */,
-				A56D7F7C1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.h */,
-				A56D7F7D1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m */,
+				A52FC49530B4D2170097D79D /* SettingsViewController.swift */,
+				A52FC49730B4D2260097D79D /* SettingsiTunesBackupRestoreViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -434,14 +389,9 @@
 		A5841ECF1D8D9CB900DCDC98 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				A55062001DD0D865001CF00C /* VIEW_SingleRemedyViewController.h */,
-				A55062011DD0D865001CF00C /* VIEW_SingleRemedyViewController.m */,
-				A5841ED01D8D9FDC00DCDC98 /* SearchViewController.h */,
-				A5841ED11D8D9FDC00DCDC98 /* SearchViewController.m */,
-				A5C41FE61D94271700973340 /* SearchResultsViewController.h */,
-				A5C41FE71D94271700973340 /* SearchResultsViewController.m */,
-				A594288D1E19B88100D059BE /* PopUpOilSearchViewController.h */,
-				A594288E1E19B88100D059BE /* PopUpOilSearchViewController.m */,
+				A52FC48F30B4D1E90097D79D /* VIEW_SingleRemedyViewController.swift */,
+				A52FC49130B4D1FE0097D79D /* SearchViewController.swift */,
+				A52FC49330B4D2080097D79D /* SearchResultsViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -486,8 +436,7 @@
 		A5CC047E1D79C36200CBD404 /* BurnSoftDatabase */ = {
 			isa = PBXGroup;
 			children = (
-				A52043EF1D86F995001AFD40 /* BurnSoftDatabase.h */,
-				A52043F01D86F995001AFD40 /* BurnSoftDatabase.m */,
+				A52FC45F30B4D0160097D79D /* BurnSoftDatabase.swift */,
 			);
 			path = BurnSoftDatabase;
 			sourceTree = "<group>";
@@ -495,13 +444,12 @@
 		A5DFC44A2596892400610116 /* iOS My Essential Oil Remedies UITests */ = {
 			isa = PBXGroup;
 			children = (
-				A5AF5CCB2597B406007AE8F7 /* ManageOils.m */,
-				A5DFC4672596B11A00610116 /* ManageRemedies.m */,
-				A5DFC4562596898600610116 /* RunViewingTests.m */,
-				A5DFC44B2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m */,
 				A5DFC44D2596892400610116 /* Info.plist */,
-				A5DFC45B2596B02000610116 /* General.h */,
-				A5DFC45C2596B02000610116 /* General.m */,
+				A52FC4B030B4D3460097D79D /* General.swift */,
+				A52FC4B230B4D3520097D79D /* ManageOils.swift */,
+				A52FC4B430B4D35E0097D79D /* ManageRemedies.swift */,
+				A52FC4B630B4D3680097D79D /* RunViewingTests.swift */,
+				A52FC4B830B4D36A0097D79D /* iOS_My_Essential_Oil_Remedies_UITests.swift */,
 			);
 			path = "iOS My Essential Oil Remedies UITests";
 			sourceTree = "<group>";
@@ -569,16 +517,11 @@
 		A5F605271D1C6F930059BF27 /* OilRemedies */ = {
 			isa = PBXGroup;
 			children = (
-				A505B07C1D09AB5E00800310 /* LIST_OilRemediesViewController.m */,
-				A505B07B1D09AB5E00800310 /* LIST_OilRemediesViewController.h */,
-				A5AA21A61D52377200B42F4A /* Add_RemedyViewController.h */,
-				A5AA21A71D52377200B42F4A /* Add_RemedyViewController.m */,
-				A5AA21A91D52379300B42F4A /* VIEW_RemedyViewController.h */,
-				A5AA21AA1D52379300B42F4A /* VIEW_RemedyViewController.m */,
-				A5AA21AC1D5237B800B42F4A /* EDIT_RemedyViewController.h */,
-				A5AA21AD1D5237B800B42F4A /* EDIT_RemedyViewController.m */,
-				A5B02CEF1D8846A30004334B /* PopUpOilViewController.h */,
-				A5B02CF01D8846A30004334B /* PopUpOilViewController.m */,
+				A52FC48530B4D1780097D79D /* PopUpOilViewController.swift */,
+				A52FC48730B4D1950097D79D /* LIST_OilRemediesViewController.swift */,
+				A52FC48930B4D1A80097D79D /* VIEW_RemedyViewController.swift */,
+				A52FC48B30B4D1C30097D79D /* Add_RemedyViewController.swift */,
+				A52FC48D30B4D1D60097D79D /* EDIT_RemedyViewController.swift */,
 			);
 			name = OilRemedies;
 			sourceTree = "<group>";
@@ -586,14 +529,10 @@
 		A5F605281D1C6FAB0059BF27 /* Oils */ = {
 			isa = PBXGroup;
 			children = (
-				A5E15F3E1D1862D30047055D /* ADD_OilDetailsViewController.m */,
-				A5E15F3D1D1862D30047055D /* ADD_OilDetailsViewController.h */,
-				A5E15F3B1D1862B40047055D /* VIEW_OilDetailsViewController.m */,
-				A5E15F3A1D1862B40047055D /* VIEW_OilDetailsViewController.h */,
-				A505B0821D09ED3F00800310 /* LIST_OilsTableViewController.m */,
-				A505B0811D09ED3F00800310 /* LIST_OilsTableViewController.h */,
-				A5CED4E41D26932000090560 /* EDIT_OilDetailViewController.h */,
-				A5CED4E51D26932000090560 /* EDIT_OilDetailViewController.m */,
+				A52FC47B30B4D1110097D79D /* LIST_OilsTableViewController.swift */,
+				A52FC47D30B4D1330097D79D /* VIEW_OilDetailsViewController.swift */,
+				A52FC47F30B4D1510097D79D /* ADD_OilDetailsViewController.swift */,
+				A52FC48130B4D1610097D79D /* EDIT_OilDetailViewController.swift */,
 			);
 			name = Oils;
 			sourceTree = "<group>";
@@ -617,6 +556,28 @@
 			productName = MyEssentialOilRemedies;
 			productReference = A505B0311D09A76900800310 /* My Essential Oil Remedies.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A52FC49C30B4D2EF0097D79D /* MyEssentialOilRemediesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A52FC4A130B4D2EF0097D79D /* Build configuration list for PBXNativeTarget "MyEssentialOilRemediesTests" */;
+			buildPhases = (
+				A52FC49930B4D2EF0097D79D /* Sources */,
+				A52FC49A30B4D2EF0097D79D /* Frameworks */,
+				A52FC49B30B4D2EF0097D79D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A52FC49E30B4D2EF0097D79D /* MyEssentialOilRemediesTests */,
+			);
+			name = MyEssentialOilRemediesTests;
+			packageProductDependencies = (
+			);
+			productName = MyEssentialOilRemediesTests;
+			productReference = A52FC49D30B4D2EF0097D79D /* MyEssentialOilRemediesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		A5DFC4482596892400610116 /* iOS My Essential Oil Remedies UITests */ = {
 			isa = PBXNativeTarget;
@@ -643,6 +604,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 2720;
 				LastUpgradeCheck = 2660;
 				ORGANIZATIONNAME = burnsoft;
 				TargetAttributes = {
@@ -660,6 +622,9 @@
 								enabled = 1;
 							};
 						};
+					};
+					A52FC49C30B4D2EF0097D79D = {
+						CreatedOnToolsVersion = 27.2;
 					};
 					A5DFC4482596892400610116 = {
 						CreatedOnToolsVersion = 12.3;
@@ -684,6 +649,7 @@
 			targets = (
 				A505B0301D09A76900800310 /* My Essential Oil Remedies */,
 				A5DFC4482596892400610116 /* iOS My Essential Oil Remedies UITests */,
+				A52FC49C30B4D2EF0097D79D /* MyEssentialOilRemediesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -752,6 +718,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A52FC49B30B4D2EF0097D79D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5DFC4472596892400610116 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -766,39 +739,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A55062021DD0D865001CF00C /* VIEW_SingleRemedyViewController.m in Sources */,
-				A5CED4E61D26932000090560 /* EDIT_OilDetailViewController.m in Sources */,
-				A56D7F7E1E4110BE00FC91B9 /* SettingsiTunesBackupRestoreViewController.m in Sources */,
-				A505B07D1D09AB5E00800310 /* LIST_OilRemediesViewController.m in Sources */,
-				A505B0781D09A7F700800310 /* OilRemedies.m in Sources */,
-				A5AA21AB1D52379300B42F4A /* VIEW_RemedyViewController.m in Sources */,
-				A57BF9DA1D6C96EC005D3113 /* FormFunctions.m in Sources */,
-				A5F605261D1C65340059BF27 /* MainStartViewController.m in Sources */,
-				A59C1FB21D95949000A4E337 /* SearchDatabase.m in Sources */,
-				A505B0801D09DD9600800310 /* OilLists.m in Sources */,
-				A52043F11D86F995001AFD40 /* BurnSoftDatabase.m in Sources */,
-				A5841ED21D8D9FDC00DCDC98 /* SearchViewController.m in Sources */,
-				A505B0391D09A76900800310 /* AppDelegate.m in Sources */,
-				A5F605231D1C45CD0059BF27 /* MYSettings.m in Sources */,
-				A5B02CF11D8846A30004334B /* PopUpOilViewController.m in Sources */,
-				A56C9DD7220C91100003600F /* BurnSoftFileSystem.m in Sources */,
-				A542B39C1EB40E9100CDA83F /* Parser.m in Sources */,
-				A5BDC4241E1715E600A98652 /* DBUpgrade.m in Sources */,
-				A50CF9591D75BB4A0037C7CD /* SettingsViewController.m in Sources */,
-				A505B0361D09A76900800310 /* main.m in Sources */,
-				A53A25861E946A35006C4B8F /* ActionClass.m in Sources */,
-				A573E1431EB7712000C11C71 /* AirDropHandler.m in Sources */,
-				A50AF6F91E401C2A00CC4754 /* DatabaseManagement.m in Sources */,
-				A5E15F3C1D1862B40047055D /* VIEW_OilDetailsViewController.m in Sources */,
-				A5AA21AE1D5237B800B42F4A /* EDIT_RemedyViewController.m in Sources */,
-				A5AA21A81D52377200B42F4A /* Add_RemedyViewController.m in Sources */,
-				A594288F1E19B88100D059BE /* PopUpOilSearchViewController.m in Sources */,
-				A515BA0320E7FF2F009F4845 /* List_ReOrderTableViewController.m in Sources */,
-				A52043F61D86F9DB001AFD40 /* BurnSoftGeneral.m in Sources */,
-				A5E15F3F1D1862D30047055D /* ADD_OilDetailsViewController.m in Sources */,
-				A52043F71D86F9DB001AFD40 /* BurnSoftMath.m in Sources */,
-				A5C41FE81D94271700973340 /* SearchResultsViewController.m in Sources */,
-				A505B0831D09ED3F00800310 /* LIST_OilsTableViewController.m in Sources */,
+				A52FC48630B4D1780097D79D /* PopUpOilViewController.swift in Sources */,
+				A52FC48830B4D1950097D79D /* LIST_OilRemediesViewController.swift in Sources */,
+				A52FC47630B4D0D00097D79D /* AirDropHandler.swift in Sources */,
+				A52FC47430B4D0C30097D79D /* ActionClass.swift in Sources */,
+				A52FC49230B4D1FE0097D79D /* SearchViewController.swift in Sources */,
+				A52FC4BB30B4D40C0097D79D /* SceneDelegate.swift in Sources */,
+				A52FC48E30B4D1D60097D79D /* EDIT_RemedyViewController.swift in Sources */,
+				A52FC46030B4D0160097D79D /* BurnSoftDatabase.swift in Sources */,
+				A52FC47C30B4D1110097D79D /* LIST_OilsTableViewController.swift in Sources */,
+				A52FC46C30B4D0840097D79D /* Parser.swift in Sources */,
+				A52FC47A30B4D0EE0097D79D /* MainStartViewController.swift in Sources */,
+				A52FC48430B4D16F0097D79D /* List_ReOrderTableViewController.swift in Sources */,
+				A52FC49630B4D2170097D79D /* SettingsViewController.swift in Sources */,
+				A52FC49030B4D1E90097D79D /* VIEW_SingleRemedyViewController.swift in Sources */,
+				A52FC47830B4D0E60097D79D /* AppDelegate.swift in Sources */,
+				A52FC46E30B4D08C0097D79D /* SearchDatabase.swift in Sources */,
+				A52FC46630B4D03D0097D79D /* FormFunctions.swift in Sources */,
+				A52FC46A30B4D06E0097D79D /* OilRemedies.swift in Sources */,
+				A52FC47230B4D0B30097D79D /* DatabaseManagement.swift in Sources */,
+				A52FC48230B4D1610097D79D /* EDIT_OilDetailViewController.swift in Sources */,
+				A52FC47E30B4D1330097D79D /* VIEW_OilDetailsViewController.swift in Sources */,
+				A52FC47030B4D09E0097D79D /* DBUpgrade.swift in Sources */,
+				A52FC49430B4D2080097D79D /* SearchResultsViewController.swift in Sources */,
+				A52FC46430B4D0280097D79D /* MYSettings.swift in Sources */,
+				A52FC48A30B4D1A80097D79D /* VIEW_RemedyViewController.swift in Sources */,
+				A52FC48030B4D1510097D79D /* ADD_OilDetailsViewController.swift in Sources */,
+				A52FC46230B4D0240097D79D /* BurnSoftGeneral.swift in Sources */,
+				A52FC46830B4D0530097D79D /* OilLists.swift in Sources */,
+				A52FC48C30B4D1C30097D79D /* Add_RemedyViewController.swift in Sources */,
+				A52FC49830B4D2260097D79D /* SettingsiTunesBackupRestoreViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A52FC49930B4D2EF0097D79D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,11 +783,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5AF5CCC2597B406007AE8F7 /* ManageOils.m in Sources */,
-				A5DFC44C2596892400610116 /* iOS_My_Essential_Oil_Remedies_UITests.m in Sources */,
-				A5DFC4572596898600610116 /* RunViewingTests.m in Sources */,
-				A5DFC4682596B11A00610116 /* ManageRemedies.m in Sources */,
-				A5DFC45D2596B02000610116 /* General.m in Sources */,
+				A52FC4B730B4D3680097D79D /* RunViewingTests.swift in Sources */,
+				A52FC4B130B4D3460097D79D /* General.swift in Sources */,
+				A52FC4B330B4D3520097D79D /* ManageOils.swift in Sources */,
+				A52FC4B530B4D35E0097D79D /* ManageRemedies.swift in Sources */,
+				A52FC4B930B4D36A0097D79D /* iOS_My_Essential_Oil_Remedies_UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,6 +953,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1006,7 +986,85 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A52FC4A230B4D2EF0097D79D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.2;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My Essential Oil Remedies.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/My Essential Oil Remedies";
+				XROS_DEPLOYMENT_TARGET = 27.2;
+			};
+			name = Debug;
+		};
+		A52FC4A330B4D2EF0097D79D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.2;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = net.burnsoft.MyEssentialOilRemediesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/My Essential Oil Remedies.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/My Essential Oil Remedies";
+				XROS_DEPLOYMENT_TARGET = 27.2;
 			};
 			name = Release;
 		};
@@ -1021,7 +1079,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "iOS My Essential Oil Remedies UITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1031,6 +1089,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.burnsoft.iOS-My-Essential-Oil-Remedies-UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "My Essential Oil Remedies";
 			};
@@ -1048,7 +1107,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "iOS My Essential Oil Remedies UITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1057,6 +1116,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.burnsoft.iOS-My-Essential-Oil-Remedies-UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "My Essential Oil Remedies";
 			};
@@ -1079,6 +1139,15 @@
 			buildConfigurations = (
 				A505B0621D09A76900800310 /* Debug */,
 				A505B0631D09A76900800310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A52FC4A130B4D2EF0097D79D /* Build configuration list for PBXNativeTarget "MyEssentialOilRemediesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A52FC4A230B4D2EF0097D79D /* Debug */,
+				A52FC4A330B4D2EF0097D79D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
