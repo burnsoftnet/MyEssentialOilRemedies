@@ -34,9 +34,9 @@ final class ManageOils: XCTestCase {
         app.navigationBars["Oils"].buttons["Add"].tap()
         app.scrollViews.otherElements.textFields["Name on Bottle"].tap()
 
-        let moreKey = app.keys["more"]
-        moreKey.tap()
-        moreKey.tap()
+//        let moreKey = app.keys["more"]
+//        moreKey.tap()
+//        moreKey.tap()
 
         let key = app.keys["2"]
         key.tap()

@@ -23,10 +23,10 @@ enum General {
             } else if isNumber {
                 app.keys["more"].tap()
             }
-            app.keys[key].tap()
-            if isNumber {
-                app.keys["more"].tap()
-            }
+//            app.keys[key].tap()
+//            if isNumber {
+//                app.keys["more"].tap()
+//            }
         }
     }
 }

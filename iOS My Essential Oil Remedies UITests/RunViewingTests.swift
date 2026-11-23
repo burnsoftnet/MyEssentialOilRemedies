@@ -55,9 +55,13 @@ final class RunViewingTests: XCTestCase {
         let toolbar = app.toolbars["Toolbar"]
         let oilsButton = toolbar.buttons["Oils"]
         let usesButton = toolbar.buttons["Uses"]
+        let dotButton = toolbar.buttons["Dismiss context menu"]
         let closeButton = toolbar.buttons["Close"]
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let dismissElement = springboard.descendants(matching: .any)["Dismiss context menu"]
         oilsButton.tap()
         usesButton.tap()
+        dismissElement.tap()
         closeButton.tap()
 
         tablesQuery.staticTexts["Allergy Migraines"].tap()
@@ -89,12 +93,14 @@ final class RunViewingTests: XCTestCase {
     func testViewSettings() {
         let tabBar = app.tabBars["Tab Bar"]
         tabBar.buttons["Settings"].tap()
-
+        let version = "1.3.16.18"
+        let dbVersion = "1.4"
         let elementsQuery = app.scrollViews.otherElements
         elementsQuery.staticTexts["   Use iTunes File Sharing for Backup & Restore   "].tap()
         app.navigationBars["Settings Nav Controller"].buttons["Settings"].tap()
-        elementsQuery.staticTexts["1.2.15"].press(forDuration: 0.9)
-        elementsQuery.staticTexts["1.4"].press(forDuration: 0.6)
+        elementsQuery.staticTexts[version].press(forDuration: 0.9)
+        elementsQuery.staticTexts[version].press(forDuration: 0.9)
+        elementsQuery.staticTexts[dbVersion].press(forDuration: 0.6)
         tabBar.buttons["Oils"].tap()
     }
 }
