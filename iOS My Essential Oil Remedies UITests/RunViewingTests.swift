@@ -55,20 +55,21 @@ final class RunViewingTests: XCTestCase {
         let toolbar = app.toolbars["Toolbar"]
         let oilsButton = toolbar.buttons["Oils"]
         let usesButton = toolbar.buttons["Uses"]
-        let dotButton = toolbar.buttons["Dismiss context menu"]
-        let closeButton = toolbar.buttons["Close"]
-        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
-        let dismissElement = springboard.descendants(matching: .any)["Dismiss context menu"]
+        let dotButton = toolbar.buttons["More"]
+        //let closeButton = toolbar.buttons["Close"]
+        //let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+//        let dismissElement = app.toolbars.buttons["Remedies"]
         oilsButton.tap()
         usesButton.tap()
-        dismissElement.tap()
-        closeButton.tap()
-
-        tablesQuery.staticTexts["Allergy Migraines"].tap()
-        toolbar.buttons["Description"].tap()
-        oilsButton.tap()
-        usesButton.tap()
-        closeButton.tap()
+        dotButton.tap()
+        //app.coordinate(withNormalizedOffset: CGVector(dx: 0.05, dy: 0.05)).tap()
+        //closeButton.tap()
+//        dismissElement.tap()
+//        tablesQuery.staticTexts["Allergy Migraines"].tap()
+//        toolbar.buttons["Description"].tap()
+//        oilsButton.tap()
+//        usesButton.tap()
+//        dismissElement.tap()
         tabBar.buttons["Oils"].tap()
     }
 
