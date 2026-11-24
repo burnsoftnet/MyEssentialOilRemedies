@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "5C01E13A-9BDE-46F1-8809-CF161A01C484",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testInteropMode" : "complete",
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:MyEssentialOilRemedies.xcodeproj",
+        "identifier" : "A52FC49C30B4D2EF0097D79D",
+        "name" : "MyEssentialOilRemediesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:MyEssentialOilRemedies.xcodeproj",
+        "identifier" : "A5DFC4482596892400610116",
+        "name" : "iOS My Essential Oil Remedies UITests"
+      }
+    }
+  ],
+  "version" : 1
+}
