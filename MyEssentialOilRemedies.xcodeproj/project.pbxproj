@@ -67,6 +67,7 @@
 		A52FC4B730B4D3680097D79D /* RunViewingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC4B630B4D3680097D79D /* RunViewingTests.swift */; };
 		A52FC4B930B4D36A0097D79D /* iOS_My_Essential_Oil_Remedies_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC4B830B4D36A0097D79D /* iOS_My_Essential_Oil_Remedies_UITests.swift */; };
 		A52FC4BB30B4D40C0097D79D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52FC4BA30B4D40C0097D79D /* SceneDelegate.swift */; };
+		A52FC4D830B5143A0097D79D /* TestPlan.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = A52FC4D730B5143A0097D79D /* TestPlan.xctestplan */; };
 		A54B57951E665A3300EFF9BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54B57941E665A3300EFF9BA /* Foundation.framework */; };
 		A5652D8D1E3E5F290029EB7A /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D881E3E5F290029EB7A /* Icon-57.png */; };
 		A5652D8E1E3E5F290029EB7A /* Icon-57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5652D891E3E5F290029EB7A /* Icon-57@2x.png */; };
@@ -104,6 +105,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A52FC4D530B513E60097D79D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A505B0291D09A76900800310 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A505B0301D09A76900800310;
+			remoteInfo = "My Essential Oil Remedies";
+		};
 		A5DFC44E2596892400610116 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A505B0291D09A76900800310 /* Project object */;
@@ -178,6 +186,7 @@
 		A52FC4B630B4D3680097D79D /* RunViewingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunViewingTests.swift; sourceTree = "<group>"; };
 		A52FC4B830B4D36A0097D79D /* iOS_My_Essential_Oil_Remedies_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_My_Essential_Oil_Remedies_UITests.swift; sourceTree = "<group>"; };
 		A52FC4BA30B4D40C0097D79D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A52FC4D730B5143A0097D79D /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		A54B57941E665A3300EFF9BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A5652D881E3E5F290029EB7A /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
 		A5652D891E3E5F290029EB7A /* Icon-57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57@2x.png"; sourceTree = "<group>"; };
@@ -274,6 +283,7 @@
 		A505B0281D09A76900800310 = {
 			isa = PBXGroup;
 			children = (
+				A52FC4D730B5143A0097D79D /* TestPlan.xctestplan */,
 				A5A8093A25968720001DB0F5 /* iOSTestPlan.xctestplan */,
 				A5C159511E3C13FC00F9864B /* My Essential Oil Remedies.entitlements */,
 				A505B0331D09A76900800310 /* MyEssentialOilRemedies */,
@@ -568,6 +578,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A52FC4D630B513E60097D79D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				A52FC49E30B4D2EF0097D79D /* MyEssentialOilRemediesTests */,
@@ -625,6 +636,7 @@
 					};
 					A52FC49C30B4D2EF0097D79D = {
 						CreatedOnToolsVersion = 27.2;
+						TestTargetID = A505B0301D09A76900800310;
 					};
 					A5DFC4482596892400610116 = {
 						CreatedOnToolsVersion = 12.3;
@@ -722,6 +734,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52FC4D830B5143A0097D79D /* TestPlan.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +807,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A52FC4D630B513E60097D79D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A505B0301D09A76900800310 /* My Essential Oil Remedies */;
+			targetProxy = A52FC4D530B513E60097D79D /* PBXContainerItemProxy */;
+		};
 		A5DFC44F2596892400610116 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A505B0301D09A76900800310 /* My Essential Oil Remedies */;

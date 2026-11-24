@@ -16,6 +16,9 @@
          <TestPlanReference
             reference = "container:iOSTestPlan.xctestplan">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:TestPlan.xctestplan">
+         </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference

@@ -17,16 +17,17 @@ enum General {
     static func sendTextToKeyBoard(_ app: XCUIApplication, _ value: String) {
         for character in value {
             var key = String(character)
-            var isNumber = character.isASCII && character.isNumber
+            let isNumber = character.isASCII && character.isNumber
             if key == " " {
                 key = "space"
             }
-//            else if isNumber {
-//                app.keys["more"].tap()
-//            }
+            else if isNumber {
+                app.keys["numbers"].tap()
+            }
+            //TODO: #129 Fix Later, this is acting Werid
 //            app.keys[key].tap()
 //            if isNumber {
-//                app.keys["more"].tap()
+//                app.keys["letters"].tap()
 //            }
         }
     }
