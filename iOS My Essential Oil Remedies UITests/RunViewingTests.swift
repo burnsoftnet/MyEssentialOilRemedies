@@ -38,8 +38,15 @@ final class RunViewingTests: XCTestCase {
         toolbarElement.tap()
 
         let toolbar = scrollViewsQuery.otherElements.toolbars["Toolbar"]
-        toolbar.buttons["Related Remedies"].tap()
-        toolbar.buttons["Description"].tap()
+        toolbar.buttons["More"].tap()
+//        let menuItem = app.menuItems["Related Remedies"]
+//        XCTAssertTrue(menuItem.waitForExistence(timeout: 4));
+//        menuItem.tap()
+        let menuItem = app.descendants(matching: .any)["Related Remedies"].firstMatch
+        XCTAssertTrue(menuItem.waitForExistence(timeout: 4))
+        menuItem.tap()
+        //toolbar.buttons["Related Remedies"].tap()
+        toolbar.buttons["Details"].tap()
         app.navigationBars["View Oil Details"].buttons["Oils"].tap()
     }
 
