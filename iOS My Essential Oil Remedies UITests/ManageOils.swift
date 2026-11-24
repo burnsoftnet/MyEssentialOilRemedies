@@ -38,8 +38,9 @@ final class ManageOils: XCTestCase {
 //        moreKey.tap()
 //        moreKey.tap()
 
-        let key = app.keys["2"]
+        var key = app.keys["A"]
         key.tap()
+        key = app.keys["b"]
         key.tap()
         app.keys["more"].tap()
     }
